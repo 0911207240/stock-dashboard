@@ -303,6 +303,53 @@ def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFram
     df.dropna(inplace=True)
     return df
 
+def fetch_dividends(ticker: str) -> pd.Series:
+    try:
+        divs = yf.Ticker(ticker).dividends
+        if divs.empty:
+            return pd.Series(dtype=float)
+        divs.index = divs.index.tz_localize(None)
+        return divs.tail(8)
+    except Exception:
+        return pd.Series(dtype=float)
+
+
+def fetch_institutional(stock_code: str) -> dict:
+    """從 TWSE 抓三大法人最新買賣超（僅限台股 .TW）"""
+    import urllib.request, json as _json
+    from datetime import datetime, timedelta
+    code = stock_code.replace(".TW", "").replace(".TWO", "")
+    if "." in code:
+        return {}
+    for i in range(5):
+        date = (datetime.now() - timedelta(days=i)).strftime("%Y%m%d")
+        url  = (f"https://www.twse.com.tw/rwd/zh/fund/T86"
+                f"?date={date}&selectType=ALLBUT0999&response=json")
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = _json.loads(resp.read())
+            if data.get("stat") != "OK" or not data.get("data"):
+                continue
+            for row in data["data"]:
+                if row[0].strip() == code:
+                    def _int(s):
+                        try:
+                            return int(str(s).replace(",", ""))
+                        except Exception:
+                            return 0
+                    return {
+                        "date":        date,
+                        "foreign_net": _int(row[4]),
+                        "trust_net":   _int(row[7]),
+                        "dealer_net":  _int(row[8]),
+                        "total_net":   _int(row[9]),
+                    }
+        except Exception:
+            continue
+    return {}
+
+
 def fetch_all(period: str = "6mo", sector: str = "全部") -> dict[str, pd.DataFrame]:
     names = SECTORS.get(sector, list(WATCHLIST.keys()))
     result = {}
