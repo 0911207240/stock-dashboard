@@ -20,7 +20,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
     # 2. 技術訊號掃描
     found = []
-    portfolio_names = set(HOLDINGS.keys())
+    portfolio_names = set(HOLDINGS.keys())  # HOLDINGS is dict of {name: {shares, cost}}
 
     for name, df in all_data.items():
         df = add_indicators(df)
