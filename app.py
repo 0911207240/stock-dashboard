@@ -124,6 +124,7 @@ else:
 # K線 + 均線圖
 st.subheader("價格走勢")
 df_plot = df.reset_index()
+df_plot = df_plot.rename(columns={df_plot.columns[0]: "Date"})
 df_plot["Date"] = pd.to_datetime(df_plot["Date"])
 df_plot["Close"] = df_plot["Close"].astype(float)
 df_plot["MA5"] = df_plot["MA5"].astype(float)
