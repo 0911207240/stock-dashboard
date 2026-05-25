@@ -93,7 +93,6 @@ def detect_signals(df: pd.DataFrame) -> list[dict]:
     return signals
 
 def score(signals: list[dict]) -> int:
-    """簡單評分：buy+1, sell-1, watch+0"""
     s = 0
     for sig in signals:
         if sig["type"] == "buy":
@@ -101,3 +100,20 @@ def score(signals: list[dict]) -> int:
         elif sig["type"] == "sell":
             s -= 1
     return s
+
+def calc_support_resistance(df: pd.DataFrame) -> dict:
+    close = df["Close"].squeeze()
+    return {
+        "support_20":    float(close.tail(20).min()),
+        "resistance_20": float(close.tail(20).max()),
+        "support_60":    float(close.tail(60).min()),
+        "resistance_60": float(close.tail(60).max()),
+    }
+
+def calc_week52(df: pd.DataFrame) -> dict:
+    close = df["Close"].squeeze()
+    year_high = float(close.max())
+    year_low  = float(close.min())
+    price     = float(close.iloc[-1])
+    pct = (price - year_low) / (year_high - year_low) * 100 if year_high != year_low else 50.0
+    return {"year_high": year_high, "year_low": year_low, "week52_pct": pct}

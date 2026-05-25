@@ -292,6 +292,9 @@ SECTORS = {
     ],
 }
 
+def fetch_taiex(period: str = "1y") -> pd.DataFrame:
+    return fetch("^TWII", period=period)
+
 def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFrame:
     df = yf.download(ticker, period=period, interval=interval, progress=False)
     if df.empty:
