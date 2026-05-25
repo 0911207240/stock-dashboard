@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
+import plotly.graph_objects as go
+import plotly.express as px
 from data_fetcher import fetch, fetch_all, fetch_taiex, fetch_dividends, fetch_institutional, WATCHLIST, SECTORS
 from analyzer import add_indicators, detect_signals, score, calc_support_resistance, calc_week52, detect_pre_signals, pre_score
 from line_notifier import send, build_signal_message
@@ -85,6 +87,93 @@ def prep_plot(df):
         if col in df_plot.columns:
             df_plot[col] = pd.to_numeric(df_plot[col], errors="coerce")
     return df_plot
+
+def plot_candlestick(df, sr, cost=None, name=""):
+    d = df.reset_index()
+    d = d.rename(columns={d.columns[0]: "Date"})
+    for col in ["Open","High","Low","Close","MA5","MA20","MA60","BB_upper","BB_lower"]:
+        if col in d.columns:
+            d[col] = pd.to_numeric(d[col], errors="coerce")
+    fig = go.Figure()
+    fig.add_trace(go.Candlestick(
+        x=d["Date"], open=d["Open"], high=d["High"], low=d["Low"], close=d["Close"],
+        name="K棒",
+        increasing_line_color="#e74c3c", decreasing_line_color="#2ecc71",
+    ))
+    for col_, color_, dash_, w_ in [
+        ("MA5","#f39c12","dash",1.2), ("MA20","#e74c3c","dash",1.2),
+        ("MA60","#aaaaaa","dot",1), ("BB_upper","#7f8ff4","dot",1), ("BB_lower","#7f8ff4","dot",1),
+    ]:
+        if col_ in d.columns:
+            fig.add_trace(go.Scatter(x=d["Date"], y=d[col_], name=col_,
+                                     line=dict(color=color_, width=w_, dash=dash_), opacity=0.8))
+    fig.add_hline(y=sr["support_20"],    line_dash="dash", line_color="#2ecc71", line_width=1.5,
+                  annotation_text=f"支撐 {sr['support_20']:.2f}", annotation_font_color="#2ecc71")
+    fig.add_hline(y=sr["resistance_20"], line_dash="dash", line_color="#e74c3c", line_width=1.5,
+                  annotation_text=f"壓力 {sr['resistance_20']:.2f}", annotation_font_color="#e74c3c")
+    if cost:
+        fig.add_hline(y=cost, line_dash="dot", line_color="#f1c40f", line_width=2,
+                      annotation_text=f"成本 {cost:.2f}", annotation_font_color="#f1c40f")
+    fig.update_layout(
+        xaxis_rangeslider_visible=False,
+        height=420, template="plotly_dark",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(l=10, r=10, t=30, b=10),
+        xaxis=dict(title="日期"), yaxis=dict(title="價格"),
+    )
+    return fig
+
+
+def plot_treemap(summary):
+    data = [{"名稱": n, "市值": d["value"],
+             "漲跌%": round(d["change_pct"], 2),
+             "label": f"{n}\n{d['change_pct']:+.1f}%"}
+            for n, d in summary.items() if d["value"] > 0]
+    df_tm = pd.DataFrame(data)
+    fig = px.treemap(df_tm, path=["名稱"], values="市值", color="漲跌%",
+                     color_continuous_scale=["#8b0000","#1a1a2e","#006400"],
+                     color_continuous_midpoint=0,
+                     custom_data=["漲跌%","市值"])
+    fig.update_traces(
+        texttemplate="<b>%{label}</b><br>%{customdata[0]:+.1f}%<br>$%{customdata[1]:,.0f}",
+        textfont=dict(size=13), marker_line_width=2,
+    )
+    fig.update_layout(height=380, template="plotly_dark",
+                      coloraxis_colorbar=dict(title="漲跌%"),
+                      margin=dict(l=0, r=0, t=10, b=0))
+    return fig
+
+
+def plot_gauge(value, title, low=30, high=70, minv=0, maxv=100):
+    if value is None: value = 50
+    if   value <= low:  bar_color = "#2ecc71"
+    elif value >= high: bar_color = "#e74c3c"
+    else:               bar_color = "#f39c12"
+    fig = go.Figure(go.Indicator(
+        mode="gauge+number",
+        value=value,
+        title={"text": title, "font": {"size": 15, "color": "white"}},
+        number={"font": {"size": 28, "color": bar_color}},
+        gauge={
+            "axis": {"range": [minv, maxv], "tickcolor": "white",
+                     "tickfont": {"color": "white", "size": 10}},
+            "bar":  {"color": bar_color, "thickness": 0.25},
+            "bgcolor": "#1a1a2e",
+            "bordercolor": "#444",
+            "steps": [
+                {"range": [minv, low],  "color": "#1a3a2a"},
+                {"range": [low, high],  "color": "#1a1a2e"},
+                {"range": [high, maxv], "color": "#3a1a1a"},
+            ],
+            "threshold": {"line": {"color": "white", "width": 3},
+                          "thickness": 0.75, "value": value},
+        }
+    ))
+    fig.update_layout(height=200, template="plotly_dark",
+                      margin=dict(l=20, r=20, t=50, b=10),
+                      paper_bgcolor="#0e1117", plot_bgcolor="#0e1117")
+    return fig
+
 
 def row_color(row, col="漲跌%"):
     try:
@@ -258,15 +347,9 @@ with tab1:
     df_port = pd.DataFrame(rows)
     st.dataframe(df_port.style.apply(row_color, axis=1), use_container_width=True, hide_index=True)
 
-    # 市值佔比
-    st.subheader("市值佔比")
-    pie_data  = pd.DataFrame([{"名稱":n,"市值":d["value"]} for n,d in summary.items()])
-    pie_chart = alt.Chart(pie_data).mark_arc(innerRadius=50).encode(
-        theta=alt.Theta("市值:Q"),
-        color=alt.Color("名稱:N", legend=alt.Legend(orient="right")),
-        tooltip=["名稱","市值"]
-    ).properties(height=280)
-    st.altair_chart(pie_chart, use_container_width=True)
+    # 持股熱力地圖
+    st.subheader("持股熱力地圖（大小=市值　顏色=漲跌幅）")
+    st.plotly_chart(plot_treemap(summary), use_container_width=True)
 
     # 除權息日曆
     st.markdown("---")
@@ -411,13 +494,23 @@ with tab3:
     col_r.markdown(f"### 操作建議：{rec}")
     st.markdown("---")
 
-    c1,c2,c3,c4,c5,c6 = st.columns(6)
-    c1.metric("收盤價",  f"{price:.2f}", f"{chg:+.2f}%")
-    c2.metric("RSI",     f"{rsi:.1f}")
-    c3.metric("K值",     f"{float(latest['K']):.1f}" if pd.notna(latest["K"]) else "-")
-    c4.metric("年度位置", f"{w52['week52_pct']:.0f}%")
-    c5.metric("vs 大盤", f"{rs:+.1f}%" if rs is not None else "-")
-    c6.metric("訊號分數", sc, delta="看多" if sc>0 else ("看空" if sc<0 else "中性"))
+    c1,c2,c3,c4,c5 = st.columns(5)
+    c1.metric("收盤價",   f"{price:.2f}", f"{chg:+.2f}%")
+    c2.metric("年度位置", f"{w52['week52_pct']:.0f}%")
+    c3.metric("vs 大盤",  f"{rs:+.1f}%" if rs is not None else "-")
+    c4.metric("訊號分數", sc, delta="看多" if sc>0 else ("看空" if sc<0 else "中性"))
+    c5.metric("ATR波動",  f"{float(latest['ATR_pct']):.1f}%/日" if pd.notna(latest.get('ATR_pct')) else "-")
+
+    # RSI / KD 儀表板
+    g1, g2, g3 = st.columns(3)
+    with g1:
+        k_val = float(latest["K"]) if pd.notna(latest["K"]) else None
+        st.plotly_chart(plot_gauge(rsi, "RSI"), use_container_width=True)
+    with g2:
+        st.plotly_chart(plot_gauge(k_val, "K 值"), use_container_width=True)
+    with g3:
+        d_val = float(latest["D"]) if pd.notna(latest["D"]) else None
+        st.plotly_chart(plot_gauge(d_val, "D 值"), use_container_width=True)
 
     st.markdown(
         f"📌 近20日 支撐 `{sr['support_20']:.2f}` ／ 壓力 `{sr['resistance_20']:.2f}`　"
@@ -477,30 +570,14 @@ with tab3:
     else:
         st.info("無配息資料")
 
-    # 價格走勢圖
+    # 蠟燭圖
     st.markdown("---")
+    st.subheader("K 棒走勢圖")
+    st.plotly_chart(plot_candlestick(df, sr, cost, selected_name), use_container_width=True)
+    st.caption("🔴 紅K=收漲　🟢 綠K=收跌（台灣慣例）　🟡 成本線　🟢 支撐　🔴 壓力")
+
     df_plot = prep_plot(df)
     base    = alt.Chart(df_plot).encode(x=alt.X("Date:T", title="日期"))
-
-    st.subheader("價格走勢")
-    layers = [
-        base.mark_line(color="#1f77b4",strokeWidth=2).encode(y=alt.Y("Close:Q",title="價格")),
-        base.mark_line(color="orange", strokeDash=[4,2],strokeWidth=1).encode(y="MA5:Q"),
-        base.mark_line(color="red",    strokeDash=[4,2],strokeWidth=1).encode(y="MA20:Q"),
-        base.mark_line(color="gray",   strokeDash=[2,4],strokeWidth=1).encode(y="MA60:Q"),
-        base.mark_line(color="#aaaaff",strokeDash=[2,2],strokeWidth=1).encode(y="BB_upper:Q"),
-        base.mark_line(color="#aaaaff",strokeDash=[2,2],strokeWidth=1).encode(y="BB_lower:Q"),
-        alt.Chart(pd.DataFrame({"y":[sr["support_20"]]})).mark_rule(color="green",strokeDash=[6,3],strokeWidth=1.5).encode(y="y:Q"),
-        alt.Chart(pd.DataFrame({"y":[sr["resistance_20"]]})).mark_rule(color="red",strokeDash=[6,3],strokeWidth=1.5).encode(y="y:Q"),
-    ]
-    if cost:
-        layers.append(
-            alt.Chart(pd.DataFrame({"y":[cost]})).mark_rule(color="gold",strokeDash=[8,4],strokeWidth=2).encode(y="y:Q")
-        )
-    st.altair_chart(alt.layer(*layers).properties(height=350), use_container_width=True)
-    legend = "🔵 收盤　🟠 MA5　🔴 MA20　⚫ MA60　🟣 布林　🟢 支撐　🔴 壓力"
-    if cost: legend += "　🟡 成本線"
-    st.caption(legend)
 
     # 多股比較
     if compare_names:
