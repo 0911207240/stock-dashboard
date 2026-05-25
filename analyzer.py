@@ -30,6 +30,14 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     df["Vol_MA5"] = volume.rolling(5).mean()
     df["Vol_ratio"] = volume / df["Vol_MA5"]
 
+    # 布林通道
+    bb = ta.volatility.BollingerBands(close, window=20, window_dev=2)
+    df["BB_upper"] = bb.bollinger_hband()
+    df["BB_lower"] = bb.bollinger_lband()
+
+    # 威廉指標 %R（-100~0，低於-80超賣，高於-20超買）
+    df["WR"] = ta.momentum.WilliamsRIndicator(high, low, close, lbp=14).williams_r()
+
     return df
 
 def detect_signals(df: pd.DataFrame) -> list[dict]:
@@ -65,6 +73,18 @@ def detect_signals(df: pd.DataFrame) -> list[dict]:
     # 爆量
     if latest["Vol_ratio"] > 2:
         signals.append({"type": "watch", "indicator": "VOL", "msg": f"成交量爆量 ({latest['Vol_ratio']:.1f}x 均量)"})
+
+    # 布林通道突破
+    if prev["Close"].item() <= prev["BB_lower"].item() and latest["Close"].item() > latest["BB_lower"].item():
+        signals.append({"type": "buy", "indicator": "BB", "msg": "布林通道下軌反彈"})
+    if prev["Close"].item() >= prev["BB_upper"].item() and latest["Close"].item() < latest["BB_upper"].item():
+        signals.append({"type": "sell", "indicator": "BB", "msg": "布林通道上軌回落"})
+
+    # 威廉指標 %R
+    if prev["WR"] < -80 and latest["WR"] >= -80:
+        signals.append({"type": "buy", "indicator": "WR", "msg": f"威廉%R 超賣反彈 ({latest['WR']:.1f})"})
+    if prev["WR"] > -20 and latest["WR"] <= -20:
+        signals.append({"type": "sell", "indicator": "WR", "msg": f"威廉%R 超買回落 ({latest['WR']:.1f})"})
 
     return signals
 

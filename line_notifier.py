@@ -32,8 +32,24 @@ def send(message: str) -> bool:
         return False
 
 
-def build_signal_message(name: str, ticker: str, signals: list[dict], price: float) -> str:
-    lines = [f"【股票訊號通知】{name} ({ticker})", f"收盤價：{price:.2f}", ""]
+def build_signal_message(
+    name: str,
+    ticker: str,
+    signals: list[dict],
+    price: float,
+    change_pct: float = 0.0,
+    vol_ratio: float = 1.0,
+    week52_pct: float | None = None,
+) -> str:
+    direction = "▲" if change_pct >= 0 else "▼"
+    lines = [
+        f"【股票訊號】{name} ({ticker})",
+        f"收盤價：{price:.2f}  {direction}{abs(change_pct):.2f}%",
+        f"量比：{vol_ratio:.1f}x 均量",
+    ]
+    if week52_pct is not None:
+        lines.append(f"年度位置：{week52_pct:.0f}%（0%=年低 100%=年高）")
+    lines.append("")
     for s in signals:
         label = "買進" if s["type"] == "buy" else ("賣出" if s["type"] == "sell" else "觀察")
         lines.append(f"[{label}] {s['msg']}")
