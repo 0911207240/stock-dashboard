@@ -147,9 +147,9 @@ with tab1:
         try:
             val = float(val)
             if val > 0:
-                return ["background-color:#d4edda"] * len(row)
+                return ["background-color:#1a6b3a; color:#ffffff"] * len(row)
             elif val < 0:
-                return ["background-color:#f8d7da"] * len(row)
+                return ["background-color:#8b1a1a; color:#ffffff"] * len(row)
         except Exception:
             pass
         return [""] * len(row)
@@ -215,9 +215,9 @@ with tab2:
 
             def highlight(row):
                 if row["訊號分數"] >= 2:
-                    return ["background-color:#d4edda"] * len(row)
+                    return ["background-color:#1a6b3a; color:#ffffff"] * len(row)
                 elif row["訊號分數"] <= -2:
-                    return ["background-color:#f8d7da"] * len(row)
+                    return ["background-color:#8b1a1a; color:#ffffff"] * len(row)
                 return [""] * len(row)
 
             st.dataframe(filtered.style.apply(highlight, axis=1), use_container_width=True, hide_index=True)
