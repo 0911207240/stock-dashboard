@@ -40,12 +40,19 @@ def build_signal_message(
     change_pct: float = 0.0,
     vol_ratio: float = 1.0,
     week52_pct: float | None = None,
+    atr_pct: float = 0.0,
 ) -> str:
     direction = "▲" if change_pct >= 0 else "▼"
+    if atr_pct >= 3:
+        volatility = "高波動"
+    elif atr_pct >= 1.5:
+        volatility = "中波動"
+    else:
+        volatility = "低波動"
     lines = [
         f"【股票訊號】{name} ({ticker})",
         f"收盤價：{price:.2f}  {direction}{abs(change_pct):.2f}%",
-        f"量比：{vol_ratio:.1f}x 均量",
+        f"量比：{vol_ratio:.1f}x 均量  |  波動：{atr_pct:.1f}%/日({volatility})",
     ]
     if week52_pct is not None:
         lines.append(f"年度位置：{week52_pct:.0f}%（0%=年低 100%=年高）")

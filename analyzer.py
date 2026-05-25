@@ -38,6 +38,10 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     # 威廉指標 %R（-100~0，低於-80超賣，高於-20超買）
     df["WR"] = ta.momentum.WilliamsRIndicator(high, low, close, lbp=14).williams_r()
 
+    # ATR 真實波幅（14日），轉成佔股價 % → 波段操作參考
+    df["ATR"] = ta.volatility.AverageTrueRange(high, low, close, window=14).average_true_range()
+    df["ATR_pct"] = df["ATR"] / close * 100
+
     return df
 
 def detect_signals(df: pd.DataFrame) -> list[dict]:

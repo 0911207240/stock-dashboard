@@ -25,10 +25,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
             year_low = float(df["Close"].min())
             week52_pct = (price - year_low) / (year_high - year_low) * 100 if year_high != year_low else 50.0
             ticker = WATCHLIST[name]
+            atr_pct = float(latest["ATR_pct"]) if not __import__("math").isnan(latest["ATR_pct"]) else 0.0
             found.append({
                 "name": name, "ticker": ticker, "signals": sigs, "score": sc,
                 "price": price, "change_pct": change_pct,
-                "vol_ratio": vol_ratio, "week52_pct": week52_pct,
+                "vol_ratio": vol_ratio, "week52_pct": week52_pct, "atr_pct": atr_pct,
             })
             print(f"  -> {name} ({ticker}) 分數={sc}: {[s['msg'] for s in sigs]}")
 
@@ -42,7 +43,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
         for item in sorted(found, key=lambda x: x["score"], reverse=True):
             msg = build_signal_message(
                 item["name"], item["ticker"], item["signals"], item["price"],
-                item["change_pct"], item["vol_ratio"], item["week52_pct"],
+                item["change_pct"], item["vol_ratio"], item["week52_pct"], item["atr_pct"],
             )
             success = send(msg)
             status = "已推播" if success else "推播失敗"

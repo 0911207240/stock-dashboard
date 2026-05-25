@@ -1,0 +1,304 @@
+﻿2026-05-25T11:19:09.4806704Z Current runner version: '2.334.0'
+2026-05-25T11:19:09.4838156Z ##[group]Runner Image Provisioner
+2026-05-25T11:19:09.4839473Z Hosted Compute Agent
+2026-05-25T11:19:09.4840336Z Version: 20260213.493
+2026-05-25T11:19:09.4841283Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-25T11:19:09.4842793Z Build Date: 2026-02-13T00:28:41Z
+2026-05-25T11:19:09.4843887Z Worker ID: {eb3a5cb5-0002-4de8-b98c-b1c89fd8ade6}
+2026-05-25T11:19:09.4844962Z Azure Region: eastus
+2026-05-25T11:19:09.4845926Z ##[endgroup]
+2026-05-25T11:19:09.4847966Z ##[group]Operating System
+2026-05-25T11:19:09.4849007Z Ubuntu
+2026-05-25T11:19:09.4849808Z 24.04.4
+2026-05-25T11:19:09.4850496Z LTS
+2026-05-25T11:19:09.4851256Z ##[endgroup]
+2026-05-25T11:19:09.4852144Z ##[group]Runner Image
+2026-05-25T11:19:09.4853409Z Image: ubuntu-24.04
+2026-05-25T11:19:09.4854317Z Version: 20260518.149.1
+2026-05-25T11:19:09.4856286Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260518.149/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-25T11:19:09.4858880Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260518.149
+2026-05-25T11:19:09.4860452Z ##[endgroup]
+2026-05-25T11:19:09.4862640Z ##[group]GITHUB_TOKEN Permissions
+2026-05-25T11:19:09.4865124Z Contents: read
+2026-05-25T11:19:09.4865955Z Metadata: read
+2026-05-25T11:19:09.4866861Z Packages: read
+2026-05-25T11:19:09.4867738Z ##[endgroup]
+2026-05-25T11:19:09.4870625Z Secret source: Actions
+2026-05-25T11:19:09.4871749Z Prepare workflow directory
+2026-05-25T11:19:09.5607601Z Prepare all required actions
+2026-05-25T11:19:09.5693558Z Getting action download info
+2026-05-25T11:19:09.9807652Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-25T11:19:10.1440940Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-05-25T11:19:10.3331710Z Complete job name: scan
+2026-05-25T11:19:10.4018981Z ##[group]Run actions/checkout@v4
+2026-05-25T11:19:10.4019825Z with:
+2026-05-25T11:19:10.4020256Z   repository: 0911207240/stock-dashboard
+2026-05-25T11:19:10.4020926Z   token: ***
+2026-05-25T11:19:10.4021320Z   ssh-strict: true
+2026-05-25T11:19:10.4021717Z   ssh-user: git
+2026-05-25T11:19:10.4022119Z   persist-credentials: true
+2026-05-25T11:19:10.4022787Z   clean: true
+2026-05-25T11:19:10.4023192Z   sparse-checkout-cone-mode: true
+2026-05-25T11:19:10.4023671Z   fetch-depth: 1
+2026-05-25T11:19:10.4024076Z   fetch-tags: false
+2026-05-25T11:19:10.4024474Z   show-progress: true
+2026-05-25T11:19:10.4024886Z   lfs: false
+2026-05-25T11:19:10.4025261Z   submodules: false
+2026-05-25T11:19:10.4025671Z   set-safe-directory: true
+2026-05-25T11:19:10.4026372Z ##[endgroup]
+2026-05-25T11:19:10.5358827Z Syncing repository: 0911207240/stock-dashboard
+2026-05-25T11:19:10.6226533Z ##[group]Getting Git version info
+2026-05-25T11:19:10.6229066Z Working directory is '/home/runner/work/stock-dashboard/stock-dashboard'
+2026-05-25T11:19:10.6231384Z [command]/usr/bin/git version
+2026-05-25T11:19:10.6232783Z git version 2.54.0
+2026-05-25T11:19:10.6236565Z ##[endgroup]
+2026-05-25T11:19:10.6243442Z Temporarily overriding HOME='/home/runner/work/_temp/8dd5311f-6c1b-48c3-927c-49ead04b01bd' before making global git config changes
+2026-05-25T11:19:10.6246132Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-25T11:19:10.6248390Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/stock-dashboard/stock-dashboard
+2026-05-25T11:19:10.6251882Z Deleting the contents of '/home/runner/work/stock-dashboard/stock-dashboard'
+2026-05-25T11:19:10.6254351Z ##[group]Initializing the repository
+2026-05-25T11:19:10.6255771Z [command]/usr/bin/git init /home/runner/work/stock-dashboard/stock-dashboard
+2026-05-25T11:19:10.6257586Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-25T11:19:10.6259587Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-25T11:19:10.6261325Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-25T11:19:10.6264063Z hint: call:
+2026-05-25T11:19:10.6264922Z hint:
+2026-05-25T11:19:10.6265884Z hint: 	git config --global init.defaultBranch <name>
+2026-05-25T11:19:10.6267023Z hint:
+2026-05-25T11:19:10.6268143Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-25T11:19:10.6269918Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-25T11:19:10.6271336Z hint:
+2026-05-25T11:19:10.6272172Z hint: 	git branch -m <name>
+2026-05-25T11:19:10.6273321Z hint:
+2026-05-25T11:19:10.6274471Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-25T11:19:10.6280005Z Initialized empty Git repository in /home/runner/work/stock-dashboard/stock-dashboard/.git/
+2026-05-25T11:19:10.6283840Z [command]/usr/bin/git remote add origin https://github.com/0911207240/stock-dashboard
+2026-05-25T11:19:10.6287113Z ##[endgroup]
+2026-05-25T11:19:10.6288570Z ##[group]Disabling automatic garbage collection
+2026-05-25T11:19:10.6289892Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-25T11:19:10.6293057Z ##[endgroup]
+2026-05-25T11:19:10.6294465Z ##[group]Setting up auth
+2026-05-25T11:19:10.6296539Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-25T11:19:10.6326064Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-25T11:19:10.6353638Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-25T11:19:10.6376949Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-25T11:19:10.6657466Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-25T11:19:10.6690703Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-25T11:19:10.7005139Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-25T11:19:10.7042045Z ##[endgroup]
+2026-05-25T11:19:10.7043949Z ##[group]Fetching the repository
+2026-05-25T11:19:10.7053033Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f823648a5787b5e7085281e357b0f93ca6e1c8ec:refs/remotes/origin/main
+2026-05-25T11:19:10.9054921Z From https://github.com/0911207240/stock-dashboard
+2026-05-25T11:19:10.9056783Z  * [new ref]         f823648a5787b5e7085281e357b0f93ca6e1c8ec -> origin/main
+2026-05-25T11:19:10.9101076Z ##[endgroup]
+2026-05-25T11:19:10.9103235Z ##[group]Determining the checkout info
+2026-05-25T11:19:10.9104988Z ##[endgroup]
+2026-05-25T11:19:10.9105967Z [command]/usr/bin/git sparse-checkout disable
+2026-05-25T11:19:10.9150669Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-25T11:19:10.9178990Z ##[group]Checking out the ref
+2026-05-25T11:19:10.9182732Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-05-25T11:19:10.9234977Z Switched to a new branch 'main'
+2026-05-25T11:19:10.9238659Z branch 'main' set up to track 'origin/main'.
+2026-05-25T11:19:10.9247286Z ##[endgroup]
+2026-05-25T11:19:10.9287058Z [command]/usr/bin/git log -1 --format=%H
+2026-05-25T11:19:10.9311086Z f823648a5787b5e7085281e357b0f93ca6e1c8ec
+2026-05-25T11:19:10.9560830Z ##[group]Run actions/setup-python@v5
+2026-05-25T11:19:10.9561464Z with:
+2026-05-25T11:19:10.9561838Z   python-version: 3.12
+2026-05-25T11:19:10.9562570Z   check-latest: false
+2026-05-25T11:19:10.9563279Z   token: ***
+2026-05-25T11:19:10.9563675Z   update-environment: true
+2026-05-25T11:19:10.9564121Z   allow-prereleases: false
+2026-05-25T11:19:10.9564562Z   freethreaded: false
+2026-05-25T11:19:10.9564965Z ##[endgroup]
+2026-05-25T11:19:11.1250433Z ##[group]Installed versions
+2026-05-25T11:19:11.1352183Z Successfully set up CPython (3.12.13)
+2026-05-25T11:19:11.1361057Z ##[endgroup]
+2026-05-25T11:19:11.1483436Z ##[group]Run pip install yfinance pandas ta python-dotenv
+2026-05-25T11:19:11.1484305Z [36;1mpip install yfinance pandas ta python-dotenv[0m
+2026-05-25T11:19:11.1535686Z shell: /usr/bin/bash -e {0}
+2026-05-25T11:19:11.1536177Z env:
+2026-05-25T11:19:11.1536657Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:11.1537441Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-25T11:19:11.1538218Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:11.1538917Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:11.1539611Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:11.1540332Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-25T11:19:11.1540918Z ##[endgroup]
+2026-05-25T11:19:12.1773561Z Collecting yfinance
+2026-05-25T11:19:12.2301822Z   Downloading yfinance-1.4.0-py2.py3-none-any.whl.metadata (6.2 kB)
+2026-05-25T11:19:12.3559674Z Collecting pandas
+2026-05-25T11:19:12.3601255Z   Downloading pandas-3.0.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+2026-05-25T11:19:12.4104919Z Collecting ta
+2026-05-25T11:19:12.4137011Z   Downloading ta-0.11.0.tar.gz (25 kB)
+2026-05-25T11:19:12.4213824Z   Installing build dependencies: started
+2026-05-25T11:19:13.1499533Z   Installing build dependencies: finished with status 'done'
+2026-05-25T11:19:13.1505778Z   Getting requirements to build wheel: started
+2026-05-25T11:19:13.5274011Z   Getting requirements to build wheel: finished with status 'done'
+2026-05-25T11:19:13.5275730Z   Preparing metadata (pyproject.toml): started
+2026-05-25T11:19:13.7247655Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2026-05-25T11:19:13.7400955Z Collecting python-dotenv
+2026-05-25T11:19:13.7438972Z   Downloading python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+2026-05-25T11:19:13.9343569Z Collecting numpy>=1.16.5 (from yfinance)
+2026-05-25T11:19:13.9384459Z   Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-05-25T11:19:13.9597143Z Collecting requests>=2.31 (from yfinance)
+2026-05-25T11:19:13.9630602Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-05-25T11:19:13.9738157Z Collecting multitasking>=0.0.7 (from yfinance)
+2026-05-25T11:19:13.9773187Z   Downloading multitasking-0.0.13-py3-none-any.whl.metadata (16 kB)
+2026-05-25T11:19:14.0001804Z Collecting platformdirs>=2.0.0 (from yfinance)
+2026-05-25T11:19:14.0039492Z   Downloading platformdirs-4.9.6-py3-none-any.whl.metadata (4.7 kB)
+2026-05-25T11:19:14.0347766Z Collecting pytz>=2022.5 (from yfinance)
+2026-05-25T11:19:14.0379202Z   Downloading pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+2026-05-25T11:19:14.0561458Z Collecting peewee>=3.16.2 (from yfinance)
+2026-05-25T11:19:14.0596182Z   Downloading peewee-4.0.6-py3-none-any.whl.metadata (8.6 kB)
+2026-05-25T11:19:14.0763938Z Collecting beautifulsoup4>=4.11.1 (from yfinance)
+2026-05-25T11:19:14.0798474Z   Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+2026-05-25T11:19:14.1284131Z Collecting curl_cffi>=0.15 (from yfinance)
+2026-05-25T11:19:14.1319543Z   Downloading curl_cffi-0.15.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (18 kB)
+2026-05-25T11:19:14.2833857Z Collecting protobuf>=3.19.0 (from yfinance)
+2026-05-25T11:19:14.2869851Z   Downloading protobuf-7.35.0-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+2026-05-25T11:19:14.3637266Z Collecting websockets>=13.0 (from yfinance)
+2026-05-25T11:19:14.3674036Z   Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+2026-05-25T11:19:14.3829514Z Collecting python-dateutil>=2.8.2 (from pandas)
+2026-05-25T11:19:14.3863445Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2026-05-25T11:19:14.4035360Z Collecting soupsieve>=1.6.1 (from beautifulsoup4>=4.11.1->yfinance)
+2026-05-25T11:19:14.4068588Z   Downloading soupsieve-2.8.4-py3-none-any.whl.metadata (4.6 kB)
+2026-05-25T11:19:14.4225999Z Collecting typing-extensions>=4.0.0 (from beautifulsoup4>=4.11.1->yfinance)
+2026-05-25T11:19:14.4258601Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2026-05-25T11:19:14.5294757Z Collecting cffi>=2.0.0 (from curl_cffi>=0.15->yfinance)
+2026-05-25T11:19:14.5328115Z   Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+2026-05-25T11:19:14.5486917Z Collecting certifi>=2024.2.2 (from curl_cffi>=0.15->yfinance)
+2026-05-25T11:19:14.5518056Z   Downloading certifi-2026.5.20-py3-none-any.whl.metadata (2.5 kB)
+2026-05-25T11:19:14.5863054Z Collecting rich (from curl_cffi>=0.15->yfinance)
+2026-05-25T11:19:14.5895140Z   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+2026-05-25T11:19:14.6053836Z Collecting pycparser (from cffi>=2.0.0->curl_cffi>=0.15->yfinance)
+2026-05-25T11:19:14.6094859Z   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+2026-05-25T11:19:14.6235220Z Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas)
+2026-05-25T11:19:14.6266814Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-05-25T11:19:14.7117847Z Collecting charset_normalizer<4,>=2 (from requests>=2.31->yfinance)
+2026-05-25T11:19:14.7153369Z   Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+2026-05-25T11:19:14.7335456Z Collecting idna<4,>=2.5 (from requests>=2.31->yfinance)
+2026-05-25T11:19:14.7369605Z   Downloading idna-3.16-py3-none-any.whl.metadata (6.4 kB)
+2026-05-25T11:19:14.7573365Z Collecting urllib3<3,>=1.26 (from requests>=2.31->yfinance)
+2026-05-25T11:19:14.7605171Z   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+2026-05-25T11:19:14.7791559Z Collecting markdown-it-py>=2.2.0 (from rich->curl_cffi>=0.15->yfinance)
+2026-05-25T11:19:14.7824848Z   Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+2026-05-25T11:19:14.8071261Z Collecting pygments<3.0.0,>=2.13.0 (from rich->curl_cffi>=0.15->yfinance)
+2026-05-25T11:19:14.8102128Z   Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+2026-05-25T11:19:14.8210456Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->curl_cffi>=0.15->yfinance)
+2026-05-25T11:19:14.8240364Z   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2026-05-25T11:19:14.8315193Z Downloading yfinance-1.4.0-py2.py3-none-any.whl (137 kB)
+2026-05-25T11:19:14.8407431Z Downloading pandas-3.0.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
+2026-05-25T11:19:14.8908922Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.9/10.9 MB 238.5 MB/s  0:00:00
+2026-05-25T11:19:14.8932959Z Downloading python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+2026-05-25T11:19:14.8993769Z Downloading beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+2026-05-25T11:19:14.9044747Z Downloading curl_cffi-0.15.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (11.1 MB)
+2026-05-25T11:19:14.9416151Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 312.0 MB/s  0:00:00
+2026-05-25T11:19:14.9454625Z Downloading certifi-2026.5.20-py3-none-any.whl (134 kB)
+2026-05-25T11:19:14.9510485Z Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+2026-05-25T11:19:14.9566987Z Downloading multitasking-0.0.13-py3-none-any.whl (16 kB)
+2026-05-25T11:19:14.9623826Z Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+2026-05-25T11:19:15.0281712Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 269.9 MB/s  0:00:00
+2026-05-25T11:19:15.0322467Z Downloading peewee-4.0.6-py3-none-any.whl (146 kB)
+2026-05-25T11:19:15.0389069Z Downloading platformdirs-4.9.6-py3-none-any.whl (21 kB)
+2026-05-25T11:19:15.0438978Z Downloading protobuf-7.35.0-cp310-abi3-manylinux2014_x86_64.whl (327 kB)
+2026-05-25T11:19:15.0499371Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-05-25T11:19:15.0581304Z Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
+2026-05-25T11:19:15.0647540Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-05-25T11:19:15.0705343Z Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (216 kB)
+2026-05-25T11:19:15.0763923Z Downloading idna-3.16-py3-none-any.whl (74 kB)
+2026-05-25T11:19:15.0819493Z Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+2026-05-25T11:19:15.0880107Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-05-25T11:19:15.0932911Z Downloading soupsieve-2.8.4-py3-none-any.whl (37 kB)
+2026-05-25T11:19:15.0985929Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+2026-05-25T11:19:15.1045627Z Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
+2026-05-25T11:19:15.1100880Z Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+2026-05-25T11:19:15.1155185Z Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+2026-05-25T11:19:15.1218952Z Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+2026-05-25T11:19:15.1291374Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 200.6 MB/s  0:00:00
+2026-05-25T11:19:15.1401363Z Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+2026-05-25T11:19:15.1402643Z Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2026-05-25T11:19:15.2112850Z Building wheels for collected packages: ta
+2026-05-25T11:19:15.2122080Z   Building wheel for ta (pyproject.toml): started
+2026-05-25T11:19:15.4411797Z   Building wheel for ta (pyproject.toml): finished with status 'done'
+2026-05-25T11:19:15.4418380Z   Created wheel for ta: filename=ta-0.11.0-py3-none-any.whl size=29481 sha256=0dfc701f25c3fb49307e05831d54a1846e27a9b9bb880a5f926541974dae16b3
+2026-05-25T11:19:15.4420511Z   Stored in directory: /home/runner/.cache/pip/wheels/5c/a1/5f/c6b85a7d9452057be4ce68a8e45d77ba34234a6d46581777c6
+2026-05-25T11:19:15.4438384Z Successfully built ta
+2026-05-25T11:19:15.5152812Z Installing collected packages: pytz, peewee, multitasking, websockets, urllib3, typing-extensions, soupsieve, six, python-dotenv, pygments, pycparser, protobuf, platformdirs, numpy, mdurl, idna, charset_normalizer, certifi, requests, python-dateutil, markdown-it-py, cffi, beautifulsoup4, rich, pandas, ta, curl_cffi, yfinance
+2026-05-25T11:19:24.3845794Z 
+2026-05-25T11:19:24.3876662Z Successfully installed beautifulsoup4-4.14.3 certifi-2026.5.20 cffi-2.0.0 charset_normalizer-3.4.7 curl_cffi-0.15.0 idna-3.16 markdown-it-py-4.2.0 mdurl-0.1.2 multitasking-0.0.13 numpy-2.4.6 pandas-3.0.3 peewee-4.0.6 platformdirs-4.9.6 protobuf-7.35.0 pycparser-3.0 pygments-2.20.0 python-dateutil-2.9.0.post0 python-dotenv-1.2.2 pytz-2026.2 requests-2.34.2 rich-15.0.0 six-1.17.0 soupsieve-2.8.4 ta-0.11.0 typing-extensions-4.15.0 urllib3-2.7.0 websockets-16.0 yfinance-1.4.0
+2026-05-25T11:19:24.4856997Z ##[group]Run python scanner.py
+2026-05-25T11:19:24.4857312Z [36;1mpython scanner.py[0m
+2026-05-25T11:19:24.4892071Z shell: /usr/bin/bash -e {0}
+2026-05-25T11:19:24.4892624Z env:
+2026-05-25T11:19:24.4892892Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4893311Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-25T11:19:24.4893735Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4894110Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4894479Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4894864Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-25T11:19:24.4896050Z   LINE_TOKEN: ***
+
+2026-05-25T11:19:24.4896301Z   LINE_USER_ID: ***
+2026-05-25T11:19:24.4896490Z ##[endgroup]
+2026-05-25T11:19:31.4200240Z HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: 4105.TW"}}}
+2026-05-25T11:19:31.6698557Z $4105.TW: possibly delisted; no price data found  (period=3mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-05-25T11:19:31.6721479Z 
+2026-05-25T11:19:31.6721952Z 1 Failed download:
+2026-05-25T11:19:31.6723402Z ['4105.TW']: possibly delisted; no price data found  (period=3mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-05-25T11:19:31.8766671Z Traceback (most recent call last):
+2026-05-25T11:19:31.8767122Z 
+2026-05-25T11:19:31.8767891Z [2026-05-25 11:19] 開始掃描...
+2026-05-25T11:19:31.8769151Z   -> 鴻海 (2317.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.8770335Z   -> 聯發科 (2454.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.8781472Z   File "/home/runner/work/stock-dashboard/stock-dashboard/scanner.py", line 41, in <module>
+2026-05-25T11:19:31.8782843Z   -> 元大高股息 (0056.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.8783806Z     run_scan()
+2026-05-25T11:19:31.8784617Z   File "/home/runner/work/stock-dashboard/stock-dashboard/scanner.py", line 32, in run_scan
+2026-05-25T11:19:31.8785402Z     success = send(msg)
+2026-05-25T11:19:31.8785738Z               ^^^^^^^^^
+2026-05-25T11:19:31.8786441Z   File "/home/runner/work/stock-dashboard/stock-dashboard/line_notifier.py", line 28, in send
+2026-05-25T11:19:31.8787260Z     with urllib.request.urlopen(req) as res:
+2026-05-25T11:19:31.8787657Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.8788158Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 215, in urlopen
+2026-05-25T11:19:31.8788914Z   -> 日月光投控 (3711.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.9212059Z     return opener.open(url, data, timeout)
+2026-05-25T11:19:31.9213326Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9214818Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 515, in open
+2026-05-25T11:19:31.9216179Z     response = self._open(req, data)
+2026-05-25T11:19:31.9216856Z                ^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9218056Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 532, in _open
+2026-05-25T11:19:31.9219456Z     result = self._call_chain(self.handle_open, protocol, protocol +
+2026-05-25T11:19:31.9220446Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9221842Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 492, in _call_chain
+2026-05-25T11:19:31.9223380Z     result = func(*args)
+2026-05-25T11:19:31.9224000Z              ^^^^^^^^^^^
+2026-05-25T11:19:31.9225060Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 1392, in https_open
+2026-05-25T11:19:31.9473836Z     return self.do_open(http.client.HTTPSConnection, req,
+2026-05-25T11:19:31.9474940Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9476997Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 1344, in do_open
+2026-05-25T11:19:31.9478889Z     h.request(req.get_method(), req.selector, req.data, headers,
+2026-05-25T11:19:31.9480422Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/http/client.py", line 1358, in request
+2026-05-25T11:19:31.9965577Z     self._send_request(method, url, body, headers, encode_chunked)
+2026-05-25T11:19:31.9967468Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/http/client.py", line 1399, in _send_request
+2026-05-25T11:19:31.9970969Z     self.putheader(hdr, value)
+2026-05-25T11:19:31.9972830Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/http/client.py", line 1336, in putheader
+2026-05-25T11:19:31.9977022Z     raise ValueError('Invalid header value %r' % (values[i],))
+2026-05-25T11:19:31.9980453Z ValueError: Invalid header value b'***'
+2026-05-25T11:19:32.1334738Z ##[error]Process completed with exit code 1.
+2026-05-25T11:19:32.1445432Z Post job cleanup.
+2026-05-25T11:19:32.2422742Z [command]/usr/bin/git version
+2026-05-25T11:19:32.2464390Z git version 2.54.0
+2026-05-25T11:19:32.2513420Z Temporarily overriding HOME='/home/runner/work/_temp/79266f41-e285-4a15-87d8-ba02bd6dedde' before making global git config changes
+2026-05-25T11:19:32.2515124Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-25T11:19:32.2520355Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/stock-dashboard/stock-dashboard
+2026-05-25T11:19:32.2565994Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-25T11:19:32.2603646Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-25T11:19:32.2845430Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-25T11:19:32.2876193Z http.https://github.com/.extraheader
+2026-05-25T11:19:32.2889663Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-25T11:19:32.2924501Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-25T11:19:32.3168264Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-25T11:19:32.3203169Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-25T11:19:32.3554313Z Cleaning up orphan processes
+2026-05-25T11:19:32.3813324Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-python@v5. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

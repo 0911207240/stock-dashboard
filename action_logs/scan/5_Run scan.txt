@@ -1,0 +1,59 @@
+﻿2026-05-25T11:19:24.4856984Z ##[group]Run python scanner.py
+2026-05-25T11:19:24.4857309Z [36;1mpython scanner.py[0m
+2026-05-25T11:19:24.4892065Z shell: /usr/bin/bash -e {0}
+2026-05-25T11:19:24.4892616Z env:
+2026-05-25T11:19:24.4892889Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4893308Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-05-25T11:19:24.4893733Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4894108Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4894478Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-05-25T11:19:24.4894861Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-05-25T11:19:24.4896045Z   LINE_TOKEN: ***
+
+2026-05-25T11:19:24.4896299Z   LINE_USER_ID: ***
+2026-05-25T11:19:24.4896487Z ##[endgroup]
+2026-05-25T11:19:31.4200084Z HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: 4105.TW"}}}
+2026-05-25T11:19:31.6698534Z $4105.TW: possibly delisted; no price data found  (period=3mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-05-25T11:19:31.6721463Z 
+2026-05-25T11:19:31.6721946Z 1 Failed download:
+2026-05-25T11:19:31.6723389Z ['4105.TW']: possibly delisted; no price data found  (period=3mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-05-25T11:19:31.8766625Z Traceback (most recent call last):
+2026-05-25T11:19:31.8767103Z 
+2026-05-25T11:19:31.8767880Z [2026-05-25 11:19] 開始掃描...
+2026-05-25T11:19:31.8769139Z   -> 鴻海 (2317.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.8770324Z   -> 聯發科 (2454.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.8781455Z   File "/home/runner/work/stock-dashboard/stock-dashboard/scanner.py", line 41, in <module>
+2026-05-25T11:19:31.8782835Z   -> 元大高股息 (0056.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.8783796Z     run_scan()
+2026-05-25T11:19:31.8784579Z   File "/home/runner/work/stock-dashboard/stock-dashboard/scanner.py", line 32, in run_scan
+2026-05-25T11:19:31.8785398Z     success = send(msg)
+2026-05-25T11:19:31.8785734Z               ^^^^^^^^^
+2026-05-25T11:19:31.8786437Z   File "/home/runner/work/stock-dashboard/stock-dashboard/line_notifier.py", line 28, in send
+2026-05-25T11:19:31.8787256Z     with urllib.request.urlopen(req) as res:
+2026-05-25T11:19:31.8787654Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.8788155Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 215, in urlopen
+2026-05-25T11:19:31.8788911Z   -> 日月光投控 (3711.TW) 分數=2: ['MACD 黃金交叉', '均線多頭排列 (MA5>MA20>MA60)']
+2026-05-25T11:19:31.9212043Z     return opener.open(url, data, timeout)
+2026-05-25T11:19:31.9213315Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9214810Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 515, in open
+2026-05-25T11:19:31.9216146Z     response = self._open(req, data)
+2026-05-25T11:19:31.9216851Z                ^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9218049Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 532, in _open
+2026-05-25T11:19:31.9219450Z     result = self._call_chain(self.handle_open, protocol, protocol +
+2026-05-25T11:19:31.9220440Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9221819Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 492, in _call_chain
+2026-05-25T11:19:31.9223374Z     result = func(*args)
+2026-05-25T11:19:31.9223996Z              ^^^^^^^^^^^
+2026-05-25T11:19:31.9225050Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 1392, in https_open
+2026-05-25T11:19:31.9473823Z     return self.do_open(http.client.HTTPSConnection, req,
+2026-05-25T11:19:31.9474934Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-25T11:19:31.9476559Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/urllib/request.py", line 1344, in do_open
+2026-05-25T11:19:31.9478879Z     h.request(req.get_method(), req.selector, req.data, headers,
+2026-05-25T11:19:31.9480411Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/http/client.py", line 1358, in request
+2026-05-25T11:19:31.9965558Z     self._send_request(method, url, body, headers, encode_chunked)
+2026-05-25T11:19:31.9967459Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/http/client.py", line 1399, in _send_request
+2026-05-25T11:19:31.9970957Z     self.putheader(hdr, value)
+2026-05-25T11:19:31.9972816Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/http/client.py", line 1336, in putheader
+2026-05-25T11:19:31.9977011Z     raise ValueError('Invalid header value %r' % (values[i],))
+2026-05-25T11:19:31.9980441Z ValueError: Invalid header value b'***'
+2026-05-25T11:19:32.1334715Z ##[error]Process completed with exit code 1.
