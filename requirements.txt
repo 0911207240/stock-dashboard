@@ -4,3 +4,4 @@ pandas
 altair
 requests
 python-dotenv
+ta
