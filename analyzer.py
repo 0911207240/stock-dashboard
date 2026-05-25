@@ -110,6 +110,53 @@ def calc_support_resistance(df: pd.DataFrame) -> dict:
         "resistance_60": float(close.tail(60).max()),
     }
 
+def detect_pre_signals(df: pd.DataFrame) -> list[dict]:
+    """偵測尚未觸發、但即將發生的訊號（卡位用）"""
+    pre = []
+    if len(df) < 3:
+        return pre
+    latest = df.iloc[-1]
+    prev   = df.iloc[-2]
+
+    def fv(col, row=None):
+        r = row if row is not None else latest
+        v = r[col]
+        return float(v) if pd.notna(v) else None
+
+    rsi       = fv("RSI")
+    macd_diff = fv("MACD_diff")
+    macd_prev = fv("MACD_diff", prev)
+    k, d      = fv("K"), fv("D")
+    k_prev    = fv("K", prev)
+    price     = fv("Close")
+    bb_upper  = fv("BB_upper")
+    bb_lower  = fv("BB_lower")
+
+    if rsi and 30 <= rsi <= 45:
+        pre.append({"msg": f"RSI 接近超賣區（{rsi:.1f}），反彈機率上升", "conf": 1})
+
+    if macd_diff and macd_prev and macd_diff < 0 and macd_diff > macd_prev:
+        pre.append({"msg": f"MACD 差值收斂中（{macd_diff:.3f}），接近黃金交叉", "conf": 1})
+
+    if k and d and k_prev and k < d and k > k_prev and (d - k) < 5:
+        pre.append({"msg": f"KD 即將黃金交叉（K={k:.1f} D={d:.1f}）", "conf": 2})
+
+    if price:
+        sr = calc_support_resistance(df)
+        gap = abs(price - sr["support_20"]) / price * 100
+        if gap < 3:
+            pre.append({"msg": f"股價距近20日支撐僅 {gap:.1f}%（支撐 {sr['support_20']:.2f}）", "conf": 1})
+
+    if bb_upper and bb_lower and price:
+        bw = (bb_upper - bb_lower) / price * 100
+        if bw < 6:
+            pre.append({"msg": f"布林通道收窄（寬度 {bw:.1f}%），大波動即將出現", "conf": 1})
+
+    return pre
+
+def pre_score(pre_signals: list[dict]) -> int:
+    return sum(s["conf"] for s in pre_signals)
+
 def calc_week52(df: pd.DataFrame) -> dict:
     close = df["Close"].squeeze()
     year_high = float(close.max())

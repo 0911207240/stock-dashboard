@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 from data_fetcher import fetch, fetch_all, fetch_taiex, WATCHLIST, SECTORS
-from analyzer import add_indicators, detect_signals, score, calc_support_resistance, calc_week52
+from analyzer import add_indicators, detect_signals, score, calc_support_resistance, calc_week52, detect_pre_signals, pre_score
 from line_notifier import send, build_signal_message
 from portfolio import HOLDINGS, calc_summary
 import config
@@ -75,7 +75,7 @@ def prep_plot(df: pd.DataFrame) -> pd.DataFrame:
     return df_plot
 
 # ── Tabs ──────────────────────────────────────────
-tab0, tab1, tab2, tab3 = st.tabs(["🌐 大盤展望", "💼 持股總覽", "🔍 市場掃描", "📊 個股分析"])
+tab0, tab1, tab2, tab3, tab4 = st.tabs(["🌐 大盤展望", "💼 持股總覽", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達"])
 
 # ══════════════════════════════════════════════════
 # Tab 0：大盤展望
@@ -500,3 +500,91 @@ with tab3:
         color=alt.condition(alt.datum.MACD_diff > 0, alt.value("#2ecc71"), alt.value("#e74c3c"))
     ).properties(height=150)
     st.altair_chart(macd_bar, use_container_width=True)
+
+# ══════════════════════════════════════════════════
+# Tab 4：卡位雷達
+# ══════════════════════════════════════════════════
+with tab4:
+    st.header("🎯 卡位雷達")
+    st.caption("偵測尚未觸發、但技術面正在醞釀的股票，提早卡位。")
+
+    col_s, col_c = st.columns([3, 1])
+    with col_s:
+        radar_sector = st.selectbox("篩選產業", list(SECTORS.keys()), key="radar_sector")
+    with col_c:
+        capital = st.number_input("可用資金（元）", min_value=10000, max_value=10000000,
+                                   value=300000, step=10000)
+
+    def position_advice(pscore: int, atr_pct: float, w52_pct: float, capital: int) -> dict:
+        if pscore >= 3:
+            base, label, risk = 0.12, "🔴 重倉", "高"
+        elif pscore == 2:
+            base, label, risk = 0.07, "🟡 標準倉", "中"
+        else:
+            base, label, risk = 0.03, "🟢 試水位", "低"
+        vol_factor = max(0.5, 1.0 - max(0, atr_pct - 1.5) * 0.08)
+        pos_factor = max(0.5, 1.0 - max(0, w52_pct - 50) / 120)
+        amount = capital * base * vol_factor * pos_factor
+        shares_ref = int(amount // 1000) * 1000
+        return {"label": label, "amount": shares_ref, "risk": risk}
+
+    if st.button("開始雷達掃描", type="primary"):
+        with st.spinner("掃描預警訊號中..."):
+            radar_data = load_all(period, radar_sector)
+            rows = []
+            for name, df in radar_data.items():
+                df = add_indicators(df)
+                pre = detect_pre_signals(df)
+                ps  = pre_score(pre)
+                if ps == 0:
+                    continue
+                latest  = df.iloc[-1]
+                prev    = df.iloc[-2]
+                price   = float(latest["Close"])
+                chg     = (price - float(prev["Close"])) / float(prev["Close"]) * 100
+                rsi     = float(latest["RSI"]) if pd.notna(latest["RSI"]) else 50.0
+                atr_pct = float(latest["ATR_pct"]) if pd.notna(latest["ATR_pct"]) else 2.0
+                w52     = calc_week52(df)
+                pos     = position_advice(ps, atr_pct, w52["week52_pct"], capital)
+                rows.append({
+                    "名稱":      name,
+                    "代碼":      WATCHLIST[name],
+                    "現價":      round(price, 2),
+                    "漲跌%":     round(chg, 2),
+                    "RSI":       round(rsi, 1),
+                    "年度位置%": round(w52["week52_pct"], 0),
+                    "波動%/日":  round(atr_pct, 1),
+                    "預警分數":  ps,
+                    "建議倉位":  pos["label"],
+                    "建議金額":  f"${pos['amount']:,}",
+                    "預警訊號":  " ／ ".join([s["msg"] for s in pre]),
+                })
+
+            if not rows:
+                st.info("目前無預警股票，市場訊號不明顯")
+            else:
+                result = pd.DataFrame(rows).sort_values("預警分數", ascending=False)
+                st.success(f"找到 {len(result)} 檔預警股票")
+
+                def radar_color(row):
+                    ps = row["預警分數"]
+                    if ps >= 3:
+                        return ["background-color:#1a6b3a; color:#ffffff"] * len(row)
+                    elif ps == 2:
+                        return ["background-color:#7a5a00; color:#ffffff"] * len(row)
+                    return [""] * len(row)
+
+                st.dataframe(result.style.apply(radar_color, axis=1),
+                             use_container_width=True, hide_index=True)
+
+                st.markdown("---")
+                st.subheader("倉位建議說明")
+                col1, col2, col3 = st.columns(3)
+                col1.markdown("🟢 **試水位**\n預警分數 1，先小量卡位觀察")
+                col2.markdown("🟡 **標準倉**\n預警分數 2，正常布局")
+                col3.markdown("🔴 **重倉**\n預警分數 3+，多指標同步醞釀，可積極卡位")
+                st.caption(
+                    "建議金額 = 可用資金 × 倉位比例 × 波動折扣 × 位置折扣。"
+                    "高波動或年度位置偏高的股票，金額會自動縮小。"
+                    "以上為技術面分析，不構成投資建議，請自行判斷風險。"
+                )
