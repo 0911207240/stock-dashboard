@@ -75,7 +75,125 @@ def prep_plot(df: pd.DataFrame) -> pd.DataFrame:
     return df_plot
 
 # ── Tabs ──────────────────────────────────────────
-tab1, tab2, tab3 = st.tabs(["💼 持股總覽", "🔍 市場掃描", "📊 個股分析"])
+tab0, tab1, tab2, tab3 = st.tabs(["🌐 大盤展望", "💼 持股總覽", "🔍 市場掃描", "📊 個股分析"])
+
+# ══════════════════════════════════════════════════
+# Tab 0：大盤展望
+# ══════════════════════════════════════════════════
+with tab0:
+    st.header("🌐 大盤展望")
+
+    with st.spinner("載入大盤資料..."):
+        taiex = load_taiex(period)
+
+    if taiex.empty:
+        st.error("無法取得大盤資料")
+    else:
+        taiex = add_indicators(taiex)
+        taiex_latest = taiex.iloc[-1]
+        taiex_prev   = taiex.iloc[-2]
+        taiex_price  = float(taiex_latest["Close"])
+        taiex_prev_p = float(taiex_prev["Close"])
+        taiex_chg    = (taiex_price - taiex_prev_p) / taiex_prev_p * 100
+        taiex_rsi    = float(taiex_latest["RSI"]) if pd.notna(taiex_latest["RSI"]) else 50.0
+        taiex_k      = float(taiex_latest["K"])   if pd.notna(taiex_latest["K"])   else 50.0
+        taiex_d      = float(taiex_latest["D"])   if pd.notna(taiex_latest["D"])   else 50.0
+        taiex_macd   = float(taiex_latest["MACD_diff"]) if pd.notna(taiex_latest["MACD_diff"]) else 0.0
+        taiex_w52    = calc_week52(taiex)
+        taiex_sr     = calc_support_resistance(taiex)
+        taiex_sigs   = detect_signals(taiex)
+        taiex_score  = score(taiex_sigs)
+
+        # 均線多空
+        ma_bull = (taiex_latest["MA5"] > taiex_latest["MA20"] > taiex_latest["MA60"])
+
+        # 大盤綜合評分（-10 ~ +10）
+        mkt_score = 0
+        mkt_score += taiex_score                              # 技術訊號
+        mkt_score += 1 if ma_bull else -1                     # 均線排列
+        mkt_score += 1 if taiex_rsi < 60 else (-1 if taiex_rsi > 72 else 0)
+        mkt_score += 1 if taiex_k < 70 else (-1 if taiex_k > 80 else 0)
+        mkt_score += 1 if taiex_macd > 0 else -1
+        mkt_score += -1 if taiex_w52["week52_pct"] > 88 else (1 if taiex_w52["week52_pct"] < 30 else 0)
+
+        # 市場建議
+        if mkt_score >= 3:
+            mkt_outlook = "🟢 積極做多"
+            mkt_desc    = "技術面多項指標同步看多，可積極布局強勢股"
+        elif mkt_score >= 1:
+            mkt_outlook = "🟡 謹慎偏多"
+            mkt_desc    = "大盤偏多但高檔，選股操作、分批布局為主"
+        elif mkt_score >= -1:
+            mkt_outlook = "🟡 觀望"
+            mkt_desc    = "多空訊號混雜，減少操作、持股待變"
+        elif mkt_score >= -3:
+            mkt_outlook = "🟠 謹慎偏空"
+            mkt_desc    = "技術轉弱，降低持股比例、避免追高"
+        else:
+            mkt_outlook = "🔴 防禦模式"
+            mkt_desc    = "多項指標轉空，建議減碼、保留現金"
+
+        # 頂部展望卡
+        st.markdown(f"## {mkt_outlook}")
+        st.info(mkt_desc)
+
+        # 大盤指標列
+        c1, c2, c3, c4, c5, c6 = st.columns(6)
+        c1.metric("加權指數",  f"{taiex_price:,.0f}", f"{taiex_chg:+.2f}%")
+        c2.metric("RSI",      f"{taiex_rsi:.1f}")
+        c3.metric("K值",      f"{taiex_k:.1f}")
+        c4.metric("MACD方向", "↑ 多頭" if taiex_macd > 0 else "↓ 空頭")
+        c5.metric("年度位置", f"{taiex_w52['week52_pct']:.0f}%")
+        c6.metric("均線排列", "多頭 ✅" if ma_bull else "空頭 ❌")
+
+        st.markdown(
+            f"📌 近20日 支撐 `{taiex_sr['support_20']:,.0f}` ／ 壓力 `{taiex_sr['resistance_20']:,.0f}`　"
+            f"｜　近60日 支撐 `{taiex_sr['support_60']:,.0f}` ／ 壓力 `{taiex_sr['resistance_60']:,.0f}`"
+        )
+
+        st.markdown("---")
+
+        # 四面向評分卡
+        st.subheader("市場訊號明細")
+        col_l, col_r = st.columns(2)
+        with col_l:
+            st.markdown("**技術面**")
+            for s in taiex_sigs:
+                color = "green" if s["type"] == "buy" else ("red" if s["type"] == "sell" else "orange")
+                label = "看多" if s["type"] == "buy" else ("看空" if s["type"] == "sell" else "觀察")
+                st.markdown(f":{color}[**[{label}] {s['indicator']}**] — {s['msg']}")
+            if not taiex_sigs:
+                st.markdown("無明確訊號")
+            st.markdown(f"均線排列：{'✅ 多頭' if ma_bull else '❌ 空頭'}")
+
+        with col_r:
+            st.markdown("**總經參考（最新）**")
+            st.markdown("📦 外銷訂單年增 **+48%**（4月，連15紅）")
+            st.markdown("🤖 AI伺服器出口爆發，資通訊年增 **+134%**")
+            st.markdown("💡 半導體產值目標 **7兆元**")
+            st.markdown("⚠️ 大盤高檔，注意獲利了結賣壓")
+            st.caption("總經數據每月更新，以官方公布為準")
+
+        st.markdown("---")
+
+        # 大盤走勢圖
+        st.subheader("加權指數走勢")
+        df_taiex_plot = prep_plot(taiex)
+        base_t = alt.Chart(df_taiex_plot).encode(x=alt.X("Date:T", title="日期"))
+        t_price = base_t.mark_line(color="#1f77b4", strokeWidth=2).encode(y=alt.Y("Close:Q", title="指數"))
+        t_ma20  = base_t.mark_line(color="orange", strokeDash=[4,2], strokeWidth=1).encode(y="MA20:Q")
+        t_ma60  = base_t.mark_line(color="red",    strokeDash=[4,2], strokeWidth=1).encode(y="MA60:Q")
+        t_sup   = alt.Chart(pd.DataFrame({"y": [taiex_sr["support_20"]]})).mark_rule(color="green", strokeDash=[6,3], strokeWidth=1.5).encode(y="y:Q")
+        t_res   = alt.Chart(pd.DataFrame({"y": [taiex_sr["resistance_20"]]})).mark_rule(color="red", strokeDash=[6,3], strokeWidth=1.5).encode(y="y:Q")
+        st.altair_chart(alt.layer(t_price, t_ma20, t_ma60, t_sup, t_res).properties(height=350), use_container_width=True)
+        st.caption("🔵 指數　🟠 MA20　🔴 MA60　🟢 近20日支撐　🔴 近20日壓力")
+
+        # 大盤 RSI
+        st.subheader("大盤 RSI")
+        t_rsi   = base_t.mark_line(color="purple").encode(y=alt.Y("RSI:Q", scale=alt.Scale(domain=[0,100]))).properties(height=130)
+        t_r30   = alt.Chart(pd.DataFrame({"y": [30]})).mark_rule(color="green", strokeDash=[4,2]).encode(y="y:Q")
+        t_r70   = alt.Chart(pd.DataFrame({"y": [70]})).mark_rule(color="red",   strokeDash=[4,2]).encode(y="y:Q")
+        st.altair_chart(alt.layer(t_rsi, t_r30, t_r70), use_container_width=True)
 
 # ══════════════════════════════════════════════════
 # Tab 1：持股總覽
