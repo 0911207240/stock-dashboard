@@ -64,6 +64,26 @@ def build_summary_message(found: list[dict], date_str: str) -> str:
     return "\n".join(lines)
 
 
+def build_daytrade_message(candidates: list[dict], date_str: str) -> str:
+    """建立隔日當沖 Top N 推播訊息（甜蜜點區間＋兩段停利＋停損）"""
+    lines = [f"【{date_str} 明日當沖候選 Top{len(candidates)}】",
+             "量能＋籌碼＋技術＋波動度評分", ""]
+    for i, c in enumerate(candidates, 1):
+        arrow = "▲" if c["change_pct"] >= 0 else "▼"
+        lines.append(f"{i}. {c['name']}（昨收 ${c['price']:.1f}）分數 {c['score']}")
+        lines.append(f"   {arrow}{abs(c['change_pct']):.1f}%  量比{c['vol_ratio']:.1f}x  ATR {c.get('atr_pct', 0):.1f}%")
+        lines.append(f"   📍甜蜜點 ${c.get('entry_low', '-')}～${c.get('entry_high', '-')}（參考 ${c.get('entry_mid', '-')}）")
+        lines.append(f"   🛑停損 ${c.get('stop', '-')}（風險 -{c.get('risk_pct', 0):.1f}%）")
+        lines.append(f"   🎯停利① ${c.get('tp1', '-')}（+{c.get('upside_pct1', 0):.1f}% RR={c.get('rr1', '-')}）出半倉")
+        lines.append(f"   🎯停利② ${c.get('tp2', '-')}（+{c.get('upside_pct2', 0):.1f}% RR={c.get('rr2', '-')}）全出")
+        top_sigs = c.get("signals", [])[:2]
+        if top_sigs:
+            lines.append(f"   → {' / '.join(top_sigs)}")
+        lines.append("")
+    lines.append("⚠️ 僅供參考，操作自負風險")
+    return "\n".join(lines)
+
+
 def build_signal_message(
     name: str,
     ticker: str,
