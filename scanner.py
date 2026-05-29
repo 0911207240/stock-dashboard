@@ -8,6 +8,7 @@ from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
 from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate
+from backtest import auto_update_weights
 
 
 def run_scan(min_score: int = 2, notify: bool = True):
@@ -90,18 +91,34 @@ def run_scan(min_score: int = 2, notify: bool = True):
     else:
         print("  無新的當沖候選（全在冷卻期或無符合條件）")
 
-    # 每週一推播勝率統計
+    # 每週一：推播勝率統計 + 執行回測更新評分權重
     if notify and datetime.now().weekday() == 0:
         stats = daytrade_win_rate()
-        if stats["total"] >= 5:
-            sign = "+" if stats["avg_return"] >= 0 else ""
-            stats_msg = (
-                f"📊 當沖推播週報\n"
-                f"累計 {stats['total']} 筆已結案\n"
-                f"停利② {stats['tp2']} 筆　停利① {stats['tp1']} 筆　停損 {stats['stop']} 筆\n"
-                f"勝率 {stats['win_rate']}%　平均報酬 {sign}{stats['avg_return']}%"
-            )
-            send(stats_msg)
+        sign  = "+" if stats.get("avg_return", 0) >= 0 else ""
+        stats_lines = [
+            f"📊 當沖推播週報",
+            f"累計 {stats['total']} 筆已結案",
+            f"停利② {stats['tp2']} 筆　停利① {stats['tp1']} 筆　停損 {stats['stop']} 筆",
+            f"勝率 {stats['win_rate']}%　平均報酬 {sign}{stats.get('avg_return', 0)}%",
+        ]
+
+        wt = auto_update_weights(dict(all_data), WATCHLIST)
+        if wt["updated"]:
+            nw = wt["new_weights"]
+            ow = wt["old_weights"]
+            changed = [f"{k} {ow[k]}→{nw[k]}" for k in nw if nw[k] != ow[k]]
+            stats_lines.append("")
+            stats_lines.append(f"🔧 評分權重已更新（{wt['stocks_tested']} 檔 / {wt['total_trades']} 筆回測）")
+            if changed:
+                stats_lines.append("  " + "　".join(changed))
+            else:
+                stats_lines.append("  權重無變動")
+            print(f"  評分權重更新：{wt['new_weights']}")
+        else:
+            stats_lines.append(f"  權重未更新：{wt.get('reason', '')}")
+
+        if stats["total"] >= 5 or wt["updated"]:
+            send("\n".join(stats_lines))
             print(f"  週報已推播（勝率 {stats['win_rate']}%）")
 
     return found
