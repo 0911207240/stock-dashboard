@@ -7,7 +7,7 @@ from line_notifier import send, build_signal_message, build_summary_message, bui
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
-from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate
+from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance
 from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
 from market_regime import detect_regime
@@ -100,15 +100,33 @@ def run_scan(min_score: int = 2, notify: bool = True):
     else:
         print(f"  無當沖候選（{regime['state']}，門檻{base_min_score}，或全在冷卻期）")
 
-    # 每週一：推播勝率統計 + 執行回測更新評分權重
+    # 每週一：績效對帳 + 勝率統計 + 回測更新評分權重
     if notify and datetime.now().weekday() == 0:
         stats = daytrade_win_rate()
-        sign  = "+" if stats.get("avg_return", 0) >= 0 else ""
-        stats_lines = [
-            f"📊 當沖推播週報",
-            f"累計 {stats['total']} 筆已結案",
+        perf  = calc_weekly_performance(taiex_df=taiex_df, weeks=1)
+
+        def _sign(v): return "+" if v >= 0 else ""
+
+        stats_lines = ["📊 當沖推播週報"]
+
+        # 績效對帳區塊
+        if perf["trades"] > 0:
+            exc = perf["excess_return"]
+            exc_tag = f"超額 {_sign(exc)}{exc}%" if exc != 0 else "與大盤持平"
+            stats_lines += [
+                f"",
+                f"【近7日績效】{perf['trades']} 筆已結案",
+                f"勝率 {perf['win_rate']}%　每筆均報酬 {_sign(perf['avg_return'])}{perf['avg_return']}%",
+                f"大盤同期 {_sign(perf['taiex_return'])}{perf['taiex_return']}%　{exc_tag}",
+            ]
+
+        # 累計統計
+        cum_sign = "+" if stats.get("avg_return", 0) >= 0 else ""
+        stats_lines += [
+            f"",
+            f"【累計】{stats['total']} 筆已結案",
             f"停利② {stats['tp2']} 筆　停利① {stats['tp1']} 筆　停損 {stats['stop']} 筆",
-            f"勝率 {stats['win_rate']}%　平均報酬 {sign}{stats.get('avg_return', 0)}%",
+            f"勝率 {stats['win_rate']}%　平均報酬 {cum_sign}{stats.get('avg_return', 0)}%",
         ]
 
         wt = auto_update_weights(dict(all_data), WATCHLIST)
