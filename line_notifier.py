@@ -64,10 +64,12 @@ def build_summary_message(found: list[dict], date_str: str) -> str:
     return "\n".join(lines)
 
 
-def build_daytrade_message(candidates: list[dict], date_str: str) -> str:
+def build_daytrade_message(candidates: list[dict], date_str: str, regime: dict = None) -> str:
     """建立隔日當沖 Top N 推播訊息（甜蜜點區間＋兩段停利＋停損）"""
-    lines = [f"【{date_str} 明日當沖候選 Top{len(candidates)}】",
-             "量能＋籌碼＋技術＋波動度評分", ""]
+    header = f"【{date_str} 明日當沖候選 Top{len(candidates)}】"
+    if regime:
+        header += f"\n{regime['emoji']} 大盤{regime['state']}｜門檻 {40 + regime['min_score_adj']}分"
+    lines = [header, "量能＋籌碼＋技術＋波動度評分", ""]
     for i, c in enumerate(candidates, 1):
         arrow = "▲" if c["change_pct"] >= 0 else "▼"
         lines.append(f"{i}. {c['name']}（昨收 ${c['price']:.1f}）分數 {c['score']}")

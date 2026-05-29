@@ -10,15 +10,23 @@ from push_cooldown import is_cooled_down, mark_pushed
 from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate
 from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
+from market_regime import detect_regime
 
 
 def run_scan(min_score: int = 2, notify: bool = True):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 開始掃描...")
     all_data = fetch_all(period="1y")
 
-    # 0. 預載基本面快取（7天TTL，過期才重抓）+ 回查昨日當沖結果
+    # 0. 預載基本面快取 + 回查昨日當沖結果 + 偵測大盤狀態
     prefetch_all(WATCHLIST)
     update_daytrade_results(dict(all_data))
+
+    from data_fetcher import fetch_taiex
+    taiex_df = fetch_taiex(period="3mo")
+    taiex_df = add_indicators(taiex_df) if not taiex_df.empty else taiex_df
+    regime   = detect_regime(taiex_df)
+    base_min_score = 40 + regime["min_score_adj"]
+    print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
 
     # 1. 持股日報（優先推播）
     if notify:
@@ -70,13 +78,12 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
     print(f"掃描完成，共 {len(found)} 檔有訊號")
 
-    # 3. 隔日當沖候選 Top5（含冷卻過濾）
+    # 3. 隔日當沖候選（依大盤狀態動態門檻，含冷卻過濾）
     dt_candidates = get_daytrade_candidates(dict(all_data), WATCHLIST, top_n=10)
-    # Fix 7：過濾冷卻期內的股票
-    fresh_candidates = []
-    for c in dt_candidates:
-        if not is_cooled_down(c["name"], c["score"]):
-            fresh_candidates.append(c)
+    fresh_candidates = [
+        c for c in dt_candidates
+        if not is_cooled_down(c["name"], c["score"]) and c["score"] >= base_min_score
+    ]
     push_list = fresh_candidates[:5]
 
     if push_list:
@@ -85,13 +92,13 @@ def run_scan(min_score: int = 2, notify: bool = True):
         save_daytrade_signal(push_list)
         if notify:
             date_str = datetime.now().strftime("%m/%d")
-            dt_msg = build_daytrade_message(push_list, date_str)
+            dt_msg = build_daytrade_message(push_list, date_str, regime)
             success = send(dt_msg)
-            print(f"  當沖候選（冷卻後）Top{len(push_list)}：{'已推播' if success else '推播失敗'}")
+            print(f"  當沖候選 Top{len(push_list)}（{regime['state']}，門檻{base_min_score}）：{'已推播' if success else '推播失敗'}")
         else:
-            print(f"  當沖候選（冷卻後）：{', '.join(c['name'] for c in push_list)}")
+            print(f"  當沖候選：{', '.join(c['name'] for c in push_list)}")
     else:
-        print("  無新的當沖候選（全在冷卻期或無符合條件）")
+        print(f"  無當沖候選（{regime['state']}，門檻{base_min_score}，或全在冷卻期）")
 
     # 每週一：推播勝率統計 + 執行回測更新評分權重
     if notify and datetime.now().weekday() == 0:
