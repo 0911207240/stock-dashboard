@@ -9,13 +9,15 @@ from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
 from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate
 from backtest import auto_update_weights
+from fundamental_filter import prefetch_all
 
 
 def run_scan(min_score: int = 2, notify: bool = True):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 開始掃描...")
     all_data = fetch_all(period="1y")
 
-    # 0. 回查昨日當沖推播結果
+    # 0. 預載基本面快取（7天TTL，過期才重抓）+ 回查昨日當沖結果
+    prefetch_all(WATCHLIST)
     update_daytrade_results(dict(all_data))
 
     # 1. 持股日報（優先推播）

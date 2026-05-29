@@ -261,13 +261,16 @@ def get_daytrade_candidates(
     margin_cache: dict = None,
     top_n: int = 10,
 ) -> list[dict]:
-    """從 all_data 篩出隔日當沖候選清單（僅台股）"""
+    """從 all_data 篩出隔日當沖候選清單（僅台股，排除基本面偏弱）"""
     from analyzer import add_indicators
+    from fundamental_filter import is_fundamentally_weak
 
     candidates = []
     for name, df in all_data.items():
         ticker = watchlist.get(name, "")
         if not is_tw_stock(ticker) or df is None or df.empty:
+            continue
+        if is_fundamentally_weak(ticker):
             continue
 
         df     = add_indicators(df)
