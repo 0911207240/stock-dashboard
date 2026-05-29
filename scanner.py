@@ -13,6 +13,25 @@ from fundamental_filter import prefetch_all
 from market_regime import detect_regime
 
 
+def _check_concentration(candidates: list[dict]) -> str:
+    """
+    偵測當沖候選是否集中在同一族群（依 SECTORS 反查）
+    超過 2 檔屬同族群 → 回傳警示文字，否則回傳空字串
+    """
+    from data_fetcher import SECTORS
+    name_set = {c["name"] for c in candidates}
+    warnings = []
+    for sector, members in SECTORS.items():
+        if sector in ("全部", "我的持股", "台灣電子績優", "低價波段($50以下)"):
+            continue
+        overlap = name_set & set(members)
+        if len(overlap) >= 3:
+            warnings.append(f"{sector}（{len(overlap)} 檔：{'、'.join(overlap)}）")
+    if warnings:
+        return "⚠️ 集中警示：" + "；".join(warnings)
+    return ""
+
+
 def run_scan(min_score: int = 2, notify: bool = True):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 開始掃描...")
     all_data = fetch_all(period="1y")
@@ -90,9 +109,13 @@ def run_scan(min_score: int = 2, notify: bool = True):
         for c in push_list:
             mark_pushed(c["name"], c["score"])
         save_daytrade_signal(push_list)
+
+        # 部位集中警示：同族群超過2檔 → 附加提示
+        concentration_warning = _check_concentration(push_list)
+
         if notify:
             date_str = datetime.now().strftime("%m/%d")
-            dt_msg = build_daytrade_message(push_list, date_str, regime)
+            dt_msg = build_daytrade_message(push_list, date_str, regime, concentration_warning)
             success = send(dt_msg)
             print(f"  當沖候選 Top{len(push_list)}（{regime['state']}，門檻{base_min_score}）：{'已推播' if success else '推播失敗'}")
         else:

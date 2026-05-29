@@ -64,7 +64,12 @@ def build_summary_message(found: list[dict], date_str: str) -> str:
     return "\n".join(lines)
 
 
-def build_daytrade_message(candidates: list[dict], date_str: str, regime: dict = None) -> str:
+def build_daytrade_message(
+    candidates: list[dict],
+    date_str: str,
+    regime: dict = None,
+    concentration_warning: str = "",
+) -> str:
     """建立隔日當沖 Top N 推播訊息（甜蜜點區間＋兩段停利＋停損）"""
     header = f"【{date_str} 明日當沖候選 Top{len(candidates)}】"
     if regime:
@@ -82,6 +87,8 @@ def build_daytrade_message(candidates: list[dict], date_str: str, regime: dict =
         if top_sigs:
             lines.append(f"   → {' / '.join(top_sigs)}")
         lines.append("")
+    if concentration_warning:
+        lines.append(concentration_warning)
     lines.append("⚠️ 僅供參考，操作自負風險")
     return "\n".join(lines)
 
