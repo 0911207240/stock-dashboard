@@ -3,8 +3,10 @@ import math
 from datetime import datetime
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
-from line_notifier import send, build_signal_message, build_summary_message
+from line_notifier import send, build_signal_message, build_summary_message, build_daytrade_message
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
+from daytrade_scorer import get_daytrade_candidates
+from push_cooldown import is_cooled_down, mark_pushed
 
 
 def run_scan(min_score: int = 2, notify: bool = True):
@@ -49,20 +51,40 @@ def run_scan(min_score: int = 2, notify: bool = True):
             })
             print(f"  -> {name} ({ticker}) 分數={sc}: {[s['msg'] for s in sigs]}")
 
-    if not found:
-        print("  無符合條件的股票")
-        if notify:
-            send(f"[{datetime.now().strftime('%m/%d')} 掃描完成] 無額外技術訊號")
-        return
-
     if notify:
         date_str = datetime.now().strftime("%m/%d")
-        sorted_found = sorted(found, key=lambda x: (x["is_holding"], abs(x["score"])), reverse=True)
-        summary_msg = build_summary_message(sorted_found, date_str)
-        success = send(summary_msg)
-        print(f"  彙整報告: {'已推播' if success else '推播失敗'}")
+        if found:
+            sorted_found = sorted(found, key=lambda x: (x["is_holding"], abs(x["score"])), reverse=True)
+            summary_msg = build_summary_message(sorted_found, date_str)
+            success = send(summary_msg)
+            print(f"  彙整報告: {'已推播' if success else '推播失敗'}")
+        else:
+            print("  無符合條件的技術訊號，繼續掃描當沖候選...")
 
     print(f"掃描完成，共 {len(found)} 檔有訊號")
+
+    # 3. 隔日當沖候選 Top5（含冷卻過濾）
+    dt_candidates = get_daytrade_candidates(dict(all_data), WATCHLIST, top_n=10)
+    # Fix 7：過濾冷卻期內的股票
+    fresh_candidates = []
+    for c in dt_candidates:
+        if not is_cooled_down(c["name"], c["score"]):
+            fresh_candidates.append(c)
+    push_list = fresh_candidates[:5]
+
+    if push_list:
+        for c in push_list:
+            mark_pushed(c["name"], c["score"])
+        if notify:
+            date_str = datetime.now().strftime("%m/%d")
+            dt_msg = build_daytrade_message(push_list, date_str)
+            success = send(dt_msg)
+            print(f"  當沖候選（冷卻後）Top{len(push_list)}：{'已推播' if success else '推播失敗'}")
+        else:
+            print(f"  當沖候選（冷卻後）：{', '.join(c['name'] for c in push_list)}")
+    else:
+        print("  無新的當沖候選（全在冷卻期或無符合條件）")
+
     return found
 
 
