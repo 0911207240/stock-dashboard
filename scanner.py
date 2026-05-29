@@ -7,11 +7,15 @@ from line_notifier import send, build_signal_message, build_summary_message, bui
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
+from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate
 
 
 def run_scan(min_score: int = 2, notify: bool = True):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 開始掃描...")
     all_data = fetch_all(period="1y")
+
+    # 0. 回查昨日當沖推播結果
+    update_daytrade_results(dict(all_data))
 
     # 1. 持股日報（優先推播）
     if notify:
@@ -75,6 +79,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
     if push_list:
         for c in push_list:
             mark_pushed(c["name"], c["score"])
+        save_daytrade_signal(push_list)
         if notify:
             date_str = datetime.now().strftime("%m/%d")
             dt_msg = build_daytrade_message(push_list, date_str)
@@ -84,6 +89,20 @@ def run_scan(min_score: int = 2, notify: bool = True):
             print(f"  當沖候選（冷卻後）：{', '.join(c['name'] for c in push_list)}")
     else:
         print("  無新的當沖候選（全在冷卻期或無符合條件）")
+
+    # 每週一推播勝率統計
+    if notify and datetime.now().weekday() == 0:
+        stats = daytrade_win_rate()
+        if stats["total"] >= 5:
+            sign = "+" if stats["avg_return"] >= 0 else ""
+            stats_msg = (
+                f"📊 當沖推播週報\n"
+                f"累計 {stats['total']} 筆已結案\n"
+                f"停利② {stats['tp2']} 筆　停利① {stats['tp1']} 筆　停損 {stats['stop']} 筆\n"
+                f"勝率 {stats['win_rate']}%　平均報酬 {sign}{stats['avg_return']}%"
+            )
+            send(stats_msg)
+            print(f"  週報已推播（勝率 {stats['win_rate']}%）")
 
     return found
 
