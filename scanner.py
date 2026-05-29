@@ -3,7 +3,7 @@ import math
 from datetime import datetime
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
-from line_notifier import send, build_signal_message
+from line_notifier import send, build_signal_message, build_summary_message
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 
 
@@ -56,15 +56,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
         return
 
     if notify:
-        # 持股訊號優先，再排其他
-        for item in sorted(found, key=lambda x: (x["is_holding"], x["score"]), reverse=True):
-            msg = build_signal_message(
-                item["name"], item["ticker"], item["signals"], item["price"],
-                item["change_pct"], item["vol_ratio"], item["week52_pct"], item["atr_pct"],
-            )
-            success = send(msg)
-            status = "已推播" if success else "推播失敗"
-            print(f"  {item['name']}: {status}")
+        date_str = datetime.now().strftime("%m/%d")
+        sorted_found = sorted(found, key=lambda x: (x["is_holding"], abs(x["score"])), reverse=True)
+        summary_msg = build_summary_message(sorted_found, date_str)
+        success = send(summary_msg)
+        print(f"  彙整報告: {'已推播' if success else '推播失敗'}")
 
     print(f"掃描完成，共 {len(found)} 檔有訊號")
     return found

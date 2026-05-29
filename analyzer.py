@@ -70,9 +70,11 @@ def detect_signals(df: pd.DataFrame) -> list[dict]:
     if prev["K"] > prev["D"] and latest["K"] <= latest["D"] and latest["K"] > 50:
         signals.append({"type": "sell", "indicator": "KD", "msg": f"KD 死亡交叉 (K={latest['K']:.1f})"})
 
-    # 均線多頭排列
-    if latest["MA5"] > latest["MA20"] > latest["MA60"]:
-        signals.append({"type": "buy", "indicator": "MA", "msg": "均線多頭排列 (MA5>MA20>MA60)"})
+    # 均線多頭排列（今日剛形成，昨日尚未滿足）
+    bull_now  = latest["MA5"] > latest["MA20"] > latest["MA60"]
+    bull_prev = prev["MA5"]   > prev["MA20"]   > prev["MA60"]
+    if bull_now and not bull_prev:
+        signals.append({"type": "buy", "indicator": "MA", "msg": "均線剛形成多頭排列 (MA5>MA20>MA60)"})
 
     # 爆量
     if latest["Vol_ratio"] > 2:

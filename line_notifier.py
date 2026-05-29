@@ -32,6 +32,38 @@ def send(message: str) -> bool:
         return False
 
 
+def build_summary_message(found: list[dict], date_str: str) -> str:
+    """將多檔訊號合成一則彙整報告"""
+    buys  = [x for x in found if x["score"] > 0]
+    sells = [x for x in found if x["score"] < 0]
+    lines = [f"【{date_str} 技術訊號彙整】共 {len(found)} 檔"]
+
+    if buys:
+        lines.append(f"\n📈 買進訊號（{len(buys)} 檔）")
+        for x in sorted(buys, key=lambda v: v["score"], reverse=True):
+            arrow = "▲" if x["change_pct"] >= 0 else "▼"
+            tag = "★持股 " if x.get("is_holding") else ""
+            sig_msgs = "、".join(s["msg"] for s in x["signals"] if s["type"] == "buy")
+            lines.append(f"  {tag}{x['name']} ${x['price']:.2f} {arrow}{abs(x['change_pct']):.1f}%")
+            lines.append(f"    {sig_msgs}")
+
+    if sells:
+        lines.append(f"\n📉 賣出訊號（{len(sells)} 檔）")
+        for x in sorted(sells, key=lambda v: v["score"]):
+            arrow = "▲" if x["change_pct"] >= 0 else "▼"
+            tag = "★持股 " if x.get("is_holding") else ""
+            sig_msgs = "、".join(s["msg"] for s in x["signals"] if s["type"] == "sell")
+            lines.append(f"  {tag}{x['name']} ${x['price']:.2f} {arrow}{abs(x['change_pct']):.1f}%")
+            lines.append(f"    {sig_msgs}")
+
+    watch = [x for x in found if x["score"] == 0]
+    if watch:
+        names = "、".join(x["name"] for x in watch)
+        lines.append(f"\n👀 觀察中：{names}")
+
+    return "\n".join(lines)
+
+
 def build_signal_message(
     name: str,
     ticker: str,

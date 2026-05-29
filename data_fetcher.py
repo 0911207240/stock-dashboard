@@ -350,14 +350,20 @@ def fetch_institutional(stock_code: str) -> dict:
     return {}
 
 
-def fetch_all(period: str = "6mo", sector: str = "全部") -> dict[str, pd.DataFrame]:
+def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 10) -> dict[str, pd.DataFrame]:
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     names = SECTORS.get(sector, list(WATCHLIST.keys()))
+    pairs = [(name, WATCHLIST[name]) for name in names if name in WATCHLIST]
+
     result = {}
-    for name in names:
-        ticker = WATCHLIST.get(name)
-        if not ticker:
-            continue
+    def _fetch_one(name, ticker):
         df = fetch(ticker, period=period)
-        if not df.empty:
-            result[name] = df
+        return name, df
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(_fetch_one, name, ticker): name for name, ticker in pairs}
+        for future in as_completed(futures):
+            name, df = future.result()
+            if not df.empty:
+                result[name] = df
     return result
