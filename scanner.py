@@ -53,8 +53,10 @@ def run_scan(min_score: int = 2, notify: bool = True):
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
 
     # 1. 持股日報 + 停損/停利緊急警報（優先推播）
+    total_value = 0.0
     if notify:
         summary = calc_summary(dict(all_data))
+        total_value = summary.get("__total__", {}).get("total_value", 0.0)
         alert_msg = build_alert_message(summary)
         if alert_msg:
             send(alert_msg)
@@ -122,6 +124,13 @@ def run_scan(min_score: int = 2, notify: bool = True):
     if push_list:
         for c in push_list:
             mark_pushed(c["name"], c["score"])
+            # 資金配置：每筆最多虧總資產 1%，計算建議張數
+            if total_value > 0:
+                risk_per_share = c["entry_mid"] - c["stop"]
+                if risk_per_share > 0:
+                    c["suggested_lots"] = max(1, int(total_value * 0.01 / (risk_per_share * 1000)))
+                else:
+                    c["suggested_lots"] = 1
         save_daytrade_signal(push_list)
 
         # 部位集中警示：同族群超過2檔 → 附加提示

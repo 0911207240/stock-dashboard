@@ -83,6 +83,9 @@ def build_daytrade_message(
         lines.append(f"   🛑停損 ${c.get('stop', '-')}（風險 -{c.get('risk_pct', 0):.1f}%）")
         lines.append(f"   🎯停利① ${c.get('tp1', '-')}（+{c.get('upside_pct1', 0):.1f}% RR={c.get('rr1', '-')}）出半倉")
         lines.append(f"   🎯停利② ${c.get('tp2', '-')}（+{c.get('upside_pct2', 0):.1f}% RR={c.get('rr2', '-')}）全出")
+        if c.get("suggested_lots"):
+            risk_amt = round((c["entry_mid"] - c["stop"]) * c["suggested_lots"] * 1000)
+            lines.append(f"   💰建議 {c['suggested_lots']} 張（風控 ${risk_amt:,}，約總資產 1%）")
         top_sigs = c.get("signals", [])[:2]
         if top_sigs:
             lines.append(f"   → {' / '.join(top_sigs)}")
