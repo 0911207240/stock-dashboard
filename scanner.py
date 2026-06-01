@@ -1,6 +1,7 @@
 """每日掃描腳本，可用排程每天自動執行"""
 import math
 from datetime import datetime
+from tw_calendar import is_trading_day
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
 from line_notifier import send, build_signal_message, build_summary_message, build_daytrade_message
@@ -33,6 +34,10 @@ def _check_concentration(candidates: list[dict]) -> str:
 
 
 def run_scan(min_score: int = 2, notify: bool = True):
+    if not is_trading_day():
+        print(f"[{datetime.now().strftime('%Y-%m-%d')}] 今日非台灣交易日，跳過掃描")
+        return []
+
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 開始掃描...")
     all_data = fetch_all(period="1y")
 
