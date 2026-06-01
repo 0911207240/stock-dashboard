@@ -1,0 +1,54 @@
+name: US Stock Scan
+
+on:
+  schedule:
+    # 美股收盤後掃描：21:30 UTC = 台灣時間 05:30（隔日）
+    # 夏令時間：美股 21:00 UTC 收盤；冬令：22:00 UTC 收盤，此時間取中間值
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  us-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install yfinance pandas ta python-dotenv
+
+      - name: Run US scan
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python us_scanner.py
+
+      - name: Notify failure
+        if: failure()
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          curl -s -X POST https://api.line.me/v2/bot/message/push \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $LINE_TOKEN" \
+            -d "{\"to\":\"$LINE_USER_ID\",\"messages\":[{\"type\":\"text\",\"text\":\"⚠️ 美股掃描失敗\nhttps://github.com/0911207240/stock-dashboard/actions\"}]}"
+
+      - name: Save state files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json; do
+            [ -f "$f" ] && git add "$f"
+          done
+          git diff --cached --quiet || git commit -m "chore: update state [skip ci]"
+          git push

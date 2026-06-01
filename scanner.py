@@ -5,7 +5,7 @@ from tw_calendar import is_trading_day
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
 from line_notifier import send, build_signal_message, build_summary_message, build_daytrade_message
-from portfolio import HOLDINGS, calc_summary, build_portfolio_message
+from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
 from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance
@@ -52,12 +52,21 @@ def run_scan(min_score: int = 2, notify: bool = True):
     base_min_score = 40 + regime["min_score_adj"]
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
 
-    # 1. 持股日報（優先推播）
+    # 1. 持股日報 + 停損/停利緊急警報（優先推播）
     if notify:
         summary = calc_summary(dict(all_data))
+        alert_msg = build_alert_message(summary)
+        if alert_msg:
+            send(alert_msg)
+            print("  ⚠️ 停損/停利警報已推播")
         portfolio_msg = build_portfolio_message(summary)
         send(portfolio_msg)
         print("  持股日報已推播")
+
+        div_msg = build_dividend_alert_message(WATCHLIST)
+        if div_msg:
+            send(div_msg)
+            print("  除息提醒已推播")
 
     # 2. 技術訊號掃描
     found = []

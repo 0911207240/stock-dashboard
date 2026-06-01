@@ -1,3 +1,6 @@
+import yfinance as yf
+from datetime import date, timedelta
+
 # 個人持股設定（股數 + 成交均價 + 停損停利）
 HOLDINGS = {
     "台泥":             {"shares": 5250,  "cost": None,    "stop_loss": None, "take_profit": None},
@@ -12,6 +15,35 @@ HOLDINGS = {
     "振發":             {"shares": 2000,  "cost": 38.01,   "stop_loss": 32.0, "take_profit": 50.0},
     "昆盈":             {"shares": 5000,  "cost": 57.66,   "stop_loss": 48.0, "take_profit": 75.0},
 }
+
+
+def build_dividend_alert_message(watchlist: dict, days_ahead: int = 7) -> str | None:
+    """偵測持股中 N 天內即將除息的標的，回傳提醒訊息"""
+    today    = date.today()
+    deadline = today + timedelta(days=days_ahead)
+    alerts   = []
+    for name in HOLDINGS:
+        ticker = watchlist.get(name)
+        if not ticker:
+            continue
+        try:
+            info       = yf.Ticker(ticker).info
+            ex_div_ts  = info.get("exDividendDate")
+            if not ex_div_ts:
+                continue
+            ex_date   = date.fromtimestamp(int(ex_div_ts))
+            if today <= ex_date <= deadline:
+                div_amt   = info.get("dividendRate") or info.get("lastDividendValue") or 0
+                days_left = (ex_date - today).days
+                line = f"• {name}｜除息日 {ex_date.strftime('%m/%d')}（{days_left}天後）"
+                if div_amt:
+                    line += f"｜股利 ${div_amt:.2f}"
+                alerts.append(line)
+        except Exception:
+            continue
+    if not alerts:
+        return None
+    return "📅 【除息提醒】以下持股即將除息，請確認是否繼續持有\n" + "\n".join(alerts)
 
 
 def calc_summary(all_data: dict, holdings: dict = None) -> dict:
@@ -64,6 +96,35 @@ def calc_summary(all_data: dict, holdings: dict = None) -> dict:
     return result
 
 
+def build_alert_message(summary: dict) -> str | None:
+    """停損/停利觸發時回傳獨立緊急訊息，無觸發則回傳 None"""
+    stop_lines = []
+    take_lines = []
+    for name, d in summary.items():
+        if name == "__total__":
+            continue
+        if d.get("stop_alert"):
+            pnl_str = f"  損益：▼${abs(d['pnl']):,.0f}（{d['pnl_pct']:.1f}%）" if d.get("pnl") is not None else ""
+            stop_lines.append(
+                f"• {name}｜現價 ${d['price']:.2f} / 停損 ${d['stop_loss']:.2f}"
+                + (f"\n{pnl_str}" if pnl_str else "")
+            )
+        if d.get("take_alert"):
+            pnl_str = f"  損益：▲${abs(d['pnl']):,.0f}（+{d['pnl_pct']:.1f}%）" if d.get("pnl") is not None else ""
+            take_lines.append(
+                f"• {name}｜現價 ${d['price']:.2f} / 停利 ${d['take_profit']:.2f}"
+                + (f"\n{pnl_str}" if pnl_str else "")
+            )
+    if not stop_lines and not take_lines:
+        return None
+    parts = []
+    if stop_lines:
+        parts.append("🔴 【停損警報】請立即評估是否出場\n" + "\n".join(stop_lines))
+    if take_lines:
+        parts.append("🎯 【停利提醒】建議考慮分批出場\n" + "\n".join(take_lines))
+    return "\n\n".join(parts)
+
+
 def build_portfolio_message(summary: dict) -> str:
     total = summary.pop("__total__", {})
     total_value      = total.get("total_value", 0)
@@ -82,8 +143,9 @@ def build_portfolio_message(summary: dict) -> str:
     lines.append("─────────────")
 
     for name, d in summary.items():
+        weight = f"{d['value'] / total_value * 100:.1f}%" if total_value > 0 else "-"
         arrow = "▲" if d["change_pct"] >= 0 else "▼"
-        line  = f"{name} {d['shares']:,}股｜${d['price']:.2f} {arrow}{abs(d['change_pct']):.1f}%"
+        line  = f"{name} {d['shares']:,}股｜${d['price']:.2f} {arrow}{abs(d['change_pct']):.1f}%｜佔比 {weight}"
         if d["pnl"] is not None:
             pa = "▲" if d["pnl"] >= 0 else "▼"
             line += f"\n  成本${d['cost']:.2f}｜損益{pa}${abs(d['pnl']):,.0f}({pa}{abs(d['pnl_pct']):.1f}%)"
