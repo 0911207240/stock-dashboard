@@ -31,6 +31,17 @@ jobs:
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python scanner.py
 
+      - name: Notify failure
+        if: failure()
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          curl -s -X POST https://api.line.me/v2/bot/message/push \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $LINE_TOKEN" \
+            -d "{\"to\":\"$LINE_USER_ID\",\"messages\":[{\"type\":\"text\",\"text\":\"⚠️ 今日股票掃描失敗\n請至 GitHub Actions 查看錯誤：\nhttps://github.com/0911207240/stock-dashboard/actions\"}]}"
+
       - name: Save state files
         run: |
           git config user.name "github-actions[bot]"
