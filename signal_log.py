@@ -233,6 +233,62 @@ def calc_weekly_performance(taiex_df=None, weeks: int = 1) -> dict:
     }
 
 
+def calc_monthly_performance(taiex_df=None) -> dict:
+    """
+    計算本自然月（1日至今）的當沖推播報酬 vs 大盤
+    回傳格式與 calc_weekly_performance 相同，另加 month_str（如 "6月"）
+    """
+    now    = datetime.now()
+    cutoff = now.replace(day=1).strftime("%Y-%m-%d")
+    log    = _load_dt_log()
+
+    recent = [
+        e for e in log
+        if e.get("push_date", "") >= cutoff and e.get("result") and e["result"] != "未觸發"
+    ]
+
+    month_str = f"{now.month}月"
+    base = {"month_str": month_str, "trades": 0, "avg_return": 0.0,
+            "total_return": 0.0, "taiex_return": 0.0, "excess_return": 0.0,
+            "win_rate": 0.0, "tp1": 0, "tp2": 0, "stop": 0}
+
+    if not recent:
+        return base
+
+    returns  = [e.get("return_pct", 0) for e in recent]
+    avg_ret  = round(sum(returns) / len(returns), 2)
+    total_ret= round(sum(returns), 2)
+    wins     = sum(1 for r in returns if r > 0)
+    tp1_n    = sum(1 for e in recent if e.get("result") == "停利①")
+    tp2_n    = sum(1 for e in recent if e.get("result") == "停利②")
+    stop_n   = sum(1 for e in recent if e.get("result") == "停損")
+
+    taiex_ret = 0.0
+    if taiex_df is not None and not taiex_df.empty:
+        try:
+            subset = taiex_df[taiex_df.index.strftime("%Y-%m-%d") >= cutoff]
+            if len(subset) >= 2:
+                taiex_ret = round(
+                    (float(subset.iloc[-1]["Close"]) - float(subset.iloc[0]["Close"]))
+                    / float(subset.iloc[0]["Close"]) * 100, 2
+                )
+        except Exception:
+            pass
+
+    return {
+        "month_str":    month_str,
+        "trades":       len(recent),
+        "avg_return":   avg_ret,
+        "total_return": total_ret,
+        "taiex_return": taiex_ret,
+        "excess_return":round(avg_ret - taiex_ret, 2),
+        "win_rate":     round(wins / len(recent) * 100, 1),
+        "tp1":          tp1_n,
+        "tp2":          tp2_n,
+        "stop":         stop_n,
+    }
+
+
 def daytrade_win_rate(log: list = None) -> dict:
     """計算當沖推播勝率（排除未觸發）"""
     if log is None:

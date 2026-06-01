@@ -10,7 +10,8 @@ from push_cooldown import get_status as cooldown_status, clear_cooldown
 from analyzer import add_indicators, detect_signals, score, calc_support_resistance, calc_week52, detect_pre_signals, pre_score
 from line_notifier import send, build_signal_message, build_daytrade_message
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
-from signal_log import load_log, save_signal, update_and_load, win_rate
+from signal_log import load_log, save_signal, update_and_load, win_rate, daytrade_win_rate, calc_monthly_performance
+from signal_log import _load_dt_log
 import copy
 
 st.set_page_config(page_title="股票儀表板", layout="wide", page_icon="📈")
@@ -192,8 +193,8 @@ def row_color(row, col="漲跌%"):
     return [""] * len(row)
 
 # ── Tabs ──────────────────────────────────────────
-tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖"
+tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效"
 ])
 
 # ══════════════════════════════════════════════════
@@ -985,3 +986,98 @@ with tab6:
 
     st.markdown("---")
     st.caption("⚠️ 本工具所有訊號僅供學習與參考，不構成任何投資建議。當沖有極高風險，請自行評估承受能力。")
+
+# ══════════════════════════════════════════════════
+# Tab 7：當沖績效
+# ══════════════════════════════════════════════════
+with tab7:
+    st.header("📈 當沖推播歷史績效")
+    st.caption("追蹤每日推播的隔日當沖候選，自動回查停利/停損結果，統計勝率與報酬。")
+
+    dt_log = _load_dt_log()
+
+    if not dt_log:
+        st.info("尚無當沖推播紀錄，執行掃描後會自動累積。")
+    else:
+        # ── 整體統計 ──────────────────────────────
+        stats = daytrade_win_rate(dt_log)
+        decided = [e for e in dt_log if e.get("result") and e["result"] != "未觸發"]
+        pending = [e for e in dt_log if not e.get("result")]
+
+        col_a, col_b, col_c, col_d, col_e = st.columns(5)
+        col_a.metric("已結案", stats["total"])
+        col_b.metric("勝率", f"{stats['win_rate']}%",
+                     delta="良好" if stats["win_rate"] >= 55 else "需改善")
+        col_c.metric("平均報酬", f"{'+' if stats['avg_return'] >= 0 else ''}{stats['avg_return']}%")
+        col_d.metric("停利①", stats["tp1"])
+        col_e.metric("停損", stats["stop"])
+
+        # ── 月度績效 ──────────────────────────────
+        st.markdown("---")
+        st.subheader("本月績效")
+        taiex_m = load_taiex("3mo")
+        mperf   = calc_monthly_performance(taiex_df=add_indicators(taiex_m) if not taiex_m.empty else None)
+        if mperf["trades"] > 0:
+            cm1, cm2, cm3, cm4 = st.columns(4)
+            cm1.metric("本月結案", mperf["trades"])
+            cm2.metric("本月勝率", f"{mperf['win_rate']}%")
+            cm3.metric("本月平均報酬", f"{'+' if mperf['avg_return'] >= 0 else ''}{mperf['avg_return']}%")
+            cm4.metric("vs 大盤", f"{'+' if mperf['excess_return'] >= 0 else ''}{mperf['excess_return']}%",
+                       delta="跑贏" if mperf['excess_return'] > 0 else "落後")
+        else:
+            st.info(f"本月（{mperf['month_str']}）尚無已結案紀錄")
+
+        # ── 報酬分佈長條圖 ──────────────────────────
+        if decided:
+            st.markdown("---")
+            st.subheader("報酬分佈")
+            df_dec = pd.DataFrame(decided)
+            df_dec["return_pct"] = pd.to_numeric(df_dec["return_pct"], errors="coerce")
+            df_dec["顏色"] = df_dec["return_pct"].apply(lambda v: "獲利" if v > 0 else "虧損")
+            fig_bar = px.bar(
+                df_dec.dropna(subset=["return_pct"]).sort_values("push_date"),
+                x="push_date", y="return_pct", color="顏色",
+                color_discrete_map={"獲利": "#2ecc71", "虧損": "#e74c3c"},
+                labels={"push_date": "推播日", "return_pct": "報酬%"},
+                height=300,
+            )
+            fig_bar.update_layout(template="plotly_dark", showlegend=True)
+            st.plotly_chart(fig_bar, use_container_width=True)
+
+        # ── 歷史明細表 ──────────────────────────────
+        st.markdown("---")
+        st.subheader("推播明細")
+        result_filter = st.multiselect(
+            "篩選結果", ["停利②", "停利①", "停損", "未觸發", "等待中"],
+            default=["停利②", "停利①", "停損"],
+        )
+        rows_all = []
+        for e in reversed(dt_log):
+            r = e.get("result") or "等待中"
+            if r not in result_filter:
+                continue
+            rows_all.append({
+                "推播日":  e.get("push_date", "-"),
+                "名稱":    e.get("name", "-"),
+                "分數":    e.get("score", "-"),
+                "進場參考": e.get("entry_mid", "-"),
+                "停損":    e.get("stop", "-"),
+                "停利①":  e.get("tp1", "-"),
+                "停利②":  e.get("tp2", "-"),
+                "結果":    r,
+                "出場價":  e.get("exit_price", "-"),
+                "報酬%":   e.get("return_pct", "-"),
+            })
+        if rows_all:
+            def perf_color(row):
+                r = row["結果"]
+                if r == "停利②": return ["background-color:#1a6b3a; color:#fff"] * len(row)
+                if r == "停利①": return ["background-color:#2e5a00; color:#fff"] * len(row)
+                if r == "停損":   return ["background-color:#5a1a1a; color:#fff"] * len(row)
+                return [""] * len(row)
+            st.dataframe(
+                pd.DataFrame(rows_all).style.apply(perf_color, axis=1),
+                use_container_width=True, hide_index=True,
+            )
+        else:
+            st.info("無符合篩選條件的紀錄")

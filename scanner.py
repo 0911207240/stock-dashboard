@@ -2,13 +2,14 @@
 import math
 from datetime import datetime
 from tw_calendar import is_trading_day
+from twse_announcements import build_announcement_alert
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
 from line_notifier import send, build_signal_message, build_summary_message, build_daytrade_message
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
-from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance
+from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance, calc_monthly_performance
 from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
 from market_regime import detect_regime
@@ -38,7 +39,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
         print(f"[{datetime.now().strftime('%Y-%m-%d')}] 今日非台灣交易日，跳過掃描")
         return []
 
-    print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 開始掃描...")
+    now = datetime.now()
+    is_morning = now.hour < 10    # 08:30 早盤
+    is_midday  = 10 <= now.hour < 14  # 12:30 午盤
+    session    = "午盤" if is_midday else "早盤"
+    print(f"\n[{now.strftime('%Y-%m-%d %H:%M')}] {session}掃描開始...")
     all_data = fetch_all(period="1y")
 
     # 0. 預載基本面快取 + 回查昨日當沖結果 + 偵測大盤狀態
@@ -52,9 +57,9 @@ def run_scan(min_score: int = 2, notify: bool = True):
     base_min_score = 40 + regime["min_score_adj"]
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
 
-    # 1. 持股日報 + 停損/停利緊急警報（優先推播）
+    # 1. 持股日報 + 停損/停利緊急警報（早盤才推，午盤略過）
     total_value = 0.0
-    if notify:
+    if notify and is_morning:
         summary = calc_summary(dict(all_data))
         total_value = summary.get("__total__", {}).get("total_value", 0.0)
         alert_msg = build_alert_message(summary)
@@ -69,6 +74,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
         if div_msg:
             send(div_msg)
             print("  除息提醒已推播")
+
+        ann_msg = build_announcement_alert(HOLDINGS, WATCHLIST)
+        if ann_msg:
+            send(ann_msg)
+            print("  重大公告已推播")
 
     # 2. 技術訊號掃描
     found = []
@@ -103,13 +113,16 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
     if notify:
         date_str = datetime.now().strftime("%m/%d")
+        session_tag = "【午盤更新】" if is_midday else ""
         if found:
             sorted_found = sorted(found, key=lambda x: (x["is_holding"], abs(x["score"])), reverse=True)
-            summary_msg = build_summary_message(sorted_found, date_str)
+            summary_msg  = build_summary_message(sorted_found, date_str)
+            if session_tag:
+                summary_msg = session_tag + "\n" + summary_msg
             success = send(summary_msg)
-            print(f"  彙整報告: {'已推播' if success else '推播失敗'}")
+            print(f"  {session_tag}彙整報告: {'已推播' if success else '推播失敗'}")
         else:
-            print("  無符合條件的技術訊號，繼續掃描當沖候選...")
+            print(f"  {session_tag}無符合條件的技術訊號，繼續掃描當沖候選...")
 
     print(f"掃描完成，共 {len(found)} 檔有訊號")
 
@@ -193,6 +206,41 @@ def run_scan(min_score: int = 2, notify: bool = True):
         if stats["total"] >= 5 or wt["updated"]:
             send("\n".join(stats_lines))
             print(f"  週報已推播（勝率 {stats['win_rate']}%）")
+
+    # 每月 1 日：月報
+    if notify and datetime.now().day == 1:
+        mperf = calc_monthly_performance(taiex_df=taiex_df)
+        msummary = calc_summary(dict(all_data))
+        mtotal = msummary.get("__total__", {})
+        mv = mtotal.get("total_value", 0)
+        mpnl = mtotal.get("total_pnl")
+
+        def _s(v): return "+" if v >= 0 else ""
+
+        mlines = [f"📅 【{mperf['month_str']}月報】"]
+        mlines += [
+            "",
+            f"【持股現況】",
+            f"總市值：${mv:,.0f}",
+        ]
+        if mpnl is not None:
+            mlines.append(f"未實現損益：{_s(mpnl)}${mpnl:,.0f}")
+
+        if mperf["trades"] > 0:
+            exc = mperf["excess_return"]
+            exc_tag = f"超額 {_s(exc)}{exc}%" if exc != 0 else "與大盤持平"
+            mlines += [
+                "",
+                f"【當月當沖績效】{mperf['trades']} 筆已結案",
+                f"停利② {mperf['tp2']} 筆　停利① {mperf['tp1']} 筆　停損 {mperf['stop']} 筆",
+                f"勝率 {mperf['win_rate']}%　平均報酬 {_s(mperf['avg_return'])}{mperf['avg_return']}%",
+                f"大盤同期 {_s(mperf['taiex_return'])}{mperf['taiex_return']}%　{exc_tag}",
+            ]
+        else:
+            mlines.append("\n【當月當沖】無已結案紀錄")
+
+        send("\n".join(mlines))
+        print(f"  月報已推播（{mperf['month_str']}）")
 
     return found
 
