@@ -350,6 +350,52 @@ def fetch_institutional(stock_code: str) -> dict:
     return {}
 
 
+def fetch_margin_data(stock_code: str) -> dict:
+    """從 TWSE 抓融資融券資料（僅限台股 .TW）"""
+    import urllib.request, json as _json
+    from datetime import datetime, timedelta
+    code = stock_code.replace(".TW", "").replace(".TWO", "")
+    if "." in code:
+        return {}
+    for i in range(5):
+        date = (datetime.now() - timedelta(days=i)).strftime("%Y%m%d")
+        url  = (f"https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN"
+                f"?date={date}&selectType=ALL&response=json")
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = _json.loads(resp.read())
+            if data.get("stat") != "OK" or not data.get("data"):
+                continue
+            for row in data["data"]:
+                if row[0].strip() == code and len(row) >= 13:
+                    def _int(s):
+                        try:
+                            return int(str(s).replace(",", ""))
+                        except Exception:
+                            return 0
+                    # 欄位順序: 代號,名稱,融資買,融資賣,現金償還,融資前日,融資今日,融資限額,融券賣,融券買,現券償還,融券前日,融券今日,融券限額,資券互抵
+                    margin_prev  = _int(row[5])
+                    margin_today = _int(row[6])
+                    short_prev   = _int(row[11])
+                    short_today  = _int(row[12])
+                    return {
+                        "date":           date,
+                        "margin_buy":     _int(row[2]),
+                        "margin_sell":    _int(row[3]),
+                        "margin_balance": margin_today,
+                        "margin_change":  margin_today - margin_prev,
+                        "short_sell":     _int(row[8]),
+                        "short_buy":      _int(row[9]),
+                        "short_balance":  short_today,
+                        "short_change":   short_today - short_prev,
+                        "margin_ratio":   round(short_today / margin_today * 100, 1) if margin_today > 0 else 0,
+                    }
+        except Exception:
+            continue
+    return {}
+
+
 def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 10) -> dict[str, pd.DataFrame]:
     from concurrent.futures import ThreadPoolExecutor, as_completed
     names = SECTORS.get(sector, list(WATCHLIST.keys()))

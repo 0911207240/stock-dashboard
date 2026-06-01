@@ -7,8 +7,9 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     low = df["Low"].squeeze()
     volume = df["Volume"].squeeze()
 
-    # RSI
-    df["RSI"] = ta.momentum.RSIIndicator(close, window=14).rsi()
+    # RSI（14日標準 + 6日短週期，短RSI對當沖更靈敏）
+    df["RSI"]  = ta.momentum.RSIIndicator(close, window=14).rsi()
+    df["RSI6"] = ta.momentum.RSIIndicator(close, window=6).rsi()
 
     # MACD
     macd = ta.trend.MACD(close)
@@ -41,6 +42,11 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     # ATR 真實波幅（14日），轉成佔股價 % → 波段操作參考
     df["ATR"] = ta.volatility.AverageTrueRange(high, low, close, window=14).average_true_range()
     df["ATR_pct"] = df["ATR"] / close * 100
+
+    # 滾動20日加權均價（注意：此為跨日成本均線，非盤內重置的標準VWAP）
+    tp = (high + low + close) / 3
+    df["VWAP_MA20"]   = (tp * volume).rolling(20).sum() / volume.rolling(20).sum()
+    df["VWAP_MA_dev"] = (close - df["VWAP_MA20"]) / df["VWAP_MA20"] * 100
 
     return df
 

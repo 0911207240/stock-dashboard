@@ -3,9 +3,12 @@ import pandas as pd
 import altair as alt
 import plotly.graph_objects as go
 import plotly.express as px
-from data_fetcher import fetch, fetch_all, fetch_taiex, fetch_dividends, fetch_institutional, WATCHLIST, SECTORS
+from data_fetcher import fetch, fetch_all, fetch_taiex, fetch_dividends, fetch_institutional, fetch_margin_data, WATCHLIST, SECTORS
+from daytrade_scorer import get_daytrade_candidates, is_tw_stock
+from scoring_config import load_multipliers, save_multipliers, reset_multipliers
+from push_cooldown import get_status as cooldown_status, clear_cooldown
 from analyzer import add_indicators, detect_signals, score, calc_support_resistance, calc_week52, detect_pre_signals, pre_score
-from line_notifier import send, build_signal_message
+from line_notifier import send, build_signal_message, build_daytrade_message
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 from signal_log import load_log, save_signal, update_and_load, win_rate
 import copy
@@ -53,6 +56,10 @@ def load_dividends(ticker):
 @st.cache_data(ttl=3600)
 def load_institutional(ticker):
     return fetch_institutional(ticker)
+
+@st.cache_data(ttl=3600)
+def load_margin(ticker):
+    return fetch_margin_data(ticker)
 
 # ── 輔助函式 ──────────────────────────────────────────
 def health_light(sc, rsi, week52_pct):
@@ -185,8 +192,8 @@ def row_color(row, col="漲跌%"):
     return [""] * len(row)
 
 # ── Tabs ──────────────────────────────────────────
-tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史"
+tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖"
 ])
 
 # ══════════════════════════════════════════════════
@@ -745,3 +752,236 @@ with tab5:
                 st.rerun()
             except Exception:
                 st.error("清除失敗")
+
+# ══════════════════════════════════════════════════
+# Tab 6：隔日當沖
+# ══════════════════════════════════════════════════
+with tab6:
+    st.header("⚡ 隔日當沖選股")
+    st.caption("每日收盤後根據量能、籌碼、技術、波動度四維度評分，篩出明天最值得盯的台股。")
+
+    col_s, col_n = st.columns([3, 1])
+    with col_s:
+        dt_sector = st.selectbox("篩選產業", list(SECTORS.keys()), key="dt_sector")
+    with col_n:
+        dt_top_n = st.number_input("顯示前N名", min_value=5, max_value=30, value=10, step=5, key="dt_top_n")
+
+    col_opt1, col_opt2 = st.columns(2)
+    with col_opt1:
+        use_inst = st.checkbox("載入三大法人資料（更準確，較慢）", value=False, key="dt_use_inst")
+    with col_opt2:
+        use_margin = st.checkbox("載入融資融券資料（較慢）", value=False, key="dt_use_margin")
+
+    st.markdown("**評分說明**：量能(30) ＋ 籌碼(30) ＋ 技術(20) ＋ 波動度(20) ＝ 滿分 100")
+    st.markdown("🟢 60+ 強烈關注　🟡 40-59 候補觀察　─ <40 一般")
+
+    if st.button("🔍 開始評分", type="primary", key="dt_scan"):
+        with st.spinner("載入行情資料..."):
+            dt_data = load_all(period, dt_sector)
+
+        inst_cache = {}
+        if use_inst:
+            tw_names = [n for n in dt_data if is_tw_stock(WATCHLIST.get(n, ""))]
+            prog = st.progress(0, text="載入法人資料...")
+            for idx, name in enumerate(tw_names):
+                ticker = WATCHLIST[name]
+                inst = load_institutional(ticker)
+                if inst:
+                    inst_cache[name] = inst
+                prog.progress((idx + 1) / max(len(tw_names), 1), text=f"法人資料 {idx+1}/{len(tw_names)}")
+            prog.empty()
+
+        margin_cache = {}
+        if use_margin:
+            tw_names = [n for n in dt_data if is_tw_stock(WATCHLIST.get(n, ""))]
+            prog2 = st.progress(0, text="載入融資融券資料...")
+            for idx, name in enumerate(tw_names):
+                ticker = WATCHLIST[name]
+                mg = load_margin(ticker)
+                if mg:
+                    margin_cache[name] = mg
+                prog2.progress((idx + 1) / max(len(tw_names), 1), text=f"融資融券 {idx+1}/{len(tw_names)}")
+            prog2.empty()
+
+        with st.spinner("評分中..."):
+            candidates = get_daytrade_candidates(
+                dt_data, WATCHLIST,
+                inst_cache=inst_cache if use_inst else None,
+                margin_cache=margin_cache if use_margin else None,
+                top_n=int(dt_top_n),
+            )
+
+        if not candidates:
+            st.info("無符合條件的當沖候選股（台股且成交量 > 500 張）")
+        else:
+            st.success(f"找到 {len(candidates)} 檔候選股")
+
+            rows = []
+            for c in candidates:
+                arrow = "▲" if c["change_pct"] >= 0 else "▼"
+                rows.append({
+                    "名稱":      c["name"],
+                    "代碼":      c["ticker"],
+                    "當沖分數":  c["score"],
+                    "昨收":      round(c["price"], 2),
+                    "昨漲跌%":   f"{arrow}{abs(c['change_pct']):.1f}%",
+                    "📍進場參考":  c["entry"],
+                    "🎯目標出場":  c["target"],
+                    "🛑停損":     c["stop"],
+                    "風報比":    f"{c['rr_ratio']}:1",
+                    "獲利空間%": f"+{c['upside_pct']:.1f}%",
+                    "量比":      f"{c['vol_ratio']:.1f}x",
+                    "ATR%":     round(c["atr_pct"], 1),
+                    "量能":      c["vol_score"],
+                    "籌碼":      c["chip_score"],
+                    "技術":      c["tech_score"],
+                    "波動度":    c["atr_score"],
+                    "關鍵訊號":  "、".join(c["signals"][:3]),
+                })
+
+            df_dt = pd.DataFrame(rows)
+
+            def dt_color(row):
+                sc = row["當沖分數"]
+                if sc >= 60: return ["background-color:#1a6b3a; color:#ffffff"] * len(row)
+                if sc >= 40: return ["background-color:#7a5a00; color:#ffffff"] * len(row)
+                return [""] * len(row)
+
+            st.dataframe(df_dt.style.apply(dt_color, axis=1), use_container_width=True, hide_index=True)
+
+            # 推播
+            st.markdown("---")
+            if st.button("📲 推播 Top5 到 LINE", key="dt_push"):
+                msg = build_daytrade_message(candidates[:5], __import__("datetime").datetime.now().strftime("%m/%d"))
+                st.success("已推播！") if send(msg) else st.error("推播失敗，請確認 LINE Token")
+
+            # 分數結構圖（前三名）
+            if len(candidates) >= 1:
+                st.markdown("---")
+                st.subheader("Top 3 評分結構")
+                top3 = candidates[:3]
+                cols_pie = st.columns(len(top3))
+                for c, col in zip(top3, cols_pie):
+                    with col:
+                        st.markdown(f"**{c['name']}**　總分 **{c['score']}**")
+                        bd_vals = {
+                            "量能":   max(0, c["vol_score"]),
+                            "籌碼":   max(0, c["chip_score"]),
+                            "技術":   max(0, c["tech_score"]),
+                            "波動度": max(0, c["atr_score"]),
+                        }
+                        if sum(bd_vals.values()) > 0:
+                            fig_pie = px.pie(
+                                values=list(bd_vals.values()),
+                                names=list(bd_vals.keys()),
+                                color_discrete_sequence=["#3498db", "#2ecc71", "#e74c3c", "#f39c12"],
+                            )
+                            fig_pie.update_layout(
+                                height=220, template="plotly_dark",
+                                margin=dict(l=10, r=10, t=10, b=10),
+                                showlegend=True,
+                            )
+                            st.plotly_chart(fig_pie, use_container_width=True)
+
+    # ── 回測驗證區塊 ──────────────────────────────────
+    st.markdown("---")
+    st.subheader("📈 歷史回測驗證")
+    st.caption("以過去 N 日每日 EOD 評分 → 隔天開盤進場 → 目標/停損/收盤結算，驗證評分模型實際勝率。")
+
+    with st.expander("⚙️ 回測設定 & 執行", expanded=False):
+        col_bt1, col_bt2, col_bt3 = st.columns(3)
+        with col_bt1:
+            bt_sector   = st.selectbox("回測產業", list(SECTORS.keys()), key="bt_sector")
+        with col_bt2:
+            bt_min_sc   = st.slider("最低觸發分數", 30, 70, 40, 5, key="bt_min_sc")
+        with col_bt3:
+            bt_lookback = st.selectbox("回測天數", [60, 90, 120, 180], index=1, key="bt_lookback")
+
+        if st.button("▶ 開始回測", type="primary", key="bt_run"):
+            from backtest import run_portfolio_backtest, aggregate_stats
+            with st.spinner("回測中，請稍候（資料量越大越慢）..."):
+                bt_data    = load_all(period, bt_sector)
+                bt_results = run_portfolio_backtest(
+                    bt_data, WATCHLIST,
+                    min_score=bt_min_sc,
+                    lookback_days=bt_lookback,
+                )
+
+            if not bt_results:
+                st.info("無足夠交易次數的回測結果（每檔至少需 3 筆訊號）")
+            else:
+                agg = aggregate_stats(bt_results)
+                st.markdown("#### 彙整統計")
+                ca, cb, cc, cd, ce = st.columns(5)
+                ca.metric("回測檔數",   agg["tested_stocks"])
+                cb.metric("總交易次數", agg["total_trades"])
+                cc.metric("整體勝率",   f"{agg['overall_win_rate']}%",
+                          delta="良好" if agg["overall_win_rate"] >= 55 else "需改善")
+                cd.metric("整體獲利因子", agg["overall_pf"],
+                          delta="穩定" if agg["overall_pf"] >= 1.5 else "偏低")
+                ce.metric("平均獲利 / 虧損",
+                          f"+{agg['overall_avg_win']:.1f}% / {agg['overall_avg_loss']:.1f}%")
+
+                st.markdown("#### 各股明細（按獲利因子排序）")
+                bt_rows = []
+                for r in bt_results:
+                    s = r["stats"]
+                    bt_rows.append({
+                        "名稱":        r["name"],
+                        "交易次數":    s["total_trades"],
+                        "勝率%":       s["win_rate"],
+                        "均獲利%":     s["avg_win_pct"],
+                        "均虧損%":     s["avg_loss_pct"],
+                        "獲利因子":    s["profit_factor"],
+                        "總報酬%":     s["total_return_pct"],
+                        "Sharpe":      s["sharpe"],
+                        "最大回撤%":   s["max_drawdown_pct"],
+                        "最大連敗":    s["max_consecutive_losses"],
+                    })
+                df_bt = pd.DataFrame(bt_rows)
+
+                def bt_color(row):
+                    pf = row["獲利因子"]
+                    if pf >= 2.0: return ["background-color:#1a6b3a; color:#fff"] * len(row)
+                    if pf >= 1.5: return ["background-color:#7a5a00; color:#fff"] * len(row)
+                    if pf < 1.0:  return ["background-color:#5a1a1a; color:#fff"] * len(row)
+                    return [""] * len(row)
+
+                st.dataframe(df_bt.style.apply(bt_color, axis=1),
+                             use_container_width=True, hide_index=True)
+
+                # 維度相關性 & 建議權重（Fix 8）
+                st.markdown("---")
+                st.markdown("#### 📐 評分維度相關性分析")
+                from backtest import calc_dimension_correlation, suggest_multipliers
+                corrs = calc_dimension_correlation(bt_results)
+                if corrs:
+                    corr_df = pd.DataFrame([
+                        {"維度": k, "與報酬相關係數": v,
+                         "解讀": "正向有效" if v > 0.05 else ("負向" if v < 0 else "關聯弱")}
+                        for k, v in corrs.items()
+                    ])
+                    st.dataframe(corr_df, use_container_width=True, hide_index=True)
+                    suggested = suggest_multipliers(corrs)
+                    st.markdown("**建議倍率調整**：" +
+                                "　".join(f"{k} → {v}x" for k, v in suggested.items()))
+                    if st.button("✨ 套用建議權重", key="apply_weights"):
+                        save_multipliers(suggested)
+                        st.success("已套用！重新跑評分即可生效。")
+                else:
+                    st.info("交易次數不足，無法計算相關係數")
+
+                # 最佳股票的逐筆明細
+                st.markdown("---")
+                best = bt_results[0]
+                st.markdown(f"#### 最佳股票：{best['name']} — 逐筆交易紀錄")
+                df_detail = pd.DataFrame(best["trades"])
+                def detail_color(row):
+                    return (["background-color:#1a6b3a; color:#fff"] * len(row)
+                            if row["outcome"] == "win"
+                            else ["background-color:#5a1a1a; color:#fff"] * len(row))
+                st.dataframe(df_detail.style.apply(detail_color, axis=1),
+                             use_container_width=True, hide_index=True)
+
+    st.markdown("---")
+    st.caption("⚠️ 本工具所有訊號僅供學習與參考，不構成任何投資建議。當沖有極高風險，請自行評估承受能力。")
