@@ -308,3 +308,23 @@ def daytrade_win_rate(log: list = None) -> dict:
         "win_rate":   round((tp1_n + tp2_n) / len(decided) * 100, 1),
         "avg_return": round(avg_r, 2),
     }
+
+
+def get_stock_win_rate(name: str) -> dict:
+    """
+    回傳指定個股的歷史當沖推播勝率
+    不足 5 筆 → 回傳 None（樣本不足，不調整評分）
+    """
+    log     = _load_dt_log()
+    decided = [e for e in log
+               if e.get("name") == name and e.get("result") and e["result"] != "未觸發"]
+    if len(decided) < 5:
+        return {"name": name, "total": len(decided), "win_rate": None, "avg_return": None}
+    wins    = sum(1 for e in decided if e["result"] in ("停利①", "停利②"))
+    avg_r   = sum(e.get("return_pct", 0) for e in decided) / len(decided)
+    return {
+        "name":       name,
+        "total":      len(decided),
+        "win_rate":   round(wins / len(decided) * 100, 1),
+        "avg_return": round(avg_r, 2),
+    }

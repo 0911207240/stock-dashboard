@@ -4,6 +4,35 @@
 並回傳對應的當沖評分門檻調整值與說明
 """
 import pandas as pd
+import yfinance as yf
+
+
+def fetch_vix() -> float | None:
+    """抓 CBOE VIX 最新收盤值，失敗回傳 None"""
+    try:
+        df = yf.download("^VIX", period="5d", interval="1d", progress=False)
+        if df.empty:
+            return None
+        df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
+        return round(float(df["Close"].iloc[-1]), 1)
+    except Exception:
+        return None
+
+
+def vix_label(vix: float) -> tuple[str, int]:
+    """
+    回傳 (描述文字, 門檻加成)
+    VIX > 30：極度恐慌，當沖門檻再 +10
+    VIX > 20：偏高，+5
+    VIX < 15：貪婪區，-5
+    """
+    if vix > 30:
+        return f"😱 VIX {vix}（極度恐慌）", +10
+    if vix > 20:
+        return f"😰 VIX {vix}（市場偏恐慌）", +5
+    if vix < 15:
+        return f"😎 VIX {vix}（市場貪婪）", -5
+    return f"😐 VIX {vix}（中性）", 0
 
 
 def detect_regime(df: pd.DataFrame) -> dict:
@@ -21,7 +50,7 @@ def detect_regime(df: pd.DataFrame) -> dict:
     if df is None or len(df) < 20:
         return _neutral()
 
-    latest = df.iloc[-1]
+    latest   = df.iloc[-1]
     lookback = df.iloc[-5] if len(df) >= 5 else df.iloc[0]
 
     close = float(latest["Close"])
@@ -35,39 +64,48 @@ def detect_regime(df: pd.DataFrame) -> dict:
     bull_align = ma5 > ma20 > ma60
     bear_align = ma5 < ma20
 
+    # VIX 恐慌指數修正
+    vix      = fetch_vix()
+    vix_desc, vix_adj = vix_label(vix) if vix is not None else ("VIX 無資料", 0)
+
     # ── 多頭：均線多頭排列 + 站上MA20 + 近5日未大跌
     if bull_align and close > ma20 and momentum5d > -3:
+        adj = -5 + vix_adj
         return {
             "state":         "多頭",
             "emoji":         "🟢",
-            "description":   f"均線多頭排列，指數強勢（近5日 {momentum5d:+.1f}%）",
-            "min_score_adj": -5,     # 門檻降至 35，機會更多
+            "description":   f"均線多頭排列（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
+            "min_score_adj": adj,
             "close":         close,
             "dev_ma20_pct":  round(dev_ma20,   1),
             "momentum_5d":   round(momentum5d, 1),
+            "vix":           vix,
         }
 
     # ── 空頭：均線空頭 + 跌破MA20超過3%
     if bear_align and dev_ma20 < -3:
+        adj = 15 + vix_adj
         return {
             "state":         "空頭",
             "emoji":         "🔴",
-            "description":   f"均線空頭，指數偏弱（距MA20 {dev_ma20:.1f}%）",
-            "min_score_adj": +15,    # 門檻升至 55，只做最強標的
+            "description":   f"均線空頭（距MA20 {dev_ma20:.1f}%）｜{vix_desc}",
+            "min_score_adj": adj,
             "close":         close,
             "dev_ma20_pct":  round(dev_ma20,   1),
             "momentum_5d":   round(momentum5d, 1),
+            "vix":           vix,
         }
 
     # ── 盤整：其他情況
     return {
         "state":         "盤整",
         "emoji":         "🟡",
-        "description":   f"大盤盤整，方向未明（近5日 {momentum5d:+.1f}%）",
-        "min_score_adj": 0,
+        "description":   f"大盤盤整（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
+        "min_score_adj": vix_adj,
         "close":         close,
         "dev_ma20_pct":  round(dev_ma20,   1),
         "momentum_5d":   round(momentum5d, 1),
+        "vix":           vix,
     }
 
 

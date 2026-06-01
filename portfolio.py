@@ -156,3 +156,55 @@ def build_portfolio_message(summary: dict) -> str:
         lines.append(line)
 
     return "\n".join(lines)
+
+
+def build_rebalance_alert(summary: dict, threshold: float = 0.25) -> str | None:
+    """任一持股超過總資產 threshold 比例時推播警報"""
+    total = sum(d["value"] for k, d in summary.items() if k != "__total__")
+    if total <= 0:
+        return None
+    alerts = []
+    for name, d in summary.items():
+        if name == "__total__":
+            continue
+        weight = d["value"] / total
+        if weight >= threshold:
+            alerts.append(f"• {name}｜佔比 {weight*100:.1f}%（建議 < {threshold*100:.0f}%）")
+    if not alerts:
+        return None
+    return f"⚖️ 【集中警報】以下持股比重過高，建議評估再平衡\n" + "\n".join(alerts)
+
+
+def build_correlation_alert(all_data: dict, threshold: float = 0.85) -> str | None:
+    """
+    計算持股間的價格相關性，相關係數 > threshold 的配對視為高度重複風險
+    all_data：fetch_all 的回傳值
+    """
+    import pandas as pd
+    names  = [n for n in HOLDINGS if n in all_data]
+    if len(names) < 2:
+        return None
+
+    closes = pd.DataFrame({n: all_data[n]["Close"] for n in names}).dropna()
+    if len(closes) < 20:
+        return None
+
+    corr   = closes.pct_change().dropna().corr()
+    alerts = []
+    seen   = set()
+    for i, a in enumerate(names):
+        for b in names[i+1:]:
+            pair = tuple(sorted([a, b]))
+            if pair in seen:
+                continue
+            seen.add(pair)
+            try:
+                val = float(corr.loc[a, b])
+            except Exception:
+                continue
+            if val >= threshold:
+                alerts.append(f"• {a} ↔ {b}：相關係數 {val:.2f}（高度重複，等同押同一注）")
+
+    if not alerts:
+        return None
+    return "🔗 【持股相關性警報】以下配對高度相關，建議檢視是否分散不足\n" + "\n".join(alerts)

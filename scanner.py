@@ -3,13 +3,14 @@ import math
 from datetime import datetime
 from tw_calendar import is_trading_day
 from twse_announcements import build_announcement_alert
+from earnings_calendar import build_earnings_alert, has_earnings_risk
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
 from line_notifier import send, build_signal_message, build_summary_message, build_daytrade_message
-from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message
+from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message, build_rebalance_alert, build_correlation_alert
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
-from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance, calc_monthly_performance
+from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance, calc_monthly_performance, get_stock_win_rate
 from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
 from market_regime import detect_regime
@@ -80,6 +81,21 @@ def run_scan(min_score: int = 2, notify: bool = True):
             send(ann_msg)
             print("  重大公告已推播")
 
+        earn_msg = build_earnings_alert(HOLDINGS, WATCHLIST)
+        if earn_msg:
+            send(earn_msg)
+            print("  財報警示已推播")
+
+        rebal_msg = build_rebalance_alert(summary)
+        if rebal_msg:
+            send(rebal_msg)
+            print("  再平衡警報已推播")
+
+        corr_msg = build_correlation_alert(dict(all_data))
+        if corr_msg:
+            send(corr_msg)
+            print("  持股相關性警報已推播")
+
     # 2. 技術訊號掃描
     found = []
     portfolio_names = set(HOLDINGS.keys())  # HOLDINGS is dict of {name: {shares, cost}}
@@ -126,8 +142,24 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
     print(f"掃描完成，共 {len(found)} 檔有訊號")
 
-    # 3. 隔日當沖候選（依大盤狀態動態門檻，含冷卻過濾）
+    # 3. 隔日當沖候選（依大盤狀態動態門檻，含冷卻過濾 + 個股歷史勝率調整）
     dt_candidates = get_daytrade_candidates(dict(all_data), WATCHLIST, top_n=10)
+    for c in dt_candidates:
+        # 財報前 3 天內自動降分（高不確定性）
+        if has_earnings_risk(c["name"], c["ticker"], days_ahead=3):
+            c["score"] = int(c["score"] * 0.7)
+            c["signals"].insert(0, "⚠️ 財報前3天，風險偏高")
+        sr = get_stock_win_rate(c["name"])
+        if sr["win_rate"] is not None:
+            # 勝率 >= 60% 加分；< 40% 扣分，並標記
+            if sr["win_rate"] >= 60:
+                c["score"] = min(100, int(c["score"] * 1.1))
+                c["signals"].insert(0, f"歷史勝率{sr['win_rate']}%↑({sr['total']}筆)")
+            elif sr["win_rate"] < 40:
+                c["score"] = int(c["score"] * 0.85)
+                c["signals"].insert(0, f"⚠️歷史勝率偏低{sr['win_rate']}%({sr['total']}筆)")
+        c["hist_win_rate"] = sr["win_rate"]
+
     fresh_candidates = [
         c for c in dt_candidates
         if not is_cooled_down(c["name"], c["score"]) and c["score"] >= base_min_score
