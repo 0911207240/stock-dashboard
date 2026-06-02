@@ -138,5 +138,19 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-02",
+    "name": "宏達電",
+    "ticker": "2498.TW",
+    "score": 37,
+    "price": 50.0,
+    "entry_mid": 49.62,
+    "stop": 48.63,
+    "tp1": 51.1,
+    "tp2": 51.1,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
