@@ -2,9 +2,7 @@ name: US Stock Scan
 
 on:
   schedule:
-    # 美股收盤後掃描：21:30 UTC = 台灣時間 05:30（隔日）
-    # 夏令時間：美股 21:00 UTC 收盤；冬令：22:00 UTC 收盤，此時間取中間值
-    - cron: "30 21 * * 1-5"
+    - cron: "30 21 * * 1-5"   # 美股收盤後：21:30 UTC = 台灣時間 05:30（隔日）
   workflow_dispatch:
 
 permissions:
@@ -13,18 +11,21 @@ permissions:
 jobs:
   us-scan:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: "pip"
 
       - name: Install dependencies
-        run: pip install yfinance pandas ta python-dotenv
+        run: pip install -r requirements.txt
 
       - name: Run US scan
         env:
