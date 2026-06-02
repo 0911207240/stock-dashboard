@@ -7,6 +7,7 @@ from earnings_calendar import build_earnings_alert, has_earnings_risk
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
 from line_notifier import send, build_signal_message, build_summary_message, build_daytrade_message
+from image_notifier import send_daytrade_image
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message, build_rebalance_alert, build_correlation_alert
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
@@ -183,8 +184,10 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
         if notify:
             date_str = datetime.now().strftime("%m/%d")
-            dt_msg = build_daytrade_message(push_list, date_str, regime, concentration_warning)
-            success = send(dt_msg)
+            success = send_daytrade_image(push_list, date_str, regime, concentration_warning)
+            if not success:
+                dt_msg = build_daytrade_message(push_list, date_str, regime, concentration_warning)
+                success = send(dt_msg)
             print(f"  當沖候選 Top{len(push_list)}（{regime['state']}，門檻{base_min_score}）：{'已推播' if success else '推播失敗'}")
         else:
             print(f"  當沖候選：{', '.join(c['name'] for c in push_list)}")
