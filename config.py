@@ -7,7 +7,7 @@ except Exception:
 
 def _clean(val: str) -> str:
     import re
-    return re.sub(r'\s+', '', val or "")
+    return re.sub(r'[\s﻿]', '', val or "")  # 同時去除空白和 UTF-8 BOM
 
 try:
     import streamlit as st
