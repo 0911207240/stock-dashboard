@@ -46,11 +46,25 @@ def _font(size: int, bold: bool = False) -> ImageFont.ImageFont:
     key = (size, bold)
     if key not in _FONTS:
         candidates = (
-            ["C:/Windows/Fonts/msjhbd.ttc", "C:/Windows/Fonts/msyhbd.ttc",
-             "C:/Windows/Fonts/msjh.ttc",   "C:/Windows/Fonts/msyh.ttc"]
-            if bold else
-            ["C:/Windows/Fonts/msjh.ttc",   "C:/Windows/Fonts/msyh.ttc",
-             "C:/Windows/Fonts/msjhbd.ttc",  "C:/Windows/Fonts/msyhbd.ttc"]
+            [
+                # Windows
+                "C:/Windows/Fonts/msjhbd.ttc", "C:/Windows/Fonts/msyhbd.ttc",
+                "C:/Windows/Fonts/msjh.ttc",   "C:/Windows/Fonts/msyh.ttc",
+                # Linux (Noto CJK)
+                "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+                "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                "/usr/share/fonts/truetype/noto/NotoSansCJK-Bold.ttc",
+                "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
+            ] if bold else [
+                # Windows
+                "C:/Windows/Fonts/msjh.ttc",   "C:/Windows/Fonts/msyh.ttc",
+                "C:/Windows/Fonts/msjhbd.ttc",  "C:/Windows/Fonts/msyhbd.ttc",
+                # Linux (Noto CJK)
+                "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+                "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
+                "/usr/share/fonts/truetype/noto/NotoSansCJK-Bold.ttc",
+            ]
         )
         loaded = None
         for path in candidates:
@@ -119,8 +133,10 @@ def build_daytrade_image(
         a_col = GREEN if c["change_pct"] >= 0 else RED
 
         draw.text((PAD,      cy), f"{idx}.", font=_font(21, bold=True), fill=TEXT_DIM)
-        draw.text((PAD + 42, cy), c["name"], font=_font(22, bold=True), fill=TEXT_W)
-        draw.text((PAD + 195, cy), f"昨收 ${c['price']:.1f}", font=_font(20), fill=TEXT_DIM)
+        # 名稱最多顯示 5 字，超過截斷避免與右側資訊重疊
+        name_display = c["name"][:5] + ("…" if len(c["name"]) > 5 else "")
+        draw.text((PAD + 42, cy), name_display, font=_font(22, bold=True), fill=TEXT_W)
+        draw.text((PAD + 210, cy), f"昨收 ${c['price']:.1f}", font=_font(20), fill=TEXT_DIM)
 
         sc = c["score"]
         sc_col = GREEN if sc >= 50 else (YELLOW if sc >= 35 else RED)
@@ -196,14 +212,27 @@ def build_daytrade_image(
 
 
 def _save_local(image_bytes: bytes, date_str: str) -> None:
-    """存一份 PNG 到 action_logs/images/ 當歷史備份"""
+    """存一份 PNG 到 action_logs/images/，並清除 30 天以前的舊檔"""
     import os
+    from datetime import datetime, timedelta
     folder = os.path.join(os.path.dirname(__file__), "action_logs", "images")
     os.makedirs(folder, exist_ok=True)
+
     fname = os.path.join(folder, f"daytrade_{date_str.replace('/', '')}.png")
     with open(fname, "wb") as f:
         f.write(image_bytes)
     print(f"[IMAGE] 本地備份：{fname}")
+
+    cutoff = datetime.now() - timedelta(days=30)
+    for fn in os.listdir(folder):
+        if not fn.startswith("daytrade_") or not fn.endswith(".png"):
+            continue
+        try:
+            fdate = datetime.strptime(fn[9:13], "%m%d").replace(year=datetime.now().year)
+            if fdate < cutoff:
+                os.remove(os.path.join(folder, fn))
+        except ValueError:
+            pass
 
 
 def upload_to_imgbb(image_bytes: bytes, api_key: str) -> str:
@@ -286,11 +315,15 @@ def send_daytrade_image(
         print("[IMAGE] IMGBB_API_KEY 未設定，僅存本地")
         return False
 
-    try:
-        img_url = upload_to_imgbb(img_bytes, api_key)
-        print(f"[IMAGE] 圖片已上傳：{img_url}")
-    except Exception as e:
-        print(f"[IMAGE] imgbb 上傳失敗：{e}")
+    img_url = None
+    for attempt in range(1, 3):
+        try:
+            img_url = upload_to_imgbb(img_bytes, api_key)
+            print(f"[IMAGE] 圖片已上傳：{img_url}")
+            break
+        except Exception as e:
+            print(f"[IMAGE] imgbb 上傳失敗（第{attempt}次）：{e}")
+    if not img_url:
         return False
 
     messages = [
