@@ -1,0 +1,72 @@
+[
+  {
+    "push_date": "2026-06-02",
+    "name": "瑞儀",
+    "ticker": "6176.TW",
+    "score": 43,
+    "price": 103.5,
+    "entry_mid": 102.72,
+    "stop": 100.67,
+    "tp1": 105.79,
+    "tp2": 106.41,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-02",
+    "name": "永豐金",
+    "ticker": "2890.TW",
+    "score": 43,
+    "price": 30.850000381469727,
+    "entry_mid": 30.62,
+    "stop": 30.13,
+    "tp1": 31.36,
+    "tp2": 31.5,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-02",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 40,
+    "price": 115.5,
+    "entry_mid": 114.63,
+    "stop": 113.46,
+    "tp1": 116.38,
+    "tp2": 116.74,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-02",
+    "name": "東和鋼鐵",
+    "ticker": "2006.TW",
+    "score": 40,
+    "price": 66.5999984741211,
+    "entry_mid": 66.51,
+    "stop": 65.4,
+    "tp1": 68.18,
+    "tp2": 68.51,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-02",
+    "name": "大成鋼",
+    "ticker": "2027.TW",
+    "score": 40,
+    "price": 43.29999923706055,
+    "entry_mid": 42.97,
+    "stop": 42.11,
+    "tp1": 44.26,
+    "tp2": 44.52,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  }
+]
