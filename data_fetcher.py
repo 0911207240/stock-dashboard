@@ -1,3 +1,4 @@
+import time
 import yfinance as yf
 import pandas as pd
 
@@ -295,13 +296,35 @@ SECTORS = {
 def fetch_taiex(period: str = "1y") -> pd.DataFrame:
     return fetch("^TWII", period=period)
 
+_FETCH_RETRIES = 3
+_FETCH_BACKOFF = (1, 3)   # 第1次重試等1秒，第2次等3秒
+
+
 def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFrame:
-    df = yf.download(ticker, period=period, interval=interval, progress=False)
-    if df.empty:
-        return df
-    df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
-    df.dropna(inplace=True)
-    return df
+    from datetime import datetime
+    last_err = None
+    for attempt in range(_FETCH_RETRIES):
+        try:
+            df = yf.download(ticker, period=period, interval=interval, progress=False)
+            if not df.empty:
+                df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
+                df.dropna(inplace=True)
+            if df.empty:
+                if attempt < _FETCH_RETRIES - 1:
+                    time.sleep(_FETCH_BACKOFF[min(attempt, len(_FETCH_BACKOFF) - 1)])
+                continue
+            # 資料過舊警告（超過 10 天代表 API 異常或長假）
+            age = (datetime.now() - df.index[-1].to_pydatetime().replace(tzinfo=None)).days
+            if age > 10:
+                print(f"[WARN] {ticker} 資料過舊 {age} 天（{df.index[-1].date()}）")
+            return df
+        except Exception as e:
+            last_err = e
+            if attempt < _FETCH_RETRIES - 1:
+                time.sleep(_FETCH_BACKOFF[min(attempt, len(_FETCH_BACKOFF) - 1)])
+    msg = str(last_err) if last_err else "資料為空"
+    print(f"[WARN] {ticker} 抓取失敗（{_FETCH_RETRIES} 次）：{msg}")
+    return pd.DataFrame()
 
 def fetch_dividends(ticker: str) -> pd.Series:
     try:
