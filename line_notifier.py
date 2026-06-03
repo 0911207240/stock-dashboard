@@ -3,17 +3,34 @@ import urllib.parse
 import json
 from config import LINE_CHANNEL_ACCESS_TOKEN, LINE_USER_ID
 
+_MSG_LIMIT = 4900   # LINE 單則文字上限 5000，留緩衝
+_BATCH     = 5      # LINE 每次推播最多 5 則
 
-def send(message: str) -> bool:
-    if not LINE_CHANNEL_ACCESS_TOKEN or not LINE_USER_ID:
-        print("[LINE] 尚未設定 Token 或 User ID")
-        return False
 
+def _split_message(message: str) -> list[str]:
+    """超過 _MSG_LIMIT 時按換行切割成多段，每段不超過限制"""
+    if len(message) <= _MSG_LIMIT:
+        return [message]
+    chunks, current, current_len = [], [], 0
+    for line in message.split("\n"):
+        line_len = len(line) + 1
+        if current_len + line_len > _MSG_LIMIT and current:
+            chunks.append("\n".join(current))
+            current, current_len = [line], line_len
+        else:
+            current.append(line)
+            current_len += line_len
+    if current:
+        chunks.append("\n".join(current))
+    return chunks
+
+
+def _push_batch(messages: list[dict]) -> bool:
+    """向 LINE API 推播一批訊息（最多 5 則）"""
     payload = json.dumps({
         "to": LINE_USER_ID,
-        "messages": [{"type": "text", "text": message}]
+        "messages": messages,
     }).encode("utf-8")
-
     req = urllib.request.Request(
         "https://api.line.me/v2/bot/message/push",
         data=payload,
@@ -23,7 +40,6 @@ def send(message: str) -> bool:
         },
         method="POST",
     )
-
     try:
         with urllib.request.urlopen(req) as res:
             return res.status == 200
@@ -32,29 +48,58 @@ def send(message: str) -> bool:
         return False
 
 
+def send(message: str) -> bool:
+    if not LINE_CHANNEL_ACCESS_TOKEN or not LINE_USER_ID:
+        print("[LINE] 尚未設定 Token 或 User ID")
+        return False
+
+    chunks = _split_message(message)
+    if len(chunks) > 1:
+        print(f"[LINE] 訊息過長（{len(message)} 字），已切分為 {len(chunks)} 則")
+
+    success = True
+    for i in range(0, len(chunks), _BATCH):
+        batch = [{"type": "text", "text": c} for c in chunks[i:i + _BATCH]]
+        if not _push_batch(batch):
+            success = False
+    return success
+
+
+_MAX_BUY  = 15   # 買進訊號最多顯示幾檔
+_MAX_SELL =  5   # 賣出訊號最多顯示幾檔
+
+
 def build_summary_message(found: list[dict], date_str: str) -> str:
-    """將多檔訊號合成一則彙整報告"""
-    buys  = [x for x in found if x["score"] > 0]
-    sells = [x for x in found if x["score"] < 0]
+    """將多檔訊號合成一則彙整報告（買進最多 _MAX_BUY 檔、賣出最多 _MAX_SELL 檔）"""
+    buys  = sorted([x for x in found if x["score"] > 0], key=lambda v: v["score"], reverse=True)
+    sells = sorted([x for x in found if x["score"] < 0], key=lambda v: v["score"])
     lines = [f"【{date_str} 技術訊號彙整】共 {len(found)} 檔"]
 
     if buys:
-        lines.append(f"\n📈 買進訊號（{len(buys)} 檔）")
-        for x in sorted(buys, key=lambda v: v["score"], reverse=True):
+        shown = buys[:_MAX_BUY]
+        omit  = len(buys) - len(shown)
+        lines.append(f"\n📈 買進訊號（{len(buys)} 檔{'，顯示前'+str(_MAX_BUY) if omit else ''}）")
+        for x in shown:
             arrow = "▲" if x["change_pct"] >= 0 else "▼"
             tag = "★持股 " if x.get("is_holding") else ""
             sig_msgs = "、".join(s["msg"] for s in x["signals"] if s["type"] == "buy")
             lines.append(f"  {tag}{x['name']} ${x['price']:.2f} {arrow}{abs(x['change_pct']):.1f}%")
             lines.append(f"    {sig_msgs}")
+        if omit:
+            lines.append(f"  …另 {omit} 檔略")
 
     if sells:
-        lines.append(f"\n📉 賣出訊號（{len(sells)} 檔）")
-        for x in sorted(sells, key=lambda v: v["score"]):
+        shown = sells[:_MAX_SELL]
+        omit  = len(sells) - len(shown)
+        lines.append(f"\n📉 賣出訊號（{len(sells)} 檔{'，顯示前'+str(_MAX_SELL) if omit else ''}）")
+        for x in shown:
             arrow = "▲" if x["change_pct"] >= 0 else "▼"
             tag = "★持股 " if x.get("is_holding") else ""
             sig_msgs = "、".join(s["msg"] for s in x["signals"] if s["type"] == "sell")
             lines.append(f"  {tag}{x['name']} ${x['price']:.2f} {arrow}{abs(x['change_pct']):.1f}%")
             lines.append(f"    {sig_msgs}")
+        if omit:
+            lines.append(f"  …另 {omit} 檔略")
 
     watch = [x for x in found if x["score"] == 0]
     if watch:
