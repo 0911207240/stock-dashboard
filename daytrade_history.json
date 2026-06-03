@@ -37,9 +37,9 @@
     "stop": 113.46,
     "tp1": 116.38,
     "tp2": 116.74,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 116.38,
+    "return_pct": 1.53
   },
   {
     "push_date": "2026-06-02",
@@ -219,6 +219,34 @@
     "stop": 68.08,
     "tp1": 71.33,
     "tp2": 71.72,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-03",
+    "name": "豐興",
+    "ticker": "2015.TW",
+    "score": 43,
+    "price": 62.70000076293945,
+    "entry_mid": 62.67,
+    "stop": 61.94,
+    "tp1": 63.77,
+    "tp2": 63.98,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-03",
+    "name": "中華電",
+    "ticker": "2412.TW",
+    "score": 40,
+    "price": 141.0,
+    "entry_mid": 140.2,
+    "stop": 140.36,
+    "tp1": 140.21,
+    "tp2": 140.22,
     "result": null,
     "exit_price": null,
     "return_pct": null
