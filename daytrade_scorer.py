@@ -260,6 +260,7 @@ def get_daytrade_candidates(
     inst_cache:   dict = None,
     margin_cache: dict = None,
     top_n: int = 10,
+    pre_analyzed: bool = False,
 ) -> list[dict]:
     """從 all_data 篩出隔日當沖候選清單（僅台股，排除基本面偏弱）"""
     from analyzer import add_indicators
@@ -273,7 +274,8 @@ def get_daytrade_candidates(
         if is_fundamentally_weak(ticker):
             continue
 
-        df     = add_indicators(df)
+        if not pre_analyzed:
+            df = add_indicators(df)
         result = calc_daytrade_score(
             df,
             inst_data=(inst_cache   or {}).get(name),

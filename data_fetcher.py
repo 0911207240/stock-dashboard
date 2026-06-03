@@ -396,7 +396,81 @@ def fetch_margin_data(stock_code: str) -> dict:
     return {}
 
 
-def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 10) -> dict[str, pd.DataFrame]:
+def fetch_all_institutional() -> dict[str, dict]:
+    """一次 API 抓取所有台股三大法人資料，回傳 {stock_code: {...}}"""
+    import urllib.request, json as _json
+    from datetime import datetime, timedelta
+    for i in range(5):
+        date = (datetime.now() - timedelta(days=i)).strftime("%Y%m%d")
+        url  = (f"https://www.twse.com.tw/rwd/zh/fund/T86"
+                f"?date={date}&selectType=ALLBUT0999&response=json")
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = _json.loads(resp.read())
+            if data.get("stat") != "OK" or not data.get("data"):
+                continue
+            def _int(s):
+                try: return int(str(s).replace(",", ""))
+                except: return 0
+            return {
+                row[0].strip(): {
+                    "date":        date,
+                    "foreign_net": _int(row[4]),
+                    "trust_net":   _int(row[7]),
+                    "dealer_net":  _int(row[8]),
+                    "total_net":   _int(row[9]),
+                }
+                for row in data["data"]
+            }
+        except Exception:
+            continue
+    return {}
+
+
+def fetch_all_margin() -> dict[str, dict]:
+    """一次 API 抓取所有台股融資融券資料，回傳 {stock_code: {...}}"""
+    import urllib.request, json as _json
+    from datetime import datetime, timedelta
+    for i in range(5):
+        date = (datetime.now() - timedelta(days=i)).strftime("%Y%m%d")
+        url  = (f"https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN"
+                f"?date={date}&selectType=ALL&response=json")
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = _json.loads(resp.read())
+            if data.get("stat") != "OK" or not data.get("data"):
+                continue
+            def _int(s):
+                try: return int(str(s).replace(",", ""))
+                except: return 0
+            result = {}
+            for row in data["data"]:
+                if len(row) < 13:
+                    continue
+                code = row[0].strip()
+                mp   = _int(row[5]); mt = _int(row[6])
+                sp   = _int(row[11]); st = _int(row[12])
+                result[code] = {
+                    "date":           date,
+                    "margin_buy":     _int(row[2]),
+                    "margin_sell":    _int(row[3]),
+                    "margin_balance": mt,
+                    "margin_change":  mt - mp,
+                    "short_sell":     _int(row[8]),
+                    "short_buy":      _int(row[9]),
+                    "short_balance":  st,
+                    "short_change":   st - sp,
+                    "margin_ratio":   round(st / mt * 100, 1) if mt > 0 else 0,
+                }
+            return result
+        except Exception:
+            continue
+    return {}
+
+
+def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 20) -> dict[str, pd.DataFrame]:
     from concurrent.futures import ThreadPoolExecutor, as_completed
     names = SECTORS.get(sector, list(WATCHLIST.keys()))
     pairs = [(name, WATCHLIST[name]) for name in names if name in WATCHLIST]

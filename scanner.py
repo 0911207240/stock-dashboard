@@ -46,7 +46,39 @@ def run_scan(min_score: int = 2, notify: bool = True):
     is_midday  = 10 <= now.hour < 14  # 12:30 午盤
     session    = "午盤" if is_midday else "早盤"
     print(f"\n[{now.strftime('%Y-%m-%d %H:%M')}] {session}掃描開始...")
+    from concurrent.futures import ThreadPoolExecutor
+    from data_fetcher import fetch_all_institutional, fetch_all_margin
+
     all_data = fetch_all(period="1y")
+
+    # 並發計算技術指標（避免重複呼叫）
+    with ThreadPoolExecutor(max_workers=8) as _ex:
+        analyzed_data = dict(_ex.map(
+            lambda item: (item[0], add_indicators(item[1])),
+            all_data.items()
+        ))
+
+    # 批次抓取籌碼資料（各一次 API，並發執行）
+    with ThreadPoolExecutor(max_workers=2) as _ex:
+        _inst_f   = _ex.submit(fetch_all_institutional)
+        _margin_f = _ex.submit(fetch_all_margin)
+        _inst_by_code   = _inst_f.result()
+        _margin_by_code = _margin_f.result()
+
+    def _tw_code(ticker: str) -> str:
+        return ticker.replace(".TW", "").replace(".TWO", "")
+
+    inst_cache = {
+        name: _inst_by_code[_tw_code(ticker)]
+        for name, ticker in WATCHLIST.items()
+        if ticker.endswith(".TW") and _tw_code(ticker) in _inst_by_code
+    }
+    margin_cache = {
+        name: _margin_by_code[_tw_code(ticker)]
+        for name, ticker in WATCHLIST.items()
+        if ticker.endswith(".TW") and _tw_code(ticker) in _margin_by_code
+    }
+    print(f"  籌碼資料：法人 {len(inst_cache)} 檔 / 融資 {len(margin_cache)} 檔")
 
     # 0. 預載基本面快取 + 回查昨日當沖結果 + 偵測大盤狀態
     prefetch_all(WATCHLIST)
@@ -99,10 +131,9 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
     # 2. 技術訊號掃描
     found = []
-    portfolio_names = set(HOLDINGS.keys())  # HOLDINGS is dict of {name: {shares, cost}}
+    portfolio_names = set(HOLDINGS.keys())
 
-    for name, df in all_data.items():
-        df = add_indicators(df)
+    for name, df in analyzed_data.items():
         sigs = detect_signals(df)
         sc = score(sigs)
 
@@ -144,7 +175,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
     print(f"掃描完成，共 {len(found)} 檔有訊號")
 
     # 3. 隔日當沖候選（依大盤狀態動態門檻，含冷卻過濾 + 個股歷史勝率調整）
-    dt_candidates = get_daytrade_candidates(dict(all_data), WATCHLIST, top_n=10)
+    dt_candidates = get_daytrade_candidates(
+        analyzed_data, WATCHLIST,
+        inst_cache=inst_cache, margin_cache=margin_cache,
+        top_n=10, pre_analyzed=True,
+    )
     for c in dt_candidates:
         # 財報前 3 天內自動降分（高不確定性）
         if has_earnings_risk(c["name"], c["ticker"], days_ahead=3):
