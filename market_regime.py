@@ -35,7 +35,26 @@ def vix_label(vix: float) -> tuple[str, int]:
     return f"😐 VIX {vix}（中性）", 0
 
 
-def detect_regime(df: pd.DataFrame) -> dict:
+def futures_label(net: int) -> tuple[str, int]:
+    """
+    依外資台指期淨口數回傳 (描述, 門檻調整)
+    大多：net > 30,000 → -5；偏多：> 10,000 → -2
+    偏空：< -10,000 → +5；大空：< -30,000 → +10
+    """
+    if net > 30_000:
+        return f"🐂 外資期貨強多 +{net:,} 口", -5
+    if net > 10_000:
+        return f"📈 外資期貨偏多 +{net:,} 口", -2
+    if net >= 0:
+        return f"➡️ 外資期貨小多 +{net:,} 口", 0
+    if net > -10_000:
+        return f"📉 外資期貨偏空 {net:,} 口", +5
+    if net > -30_000:
+        return f"🐻 外資期貨空頭 {net:,} 口", +8
+    return f"🐻 外資期貨強空 {net:,} 口", +10
+
+
+def detect_regime(df: pd.DataFrame, futures_data: dict = None) -> dict:
     """
     輸入：add_indicators 處理後的 TAIEX DataFrame
     輸出：
@@ -68,9 +87,13 @@ def detect_regime(df: pd.DataFrame) -> dict:
     vix      = fetch_vix()
     vix_desc, vix_adj = vix_label(vix) if vix is not None else ("VIX 無資料", 0)
 
+    # 台指期外資部位修正
+    futures_net  = futures_data.get("foreign_net", 0) if futures_data else 0
+    futures_desc, fut_adj = futures_label(futures_net) if futures_data else ("期貨無資料", 0)
+
     # ── 多頭：均線多頭排列 + 站上MA20 + 近5日未大跌
     if bull_align and close > ma20 and momentum5d > -3:
-        adj = -5 + vix_adj
+        adj = -5 + vix_adj + fut_adj
         return {
             "state":         "多頭",
             "emoji":         "🟢",
@@ -80,11 +103,13 @@ def detect_regime(df: pd.DataFrame) -> dict:
             "dev_ma20_pct":  round(dev_ma20,   1),
             "momentum_5d":   round(momentum5d, 1),
             "vix":           vix,
+            "futures_net":   futures_net,
+            "futures_desc":  futures_desc,
         }
 
     # ── 空頭：均線空頭 + 跌破MA20超過3%
     if bear_align and dev_ma20 < -3:
-        adj = 15 + vix_adj
+        adj = 15 + vix_adj + fut_adj
         return {
             "state":         "空頭",
             "emoji":         "🔴",
@@ -94,6 +119,8 @@ def detect_regime(df: pd.DataFrame) -> dict:
             "dev_ma20_pct":  round(dev_ma20,   1),
             "momentum_5d":   round(momentum5d, 1),
             "vix":           vix,
+            "futures_net":   futures_net,
+            "futures_desc":  futures_desc,
         }
 
     # ── 盤整：其他情況
@@ -101,11 +128,13 @@ def detect_regime(df: pd.DataFrame) -> dict:
         "state":         "盤整",
         "emoji":         "🟡",
         "description":   f"大盤盤整（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
-        "min_score_adj": vix_adj,
+        "min_score_adj": vix_adj + fut_adj,
         "close":         close,
         "dev_ma20_pct":  round(dev_ma20,   1),
         "momentum_5d":   round(momentum5d, 1),
         "vix":           vix,
+        "futures_net":   futures_net,
+        "futures_desc":  futures_desc,
     }
 
 

@@ -493,6 +493,50 @@ def fetch_all_margin() -> dict[str, dict]:
     return {}
 
 
+def fetch_taifex_futures() -> dict:
+    """從 TAIFEX 抓外資台指期（TXF）淨未平倉口數"""
+    import urllib.request, re
+    from datetime import datetime, timedelta
+
+    def _int(s):
+        try:
+            return int(str(s).replace(",", "").strip())
+        except Exception:
+            return None
+
+    for i in range(5):
+        date_str = (datetime.now() - timedelta(days=i)).strftime("%Y/%m/%d")
+        url = (
+            "https://www.taifex.com.tw/cht/3/futContractsDate"
+            f"?queryType=2&marketCode=0&dateaddcnt=0&commodity_id=TXF&queryDate={date_str}"
+        )
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                html = resp.read().decode("utf-8", errors="replace")
+
+            pos = html.find("外資及陸資")
+            if pos < 0:
+                continue
+
+            # 從外資行起取後 2000 字元，抓出所有數字（含負號）
+            segment = html[pos: pos + 2000]
+            raw_nums = re.findall(r'>([\-]?[\d,]+)<', segment)
+            nums = [_int(n) for n in raw_nums if _int(n) is not None]
+
+            # 欄位順序：多方口數, 多方金額, 空方口數, 空方金額, 淨額口數, 淨額金額
+            if len(nums) >= 5:
+                return {
+                    "date":          date_str,
+                    "foreign_long":  nums[0],
+                    "foreign_short": nums[2],
+                    "foreign_net":   nums[4],
+                }
+        except Exception:
+            continue
+    return {}
+
+
 def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 20) -> dict[str, pd.DataFrame]:
     from concurrent.futures import ThreadPoolExecutor, as_completed
     names = SECTORS.get(sector, list(WATCHLIST.keys()))

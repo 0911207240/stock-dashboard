@@ -119,6 +119,8 @@ def build_daytrade_message(
     header = f"【{date_str} 明日當沖候選 Top{len(candidates)}】"
     if regime:
         header += f"\n{regime['emoji']} 大盤{regime['state']}｜門檻 {40 + regime['min_score_adj']}分"
+        if regime.get("futures_desc"):
+            header += f"\n{regime['futures_desc']}"
     lines = [header, "量能＋籌碼＋技術＋波動度評分", ""]
     for i, c in enumerate(candidates, 1):
         arrow = "▲" if c["change_pct"] >= 0 else "▼"

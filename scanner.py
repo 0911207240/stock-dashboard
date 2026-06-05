@@ -47,7 +47,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
     session    = "午盤" if is_midday else "早盤"
     print(f"\n[{now.strftime('%Y-%m-%d %H:%M')}] {session}掃描開始...")
     from concurrent.futures import ThreadPoolExecutor
-    from data_fetcher import fetch_all_institutional, fetch_all_margin
+    from data_fetcher import fetch_all_institutional, fetch_all_margin, fetch_taifex_futures
 
     all_data = fetch_all(period="1y")
 
@@ -58,12 +58,16 @@ def run_scan(min_score: int = 2, notify: bool = True):
             all_data.items()
         ))
 
-    # 批次抓取籌碼資料（各一次 API，並發執行）
-    with ThreadPoolExecutor(max_workers=2) as _ex:
-        _inst_f   = _ex.submit(fetch_all_institutional)
-        _margin_f = _ex.submit(fetch_all_margin)
+    # 批次抓取籌碼資料 + 台指期（並發執行）
+    with ThreadPoolExecutor(max_workers=3) as _ex:
+        _inst_f    = _ex.submit(fetch_all_institutional)
+        _margin_f  = _ex.submit(fetch_all_margin)
+        _futures_f = _ex.submit(fetch_taifex_futures)
         _inst_by_code   = _inst_f.result()
         _margin_by_code = _margin_f.result()
+        futures_data    = _futures_f.result()
+    if futures_data:
+        print(f"  台指期外資：{futures_data.get('futures_desc', '')} 淨口數 {futures_data.get('foreign_net', 0):,}")
 
     def _tw_code(ticker: str) -> str:
         return ticker.replace(".TW", "").replace(".TWO", "")
@@ -87,7 +91,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
     from data_fetcher import fetch_taiex
     taiex_df = fetch_taiex(period="3mo")
     taiex_df = add_indicators(taiex_df) if not taiex_df.empty else taiex_df
-    regime   = detect_regime(taiex_df)
+    regime   = detect_regime(taiex_df, futures_data=futures_data)
     base_min_score = 40 + regime["min_score_adj"]
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
 
