@@ -84,32 +84,72 @@ def calc_daytrade_score(
     if inst_data:
         total_net   = inst_data.get("total_net",   0)
         foreign_net = inst_data.get("foreign_net", 0)
+        trust_net   = inst_data.get("trust_net",   0)
+
+        # 三大法人合計
         if total_net > 2000:
-            chip_score += 20
+            chip_score += 15
             signals.append(f"法人大買 {total_net:,}張")
         elif total_net > 500:
-            chip_score += 14
+            chip_score += 10
             signals.append(f"法人買超 {total_net:,}張")
         elif total_net > 0:
-            chip_score += 7
+            chip_score += 5
         elif total_net < -1000:
             chip_score -= 15
             signals.append(f"法人大賣 {abs(total_net):,}張")
         elif total_net < 0:
             chip_score -= 5
+
+        # 外資
         if foreign_net > 1000:
-            chip_score += 10
+            chip_score += 8
             signals.append(f"外資大買 {foreign_net:,}張")
         elif foreign_net > 200:
-            chip_score += 5
+            chip_score += 4
+            signals.append(f"外資買超 {foreign_net:,}張")
+        elif foreign_net < -500:
+            chip_score -= 5
+            signals.append(f"外資賣超 {abs(foreign_net):,}張")
+
+        # 投信（穩定籌碼，買超代表中期信心）
+        if trust_net > 200:
+            chip_score += 7
+            signals.append(f"投信大買 {trust_net:,}張")
+        elif trust_net > 50:
+            chip_score += 4
+            signals.append(f"投信買超 {trust_net:,}張")
+        elif trust_net < -100:
+            chip_score -= 5
+            signals.append(f"投信賣超 {abs(trust_net):,}張")
+
     if margin_data:
         margin_change = margin_data.get("margin_change", 0)
+        short_change  = margin_data.get("short_change",  0)
+        margin_ratio  = margin_data.get("margin_ratio",  0)
+
+        # 融資
         if margin_change > 200:
             chip_score += 5
             signals.append(f"融資增 {margin_change:,}張")
         elif margin_change < -500:
             chip_score -= 5
             signals.append(f"融資大減 {abs(margin_change):,}張")
+
+        # 融券（空方回補是軋空訊號，大增代表空方加壓）
+        if short_change < -200:
+            chip_score += 5
+            signals.append(f"融券大減 {abs(short_change):,}張（空方回補）")
+        elif short_change > 300:
+            chip_score -= 8
+            signals.append(f"融券大增 {short_change:,}張（空方加壓）")
+
+        # 券資比（高券資比代表籌碼偏空，風險上升）
+        if margin_ratio > 20:
+            chip_score -= 5
+            signals.append(f"⚠️ 券資比 {margin_ratio:.1f}%，籌碼偏空")
+        elif margin_ratio > 10:
+            signals.append(f"券資比 {margin_ratio:.1f}%，留意")
     breakdown["籌碼"] = chip_score
     score += chip_score
 
