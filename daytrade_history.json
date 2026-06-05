@@ -9,9 +9,9 @@
     "stop": 100.67,
     "tp1": 105.79,
     "tp2": 106.41,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 102.5,
+    "return_pct": -0.21
   },
   {
     "push_date": "2026-06-02",
@@ -51,9 +51,9 @@
     "stop": 65.4,
     "tp1": 68.18,
     "tp2": 68.51,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 66.7,
+    "return_pct": 0.29
   },
   {
     "push_date": "2026-06-02",
@@ -261,9 +261,9 @@
     "stop": 24.29,
     "tp1": 24.72,
     "tp2": 24.8,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 24.29,
+    "return_pct": -0.7
   },
   {
     "push_date": "2026-06-04",
@@ -275,9 +275,9 @@
     "stop": 52.2,
     "tp1": 53.7,
     "tp2": 54.0,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 54.0,
+    "return_pct": 2.27
   },
   {
     "push_date": "2026-06-04",
@@ -303,9 +303,9 @@
     "stop": 99.89,
     "tp1": 103.67,
     "tp2": 104.42,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 99.89,
+    "return_pct": -1.49
   },
   {
     "push_date": "2026-06-04",
@@ -331,9 +331,9 @@
     "stop": 114.96,
     "tp1": 115.81,
     "tp2": 115.98,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 115.98,
+    "return_pct": 0.59
   },
   {
     "push_date": "2026-06-04",
@@ -345,9 +345,9 @@
     "stop": 802.43,
     "tp1": 843.38,
     "tp2": 851.57,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 802.43,
+    "return_pct": -2.0
   },
   {
     "push_date": "2026-06-04",
@@ -359,9 +359,9 @@
     "stop": 2334.36,
     "tp1": 2453.46,
     "tp2": 2477.28,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 2334.36,
+    "return_pct": -2.0
   },
   {
     "push_date": "2026-06-04",
@@ -387,6 +387,62 @@
     "stop": 121.58,
     "tp1": 127.78,
     "tp2": 129.02,
+    "result": "停利②",
+    "exit_price": 129.02,
+    "return_pct": 4.0
+  },
+  {
+    "push_date": "2026-06-05",
+    "name": "大成鋼",
+    "ticker": "2027.TW",
+    "score": 62,
+    "price": 43.400001525878906,
+    "entry_mid": 43.08,
+    "stop": 42.9,
+    "tp1": 43.35,
+    "tp2": 43.44,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-05",
+    "name": "台積電",
+    "ticker": "2330.TW",
+    "score": 60,
+    "price": 2355.0,
+    "entry_mid": 2337.34,
+    "stop": 2332.51,
+    "tp1": 2344.59,
+    "tp2": 2347.0,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-05",
+    "name": "日月光投控",
+    "ticker": "3711.TW",
+    "score": 60,
+    "price": 573.0,
+    "entry_mid": 572.93,
+    "stop": 561.47,
+    "tp1": 590.12,
+    "tp2": 595.85,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-05",
+    "name": "台勝科",
+    "ticker": "3532.TW",
+    "score": 60,
+    "price": 287.0,
+    "entry_mid": 285.47,
+    "stop": 279.76,
+    "tp1": 294.04,
+    "tp2": 296.89,
     "result": null,
     "exit_price": null,
     "return_pct": null
