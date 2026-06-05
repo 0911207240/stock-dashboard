@@ -446,5 +446,19 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-05",
+    "name": "台塑",
+    "ticker": "1301.TW",
+    "score": 64,
+    "price": 48.900001525878906,
+    "entry_mid": 48.56,
+    "stop": 48.02,
+    "tp1": 49.37,
+    "tp2": 49.64,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
