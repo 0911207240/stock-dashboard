@@ -11,6 +11,7 @@ from image_notifier import send_daytrade_image
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message, build_rebalance_alert, build_correlation_alert
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
+from tdcc_holders import get_holder_signal
 from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance, calc_monthly_performance, get_stock_win_rate
 from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
@@ -199,6 +200,15 @@ def run_scan(min_score: int = 2, notify: bool = True):
                 c["score"] = int(c["score"] * 0.85)
                 c["signals"].insert(0, f"⚠️歷史勝率偏低{sr['win_rate']}%({sr['total']}筆)")
         c["hist_win_rate"] = sr["win_rate"]
+
+        # 集保戶數（每週更新，大戶增持加分，減持扣分）
+        holder = get_holder_signal(c["ticker"])
+        if holder["signal"] == "accumulate":
+            c["score"] = min(100, c["score"] + 5)
+            c["signals"].insert(0, holder["label"])
+        elif holder["signal"] == "distribute":
+            c["score"] = max(0, c["score"] - 5)
+            c["signals"].insert(0, holder["label"])
 
     fresh_candidates = [
         c for c in dt_candidates
