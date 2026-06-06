@@ -58,7 +58,7 @@ def _build_flex(name: str, ticker: str) -> dict:
     is_etf = code.startswith("00")
 
     # ── 平行抓取：K線 + 法人 + 融資券 + 集保（yfinance 只在 kline 呼叫）──
-    tasks = {"kline": lambda: fetch(ticker, period="3mo")}
+    tasks = {"kline": lambda: fetch(ticker, period="6mo")}
     if is_tw:
         tasks["inst"]   = lambda: fetch_institutional(code)
         tasks["margin"] = lambda: fetch_margin_data(code)
