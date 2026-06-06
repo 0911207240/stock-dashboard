@@ -59,8 +59,28 @@ def _build_flex(name: str, ticker: str) -> dict:
 
     # ── K線：主執行緒（yfinance 在 thread 內不穩定）───────
     df = fetch(ticker, period="6mo")
+    # 台股主板抓不到，試上櫃 .TWO
+    if (df is None or df.empty) and ticker.endswith(".TW"):
+        ticker = ticker.replace(".TW", ".TWO")
+        df = fetch(ticker, period="6mo")
     if df is None or df.empty:
         return None  # 快速失敗，不浪費 reply token 時間
+
+    # name 若只是代碼（自動解析），嘗試從 TWSE 取回中文名
+    raw_code = ticker.replace(".TW", "").replace(".TWO", "")
+    if name == raw_code:
+        try:
+            import urllib.request as _ur, json as _j
+            _url = (f"https://www.twse.com.tw/rwd/zh/company/searchTwsePubInfo"
+                    f"?stockNo={raw_code}&response=json")
+            _req = _ur.Request(_url, headers={"User-Agent": "Mozilla/5.0"})
+            with _ur.urlopen(_req, timeout=5) as _r:
+                _d = _j.loads(_r.read())
+            _rows = _d.get("data") or []
+            if _rows:
+                name = _rows[0][2] or name   # 欄位 2 = 公司簡稱
+        except Exception:
+            pass
 
     results: dict = {"kline": df}
 

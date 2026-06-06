@@ -16,8 +16,13 @@ _CODE_TO_NAME   = {
 
 
 def resolve_query(text: str) -> tuple[str | None, str | None]:
-    """輸入文字 → (名稱, ticker)，找不到回傳 (None, None)"""
+    """輸入文字 → (名稱, ticker)。
+    WATCHLIST 找不到時，自動嘗試解析為台股(.TW)或美股代號。
+    """
+    import re
     text = text.strip()
+
+    # ── 優先查 WATCHLIST ──────────────────────────────
     if text in _NAME_TO_TICKER:
         return text, _NAME_TO_TICKER[text]
     code = text.upper().replace(".TW", "").replace(".TWO", "")
@@ -27,6 +32,22 @@ def resolve_query(text: str) -> tuple[str | None, str | None]:
     for name, ticker in WATCHLIST.items():
         if text in name:
             return name, ticker
+
+    # ── 自動解析：不在 WATCHLIST 的代號 ──────────────
+    # 台股：4–5 位數字 → 先試主板 .TW（_build_flex 若空再 fallback .TWO）
+    if re.match(r'^\d{4,6}$', text):
+        return text, f"{text}.TW"
+
+    # 明確帶 .TW / .TWO / .T 後綴
+    if re.match(r'^\d{4,6}\.(TW|TWO|T)$', text.upper()):
+        upper = text.upper()
+        return upper.split(".")[0], upper
+
+    # 美股：1–5 個英文字母（可含 - 如 BRK-B）
+    if re.match(r'^[A-Za-z]{1,5}$', text) or re.match(r'^[A-Za-z]+-[A-Za-z]$', text):
+        upper = text.upper()
+        return upper, upper
+
     return None, None
 
 
