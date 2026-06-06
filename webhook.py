@@ -44,7 +44,8 @@ def _reply(reply_token: str, message):
 
 
 def _build_flex(name: str, ticker: str) -> dict:
-    """抓資料、計算指標，回傳 Flex Message dict"""
+    """平行抓取所有資料，回傳 Flex Message dict"""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     from data_fetcher import fetch, fetch_institutional, fetch_margin_data
     from analyzer import add_indicators
     from daytrade_scorer import calc_daytrade_score, calc_entry_exit, is_tw_stock
@@ -52,7 +53,30 @@ def _build_flex(name: str, ticker: str) -> dict:
     from tdcc_holders import get_holder_signal
     from flex_builder import build_analysis_flex
 
-    df = fetch(ticker, period="6mo")
+    code   = ticker.replace(".TW", "").replace(".TWO", "")
+    is_tw  = is_tw_stock(ticker)
+    is_etf = code.startswith("00")
+
+    # ── 平行抓取：K線 + 法人 + 融資券 + 集保 + 基本面 ──────
+    tasks = {"kline": lambda: fetch(ticker, period="3mo")}
+    if is_tw:
+        tasks["inst"]   = lambda: fetch_institutional(code)
+        tasks["margin"] = lambda: fetch_margin_data(code)
+        tasks["holder"] = lambda: get_holder_signal(ticker)
+    if is_tw and not is_etf:
+        tasks["weak"] = lambda: is_fundamentally_weak(ticker)
+
+    results = {}
+    with ThreadPoolExecutor(max_workers=len(tasks)) as pool:
+        futures = {pool.submit(fn): key for key, fn in tasks.items()}
+        for future in as_completed(futures):
+            key = futures[future]
+            try:
+                results[key] = future.result()
+            except Exception:
+                results[key] = None
+
+    df = results.get("kline")
     if df is None or df.empty:
         return None
 
@@ -86,23 +110,18 @@ def _build_flex(name: str, ticker: str) -> dict:
     else:
         ma_tag = "均線糾結"
 
-    inst_data, margin_data, holder_label = {}, {}, ""
-    if is_tw_stock(ticker):
-        code        = ticker.replace(".TW", "").replace(".TWO", "")
-        inst_data   = fetch_institutional(code) or {}
-        margin_data = fetch_margin_data(code) or {}
-        holder      = get_holder_signal(ticker)
-        holder_label = holder.get("label", "")
+    inst_data    = results.get("inst")   or {}
+    margin_data  = results.get("margin") or {}
+    holder_label = (results.get("holder") or {}).get("label", "")
 
     daytrade_score, entry_exit, top_signals = 0, None, []
-    is_etf = ticker.replace(".TW", "").replace(".TWO", "").startswith("00")
-    if is_tw_stock(ticker) and not is_etf:
+    if is_tw and not is_etf:
         result = calc_daytrade_score(df, inst_data=inst_data, margin_data=margin_data)
         daytrade_score = result["score"]
         if daytrade_score > 0:
-            entry_exit   = calc_entry_exit(df, daytrade_score)
-            top_signals  = result["signals"][:2]
-            if is_fundamentally_weak(ticker):
+            entry_exit  = calc_entry_exit(df, daytrade_score)
+            top_signals = result["signals"][:2]
+            if results.get("weak"):
                 top_signals.append("基本面偏弱")
 
     return build_analysis_flex(
