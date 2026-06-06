@@ -118,6 +118,69 @@ def _build_flex(name: str, ticker: str) -> dict:
     )
 
 
+def _build_portfolio_message() -> dict:
+    """抓持股即時資料，回傳 LINE message dict（含 Quick Reply）"""
+    from data_fetcher import fetch, WATCHLIST
+    from portfolio import HOLDINGS, calc_summary
+    from datetime import datetime
+
+    date_str = datetime.now().strftime("%m/%d")
+
+    all_data = {}
+    for name in HOLDINGS:
+        ticker = WATCHLIST.get(name)
+        if ticker:
+            df = fetch(ticker, period="5d")
+            if df is not None and not df.empty:
+                all_data[name] = df
+
+    summary = calc_summary(all_data)
+    total   = summary.get("__total__", {})
+
+    lines = [f"📊 持股快照（{date_str}）", ""]
+    for name, d in summary.items():
+        if name == "__total__":
+            continue
+        arrow = "▲" if d["change_pct"] >= 0 else "▼"
+        line  = f"{name}　${d['price']:.1f} {arrow}{abs(d['change_pct']):.1f}%"
+        if d.get("pnl") is not None:
+            pa = "+" if d["pnl"] >= 0 else "-"
+            line += f"\n  損益 {pa}${abs(d['pnl']):,.0f}（{pa}{abs(d['pnl_pct']):.1f}%）"
+        alerts = []
+        if d.get("stop_alert"):
+            alerts.append("⚠️停損")
+        if d.get("take_alert"):
+            alerts.append("🎯停利達標")
+        if alerts:
+            line += "  " + " ".join(alerts)
+        lines.append(line)
+
+    lines.append("")
+    tv  = total.get("total_value",      0)
+    tdc = total.get("total_day_change", 0)
+    tp  = total.get("total_pnl")
+    tdc_arrow = "▲" if tdc >= 0 else "▼"
+    lines.append(f"市值　　　${tv:,.0f}")
+    lines.append(f"今日損益　{tdc_arrow}${abs(tdc):,.0f}")
+    if tp is not None:
+        tp_arrow = "▲" if tp >= 0 else "▼"
+        lines.append(f"總損益　　{tp_arrow}${abs(tp):,.0f}")
+    lines.append("\n⚠️ 資料 T+1，僅供參考")
+
+    return {
+        "type": "text",
+        "text": "\n".join(lines),
+        "quickReply": {
+            "items": [
+                {"type": "action", "action": {"type": "message", "label": "台積電", "text": "2330"}},
+                {"type": "action", "action": {"type": "message", "label": "元大高股息", "text": "0056"}},
+                {"type": "action", "action": {"type": "message", "label": "台灣50", "text": "0050"}},
+                {"type": "action", "action": {"type": "message", "label": "說明", "text": "說明"}},
+            ],
+        },
+    }
+
+
 def _handle_message(event: dict):
     if event.get("type") != "message":
         return
@@ -143,6 +206,12 @@ def _handle_message(event: dict):
             },
         }
         _reply(reply_token, help_msg)
+        return
+
+    # 持股快照
+    if text in ("持股", "持股快照", "portfolio"):
+        msg = _build_portfolio_message()
+        _reply(reply_token, msg)
         return
 
     # 多股比較：空格分隔 2-4 個代號
