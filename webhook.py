@@ -60,10 +60,6 @@ def _handle_message(event: dict):
         _reply(reply_token, f"❓ 找不到「{text}」\n請輸入股票代號（如 2330）或名稱（如 台積電）")
         return
 
-    _reply(reply_token, f"🔍 查詢中…（{name}）")
-
-    # 分析可能需要幾秒，LINE reply token 有 30 秒限制
-    # 若分析結果太長自動截斷至 LINE 5000 字元上限
     response = build_query_response(name, ticker)
     if len(response) > 4900:
         response = response[:4900] + "\n…（內容過長已截斷）"
