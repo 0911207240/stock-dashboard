@@ -57,14 +57,12 @@ def _build_flex(name: str, ticker: str) -> dict:
     is_tw  = is_tw_stock(ticker)
     is_etf = code.startswith("00")
 
-    # ── 平行抓取：K線 + 法人 + 融資券 + 集保 + 基本面 ──────
+    # ── 平行抓取：K線 + 法人 + 融資券 + 集保（yfinance 只在 kline 呼叫）──
     tasks = {"kline": lambda: fetch(ticker, period="3mo")}
     if is_tw:
         tasks["inst"]   = lambda: fetch_institutional(code)
         tasks["margin"] = lambda: fetch_margin_data(code)
         tasks["holder"] = lambda: get_holder_signal(ticker)
-    if is_tw and not is_etf:
-        tasks["weak"] = lambda: is_fundamentally_weak(ticker)
 
     results = {}
     with ThreadPoolExecutor(max_workers=len(tasks)) as pool:
@@ -73,8 +71,17 @@ def _build_flex(name: str, ticker: str) -> dict:
             key = futures[future]
             try:
                 results[key] = future.result()
-            except Exception:
+            except Exception as e:
+                print(f"[fetch error] {key}: {e}")
                 results[key] = None
+
+    # 基本面檢查（yfinance，不放入平行群組避免衝突）
+    results["weak"] = False
+    if is_tw and not is_etf:
+        try:
+            results["weak"] = is_fundamentally_weak(ticker)
+        except Exception:
+            pass
 
     df = results.get("kline")
     if df is None or df.empty:
