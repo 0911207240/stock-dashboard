@@ -201,7 +201,7 @@ def build_compact_response(name: str, ticker: str) -> str:
 
 
 def build_multi_response(pairs: list[tuple[str, str]]) -> str:
-    """多股比較摘要，每檔一行"""
+    """多股比較摘要，每檔一行（文字 fallback）"""
     from datetime import datetime
     date_str = datetime.now().strftime("%m/%d")
     lines = [f"📊 比較查詢（{date_str}）"]
@@ -209,6 +209,155 @@ def build_multi_response(pairs: list[tuple[str, str]]) -> str:
         lines.append(build_compact_response(name, ticker))
     lines.append("\n輸入單一代號可看完整分析")
     return "\n".join(lines)
+
+
+def _compact_bubble(name: str, ticker: str) -> dict | None:
+    """回傳單檔比較用的小 Flex bubble，抓不到資料回 None"""
+    df = fetch(ticker, period="3mo")
+    if df is None or df.empty:
+        return None
+
+    df      = add_indicators(df)
+    latest  = df.iloc[-1]
+    prev    = df.iloc[-2] if len(df) > 1 else latest
+    close   = float(latest["Close"])
+    chg_pct = (close - float(prev["Close"])) / float(prev["Close"]) * 100
+    rsi     = _safe(latest, "RSI",      50.0)
+    vol_r   = _safe(latest, "Vol_ratio", 1.0)
+    ma5     = _safe(latest, "MA5",  close)
+    ma20    = _safe(latest, "MA20", close)
+    ma60    = _safe(latest, "MA60", close)
+    code    = ticker.replace(".TW","").replace(".TWO","")
+
+    is_up      = chg_pct >= 0
+    arrow      = "▲" if is_up else "▼"
+    chg_color  = "#EF5350" if is_up else "#26A69A"
+    header_bg  = "#C62828" if is_up else "#00695C"
+
+    if ma5 > ma20 > ma60:
+        ma_tag, ma_color = "多頭✅", "#EF5350"
+    elif ma5 < ma20 < ma60:
+        ma_tag, ma_color = "空頭⚠️", "#26A69A"
+    else:
+        ma_tag, ma_color = "糾結", "#888888"
+
+    rsi_color = "#EF5350" if rsi > 75 else "#26A69A" if rsi < 30 else "#555555"
+
+    score_row = []
+    if is_tw_stock(ticker) and not code.startswith("00"):
+        try:
+            r = calc_daytrade_score(df)
+            if r["score"] > 0:
+                sc = r["score"]
+                sc_color = "#EF5350" if sc >= 60 else "#FF9800" if sc >= 40 else "#888888"
+                score_row = [{
+                    "type": "box", "layout": "horizontal", "margin": "sm",
+                    "contents": [
+                        {"type": "text", "text": "🎯 當沖",
+                         "size": "xs", "color": "#888888", "flex": 3},
+                        {"type": "text", "text": f"{sc}分",
+                         "size": "xs", "color": sc_color,
+                         "weight": "bold", "align": "end", "flex": 2},
+                    ],
+                }]
+        except Exception:
+            pass
+
+    return {
+        "type": "bubble",
+        "size": "micro",
+        "header": {
+            "type": "box", "layout": "vertical",
+            "backgroundColor": header_bg, "paddingAll": "10px",
+            "contents": [
+                {"type": "text", "text": name[:6],
+                 "color": "#FFFFFF", "weight": "bold", "size": "sm"},
+                {"type": "text", "text": f"{code}",
+                 "color": "#FFFFFF99", "size": "xs"},
+            ],
+        },
+        "body": {
+            "type": "box", "layout": "vertical",
+            "paddingAll": "10px", "spacing": "xs",
+            "contents": [
+                {
+                    "type": "box", "layout": "horizontal",
+                    "contents": [
+                        {"type": "text", "text": f"${close:.1f}",
+                         "weight": "bold", "size": "md", "flex": 3},
+                        {"type": "text", "text": f"{arrow}{abs(chg_pct):.1f}%",
+                         "color": chg_color, "weight": "bold",
+                         "size": "sm", "align": "end", "flex": 2},
+                    ],
+                },
+                {"type": "separator", "margin": "sm"},
+                {
+                    "type": "box", "layout": "horizontal", "margin": "xs",
+                    "contents": [
+                        {"type": "text", "text": "RSI",
+                         "size": "xs", "color": "#888888", "flex": 2},
+                        {"type": "text", "text": f"{rsi:.0f}",
+                         "size": "xs", "color": rsi_color,
+                         "weight": "bold", "align": "end", "flex": 2},
+                    ],
+                },
+                {
+                    "type": "box", "layout": "horizontal",
+                    "contents": [
+                        {"type": "text", "text": "量比",
+                         "size": "xs", "color": "#888888", "flex": 2},
+                        {"type": "text", "text": f"{vol_r:.1f}x",
+                         "size": "xs", "color": "#555555",
+                         "align": "end", "flex": 2},
+                    ],
+                },
+                {
+                    "type": "box", "layout": "horizontal",
+                    "contents": [
+                        {"type": "text", "text": "均線",
+                         "size": "xs", "color": "#888888", "flex": 2},
+                        {"type": "text", "text": ma_tag,
+                         "size": "xs", "color": ma_color,
+                         "align": "end", "flex": 3},
+                    ],
+                },
+                *score_row,
+            ],
+        },
+        "footer": {
+            "type": "box", "layout": "vertical", "paddingAll": "6px",
+            "contents": [{
+                "type": "button",
+                "action": {"type": "message", "label": "完整分析",
+                           "text": code},
+                "style": "secondary", "height": "sm",
+            }],
+        },
+    }
+
+
+def build_multi_flex(pairs: list[tuple[str, str]]) -> dict:
+    """多股比較 Flex Carousel，每檔一張小卡片"""
+    from datetime import datetime
+    date_str = datetime.now().strftime("%m/%d")
+
+    bubbles = []
+    for name, ticker in pairs:
+        b = _compact_bubble(name, ticker)
+        if b:
+            bubbles.append(b)
+
+    if not bubbles:
+        return {"type": "text", "text": "❌ 所有股票資料均無法取得"}
+
+    return {
+        "type": "flex",
+        "altText": f"比較查詢 {date_str}",
+        "contents": {
+            "type": "carousel",
+            "contents": bubbles,
+        },
+    }
 
 
 HELP_MSG = """📌 AUNO 股票查詢助理

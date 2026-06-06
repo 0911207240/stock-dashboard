@@ -2,7 +2,7 @@
 import hashlib, hmac, base64, json, os, re
 import pandas as pd
 from flask import Flask, request, abort
-from query_handler import resolve_query, build_multi_response, HELP_MSG
+from query_handler import resolve_query, build_multi_response, build_multi_flex, HELP_MSG
 
 app = Flask(__name__)
 
@@ -349,7 +349,7 @@ def _handle_message(event: dict):
     if 2 <= len(tokens) <= 4:
         pairs = [resolve_query(t) for t in tokens]
         if all(name is not None for name, _ in pairs):
-            _reply(reply_token, build_multi_response(pairs))
+            _reply(reply_token, build_multi_flex(pairs))
             return
 
     # 單股查詢 → Flex Message
