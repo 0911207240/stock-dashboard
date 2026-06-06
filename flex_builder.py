@@ -57,11 +57,13 @@ def _quick_reply_items(current_ticker: str) -> list[dict]:
                     related.append(_qr_item(label, code))
             break
 
-    # 補到 3 個（用熱門股填充）
+    # 補到 3 個（用熱門股填充，排除已有的）
+    used_codes = {current_code} | {r["action"]["text"] for r in related}
     defaults = [("台積電", "2330"), ("鴻海", "2317"), ("00878", "00878"), ("0050", "0050")]
     for label, text in defaults:
-        if text != current_code and len(related) < 3:
+        if text not in used_codes and len(related) < 3:
             related.append(_qr_item(label, text))
+            used_codes.add(text)
 
     related.append(_qr_item("說明", "說明"))
     return related[:4]

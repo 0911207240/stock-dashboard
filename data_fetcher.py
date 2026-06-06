@@ -382,10 +382,10 @@ def fetch_institutional(stock_code: str) -> dict:
                     if row[0].strip() == code:
                         return {
                             "date":        date,
-                            "foreign_net": _int(row[4]),
-                            "trust_net":   _int(row[7]),
-                            "dealer_net":  _int(row[8]),
-                            "total_net":   _int(row[9]),
+                            "foreign_net": _int(row[4]) // 1000,
+                            "trust_net":   _int(row[7]) // 1000,
+                            "dealer_net":  _int(row[8]) // 1000,
+                            "total_net":   _int(row[9]) // 1000,
                         }
             except Exception:
                 continue
@@ -489,10 +489,10 @@ def fetch_all_institutional() -> dict[str, dict]:
             return {
                 row[0].strip(): {
                     "date":        date,
-                    "foreign_net": _int(row[4]),
-                    "trust_net":   _int(row[7]),
-                    "dealer_net":  _int(row[8]),
-                    "total_net":   _int(row[9]),
+                    "foreign_net": _int(row[4]) // 1000,
+                    "trust_net":   _int(row[7]) // 1000,
+                    "dealer_net":  _int(row[8]) // 1000,
+                    "total_net":   _int(row[9]) // 1000,
                 }
                 for row in data["data"]
             }
