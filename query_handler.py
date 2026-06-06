@@ -152,6 +152,44 @@ def build_query_response(name: str, ticker: str) -> str:
     return "\n".join(lines)
 
 
+def build_compact_response(name: str, ticker: str) -> str:
+    """單行快速分析，用於多股同時查詢"""
+    df = fetch(ticker, period="3mo")
+    if df is None or df.empty:
+        return f"❌ {name}：資料不足"
+
+    df      = add_indicators(df)
+    latest  = df.iloc[-1]
+    prev    = df.iloc[-2] if len(df) > 1 else latest
+    close   = float(latest["Close"])
+    chg_pct = (close - float(prev["Close"])) / float(prev["Close"]) * 100
+    rsi     = _safe(latest, "RSI", 50.0)
+    vol_r   = _safe(latest, "Vol_ratio", 1.0)
+    arrow   = "▲" if chg_pct >= 0 else "▼"
+
+    score_tag = ""
+    if is_tw_stock(ticker) and not ticker.replace(".TW", "").replace(".TWO", "").startswith("00"):
+        r = calc_daytrade_score(df)
+        if r["score"] > 0:
+            score_tag = f"  🎯{r['score']}分"
+
+    return (
+        f"【{name}】${close:.1f} {arrow}{abs(chg_pct):.1f}%"
+        f"  RSI{rsi:.0f}  量{vol_r:.1f}x{score_tag}"
+    )
+
+
+def build_multi_response(pairs: list[tuple[str, str]]) -> str:
+    """多股比較摘要，每檔一行"""
+    from datetime import datetime
+    date_str = datetime.now().strftime("%m/%d")
+    lines = [f"📊 比較查詢（{date_str}）"]
+    for name, ticker in pairs:
+        lines.append(build_compact_response(name, ticker))
+    lines.append("\n輸入單一代號可看完整分析")
+    return "\n".join(lines)
+
+
 HELP_MSG = """📌 歸毛投資助理
 
 輸入股票代號或名稱即可查詢：
