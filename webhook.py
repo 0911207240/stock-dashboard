@@ -169,6 +169,9 @@ def webhook():
         abort(400, "Invalid JSON")
 
     for event in events:
+        uid = event.get("source", {}).get("userId", "")
+        if uid:
+            print(f"[userId] {uid}")
         _handle_message(event)
 
     return "OK", 200
