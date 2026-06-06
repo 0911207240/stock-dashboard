@@ -57,25 +57,28 @@ def _build_flex(name: str, ticker: str) -> dict:
     is_tw  = is_tw_stock(ticker)
     is_etf = code.startswith("00")
 
-    # ── 平行抓取：K線 + 法人 + 融資券 + 集保（yfinance 只在 kline 呼叫）──
-    tasks = {"kline": lambda: fetch(ticker, period="6mo")}
-    if is_tw:
-        tasks["inst"]   = lambda: fetch_institutional(code)
-        tasks["margin"] = lambda: fetch_margin_data(code)
-        tasks["holder"] = lambda: get_holder_signal(ticker)
-
+    # ── K線：主執行緒（yfinance 在 thread 內不穩定）───────
     results = {}
-    with ThreadPoolExecutor(max_workers=len(tasks)) as pool:
-        futures = {pool.submit(fn): key for key, fn in tasks.items()}
-        for future in as_completed(futures):
-            key = futures[future]
-            try:
-                results[key] = future.result()
-            except Exception as e:
-                print(f"[fetch error] {key}: {e}")
-                results[key] = None
+    results["kline"] = fetch(ticker, period="6mo")
 
-    # 基本面檢查（yfinance，不放入平行群組避免衝突）
+    # ── 法人 / 融資 / 集保：平行（HTTP 請求，無 yfinance）──
+    if is_tw:
+        side_tasks = {
+            "inst":   lambda: fetch_institutional(code),
+            "margin": lambda: fetch_margin_data(code),
+            "holder": lambda: get_holder_signal(ticker),
+        }
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            futures = {pool.submit(fn): key for key, fn in side_tasks.items()}
+            for future in as_completed(futures):
+                key = futures[future]
+                try:
+                    results[key] = future.result()
+                except Exception as e:
+                    print(f"[fetch error] {key}: {e}")
+                    results[key] = None
+
+    # ── 基本面（yfinance，主執行緒）────────────────────
     results["weak"] = False
     if is_tw and not is_etf:
         try:
