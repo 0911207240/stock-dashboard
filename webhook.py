@@ -1,5 +1,5 @@
 """LINE Webhook Server — 接收用戶訊息，回傳股票分析"""
-import hashlib, hmac, base64, json, os
+import hashlib, hmac, base64, json, os, re
 import pandas as pd
 from flask import Flask, request, abort
 from query_handler import resolve_query, build_multi_response, HELP_MSG
@@ -214,6 +214,50 @@ def _handle_message(event: dict):
         _reply(reply_token, msg)
         return
 
+    # 列出提醒
+    if text in ("提醒", "我的提醒", "alerts"):
+        from alert_manager import list_alerts
+        _reply(reply_token, list_alerts())
+        return
+
+    # 取消提醒：「2330 取消」或「台積電 取消」
+    cancel_m = re.match(r'^(.+?)\s+取消$', text)
+    if cancel_m:
+        from alert_manager import cancel_alert
+        query = cancel_m.group(1).strip()
+        name, ticker = resolve_query(query)
+        if name:
+            _reply(reply_token, cancel_alert(ticker, name))
+        else:
+            _reply(reply_token, f"❓ 找不到「{query}」")
+        return
+
+    # 設定提醒：「2330 >1100」或「台積電 <1000」
+    alert_m = re.match(r'^(.+?)\s*([><])\s*(\d+(?:\.\d+)?)$', text)
+    if alert_m:
+        from alert_manager import set_alert, check_and_trigger
+        from data_fetcher import fetch
+        query  = alert_m.group(1).strip()
+        op     = alert_m.group(2)
+        target = float(alert_m.group(3))
+        name, ticker = resolve_query(query)
+        if name is None:
+            _reply(reply_token, f"❓ 找不到「{query}」")
+            return
+        # 先檢查現價是否已觸發
+        df = fetch(ticker, period="5d")
+        if df is not None and not df.empty:
+            current = float(df.iloc[-1]["Close"])
+            already = (op == ">" and current >= target) or (op == "<" and current <= target)
+            if already:
+                word = "已高於" if op == ">" else "已低於"
+                _reply(reply_token,
+                       f"⚠️ {name} 現價 ${current:.1f} {word}目標 ${target:.1f}\n"
+                       f"請重新設定條件")
+                return
+        _reply(reply_token, set_alert(ticker, name, op, target))
+        return
+
     # 多股比較：空格分隔 2-4 個代號
     tokens = text.split()
     if 2 <= len(tokens) <= 4:
@@ -236,6 +280,41 @@ def _handle_message(event: dict):
         _reply(reply_token, f"❌ 找不到 {name}（{ticker}）的資料，請確認代號是否正確。")
 
 
+def _check_alerts_push():
+    """檢查所有設定中的提醒，有觸發就推播給使用者"""
+    try:
+        from alert_manager import _load, check_and_trigger
+        if not _load():
+            return
+        from data_fetcher import fetch
+        alerts = _load()
+        prices = {}
+        for ticker in alerts:
+            df = fetch(ticker, period="5d")
+            if df is not None and not df.empty:
+                prices[ticker] = float(df.iloc[-1]["Close"])
+        triggered = check_and_trigger(prices)
+        if triggered and LINE_TOKEN:
+            import urllib.request
+            for msg in triggered:
+                payload = json.dumps({
+                    "to": os.environ.get("LINE_USER_ID", ""),
+                    "messages": [{"type": "text", "text": msg}],
+                }).encode("utf-8")
+                req = urllib.request.Request(
+                    "https://api.line.me/v2/bot/message/push",
+                    data=payload,
+                    headers={
+                        "Content-Type": "application/json",
+                        "Authorization": f"Bearer {LINE_TOKEN}",
+                    },
+                )
+                with urllib.request.urlopen(req, timeout=10) as r:
+                    pass
+    except Exception as e:
+        print(f"[alert check] {e}")
+
+
 @app.route("/webhook", methods=["POST"])
 def webhook():
     body      = request.get_data()
@@ -254,6 +333,9 @@ def webhook():
         if uid:
             print(f"[userId] {uid}")
         _handle_message(event)
+
+    # 每次收到訊息時順帶檢查價格提醒
+    _check_alerts_push()
 
     return "OK", 200
 
