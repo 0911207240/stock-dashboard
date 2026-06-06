@@ -143,6 +143,49 @@ def build_daytrade_message(
     return "\n".join(lines)
 
 
+def build_weekly_message(weekly: list[dict], date_str: str) -> str:
+    """週報：漲跌排行 + 強勢/弱勢股彙整"""
+    sorted_w = sorted(weekly, key=lambda x: x["chg_w"], reverse=True)
+    gainers  = [x for x in sorted_w if x["chg_w"] > 0][:5]
+    losers   = [x for x in reversed(sorted_w) if x["chg_w"] < 0][:5]
+
+    # 強勢股：本週漲 + 多頭排列 + MACD 多
+    strong = [x for x in sorted_w
+              if x["chg_w"] > 1 and x["trend"] == "多" and x["macd_bull"]][:5]
+    # 弱勢股：本週跌 + 空頭排列
+    weak = [x for x in sorted_w
+            if x["chg_w"] < -1 and x["trend"] == "空"][:5]
+
+    lines = [f"📊 【週報 {date_str}】監測 {len(weekly)} 檔", ""]
+
+    if gainers:
+        lines.append("🔥 本週漲幅 Top5")
+        for i, x in enumerate(gainers, 1):
+            lines.append(f"  {i}. {x['name']} ${x['close']:.1f}  +{x['chg_w']:.1f}%")
+        lines.append("")
+
+    if losers:
+        lines.append("📉 本週跌幅 Top5")
+        for i, x in enumerate(losers, 1):
+            lines.append(f"  {i}. {x['name']} ${x['close']:.1f}  {x['chg_w']:.1f}%")
+        lines.append("")
+
+    if strong:
+        lines.append("✅ 強勢股（漲＋多頭＋MACD多）")
+        for x in strong:
+            lines.append(f"  {x['name']}  RSI {x['rsi']:.0f}  週漲 +{x['chg_w']:.1f}%")
+        lines.append("")
+
+    if weak:
+        lines.append("⚠️ 弱勢股（跌＋空頭排列）")
+        for x in weak:
+            lines.append(f"  {x['name']}  RSI {x['rsi']:.0f}  週跌 {x['chg_w']:.1f}%")
+        lines.append("")
+
+    lines.append("⚠️ 資料 T+1，僅供參考")
+    return "\n".join(lines)
+
+
 def build_signal_message(
     name: str,
     ticker: str,

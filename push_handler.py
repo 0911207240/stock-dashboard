@@ -11,6 +11,8 @@ from line_notifier import send, build_daytrade_message, build_summary_message
 
 def run_push(push_type: str = "morning") -> str:
     """執行推播，回傳結果摘要字串"""
+    if push_type == "weekly":
+        return _run_weekly_push()
     if not is_trading_day():
         return "非交易日，跳過"
 
@@ -88,3 +90,57 @@ def run_push(push_type: str = "morning") -> str:
         results.append(f"技術訊號失敗：{e}")
 
     return "；".join(results)
+
+
+def _run_weekly_push() -> str:
+    """週報：本週漲跌排行 + 強勢 / 弱勢股 + 籌碼動向"""
+    from line_notifier import build_weekly_message, send
+
+    date_str = datetime.now().strftime("%m/%d")
+
+    try:
+        all_data = fetch_all(period="1mo")
+    except Exception as e:
+        return f"週報資料抓取失敗：{e}"
+
+    weekly = []
+    for name, df in all_data.items():
+        if df is None or df.empty or len(df) < 6:
+            continue
+        try:
+            df = __import__("analyzer").add_indicators(df)
+            latest   = df.iloc[-1]
+            week_ago = df.iloc[-6]   # 約5個交易日前
+            close    = float(latest["Close"])
+            ref      = float(week_ago["Close"])
+            chg_w    = (close - ref) / ref * 100
+
+            # 技術面狀態
+            ma5  = float(latest.get("MA5",  close) or close)
+            ma20 = float(latest.get("MA20", close) or close)
+            ma60 = float(latest.get("MA60", close) or close)
+            rsi  = float(latest.get("RSI",  50)    or 50)
+            macd_v   = float(latest.get("MACD",        0) or 0)
+            macd_sig = float(latest.get("MACD_signal", 0) or 0)
+
+            trend = "多" if ma5 > ma20 > ma60 else ("空" if ma5 < ma20 < ma60 else "中")
+            macd_bull = macd_v > macd_sig
+
+            weekly.append({
+                "name":      name,
+                "ticker":    WATCHLIST.get(name, ""),
+                "close":     close,
+                "chg_w":     chg_w,
+                "trend":     trend,
+                "macd_bull": macd_bull,
+                "rsi":       rsi,
+            })
+        except Exception:
+            continue
+
+    if not weekly:
+        return "週報：無資料"
+
+    msg = build_weekly_message(weekly, date_str)
+    send(msg)
+    return f"週報推播完成，共 {len(weekly)} 檔"
