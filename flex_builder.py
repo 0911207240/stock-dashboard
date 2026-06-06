@@ -207,3 +207,4 @@ def build_analysis_flex(
             "items": _quick_reply_items(ticker),
         },
     }
+    return msg

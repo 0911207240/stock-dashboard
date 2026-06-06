@@ -58,8 +58,11 @@ def _build_flex(name: str, ticker: str) -> dict:
     is_etf = code.startswith("00")
 
     # ── K線：主執行緒（yfinance 在 thread 內不穩定）───────
-    results = {}
-    results["kline"] = fetch(ticker, period="6mo")
+    df = fetch(ticker, period="6mo")
+    if df is None or df.empty:
+        return None  # 快速失敗，不浪費 reply token 時間
+
+    results: dict = {"kline": df}
 
     # ── 法人 / 融資 / 集保：平行（HTTP 請求，無 yfinance）──
     if is_tw:
@@ -86,11 +89,7 @@ def _build_flex(name: str, ticker: str) -> dict:
         except Exception:
             pass
 
-    df = results.get("kline")
-    if df is None or df.empty:
-        return None
-
-    df      = add_indicators(df)
+    df      = add_indicators(results["kline"])
     latest  = df.iloc[-1]
     prev    = df.iloc[-2] if len(df) > 1 else latest
     close   = float(latest["Close"])
