@@ -1,5 +1,43 @@
 """LINE Flex Message 建構器 — 股票分析泡泡卡片"""
 
+from data_fetcher import SECTORS, WATCHLIST
+
+
+def _qr_item(label: str, text: str) -> dict:
+    return {
+        "type": "action",
+        "action": {"type": "message", "label": label, "text": text},
+    }
+
+
+def _quick_reply_items(current_ticker: str) -> list[dict]:
+    """根據當前股票回傳相關快捷按鈕（最多 4 個）"""
+    current_code = current_ticker.replace(".TW", "").replace(".TWO", "")
+
+    # 找出同族群的其他股票（最多 2 檔）
+    related = []
+    for sector, members in SECTORS.items():
+        if sector in ("全部", "我的持股", "台灣電子績優", "低價波段($50以下)"):
+            continue
+        names_in_sector = [n for n in members if n in WATCHLIST]
+        codes_in_sector = [WATCHLIST[n].replace(".TW","").replace(".TWO","") for n in names_in_sector]
+        if current_code in codes_in_sector:
+            for name in names_in_sector:
+                code = WATCHLIST[name].replace(".TW","").replace(".TWO","")
+                if code != current_code and len(related) < 2:
+                    label = name if len(name) <= 5 else code
+                    related.append(_qr_item(label, code))
+            break
+
+    # 補到 3 個（用熱門股填充）
+    defaults = [("台積電", "2330"), ("鴻海", "2317"), ("00878", "00878"), ("0050", "0050")]
+    for label, text in defaults:
+        if text != current_code and len(related) < 3:
+            related.append(_qr_item(label, text))
+
+    related.append(_qr_item("說明", "說明"))
+    return related[:4]
+
 
 def _sep() -> dict:
     return {"type": "separator", "margin": "sm"}
@@ -127,7 +165,7 @@ def build_analysis_flex(
                 "size": "xs", "color": "#888888", "wrap": True, "margin": "xs",
             })
 
-    return {
+    msg = {
         "type": "flex",
         "altText": f"【{name} {code}】{date_str} 分析",
         "contents": {
@@ -164,5 +202,8 @@ def build_analysis_flex(
                     "color": "#AAAAAA", "size": "xs", "align": "center",
                 }],
             },
+        },
+        "quickReply": {
+            "items": _quick_reply_items(ticker),
         },
     }

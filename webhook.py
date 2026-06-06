@@ -130,7 +130,19 @@ def _handle_message(event: dict):
 
     # 說明指令
     if text.lower() in ("help", "幫助", "？", "?", "說明"):
-        _reply(reply_token, HELP_MSG)
+        help_msg = {
+            "type": "text",
+            "text": HELP_MSG,
+            "quickReply": {
+                "items": [
+                    {"type": "action", "action": {"type": "message", "label": "台積電", "text": "2330"}},
+                    {"type": "action", "action": {"type": "message", "label": "00878", "text": "00878"}},
+                    {"type": "action", "action": {"type": "message", "label": "0050", "text": "0050"}},
+                    {"type": "action", "action": {"type": "message", "label": "持股", "text": "持股"}},
+                ],
+            },
+        }
+        _reply(reply_token, help_msg)
         return
 
     # 多股比較：空格分隔 2-4 個代號
