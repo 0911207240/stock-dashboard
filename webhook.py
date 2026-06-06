@@ -108,20 +108,44 @@ def _build_flex(name: str, ticker: str) -> dict:
     # 相對大盤強弱
     rs = round(chg_pct - taiex_chg, 1) if taiex_chg is not None else None
 
-    def _s(key, default=0.0):
-        v = latest.get(key)
+    def _s(row, key, default=0.0):
+        v = row.get(key)
         return float(v) if v is not None and pd.notna(v) else default
 
-    rsi      = _s("RSI",      50.0)
-    rsi6     = _s("RSI6",     50.0)
-    ma5      = _s("MA5",      close)
-    ma20     = _s("MA20",     close)
-    ma60     = _s("MA60",     close)
-    atr_pct  = _s("ATR_pct",  0.0)
-    bb_upper = _s("BB_upper", close * 1.04)
-    bb_lower = _s("BB_lower", close * 0.96)
+    rsi      = _s(latest, "RSI",      50.0)
+    rsi6     = _s(latest, "RSI6",     50.0)
+    ma5      = _s(latest, "MA5",      close)
+    ma20     = _s(latest, "MA20",     close)
+    ma60     = _s(latest, "MA60",     close)
+    atr_pct  = _s(latest, "ATR_pct",  0.0)
+    bb_upper = _s(latest, "BB_upper", close * 1.04)
+    bb_lower = _s(latest, "BB_lower", close * 0.96)
     bb_pos   = (close - bb_lower) / (bb_upper - bb_lower) * 100 \
                if bb_upper != bb_lower else 50.0
+
+    # A — MACD 方向（判斷是否剛發生交叉）
+    macd_v    = _s(latest, "MACD",        0.0)
+    macd_sig  = _s(latest, "MACD_signal", 0.0)
+    prev_macd = _s(prev,   "MACD",        0.0)
+    prev_sig  = _s(prev,   "MACD_signal", 0.0)
+    if prev_macd < prev_sig and macd_v > macd_sig:
+        macd_tag = "黃金交叉 ✅"
+    elif prev_macd > prev_sig and macd_v < macd_sig:
+        macd_tag = "死亡交叉 ⚠️"
+    elif macd_v > macd_sig:
+        macd_tag = "多頭"
+    else:
+        macd_tag = "空頭"
+
+    # B — KD 隨機指標
+    k_val = _s(latest, "K", 50.0)
+    d_val = _s(latest, "D", 50.0)
+
+    # C — 距6月高低點
+    high_6m    = float(df["High"].max())
+    low_6m     = float(df["Low"].min())
+    dist_high  = (close - high_6m) / high_6m * 100   # 負值，距高點幾 %
+    dist_low   = (close - low_6m)  / low_6m  * 100   # 正值，距低點幾 %
 
     if ma5 > ma20 > ma60:
         ma_tag = "多頭排列✅"
@@ -149,6 +173,8 @@ def _build_flex(name: str, ticker: str) -> dict:
         close=close, high=high, chg_pct=chg_pct, vol_ratio=vol_r,
         rs=rs,
         rsi=rsi, rsi6=rsi6, ma_tag=ma_tag,
+        macd_tag=macd_tag, k_val=k_val, d_val=d_val,
+        dist_high=dist_high, dist_low=dist_low,
         bb_pos=bb_pos, atr_pct=atr_pct,
         inst_data=inst_data, margin_data=margin_data,
         holder_label=holder_label,

@@ -96,6 +96,11 @@ def build_analysis_flex(
     rsi: float,
     rsi6: float,
     ma_tag: str,
+    macd_tag: str,
+    k_val: float,
+    d_val: float,
+    dist_high: float,
+    dist_low: float,
     bb_pos: float,
     atr_pct: float,
     inst_data: dict,
@@ -149,13 +154,25 @@ def build_analysis_flex(
     # ── 技術面 ───────────────────────────────────────
     rsi_color = "#EF5350" if rsi > 75 else "#26A69A" if rsi < 30 else "#333333"
     rsi_tag   = " ⚠️超買" if rsi > 75 else " 超賣" if rsi < 30 else ""
+
+    kd_tag    = " ⚠️超買" if k_val > 80 else " 超賣" if k_val < 20 else ""
+    kd_color  = "#EF5350" if k_val > 80 else "#26A69A" if k_val < 20 else "#333333"
+
+    macd_color = "#EF5350" if "多" in macd_tag or "黃金" in macd_tag else "#26A69A"
+
+    dist_high_str = f"{dist_high:.1f}%"
+    dist_low_str  = f"+{dist_low:.1f}%"
+
     body += [
         {"type": "text", "text": "📈 技術面",
          "weight": "bold", "size": "sm", "color": "#555555", "margin": "sm"},
         _row("RSI", f"{rsi:.0f}{rsi_tag}（RSI6 {rsi6:.0f}）", rsi_color),
+        _row("KD",  f"K {k_val:.0f} / D {d_val:.0f}{kd_tag}", kd_color),
+        _row("MACD", macd_tag, macd_color),
         _row("均線", ma_tag),
         _row("布林位置", f"{bb_pos:.0f}%"),
         _row("ATR", f"{atr_pct:.1f}%"),
+        _row("6M高低", f"距高 {dist_high_str} / 距低 {dist_low_str}"),
     ]
 
     # ── 籌碼面（台股才有） ───────────────────────────
