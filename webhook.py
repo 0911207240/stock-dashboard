@@ -46,7 +46,7 @@ def _reply(reply_token: str, message):
 def _build_flex(name: str, ticker: str) -> dict:
     """平行抓取所有資料，回傳 Flex Message dict"""
     from concurrent.futures import ThreadPoolExecutor, as_completed
-    from data_fetcher import fetch, fetch_institutional, fetch_margin_data
+    from data_fetcher import fetch, fetch_institutional, fetch_margin_data, fetch_taiex_change
     from analyzer import add_indicators
     from daytrade_scorer import calc_daytrade_score, calc_entry_exit, is_tw_stock
     from fundamental_filter import is_fundamentally_weak
@@ -64,7 +64,14 @@ def _build_flex(name: str, ticker: str) -> dict:
 
     results: dict = {"kline": df}
 
-    # ── 法人 / 融資 / 集保：平行（HTTP 請求，無 yfinance）──
+    # ── 大盤強弱（主執行緒，yfinance，快速 5d）─────────────
+    taiex_chg = None
+    try:
+        taiex_chg = fetch_taiex_change()
+    except Exception:
+        pass
+
+    # ── 法人 / 融資 / 集保：平行（TWSE HTTP 請求）───────────
     if is_tw:
         side_tasks = {
             "inst":   lambda: fetch_institutional(code),
@@ -93,9 +100,13 @@ def _build_flex(name: str, ticker: str) -> dict:
     latest  = df.iloc[-1]
     prev    = df.iloc[-2] if len(df) > 1 else latest
     close   = float(latest["Close"])
+    high    = float(latest.get("High", close))
     chg_pct = (close - float(prev["Close"])) / float(prev["Close"]) * 100
     vol_r   = float(latest.get("Vol_ratio", 1.0)) if pd.notna(latest.get("Vol_ratio")) else 1.0
     date_str = df.index[-1].strftime("%m/%d")
+
+    # 相對大盤強弱
+    rs = round(chg_pct - taiex_chg, 1) if taiex_chg is not None else None
 
     def _s(key, default=0.0):
         v = latest.get(key)
@@ -135,7 +146,8 @@ def _build_flex(name: str, ticker: str) -> dict:
 
     return build_analysis_flex(
         name=name, ticker=ticker, date_str=date_str,
-        close=close, chg_pct=chg_pct, vol_ratio=vol_r,
+        close=close, high=high, chg_pct=chg_pct, vol_ratio=vol_r,
+        rs=rs,
         rsi=rsi, rsi6=rsi6, ma_tag=ma_tag,
         bb_pos=bb_pos, atr_pct=atr_pct,
         inst_data=inst_data, margin_data=margin_data,

@@ -3,6 +3,34 @@
 from data_fetcher import SECTORS, WATCHLIST
 
 
+def _vol_price_tag(chg_pct: float, vol_ratio: float,
+                   close: float = 0, high: float = 0) -> str:
+    """根據量比 × 漲跌方向輸出量價結構文字"""
+    up     = chg_pct >  0.3
+    down   = chg_pct < -0.3
+    surge  = vol_ratio >= 2.0
+    grow   = vol_ratio >= 1.3
+    shrink = vol_ratio <  0.8
+
+    upper_shadow = (high - close) / close * 100 if close > 0 and high > close else 0
+
+    if surge and up and upper_shadow > 2.0:
+        return "爆量帶影 ⚠️"
+    if surge and up:
+        return "爆量大漲 🔥"
+    if surge and down:
+        return "爆量殺跌 ❌"
+    if grow and up:
+        return "量增攻 ✅"
+    if grow and down:
+        return "量增跌 ⚠️"
+    if shrink and up:
+        return "量縮漲（弱）"
+    if shrink and down:
+        return "量縮守 🟡"
+    return "量能平穩"
+
+
 def _qr_item(label: str, text: str) -> dict:
     return {
         "type": "action",
@@ -61,8 +89,10 @@ def build_analysis_flex(
     ticker: str,
     date_str: str,
     close: float,
+    high: float,
     chg_pct: float,
     vol_ratio: float,
+    rs: float | None,
     rsi: float,
     rsi6: float,
     ma_tag: str,
@@ -82,6 +112,8 @@ def build_analysis_flex(
     chg_color   = "#EF5350" if is_up else "#26A69A"
     header_bg   = "#C62828" if is_up else "#00695C"
 
+    vp_tag = _vol_price_tag(chg_pct, vol_ratio, close, high)
+
     # ── 基本價格區 ──────────────────────────────────
     body = [
         {
@@ -98,14 +130,21 @@ def build_analysis_flex(
                          "color": chg_color, "weight": "bold",
                          "size": "lg", "align": "end"},
                         {"type": "text",
-                         "text": f"量比 {vol_ratio:.1f}x",
-                         "color": "#888888", "size": "xs", "align": "end"},
+                         "text": f"量比 {vol_ratio:.1f}x  {vp_tag}",
+                         "color": "#888888", "size": "xs", "align": "end", "wrap": True},
                     ],
                 },
             ],
         },
-        _sep(),
     ]
+
+    # 相對大盤強弱
+    if rs is not None:
+        rs_label = f"強於大盤 +{rs:.1f}%" if rs > 0 else f"弱於大盤 {rs:.1f}%"
+        rs_color = "#EF5350" if rs > 0 else "#26A69A"
+        body.append(_row("vs 大盤", rs_label, rs_color))
+
+    body.append(_sep())
 
     # ── 技術面 ───────────────────────────────────────
     rsi_color = "#EF5350" if rsi > 75 else "#26A69A" if rsi < 30 else "#333333"
@@ -129,6 +168,19 @@ def build_analysis_flex(
             t = inst_data.get("trust_net",   0)
             d = inst_data.get("dealer_net",  0)
             body.append(_row("外/投/自(張)", f"{f:+,} / {t:+,} / {d:+,}"))
+            # 連續買超天數 + 近期累計
+            cons  = inst_data.get("consecutive_days", 0)
+            n_net = inst_data.get("n_day_net")
+            if cons and n_net is not None:
+                cons_abs = abs(cons)
+                direction = "買超" if cons > 0 else "賣超"
+                n_days    = inst_data.get("history_days", cons_abs)
+                cons_color = "#EF5350" if cons > 0 else "#26A69A"
+                body.append(_row(
+                    f"連續{direction}",
+                    f"{cons_abs}日 / 近{n_days}日 {n_net:+,}張",
+                    cons_color,
+                ))
         if margin_data:
             mr    = margin_data.get("margin_change", 0)
             sr    = margin_data.get("short_change",  0)

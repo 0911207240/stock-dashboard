@@ -296,6 +296,20 @@ SECTORS = {
 def fetch_taiex(period: str = "1y") -> pd.DataFrame:
     return fetch("^TWII", period=period)
 
+
+def fetch_taiex_change() -> float | None:
+    """回傳加權指數最新一日漲跌幅（%），失敗回傳 None"""
+    try:
+        df = fetch("^TWII", period="5d")
+        if df is None or len(df) < 2:
+            return None
+        last = float(df.iloc[-1]["Close"])
+        prev = float(df.iloc[-2]["Close"])
+        return (last / prev - 1) * 100
+    except Exception:
+        return None
+
+
 _FETCH_RETRIES = 3
 _FETCH_BACKOFF = (1, 3)   # 第1次重試等1秒，第2次等3秒
 
@@ -338,39 +352,75 @@ def fetch_dividends(ticker: str) -> pd.Series:
 
 
 def fetch_institutional(stock_code: str) -> dict:
-    """從 TWSE 抓三大法人最新買賣超（僅限台股 .TW）"""
+    """從 TWSE 抓三大法人最新買賣超，附連續天數與近期累計（僅限台股 .TW）"""
     import urllib.request, json as _json
     from datetime import datetime, timedelta
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
     code = stock_code.replace(".TW", "").replace(".TWO", "")
     if "." in code:
         return {}
-    for i in range(5):
-        date = (datetime.now() - timedelta(days=i)).strftime("%Y%m%d")
-        url  = (f"https://www.twse.com.tw/rwd/zh/fund/T86"
-                f"?date={date}&selectType=ALLBUT0999&response=json")
+
+    def _int(s):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                data = _json.loads(resp.read())
-            if data.get("stat") != "OK" or not data.get("data"):
-                continue
-            for row in data["data"]:
-                if row[0].strip() == code:
-                    def _int(s):
-                        try:
-                            return int(str(s).replace(",", ""))
-                        except Exception:
-                            return 0
-                    return {
-                        "date":        date,
-                        "foreign_net": _int(row[4]),
-                        "trust_net":   _int(row[7]),
-                        "dealer_net":  _int(row[8]),
-                        "total_net":   _int(row[9]),
-                    }
+            return int(str(s).replace(",", ""))
         except Exception:
-            continue
-    return {}
+            return 0
+
+    def _fetch_one(offset: int) -> dict | None:
+        for delta in range(offset, offset + 4):
+            date = (datetime.now() - timedelta(days=delta)).strftime("%Y%m%d")
+            url  = (f"https://www.twse.com.tw/rwd/zh/fund/T86"
+                    f"?date={date}&selectType=ALLBUT0999&response=json")
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                with urllib.request.urlopen(req, timeout=8) as resp:
+                    data = _json.loads(resp.read())
+                if data.get("stat") != "OK" or not data.get("data"):
+                    continue
+                for row in data["data"]:
+                    if row[0].strip() == code:
+                        return {
+                            "date":        date,
+                            "foreign_net": _int(row[4]),
+                            "trust_net":   _int(row[7]),
+                            "dealer_net":  _int(row[8]),
+                            "total_net":   _int(row[9]),
+                        }
+            except Exception:
+                continue
+        return None
+
+    # 同時抓最近 3 個交易日（各從 offset 0/4/8 開始往前找）
+    history = []
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        futs = [pool.submit(_fetch_one, i * 4) for i in range(3)]
+        for fut in as_completed(futs):
+            r = fut.result()
+            if r:
+                history.append(r)
+
+    if not history:
+        return {}
+
+    history.sort(key=lambda x: x["date"], reverse=True)
+    today = history[0].copy()
+
+    if len(history) >= 2:
+        # 連續買賣超方向
+        direction = 1 if today["total_net"] >= 0 else -1
+        consecutive = 0
+        for h in history:
+            if (h["total_net"] >= 0) == (direction > 0):
+                consecutive += 1
+            else:
+                break
+        n_day_net = sum(h["total_net"] for h in history)
+        today["consecutive_days"] = consecutive * direction
+        today["n_day_net"]        = n_day_net
+        today["history_days"]     = len(history)
+
+    return today
 
 
 def fetch_margin_data(stock_code: str) -> dict:
