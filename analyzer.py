@@ -63,6 +63,48 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+def calc_beta_rs(stock_df: pd.DataFrame, market_df: pd.DataFrame, window: int = 60) -> dict:
+    """
+    計算個股 Beta 係數（vs 大盤）與相對強弱 RS（5日/20日）
+    Beta > 1: 大盤強時漲更多; < 1: 防禦性
+    RS > 1: 近期強於大盤; < 1: 弱於大盤
+    """
+    default = {"beta": 1.0, "rs5": 1.0, "rs20": 1.0}
+    if stock_df is None or market_df is None:
+        return default
+    try:
+        s_close = stock_df["Close"].squeeze()
+        m_close = market_df["Close"].squeeze()
+        if len(s_close) < 20 or len(m_close) < 20:
+            return default
+
+        # 對齊日期後計算 Beta
+        aligned = pd.concat([s_close, m_close], axis=1, join="inner").tail(window)
+        if len(aligned) < 20:
+            return default
+        s_ret = aligned.iloc[:, 0].pct_change().dropna()
+        m_ret = aligned.iloc[:, 1].pct_change().dropna()
+        var_m = float(m_ret.var())
+        beta  = round(float(s_ret.cov(m_ret)) / var_m, 2) if var_m > 0 else 1.0
+        beta  = max(-2.0, min(5.0, beta))
+
+        # RS5：近5日個股漲跌 / 大盤漲跌
+        def _rs(n):
+            if len(s_close) <= n or len(m_close) <= n:
+                return 1.0
+            s_chg = float(s_close.iloc[-1]) / float(s_close.iloc[-n - 1]) - 1
+            m_chg = float(m_close.iloc[-1]) / float(m_close.iloc[-n - 1]) - 1
+            return round(s_chg / m_chg, 2) if abs(m_chg) > 0.001 else 1.0
+
+        return {
+            "beta": beta,
+            "rs5":  max(-5.0, min(5.0, _rs(5))),
+            "rs20": max(-5.0, min(5.0, _rs(20))),
+        }
+    except Exception:
+        return default
+
+
 def detect_signals(df: pd.DataFrame) -> list[dict]:
     signals = []
     if len(df) < 2:

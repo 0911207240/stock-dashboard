@@ -124,7 +124,11 @@ def build_daytrade_message(
     lines = [header, "量能＋籌碼＋技術＋波動度評分", ""]
     for i, c in enumerate(candidates, 1):
         arrow = "▲" if c["change_pct"] >= 0 else "▼"
-        lines.append(f"{i}. {c['name']}（昨收 ${c['price']:.1f}）分數 {c['score']}")
+        beta     = c.get("beta", 1.0)
+        rs5      = c.get("rs5",  1.0)
+        beta_tag = f"β{beta:.1f}" if beta != 1.0 else ""
+        rs_tag   = f" RS5={rs5:.1f}x" if rs5 != 1.0 else ""
+        lines.append(f"{i}. {c['name']}（昨收 ${c['price']:.1f}）分數 {c['score']}  {beta_tag}{rs_tag}")
         lines.append(f"   {arrow}{abs(c['change_pct']):.1f}%  量比{c['vol_ratio']:.1f}x  ATR {c.get('atr_pct', 0):.1f}%")
         lines.append(f"   📍甜蜜點 ${c.get('entry_low', '-')}～${c.get('entry_high', '-')}（參考 ${c.get('entry_mid', '-')}）")
         lines.append(f"   🛑停損 ${c.get('stop', '-')}（風險 -{c.get('risk_pct', 0):.1f}%）")
@@ -139,7 +143,8 @@ def build_daytrade_message(
         hist_wr = c.get("hist_wr")
         if hist_wr is not None:
             lines.append(f"   📈歷史勝率 {hist_wr:.0f}%（{c.get('kelly_mult', 1.0)}x 倉位）")
-        top_sigs = c.get("signals", [])[:2]
+        beta_sigs = c.get("beta_sigs", [])
+        top_sigs  = (c.get("signals", [])[:2] + beta_sigs[:1])
         if top_sigs:
             lines.append(f"   → {' / '.join(top_sigs)}")
         lines.append("")

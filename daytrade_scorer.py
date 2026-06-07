@@ -342,11 +342,14 @@ def get_daytrade_candidates(
     margin_cache: dict = None,
     top_n: int = 10,
     pre_analyzed: bool = False,
+    market_df: pd.DataFrame = None,
+    regime: dict = None,
 ) -> list[dict]:
     """從 all_data 篩出隔日當沖候選清單（僅台股，排除基本面偏弱）"""
-    from analyzer import add_indicators
+    from analyzer import add_indicators, calc_beta_rs
     from fundamental_filter import is_fundamentally_weak
     from signal_log import get_stock_win_rate
+    regime_state = (regime or {}).get("state", "盤整")
 
     candidates = []
     for name, df in all_data.items():
@@ -375,6 +378,42 @@ def get_daytrade_candidates(
         bd     = result["breakdown"]
         ee     = calc_entry_exit(df, result["score"])
 
+        # Beta 係數 + 相對強弱 RS
+        brs  = calc_beta_rs(df, market_df)
+        beta = brs["beta"]
+        rs5  = brs["rs5"]
+        rs20 = brs["rs20"]
+
+        # Beta / RS 大盤連動加分（regime 感知）
+        beta_bonus = 0
+        beta_sigs  = []
+        if regime_state == "多頭":
+            if beta > 1.3:
+                beta_bonus = 5
+                beta_sigs.append(f"✅ 高β {beta:.1f}，多頭市場加成")
+            elif beta < 0.7:
+                beta_bonus = -5
+                beta_sigs.append(f"⚠️ 低β {beta:.1f}，多頭反應遲鈍")
+        elif regime_state == "空頭":
+            if beta < 0.8:
+                beta_bonus = 3
+                beta_sigs.append(f"🛡️ 低β {beta:.1f}，空頭防禦性佳")
+            elif beta > 1.3:
+                beta_bonus = -5
+                beta_sigs.append(f"⚠️ 高β {beta:.1f}，空頭跌幅放大")
+
+        rs_bonus = 0
+        if rs5 > 1.2 and rs20 > 1.2:
+            rs_bonus = 5
+            beta_sigs.append(f"✅ 持續強於大盤（RS5={rs5:.1f}x RS20={rs20:.1f}x）")
+        elif rs5 < 0.8 and rs20 < 0.8:
+            rs_bonus = -3
+            beta_sigs.append(f"⚠️ 持續弱於大盤（RS5={rs5:.1f}x）")
+        elif rs5 > 1.2:
+            beta_sigs.append(f"近期強於大盤（RS5={rs5:.1f}x）")
+
+        adjusted_score = max(0, min(100, result["score"] + beta_bonus + rs_bonus))
+
         # 凱利公式：根據個股歷史勝率動態調整倉位建議（半凱利，上限 1.5x）
         wr_data    = get_stock_win_rate(name)
         kelly_mult = 1.0
@@ -384,12 +423,12 @@ def get_daytrade_candidates(
             q   = 1 - p
             b   = max(ee["rr2"], 1.0)
             raw = max(0.0, (p * b - q) / b)
-            kelly_mult = round(min(raw * 2, 1.5), 1)  # 半凱利，避免過度集中
+            kelly_mult = round(min(raw * 2, 1.5), 1)
 
         candidates.append({
             "name":        name,
             "ticker":      ticker,
-            "score":       result["score"],
+            "score":       adjusted_score,
             "price":       price,
             "change_pct":  chg,
             "vol_ratio":   vr,
@@ -412,6 +451,10 @@ def get_daytrade_candidates(
             "upside_pct2": ee["upside_pct2"],
             "kelly_mult":  kelly_mult,
             "hist_wr":     hist_wr,
+            "beta":        beta,
+            "rs5":         rs5,
+            "rs20":        rs20,
+            "beta_sigs":   beta_sigs,
         })
 
     candidates.sort(key=lambda x: x["score"], reverse=True)

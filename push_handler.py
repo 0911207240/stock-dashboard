@@ -21,17 +21,26 @@ def run_push(push_type: str = "morning") -> str:
     date_str = datetime.now().strftime("%m/%d")
     results = []
 
-    # ── 大盤狀態 ──────────────────────────────────────
-    try:
-        regime = detect_regime()
-    except Exception:
-        regime = None
-
     # ── 所有資料一次抓 ────────────────────────────────
     try:
         all_data = fetch_all(period="6mo")
     except Exception as e:
         return f"資料抓取失敗：{e}"
+
+    # ── 大盤狀態（需要 add_indicators 後的 0050 / TAIEX）──
+    market_df = None
+    regime    = None
+    try:
+        from data_fetcher import fetch as _fetch
+        taiex_df  = _fetch("^TWII", period="6mo")
+        market_df = all_data.get("台灣50") or taiex_df
+        if taiex_df is not None and not taiex_df.empty:
+            taiex_df = add_indicators(taiex_df)
+        from data_fetcher import fetch_taifex_futures
+        futures_data = fetch_taifex_futures()
+        regime = detect_regime(taiex_df, futures_data=futures_data if futures_data else None)
+    except Exception:
+        regime = None
 
     # ── 當沖候選（早盤才推） ──────────────────────────
     if push_type in ("morning", "all"):
@@ -48,6 +57,8 @@ def run_push(push_type: str = "morning") -> str:
                 inst_cache=inst_cache,
                 margin_cache=margin_cache,
                 top_n=10,
+                market_df=market_df,
+                regime=regime,
             )
             if candidates:
                 msg = build_daytrade_message(candidates, date_str, regime=regime)
