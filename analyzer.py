@@ -48,6 +48,19 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     df["VWAP_MA20"]   = (tp * volume).rolling(20).sum() / volume.rolling(20).sum()
     df["VWAP_MA_dev"] = (close - df["VWAP_MA20"]) / df["VWAP_MA20"] * 100
 
+    # ADX 趨勢強度（14日）
+    # ADX < 20 = 震盪盤無方向，訊號可信度低；> 25 才有明確趨勢
+    adx_ind = ta.trend.ADXIndicator(high, low, close, window=14)
+    df["ADX"]     = adx_ind.adx()
+    df["ADX_pos"] = adx_ind.adx_pos()   # +DI 多方力道
+    df["ADX_neg"] = adx_ind.adx_neg()   # -DI 空方力道
+
+    # OBV 能量潮（主力進出場確認）
+    # OBV 上升 = 主力買進；OBV 背離（股價漲但 OBV 跌）= 假突破警示
+    df["OBV"]       = ta.volume.OnBalanceVolumeIndicator(close, volume).on_balance_volume()
+    df["OBV_MA20"]  = df["OBV"].rolling(20).mean()
+    df["OBV_slope"] = df["OBV"].diff(5)   # 5日斜率，正值代表主力持續進場
+
     return df
 
 def detect_signals(df: pd.DataFrame) -> list[dict]:

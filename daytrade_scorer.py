@@ -47,6 +47,22 @@ def calc_daytrade_score(
     breakdown = {}
     signals = []
 
+    # ── ADX 趨勢強度篩選 ────────────────────────────────
+    # 震盪盤中所有動能訊號可信度大幅下降，ADX<20 直接略過
+    adx     = float(latest.get("ADX", 25.0)) if pd.notna(latest.get("ADX")) else 25.0
+    adx_pos = float(latest.get("ADX_pos", 25.0)) if pd.notna(latest.get("ADX_pos")) else 25.0
+    adx_neg = float(latest.get("ADX_neg", 25.0)) if pd.notna(latest.get("ADX_neg")) else 25.0
+    if adx < 20:
+        result["signals"] = [f"⚠️ ADX {adx:.0f}｜震盪盤無明確趨勢，跳過"]
+        return result
+    elif adx < 25:
+        adx_mult = 0.75
+        signals.append(f"⚠️ ADX {adx:.0f} 趨勢偏弱")
+    else:
+        adx_mult = 1.0
+        direction = "多方主導" if adx_pos > adx_neg else "空方主導"
+        signals.append(f"ADX {adx:.0f} 趨勢明確（{direction}）")
+
     # ── 1. 量能面（基礎30分 + 方向修正）───────────────
     vol_ratio = float(latest.get("Vol_ratio", 1.0)) if pd.notna(latest.get("Vol_ratio")) else 1.0
     vol_score = 0
@@ -150,6 +166,31 @@ def calc_daytrade_score(
             signals.append(f"⚠️ 券資比 {margin_ratio:.1f}%，籌碼偏空")
         elif margin_ratio > 10:
             signals.append(f"券資比 {margin_ratio:.1f}%，留意")
+    # OBV 能量潮（主力進出場確認，補充法人資料）
+    obv       = float(latest.get("OBV",       0)) if pd.notna(latest.get("OBV"))       else 0
+    obv_ma    = float(latest.get("OBV_MA20",  0)) if pd.notna(latest.get("OBV_MA20"))  else 0
+    obv_slope = float(latest.get("OBV_slope", 0)) if pd.notna(latest.get("OBV_slope")) else 0
+    prev_obv  = float(prev.get("OBV",         0)) if pd.notna(prev.get("OBV"))         else 0
+
+    if obv_ma != 0:
+        if obv > obv_ma and obv_slope > 0:
+            chip_score += 8
+            signals.append("✅ OBV持續上升，主力持續布局")
+        elif obv < obv_ma and obv_slope < 0:
+            chip_score -= 8
+            signals.append("⚠️ OBV持續下降，籌碼外流")
+        elif obv > obv_ma:
+            chip_score += 3
+            signals.append("OBV站上均線，籌碼偏多")
+
+        # 量價背離偵測
+        if is_up_day and obv < prev_obv:
+            chip_score -= 5
+            signals.append("⚠️ 量價背離：股價漲但OBV跌，假突破風險")
+        elif not is_up_day and obv > prev_obv:
+            chip_score += 2
+            signals.append("股價跌但OBV支撐，跌勢有限")
+
     breakdown["籌碼"] = chip_score
     score += chip_score
 
@@ -226,7 +267,7 @@ def calc_daytrade_score(
     breakdown["波動度"] = atr_score
     score += atr_score
 
-    # Fix 8：套用維度倍率（回測後可動態調整）
+    # Fix 8：套用維度倍率（回測後可動態調整）+ ADX 趨勢修正
     mults = load_multipliers()
     weighted = (
         breakdown["量能"]   * mults["量能"]   +
@@ -234,7 +275,7 @@ def calc_daytrade_score(
         breakdown["技術"]   * mults["技術"]   +
         breakdown["波動度"] * mults["波動度"]
     )
-    result["score"]     = max(0, min(100, int(weighted)))
+    result["score"]     = max(0, min(100, int(weighted * adx_mult)))
     result["breakdown"] = breakdown
     result["signals"]   = signals
     return result
@@ -305,6 +346,7 @@ def get_daytrade_candidates(
     """從 all_data 篩出隔日當沖候選清單（僅台股，排除基本面偏弱）"""
     from analyzer import add_indicators
     from fundamental_filter import is_fundamentally_weak
+    from signal_log import get_stock_win_rate
 
     candidates = []
     for name, df in all_data.items():
@@ -333,6 +375,17 @@ def get_daytrade_candidates(
         bd     = result["breakdown"]
         ee     = calc_entry_exit(df, result["score"])
 
+        # 凱利公式：根據個股歷史勝率動態調整倉位建議（半凱利，上限 1.5x）
+        wr_data    = get_stock_win_rate(name)
+        kelly_mult = 1.0
+        hist_wr    = wr_data.get("win_rate")
+        if hist_wr is not None:
+            p   = hist_wr / 100
+            q   = 1 - p
+            b   = max(ee["rr2"], 1.0)
+            raw = max(0.0, (p * b - q) / b)
+            kelly_mult = round(min(raw * 2, 1.5), 1)  # 半凱利，避免過度集中
+
         candidates.append({
             "name":        name,
             "ticker":      ticker,
@@ -357,6 +410,8 @@ def get_daytrade_candidates(
             "risk_pct":    ee["risk_pct"],
             "upside_pct1": ee["upside_pct1"],
             "upside_pct2": ee["upside_pct2"],
+            "kelly_mult":  kelly_mult,
+            "hist_wr":     hist_wr,
         })
 
     candidates.sort(key=lambda x: x["score"], reverse=True)

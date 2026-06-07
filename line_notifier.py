@@ -131,8 +131,14 @@ def build_daytrade_message(
         lines.append(f"   🎯停利① ${c.get('tp1', '-')}（+{c.get('upside_pct1', 0):.1f}% RR={c.get('rr1', '-')}）出半倉")
         lines.append(f"   🎯停利② ${c.get('tp2', '-')}（+{c.get('upside_pct2', 0):.1f}% RR={c.get('rr2', '-')}）全出")
         if c.get("suggested_lots"):
-            risk_amt = round((c["entry_mid"] - c["stop"]) * c["suggested_lots"] * 1000)
-            lines.append(f"   💰建議 {c['suggested_lots']} 張（風控 ${risk_amt:,}，約總資產 1%）")
+            kelly_mult = c.get("kelly_mult", 1.0)
+            adj_lots   = max(1, round(c["suggested_lots"] * kelly_mult))
+            risk_amt   = round((c["entry_mid"] - c["stop"]) * adj_lots * 1000)
+            kelly_note = f"  凱利×{kelly_mult}" if kelly_mult != 1.0 else ""
+            lines.append(f"   💰建議 {adj_lots} 張（風控 ${risk_amt:,}，約總資產 1%{kelly_note}）")
+        hist_wr = c.get("hist_wr")
+        if hist_wr is not None:
+            lines.append(f"   📈歷史勝率 {hist_wr:.0f}%（{c.get('kelly_mult', 1.0)}x 倉位）")
         top_sigs = c.get("signals", [])[:2]
         if top_sigs:
             lines.append(f"   → {' / '.join(top_sigs)}")
