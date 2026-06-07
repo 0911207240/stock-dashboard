@@ -227,3 +227,23 @@ def calc_week52(df: pd.DataFrame) -> dict:
     price     = float(close.iloc[-1])
     pct = (price - year_low) / (year_high - year_low) * 100 if year_high != year_low else 50.0
     return {"year_high": year_high, "year_low": year_low, "week52_pct": pct}
+
+
+def calc_mdd(df: pd.DataFrame, window: int = 20) -> dict:
+    """
+    計算近 window 個交易日的最大回撤（MDD）
+    MDD = 從波段高點到最低點的最大跌幅 %
+    MDD > 15%: 籌碼不穩，當沖風險高
+    """
+    if df is None or len(df) < window:
+        return {"mdd_20": 0.0, "mdd_60": 0.0}
+
+    def _mdd(series: pd.Series) -> float:
+        peak = series.expanding().max()
+        drawdown = (series - peak) / peak * 100   # 負值
+        return round(float(abs(drawdown.min())), 2)
+
+    close = df["Close"].squeeze()
+    mdd_20 = _mdd(close.tail(20))
+    mdd_60 = _mdd(close.tail(60)) if len(close) >= 60 else mdd_20
+    return {"mdd_20": mdd_20, "mdd_60": mdd_60}

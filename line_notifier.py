@@ -131,7 +131,9 @@ def build_daytrade_message(
         lines.append(f"{i}. {c['name']}（昨收 ${c['price']:.1f}）分數 {c['score']}  {beta_tag}{rs_tag}")
         lines.append(f"   {arrow}{abs(c['change_pct']):.1f}%  量比{c['vol_ratio']:.1f}x  ATR {c.get('atr_pct', 0):.1f}%")
         lines.append(f"   📍甜蜜點 ${c.get('entry_low', '-')}～${c.get('entry_high', '-')}（參考 ${c.get('entry_mid', '-')}）")
-        lines.append(f"   🛑停損 ${c.get('stop', '-')}（風險 -{c.get('risk_pct', 0):.1f}%）")
+        mdd_20 = c.get("mdd_20", 0)
+        mdd_tag = f"  MDD {mdd_20:.1f}%" if mdd_20 > 10 else ""
+        lines.append(f"   🛑停損 ${c.get('stop', '-')}（風險 -{c.get('risk_pct', 0):.1f}%{mdd_tag}）")
         lines.append(f"   🎯停利① ${c.get('tp1', '-')}（+{c.get('upside_pct1', 0):.1f}% RR={c.get('rr1', '-')}）出半倉")
         lines.append(f"   🎯停利② ${c.get('tp2', '-')}（+{c.get('upside_pct2', 0):.1f}% RR={c.get('rr2', '-')}）全出")
         if c.get("suggested_lots"):

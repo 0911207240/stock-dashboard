@@ -346,7 +346,7 @@ def get_daytrade_candidates(
     regime: dict = None,
 ) -> list[dict]:
     """從 all_data 篩出隔日當沖候選清單（僅台股，排除基本面偏弱）"""
-    from analyzer import add_indicators, calc_beta_rs
+    from analyzer import add_indicators, calc_beta_rs, calc_mdd
     from fundamental_filter import is_fundamentally_weak
     from signal_log import get_stock_win_rate
     regime_state = (regime or {}).get("state", "盤整")
@@ -412,7 +412,28 @@ def get_daytrade_candidates(
         elif rs5 > 1.2:
             beta_sigs.append(f"近期強於大盤（RS5={rs5:.1f}x）")
 
-        adjusted_score = max(0, min(100, result["score"] + beta_bonus + rs_bonus))
+        # MDD 最大回撤風控
+        mdd_data  = calc_mdd(df, window=20)
+        mdd_20    = mdd_data["mdd_20"]
+        mdd_60    = mdd_data["mdd_60"]
+        mdd_bonus = 0
+        mdd_sig   = ""
+        if mdd_20 > 20:
+            mdd_bonus = -10
+            mdd_sig   = f"⛔ 近20日MDD {mdd_20:.1f}%，籌碼極不穩定"
+        elif mdd_20 > 15:
+            mdd_bonus = -5
+            mdd_sig   = f"⚠️ 近20日MDD {mdd_20:.1f}%，回撤偏大"
+        elif mdd_20 > 10:
+            mdd_bonus = -2
+            mdd_sig   = f"近20日MDD {mdd_20:.1f}%，留意波動"
+        elif mdd_20 < 5:
+            mdd_bonus = 3
+            mdd_sig   = f"✅ 近20日MDD {mdd_20:.1f}%，走勢穩健"
+        if mdd_sig:
+            beta_sigs.append(mdd_sig)
+
+        adjusted_score = max(0, min(100, result["score"] + beta_bonus + rs_bonus + mdd_bonus))
 
         # 凱利公式：根據個股歷史勝率動態調整倉位建議（半凱利，上限 1.5x）
         wr_data    = get_stock_win_rate(name)
@@ -454,6 +475,8 @@ def get_daytrade_candidates(
             "beta":        beta,
             "rs5":         rs5,
             "rs20":        rs20,
+            "mdd_20":      mdd_20,
+            "mdd_60":      mdd_60,
             "beta_sigs":   beta_sigs,
         })
 
