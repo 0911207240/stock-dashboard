@@ -109,10 +109,28 @@ def _build_flex(name: str, ticker: str) -> dict:
                     results[key] = None
 
     # ── 基本面（yfinance，主執行緒）────────────────────
-    results["weak"] = False
+    results["weak"]    = False
+    results["us_info"] = {}
     if is_tw and not is_etf:
         try:
             results["weak"] = is_fundamentally_weak(ticker)
+        except Exception:
+            pass
+    elif not is_tw:
+        try:
+            import yfinance as yf
+            info = yf.Ticker(ticker).info
+            w52h = info.get("fiftyTwoWeekHigh")
+            w52l = info.get("fiftyTwoWeekLow")
+            pe   = info.get("trailingPE") or info.get("forwardPE")
+            results["us_info"] = {
+                "pe":        round(pe, 1) if pe else None,
+                "w52_high":  w52h,
+                "w52_low":   w52l,
+                "w52_pos":   round((float(df.iloc[-1]["Close"]) - w52l) /
+                                   (w52h - w52l) * 100, 1)
+                             if w52h and w52l and w52h != w52l else None,
+            }
         except Exception:
             pass
 
@@ -201,26 +219,30 @@ def _build_flex(name: str, ticker: str) -> dict:
         daytrade_score=daytrade_score,
         entry_exit=entry_exit,
         top_signals=top_signals,
+        us_info=results.get("us_info", {}),
     )
 
 
 def _build_portfolio_message() -> dict:
     """抓持股即時資料，回傳 LINE message dict（含 Quick Reply）"""
-    from data_fetcher import fetch, WATCHLIST
-    from portfolio import HOLDINGS, calc_summary
+    from data_fetcher import fetch
+    from portfolio import calc_summary
+    from portfolio_manager import load as load_holdings
     from datetime import datetime
 
     date_str = datetime.now().strftime("%m/%d")
+    holdings_raw = load_holdings()  # {ticker: {name, shares, cost, ...}}
 
-    all_data = {}
-    for name in HOLDINGS:
-        ticker = WATCHLIST.get(name)
-        if ticker:
-            df = fetch(ticker, period="5d")
-            if df is not None and not df.empty:
-                all_data[name] = df
+    all_data      = {}
+    holdings_fmt  = {}
+    for ticker, h in holdings_raw.items():
+        name = h["name"]
+        df   = fetch(ticker, period="5d")
+        if df is not None and not df.empty:
+            all_data[name]     = df
+            holdings_fmt[name] = {k: v for k, v in h.items() if k != "name"}
 
-    summary = calc_summary(all_data)
+    summary = calc_summary(all_data, holdings=holdings_fmt)
     total   = summary.get("__total__", {})
 
     lines = [f"📊 持股快照（{date_str}）", ""]
@@ -298,6 +320,54 @@ def _handle_message(event: dict):
     if text in ("持股", "持股快照", "portfolio"):
         msg = _build_portfolio_message()
         _reply(reply_token, msg)
+        return
+
+    # 持股管理：加倉 2330 10 / 加倉 2330 10 1621.8
+    add_m = re.match(r'^加倉\s+(.+?)\s+(\d+)(?:\s+(\d+(?:\.\d+)?))?$', text)
+    if add_m:
+        from portfolio_manager import add_shares
+        name, ticker = resolve_query(add_m.group(1).strip())
+        if name is None:
+            _reply(reply_token, f"❓ 找不到「{add_m.group(1).strip()}」")
+        else:
+            cost = float(add_m.group(3)) if add_m.group(3) else None
+            _reply(reply_token, add_shares(ticker, name, int(add_m.group(2)), cost))
+        return
+
+    # 減倉 2330 5
+    red_m = re.match(r'^減倉\s+(.+?)\s+(\d+)$', text)
+    if red_m:
+        from portfolio_manager import reduce_shares
+        name, ticker = resolve_query(red_m.group(1).strip())
+        if name is None:
+            _reply(reply_token, f"❓ 找不到「{red_m.group(1).strip()}」")
+        else:
+            _reply(reply_token, reduce_shares(ticker, name, int(red_m.group(2))))
+        return
+
+    # 清倉 2330
+    clear_m = re.match(r'^清倉\s+(.+?)$', text)
+    if clear_m:
+        from portfolio_manager import clear_position
+        name, ticker = resolve_query(clear_m.group(1).strip())
+        if name is None:
+            _reply(reply_token, f"❓ 找不到「{clear_m.group(1).strip()}」")
+        else:
+            _reply(reply_token, clear_position(ticker, name))
+        return
+
+    # 設成本 / 設停損 / 設停利 2330 1500
+    field_m = re.match(r'^(設成本|設停損|設停利)\s+(.+?)\s+(\d+(?:\.\d+)?)$', text)
+    if field_m:
+        from portfolio_manager import set_field
+        cmd   = field_m.group(1)
+        name, ticker = resolve_query(field_m.group(2).strip())
+        value = float(field_m.group(3))
+        field_map = {"設成本": "cost", "設停損": "stop_loss", "設停利": "take_profit"}
+        if name is None:
+            _reply(reply_token, f"❓ 找不到「{field_m.group(2).strip()}」")
+        else:
+            _reply(reply_token, set_field(ticker, name, field_map[cmd], value))
         return
 
     # 列出提醒
@@ -437,6 +507,8 @@ def trigger_push():
         push_type = "morning"
         if request.is_json and request.json:
             push_type = request.json.get("type", "morning")
+        elif request.form.get("type"):
+            push_type = request.form.get("type")
         result = run_push(push_type)
         return result, 200
     except Exception as e:

@@ -111,6 +111,7 @@ def build_analysis_flex(
     daytrade_score: int,
     entry_exit: dict | None,
     top_signals: list[str],
+    us_info: dict | None = None,
 ) -> dict:
     """回傳 LINE Flex Message dict（type=flex）"""
     code     = ticker.replace(".TW", "").replace(".TWO", "")
@@ -207,6 +208,25 @@ def build_analysis_flex(
             body.append(_row("融資/券/券資比", f"{mr:+,} / {sr:+,} / {ratio:.1f}%"))
         if holder_label:
             body.append(_row("集保大戶", holder_label))
+
+    # ── 美股基本面（無法人資料時顯示） ─────────────────
+    if us_info and not inst_data and not margin_data:
+        pe      = us_info.get("pe")
+        w52_pos = us_info.get("w52_pos")
+        w52h    = us_info.get("w52_high")
+        w52l    = us_info.get("w52_low")
+        if pe is not None or w52_pos is not None:
+            body.append(_sep())
+            body.append({"type": "text", "text": "📊 基本面",
+                         "weight": "bold", "size": "sm", "color": "#555555", "margin": "sm"})
+        if pe is not None:
+            pe_color = "#EF5350" if pe > 40 else "#26A69A" if pe < 15 else "#333333"
+            body.append(_row("本益比 P/E", f"{pe:.1f}x", pe_color))
+        if w52_pos is not None:
+            pos_color = "#EF5350" if w52_pos >= 80 else "#26A69A" if w52_pos <= 20 else "#333333"
+            h_str = f"${w52h:.2f}" if w52h else "-"
+            l_str = f"${w52l:.2f}" if w52l else "-"
+            body.append(_row("52週位置", f"{w52_pos:.0f}%（H{h_str} / L{l_str}）", pos_color))
 
     # ── 當沖評分 ─────────────────────────────────────
     if daytrade_score > 0 and entry_exit:
