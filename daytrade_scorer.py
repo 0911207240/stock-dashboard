@@ -349,6 +349,7 @@ def get_daytrade_candidates(
     from analyzer import add_indicators, calc_beta_rs, calc_mdd
     from fundamental_filter import is_fundamentally_weak
     from signal_log import get_stock_win_rate
+    from earnings_calendar import has_earnings_risk
     regime_state = (regime or {}).get("state", "盤整")
 
     candidates = []
@@ -358,6 +359,7 @@ def get_daytrade_candidates(
             continue
         if is_fundamentally_weak(ticker):
             continue
+        earnings_risk = has_earnings_risk(name, ticker, days_ahead=3)
 
         if not pre_analyzed:
             df = add_indicators(df)
@@ -433,7 +435,12 @@ def get_daytrade_candidates(
         if mdd_sig:
             beta_sigs.append(mdd_sig)
 
-        adjusted_score = max(0, min(100, result["score"] + beta_bonus + rs_bonus + mdd_bonus))
+        # 財報前 3 日降低評分（不確定性過高）
+        earnings_penalty = -15 if earnings_risk else 0
+        if earnings_risk:
+            beta_sigs.append("⚠️ 財報 3 日內，波動風險極高")
+
+        adjusted_score = max(0, min(100, result["score"] + beta_bonus + rs_bonus + mdd_bonus + earnings_penalty))
 
         # 凱利公式：根據個股歷史勝率動態調整倉位建議（半凱利，上限 1.5x）
         wr_data    = get_stock_win_rate(name)
@@ -475,9 +482,10 @@ def get_daytrade_candidates(
             "beta":        beta,
             "rs5":         rs5,
             "rs20":        rs20,
-            "mdd_20":      mdd_20,
-            "mdd_60":      mdd_60,
-            "beta_sigs":   beta_sigs,
+            "mdd_20":        mdd_20,
+            "mdd_60":        mdd_60,
+            "earnings_risk": earnings_risk,
+            "beta_sigs":     beta_sigs,
         })
 
     candidates.sort(key=lambda x: x["score"], reverse=True)

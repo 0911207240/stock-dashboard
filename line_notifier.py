@@ -114,6 +114,7 @@ def build_daytrade_message(
     date_str: str,
     regime: dict = None,
     concentration_warning: str = "",
+    sector_note: str = "",
 ) -> str:
     """建立隔日當沖 Top N 推播訊息（甜蜜點區間＋兩段停利＋停損）"""
     header = f"【{date_str} 明日當沖候選 Top{len(candidates)}】"
@@ -121,7 +122,9 @@ def build_daytrade_message(
         header += f"\n{regime['emoji']} 大盤{regime['state']}｜門檻 {40 + regime['min_score_adj']}分"
         if regime.get("futures_desc"):
             header += f"\n{regime['futures_desc']}"
-    lines = [header, "量能＋籌碼＋技術＋波動度評分", ""]
+    if sector_note:
+        header += sector_note
+    lines = [header, "量能＋籌碼＋技術＋波動度＋Beta＋MDD評分", ""]
     for i, c in enumerate(candidates, 1):
         arrow = "▲" if c["change_pct"] >= 0 else "▼"
         beta     = c.get("beta", 1.0)
@@ -156,7 +159,8 @@ def build_daytrade_message(
     return "\n".join(lines)
 
 
-def build_weekly_message(weekly: list[dict], date_str: str) -> str:
+def build_weekly_message(weekly: list[dict], date_str: str,
+                         sector_report: str = "", corr_warning: str = "") -> str:
     """週報：漲跌排行 + 強勢/弱勢股彙整"""
     sorted_w = sorted(weekly, key=lambda x: x["chg_w"], reverse=True)
     gainers  = [x for x in sorted_w if x["chg_w"] > 0][:5]
@@ -195,6 +199,11 @@ def build_weekly_message(weekly: list[dict], date_str: str) -> str:
             lines.append(f"  {x['name']}  RSI {x['rsi']:.0f}  週跌 {x['chg_w']:.1f}%")
         lines.append("")
 
+    if sector_report:
+        lines.append(sector_report)
+    if corr_warning:
+        lines.append(corr_warning)
+    lines.append("")
     lines.append("⚠️ 資料 T+1，僅供參考")
     return "\n".join(lines)
 

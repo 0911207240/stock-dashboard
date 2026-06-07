@@ -2,11 +2,16 @@
 from datetime import datetime
 
 from tw_calendar import is_trading_day
-from data_fetcher import fetch_all, fetch_all_institutional, fetch_all_margin, WATCHLIST
+from data_fetcher import fetch_all, fetch_all_institutional, fetch_all_margin, WATCHLIST, SECTORS
 from analyzer import add_indicators, detect_signals, score as score_signals
 from daytrade_scorer import get_daytrade_candidates
 from market_regime import detect_regime
 from line_notifier import send, build_daytrade_message, build_summary_message
+from sector_rotation import (
+    calc_sector_momentum, build_sector_morning_note,
+    build_sector_weekly_report, calc_holding_correlation, build_correlation_warning,
+)
+from earnings_calendar import build_earnings_alert
 
 
 def run_push(push_type: str = "morning") -> str:
@@ -51,6 +56,11 @@ def run_push(push_type: str = "morning") -> str:
             inst_cache, margin_cache = {}, {}
 
         try:
+            sector_list = calc_sector_momentum(all_data, SECTORS)
+        except Exception:
+            sector_list = []
+
+        try:
             candidates = get_daytrade_candidates(
                 all_data=all_data,
                 watchlist=WATCHLIST,
@@ -61,13 +71,26 @@ def run_push(push_type: str = "morning") -> str:
                 regime=regime,
             )
             if candidates:
-                msg = build_daytrade_message(candidates, date_str, regime=regime)
+                sector_note = build_sector_morning_note(sector_list)
+                msg = build_daytrade_message(candidates, date_str, regime=regime,
+                                             sector_note=sector_note)
                 send(msg)
                 results.append(f"當沖候選 {len(candidates)} 檔")
             else:
                 results.append("當沖候選：無符合條件")
         except Exception as e:
             results.append(f"當沖候選失敗：{e}")
+
+        # 財報警示（持股中有財報的才推）
+        try:
+            from portfolio_manager import load_holdings
+            holdings = load_holdings()
+            earnings_msg = build_earnings_alert(holdings, WATCHLIST, days_ahead=5)
+            if earnings_msg:
+                send(earnings_msg)
+                results.append("財報警示已推播")
+        except Exception:
+            pass
 
     # ── 技術訊號彙整（早盤＋午盤） ────────────────────
     try:
@@ -154,7 +177,28 @@ def _run_weekly_push() -> str:
     if not weekly:
         return "週報：無資料"
 
-    msg = build_weekly_message(weekly, date_str)
+    # 板塊輪動分析
+    sector_report = ""
+    try:
+        sector_list = calc_sector_momentum(all_data, SECTORS)
+        sector_report = build_sector_weekly_report(sector_list)
+    except Exception:
+        pass
+
+    # 持倉相關性分析
+    corr_warning = ""
+    try:
+        from portfolio_manager import load_holdings
+        holdings    = load_holdings()
+        holding_names = [v["name"] for v in holdings.values()]
+        alerts      = calc_holding_correlation(all_data, holding_names)
+        corr_warning = build_correlation_warning(alerts)
+    except Exception:
+        pass
+
+    msg = build_weekly_message(weekly, date_str,
+                               sector_report=sector_report,
+                               corr_warning=corr_warning)
     send(msg)
     return f"週報推播完成，共 {len(weekly)} 檔"
 
