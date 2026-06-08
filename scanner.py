@@ -1,6 +1,19 @@
 """每日掃描腳本，可用排程每天自動執行"""
+import json
 import math
 from datetime import datetime
+from pathlib import Path
+
+_MORNING_LOCK = Path("morning_lock.json")
+
+def _morning_done_today() -> bool:
+    try:
+        return json.loads(_MORNING_LOCK.read_text()).get("date") == datetime.now().strftime("%Y-%m-%d")
+    except Exception:
+        return False
+
+def _mark_morning_done():
+    _MORNING_LOCK.write_text(json.dumps({"date": datetime.now().strftime("%Y-%m-%d")}))
 from tw_calendar import is_trading_day
 from twse_announcements import build_announcement_alert
 from earnings_calendar import build_earnings_alert, has_earnings_risk
@@ -96,43 +109,48 @@ def run_scan(min_score: int = 2, notify: bool = True):
     base_min_score = 40 + regime["min_score_adj"]
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
 
-    # 1. 持股日報 + 停損/停利緊急警報（早盤才推，午盤略過）
+    # 1. 持股日報 + 停損/停利緊急警報（早盤才推，午盤略過；多次觸發只推一次）
     total_value = 0.0
     if notify and is_morning:
-        summary = calc_summary(dict(all_data))
-        total_value = summary.get("__total__", {}).get("total_value", 0.0)
-        alert_msg = build_alert_message(summary)
-        if alert_msg:
-            send(alert_msg)
-            print("  ⚠️ 停損/停利警報已推播")
-        portfolio_msg = build_portfolio_message(summary)
-        send(portfolio_msg)
-        print("  持股日報已推播")
+        if _morning_done_today():
+            print("  早盤報告今日已推播，跳過重複發送")
+        else:
+            summary = calc_summary(dict(all_data))
+            total_value = summary.get("__total__", {}).get("total_value", 0.0)
+            alert_msg = build_alert_message(summary)
+            if alert_msg:
+                send(alert_msg)
+                print("  ⚠️ 停損/停利警報已推播")
+            portfolio_msg = build_portfolio_message(summary)
+            send(portfolio_msg)
+            print("  持股日報已推播")
 
-        div_msg = build_dividend_alert_message(WATCHLIST)
-        if div_msg:
-            send(div_msg)
-            print("  除息提醒已推播")
+            div_msg = build_dividend_alert_message(WATCHLIST)
+            if div_msg:
+                send(div_msg)
+                print("  除息提醒已推播")
 
-        ann_msg = build_announcement_alert(HOLDINGS, WATCHLIST)
-        if ann_msg:
-            send(ann_msg)
-            print("  重大公告已推播")
+            ann_msg = build_announcement_alert(HOLDINGS, WATCHLIST)
+            if ann_msg:
+                send(ann_msg)
+                print("  重大公告已推播")
 
-        earn_msg = build_earnings_alert(HOLDINGS, WATCHLIST)
-        if earn_msg:
-            send(earn_msg)
-            print("  財報警示已推播")
+            earn_msg = build_earnings_alert(HOLDINGS, WATCHLIST)
+            if earn_msg:
+                send(earn_msg)
+                print("  財報警示已推播")
 
-        rebal_msg = build_rebalance_alert(summary)
-        if rebal_msg:
-            send(rebal_msg)
-            print("  再平衡警報已推播")
+            rebal_msg = build_rebalance_alert(summary)
+            if rebal_msg:
+                send(rebal_msg)
+                print("  再平衡警報已推播")
 
-        corr_msg = build_correlation_alert(dict(all_data))
-        if corr_msg:
-            send(corr_msg)
-            print("  持股相關性警報已推播")
+            corr_msg = build_correlation_alert(dict(all_data))
+            if corr_msg:
+                send(corr_msg)
+                print("  持股相關性警報已推播")
+
+            _mark_morning_done()
 
     # 2. 技術訊號掃描
     found = []
