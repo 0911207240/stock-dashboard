@@ -110,13 +110,15 @@ def run_scan(min_score: int = 2, notify: bool = True):
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
 
     # 1. 持股日報 + 停損/停利緊急警報（早盤才推，午盤略過；多次觸發只推一次）
-    total_value = 0.0
+    total_value  = 0.0
+    portfolio_pnl = None
     if notify and is_morning:
         if _morning_done_today():
             print("  早盤報告今日已推播，跳過重複發送")
         else:
             summary = calc_summary(dict(all_data))
-            total_value = summary.get("__total__", {}).get("total_value", 0.0)
+            total_value  = summary.get("__total__", {}).get("total_value", 0.0)
+            portfolio_pnl = summary.get("__total__", {}).get("total_pnl")
             alert_msg = build_alert_message(summary)
             if alert_msg:
                 send(alert_msg)
@@ -343,6 +345,28 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
         send("\n".join(mlines))
         print(f"  月報已推播（{mperf['month_str']}）")
+
+    # 大盤快照（每次掃描都存，供復盤）
+    if not taiex_df.empty:
+        from market_log import save_market_snapshot
+        from sector_rotation import calc_sector_momentum
+        from data_fetcher import SECTORS
+        taiex_close = float(taiex_df.iloc[-1]["Close"])
+        taiex_chg   = (
+            (taiex_close - float(taiex_df.iloc[-2]["Close"])) / float(taiex_df.iloc[-2]["Close"]) * 100
+            if len(taiex_df) >= 2 else 0.0
+        )
+        top_sectors = calc_sector_momentum(analyzed_data, SECTORS)
+        save_market_snapshot(
+            taiex_close    = taiex_close,
+            taiex_chg_pct  = taiex_chg,
+            regime         = regime,
+            futures_data   = futures_data,
+            top_sectors    = top_sectors,
+            portfolio_value= total_value if total_value > 0 else None,
+            portfolio_pnl  = portfolio_pnl,
+        )
+        print("  大盤快照已儲存")
 
     return found
 
