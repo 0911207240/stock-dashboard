@@ -1,6 +1,7 @@
 streamlit
 yfinance>=0.2.40
 pandas
+pyarrow
 altair
 requests
 python-dotenv

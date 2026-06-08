@@ -5,3 +5,4 @@ __pycache__/
 .streamlit/
 action_log.zip
 action_logs/
+data_cache/

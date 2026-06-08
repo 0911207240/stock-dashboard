@@ -1,6 +1,38 @@
 import time
+from datetime import date as _date
+from pathlib import Path
 import yfinance as yf
 import pandas as pd
+
+CACHE_DIR = Path(__file__).parent / "data_cache"
+
+
+def _cache_path(ticker: str) -> Path:
+    return CACHE_DIR / f"{ticker.replace('/', '_').replace('^', '_')}.parquet"
+
+
+def _load_cache(ticker: str) -> pd.DataFrame:
+    p = _cache_path(ticker)
+    if not p.exists():
+        return pd.DataFrame()
+    try:
+        df = pd.read_parquet(p)
+        if df.index.tz is not None:
+            df.index = df.index.tz_localize(None)
+        return df
+    except Exception:
+        return pd.DataFrame()
+
+
+def _save_cache(ticker: str, df: pd.DataFrame):
+    CACHE_DIR.mkdir(exist_ok=True)
+    try:
+        save_df = df.copy()
+        if save_df.index.tz is not None:
+            save_df.index = save_df.index.tz_localize(None)
+        save_df.to_parquet(_cache_path(ticker))
+    except Exception as e:
+        print(f"[cache] 儲存失敗 {ticker}: {e}")
 
 WATCHLIST = {
     # 科技 / ETF
@@ -314,7 +346,7 @@ _FETCH_RETRIES = 3
 _FETCH_BACKOFF = (1, 3)   # 第1次重試等1秒，第2次等3秒
 
 
-def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFrame:
+def _fetch_raw(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFrame:
     from datetime import datetime
     last_err = None
     for attempt in range(_FETCH_RETRIES):
@@ -327,10 +359,11 @@ def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFram
                 if attempt < _FETCH_RETRIES - 1:
                     time.sleep(_FETCH_BACKOFF[min(attempt, len(_FETCH_BACKOFF) - 1)])
                 continue
-            # 資料過舊警告（超過 10 天代表 API 異常或長假）
             age = (datetime.now() - df.index[-1].to_pydatetime().replace(tzinfo=None)).days
             if age > 10:
-                print(f"[WARN] {ticker} 資料過舊 {age} 天（{df.index[-1].date()}）")
+                print(f"[WARN] {ticker} 資料過��� {age} 天（{df.index[-1].date()}）")
+            if df.index.tz is not None:
+                df.index = df.index.tz_localize(None)
             return df
         except Exception as e:
             last_err = e
@@ -339,6 +372,35 @@ def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFram
     msg = str(last_err) if last_err else "資料為空"
     print(f"[WARN] {ticker} 抓取失敗（{_FETCH_RETRIES} 次）：{msg}")
     return pd.DataFrame()
+
+
+def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFrame:
+    """快取優先：有快取就做增量更新（只抓 5 天），沒有才完整抓取"""
+    if interval != "1d":
+        return _fetch_raw(ticker, period=period, interval=interval)
+
+    cached = _load_cache(ticker)
+    if not cached.empty:
+        last_cached = cached.index[-1].date()
+        if last_cached >= _date.today():
+            return cached                           # 今天已更新，直接返回
+
+        recent = _fetch_raw(ticker, period="5d", interval="1d")
+        if not recent.empty:
+            combined = pd.concat([cached, recent])
+            combined = combined[~combined.index.duplicated(keep="last")]
+            combined = combined.sort_index()
+            _save_cache(ticker, combined)
+            return combined
+
+        print(f"[cache] {ticker} 增量失敗，使用快取（{last_cached}）")
+        return cached
+
+    # 無快取：完整抓取並儲存
+    df = _fetch_raw(ticker, period=period, interval=interval)
+    if not df.empty:
+        _save_cache(ticker, df)
+    return df
 
 def fetch_dividends(ticker: str) -> pd.Series:
     try:
