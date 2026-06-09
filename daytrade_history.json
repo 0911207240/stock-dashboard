@@ -628,5 +628,47 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "聯陽半導體",
+    "ticker": "3014.TW",
+    "score": 60,
+    "price": 140.0,
+    "entry_mid": 138.95,
+    "stop": 136.17,
+    "tp1": 143.12,
+    "tp2": 144.51,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 59,
+    "price": 17.149999618530273,
+    "entry_mid": 17.02,
+    "stop": 16.75,
+    "tp1": 17.42,
+    "tp2": 17.51,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "中鋼",
+    "ticker": "2002.TW",
+    "score": 50,
+    "price": 18.75,
+    "entry_mid": 18.61,
+    "stop": 18.46,
+    "tp1": 18.83,
+    "tp2": 18.88,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
