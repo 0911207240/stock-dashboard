@@ -614,5 +614,19 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 46,
+    "price": 17.149999618530273,
+    "entry_mid": 17.02,
+    "stop": 16.75,
+    "tp1": 17.42,
+    "tp2": 17.51,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
