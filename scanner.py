@@ -56,9 +56,9 @@ def run_scan(min_score: int = 2, notify: bool = True):
         return []
 
     now = datetime.now()
-    is_morning = now.hour < 10    # 08:30 早盤
-    is_midday  = 10 <= now.hour < 14  # 12:30 午盤
-    session    = "午盤" if is_midday else "早盤"
+    is_morning = not _morning_done_today()   # 早盤：今日尚未推過早報（GitHub Actions 延遲補償）
+    is_midday  = 10 <= now.hour < 16         # 12:30 午盤（寬鬆範圍）
+    session    = "午盤" if (is_midday and not is_morning) else "早盤"
     print(f"\n[{now.strftime('%Y-%m-%d %H:%M')}] {session}掃描開始...")
     from concurrent.futures import ThreadPoolExecutor
     from data_fetcher import fetch_all_institutional, fetch_all_margin, fetch_taifex_futures
