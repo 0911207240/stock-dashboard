@@ -670,5 +670,19 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "義隆電子",
+    "ticker": "2458.TW",
+    "score": 48,
+    "price": 161.0,
+    "entry_mid": 160.8,
+    "stop": 157.58,
+    "tp1": 165.63,
+    "tp2": 166.6,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
