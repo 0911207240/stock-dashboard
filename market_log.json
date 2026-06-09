@@ -1,0 +1,15 @@
+[
+  {
+    "date": "2026-06-09",
+    "taiex_close": 44674.88,
+    "taiex_chg_pct": 2.69,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 40,
+    "top_sectors": [
+      "光電",
+      "銀行/金控",
+      "台積電合作廠商"
+    ]
+  }
+]
