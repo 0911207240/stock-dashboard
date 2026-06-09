@@ -600,5 +600,19 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "永豐金",
+    "ticker": "2890.TW",
+    "score": 46,
+    "price": 34.20000076293945,
+    "entry_mid": 33.95,
+    "stop": 33.27,
+    "tp1": 34.97,
+    "tp2": 35.17,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
