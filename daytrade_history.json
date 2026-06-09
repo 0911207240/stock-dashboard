@@ -684,5 +684,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "中華電",
+    "ticker": "2412.TW",
+    "score": 67,
+    "price": 142.0,
+    "entry_mid": 141.4,
+    "stop": 139.5,
+    "tp1": 144.25,
+    "tp2": 145.2,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "健鼎",
+    "ticker": "3044.TW",
+    "score": 55,
+    "price": 500.0,
+    "entry_mid": 499.8,
+    "stop": 489.8,
+    "tp1": 514.8,
+    "tp2": 517.8,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "台積電",
+    "ticker": "2330.TW",
+    "score": 51,
+    "price": 2305.0,
+    "entry_mid": 2303.68,
+    "stop": 2276.69,
+    "tp1": 2344.16,
+    "tp2": 2352.26,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-09",
+    "name": "元大高股息",
+    "ticker": "0056.TW",
+    "score": 48,
+    "price": 51.25,
+    "entry_mid": 50.86,
+    "stop": 49.84,
+    "tp1": 52.39,
+    "tp2": 52.7,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
