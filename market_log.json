@@ -11,5 +11,20 @@
       "銀行/金控",
       "台積電合作廠商"
     ]
+  },
+  {
+    "date": "2026-06-10",
+    "taiex_close": 43470.79,
+    "taiex_chg_pct": -0.07,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 40,
+    "top_sectors": [
+      "光電",
+      "銀行/金控",
+      "資訊服務/雲端"
+    ],
+    "portfolio_value": 1178911.0,
+    "portfolio_pnl": 298591.0
   }
 ]
