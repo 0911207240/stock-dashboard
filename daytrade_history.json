@@ -555,9 +555,9 @@
     "stop": 139.2,
     "tp1": 143.95,
     "tp2": 144.52,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 143.95,
+    "return_pct": 2.02
   },
   {
     "push_date": "2026-06-09",
@@ -597,9 +597,9 @@
     "stop": 50.57,
     "tp1": 52.17,
     "tp2": 52.36,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 50.57,
+    "return_pct": -1.25
   },
   {
     "push_date": "2026-06-09",
@@ -737,9 +737,9 @@
     "stop": 49.84,
     "tp1": 52.39,
     "tp2": 52.7,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 49.84,
+    "return_pct": -2.01
   },
   {
     "push_date": "2026-06-10",
@@ -779,6 +779,48 @@
     "stop": 10.49,
     "tp1": 11.01,
     "tp2": 11.08,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-10",
+    "name": "彰銀",
+    "ticker": "2801.TW",
+    "score": 49,
+    "price": 22.350000381469727,
+    "entry_mid": 22.18,
+    "stop": 21.87,
+    "tp1": 22.64,
+    "tp2": 22.74,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-10",
+    "name": "華碩",
+    "ticker": "2357.TW",
+    "score": 48,
+    "price": 796.0,
+    "entry_mid": 790.03,
+    "stop": 780.88,
+    "tp1": 803.75,
+    "tp2": 806.5,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-10",
+    "name": "漢唐集成",
+    "ticker": "2404.TW",
+    "score": 45,
+    "price": 1150.0,
+    "entry_mid": 1147.05,
+    "stop": 1128.83,
+    "tp1": 1174.38,
+    "tp2": 1179.85,
     "result": null,
     "exit_price": null,
     "return_pct": null
