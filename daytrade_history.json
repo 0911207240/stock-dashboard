@@ -894,5 +894,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "臻鼎-KY",
+    "ticker": "4958.TW",
+    "score": 53,
+    "price": 529.0,
+    "entry_mid": 525.03,
+    "stop": 514.53,
+    "tp1": 540.78,
+    "tp2": 543.93,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "環泥",
+    "ticker": "1104.TW",
+    "score": 51,
+    "price": 29.0,
+    "entry_mid": 28.79,
+    "stop": 28.55,
+    "tp1": 29.15,
+    "tp2": 29.22,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "萬海",
+    "ticker": "2615.TW",
+    "score": 51,
+    "price": 83.80000305175781,
+    "entry_mid": 83.17,
+    "stop": 81.73,
+    "tp1": 85.33,
+    "tp2": 85.76,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "長榮",
+    "ticker": "2603.TW",
+    "score": 43,
+    "price": 226.0,
+    "entry_mid": 225.7,
+    "stop": 221.19,
+    "tp1": 232.46,
+    "tp2": 233.82,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
