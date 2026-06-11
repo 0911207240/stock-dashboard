@@ -950,5 +950,19 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "台積電",
+    "ticker": "2330.TW",
+    "score": 48,
+    "price": 2250.0,
+    "entry_mid": 2233.12,
+    "stop": 2192.07,
+    "tp1": 2294.69,
+    "tp2": 2307.01,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
