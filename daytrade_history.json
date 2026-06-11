@@ -751,9 +751,9 @@
     "stop": 28.14,
     "tp1": 28.77,
     "tp2": 28.84,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 28.14,
+    "return_pct": -0.88
   },
   {
     "push_date": "2026-06-10",
@@ -779,9 +779,9 @@
     "stop": 10.49,
     "tp1": 11.01,
     "tp2": 11.08,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 11.01,
+    "return_pct": 2.9
   },
   {
     "push_date": "2026-06-10",
@@ -807,9 +807,9 @@
     "stop": 780.88,
     "tp1": 803.75,
     "tp2": 806.5,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 780.88,
+    "return_pct": -1.16
   },
   {
     "push_date": "2026-06-10",
@@ -821,6 +821,76 @@
     "stop": 1128.83,
     "tp1": 1174.38,
     "tp2": 1179.85,
+    "result": "停利②",
+    "exit_price": 1179.85,
+    "return_pct": 2.86
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "富邦特選高股息30",
+    "ticker": "00900.TW",
+    "score": 43,
+    "price": 18.799999237060547,
+    "entry_mid": 18.66,
+    "stop": 18.29,
+    "tp1": 19.22,
+    "tp2": 19.33,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "大成鋼",
+    "ticker": "2027.TW",
+    "score": 43,
+    "price": 42.349998474121094,
+    "entry_mid": 42.21,
+    "stop": 41.37,
+    "tp1": 43.47,
+    "tp2": 43.72,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "聯詠",
+    "ticker": "3034.TW",
+    "score": 43,
+    "price": 485.5,
+    "entry_mid": 485.01,
+    "stop": 475.31,
+    "tp1": 499.56,
+    "tp2": 502.47,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "臻鼎-KY",
+    "ticker": "4958.TW",
+    "score": 43,
+    "price": 521.0,
+    "entry_mid": 518.56,
+    "stop": 508.19,
+    "tp1": 534.11,
+    "tp2": 537.23,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-11",
+    "name": "群光",
+    "ticker": "2385.TW",
+    "score": 43,
+    "price": 138.5,
+    "entry_mid": 137.46,
+    "stop": 135.61,
+    "tp1": 140.24,
+    "tp2": 140.79,
     "result": null,
     "exit_price": null,
     "return_pct": null
