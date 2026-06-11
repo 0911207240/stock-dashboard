@@ -1,0 +1,46 @@
+name: Aftermarket Scan
+
+on:
+  schedule:
+    - cron: "30 5 * * 1-5"   # 台灣 13:30 盤後（UTC 05:30）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  aftermarket:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      TZ: Asia/Taipei
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run aftermarket scan
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python push_handler.py aftermarket
+
+      - name: Notify failure
+        if: failure()
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          curl -s -X POST https://api.line.me/v2/bot/message/push \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $LINE_TOKEN" \
+            -d "{\"to\":\"$LINE_USER_ID\",\"messages\":[{\"type\":\"text\",\"text\":\"⚠️ 盤後掃描失敗\nhttps://github.com/0911207240/stock-dashboard/actions\"}]}"

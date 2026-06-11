@@ -65,6 +65,18 @@ def send(message: str) -> bool:
     return success
 
 
+def send_messages(messages: list[dict]) -> bool:
+    """推播預先組好的 LINE 訊息物件（image / flex 等非文字型別）"""
+    if not LINE_CHANNEL_ACCESS_TOKEN or not LINE_USER_ID:
+        print("[LINE] 尚未設定 Token 或 User ID")
+        return False
+    success = True
+    for i in range(0, len(messages), _BATCH):
+        if not _push_batch(messages[i:i + _BATCH]):
+            success = False
+    return success
+
+
 _MAX_BUY  = 15   # 買進訊號最多顯示幾檔
 _MAX_SELL =  5   # 賣出訊號最多顯示幾檔
 

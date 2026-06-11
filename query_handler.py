@@ -360,7 +360,7 @@ def build_multi_flex(pairs: list[tuple[str, str]]) -> dict:
     }
 
 
-HELP_MSG = """📌 AUNO 股票查詢助理
+HELP_MSG = """📌 股票查詢助理
 
 輸入股票代號或名稱即可查詢：
   2330　→ 台積電完整分析

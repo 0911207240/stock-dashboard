@@ -10,7 +10,7 @@ _SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 _SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "")
 _USE_DB       = bool(_SUPABASE_URL and _SUPABASE_KEY)
 _TABLE        = "price_alerts"
-_FILE         = Path("/tmp/auno_alerts.json")
+_FILE         = Path(__file__).parent / "price_alerts.json"
 
 
 # ── Supabase REST 工具 ────────────────────────────────────

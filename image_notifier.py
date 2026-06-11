@@ -16,7 +16,8 @@ try:
 except ImportError:
     PIL_AVAILABLE = False
 
-from config import LINE_CHANNEL_ACCESS_TOKEN, LINE_USER_ID, IMGBB_API_KEY
+from config import IMGBB_API_KEY
+from line_notifier import send_messages
 
 # ── 色盤 ─────────────────────────────────────────────────────────────
 BG         = (13,  17,  23)
@@ -263,34 +264,6 @@ def _build_price_summary(candidates: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def _send_line_messages(messages: list[dict]) -> bool:
-    """透過 LINE Messaging API 一次推送多則訊息（最多5則）"""
-    if not LINE_CHANNEL_ACCESS_TOKEN or not LINE_USER_ID:
-        print("[LINE] 未設定 Token 或 User ID")
-        return False
-
-    payload = json.dumps({
-        "to": LINE_USER_ID,
-        "messages": messages,
-    }).encode("utf-8")
-
-    req = urllib.request.Request(
-        "https://api.line.me/v2/bot/message/push",
-        data=payload,
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {LINE_CHANNEL_ACCESS_TOKEN}",
-        },
-        method="POST",
-    )
-    try:
-        with urllib.request.urlopen(req) as res:
-            return res.status == 200
-    except urllib.error.HTTPError as e:
-        print(f"[LINE] 推播失敗：{e.code} {e.read().decode()}")
-        return False
-
-
 def send_daytrade_image(
     candidates: list[dict],
     date_str: str,
@@ -330,4 +303,4 @@ def send_daytrade_image(
         {"type": "image", "originalContentUrl": img_url, "previewImageUrl": img_url},
         {"type": "text",  "text": _build_price_summary(candidates)},
     ]
-    return _send_line_messages(messages)
+    return send_messages(messages)
