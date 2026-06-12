@@ -1090,5 +1090,33 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "微星",
+    "ticker": "2377.TW",
+    "score": 54,
+    "price": 136.5,
+    "entry_mid": 135.6,
+    "stop": 134.17,
+    "tp1": 137.75,
+    "tp2": 138.17,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "中信金",
+    "ticker": "2891.TW",
+    "score": 53,
+    "price": 67.5999984741211,
+    "entry_mid": 67.59,
+    "stop": 66.24,
+    "tp1": 69.62,
+    "tp2": 70.02,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
