@@ -1034,5 +1034,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "萬海",
+    "ticker": "2615.TW",
+    "score": 61,
+    "price": 85.0999984741211,
+    "entry_mid": 84.68,
+    "stop": 83.21,
+    "tp1": 86.89,
+    "tp2": 87.33,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "美律",
+    "ticker": "2439.TW",
+    "score": 46,
+    "price": 92.69999694824219,
+    "entry_mid": 92.0,
+    "stop": 90.16,
+    "tp1": 94.76,
+    "tp2": 95.31,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "華邦電",
+    "ticker": "2344.TW",
+    "score": 46,
+    "price": 172.0,
+    "entry_mid": 170.71,
+    "stop": 167.3,
+    "tp1": 175.82,
+    "tp2": 176.85,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "聯陽半導體",
+    "ticker": "3014.TW",
+    "score": 46,
+    "price": 153.0,
+    "entry_mid": 151.85,
+    "stop": 148.81,
+    "tp1": 156.41,
+    "tp2": 157.32,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]

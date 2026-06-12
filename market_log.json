@@ -44,15 +44,15 @@
   },
   {
     "date": "2026-06-12",
-    "taiex_close": 44219.89,
-    "taiex_chg_pct": 2.48,
+    "taiex_close": 44188.77,
+    "taiex_chg_pct": 2.41,
     "regime": "多頭",
     "regime_emoji": "🟢",
     "min_score": 35,
     "top_sectors": [
       "光電",
       "PCB/基板績優",
-      "晶圓代工/零組件"
+      "半導體供應鏈"
     ],
     "portfolio_value": 1214274.0,
     "portfolio_pnl": 333954.0
