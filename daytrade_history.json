@@ -1118,5 +1118,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 56,
+    "price": 36.0,
+    "entry_mid": 35.73,
+    "stop": 35.29,
+    "tp1": 36.39,
+    "tp2": 36.52,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "長榮",
+    "ticker": "2603.TW",
+    "score": 55,
+    "price": 228.0,
+    "entry_mid": 226.3,
+    "stop": 224.36,
+    "tp1": 229.21,
+    "tp2": 229.79,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "國泰金",
+    "ticker": "2882.TW",
+    "score": 53,
+    "price": 100.5,
+    "entry_mid": 100.24,
+    "stop": 98.59,
+    "tp1": 102.71,
+    "tp2": 103.21,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-12",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 53,
+    "price": 63.900001525878906,
+    "entry_mid": 63.42,
+    "stop": 62.15,
+    "tp1": 65.33,
+    "tp2": 65.71,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
