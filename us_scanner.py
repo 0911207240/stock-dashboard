@@ -1,6 +1,7 @@
 """美股夜盤掃描（台灣時間每日 05:30 執行，對應美股收盤後）"""
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
-from data_fetcher import fetch_all, WATCHLIST
+from data_fetcher import fetch, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
 from line_notifier import send, build_summary_message
 
@@ -9,8 +10,16 @@ US_WATCHLIST = {k: v for k, v in WATCHLIST.items() if not v.endswith(".TW") and 
 
 def run_us_scan(min_score: int = 2, notify: bool = True):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 美股掃描開始（{len(US_WATCHLIST)} 檔）...")
-    all_data = fetch_all(period="1y")
-    us_data  = {k: v for k, v in all_data.items() if k in US_WATCHLIST}
+
+    def _fetch_one(item):
+        name, ticker = item
+        return name, fetch(ticker, period="1y")
+
+    us_data = {}
+    with ThreadPoolExecutor(max_workers=len(US_WATCHLIST)) as pool:
+        for name, df in pool.map(_fetch_one, US_WATCHLIST.items()):
+            if df is not None and not df.empty:
+                us_data[name] = df
 
     found = []
     for name, df in us_data.items():

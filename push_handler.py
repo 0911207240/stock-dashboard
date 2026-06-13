@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 from tw_calendar import is_trading_day
-from data_fetcher import fetch_all, WATCHLIST
+from data_fetcher import fetch_all, WATCHLIST, SECTORS
 from line_notifier import send, build_weekly_message
 from sector_rotation import (
     calc_sector_momentum, build_sector_weekly_report,
@@ -73,7 +73,7 @@ def _run_weekly_push() -> str:
 
     sector_report = ""
     try:
-        sector_list   = calc_sector_momentum(all_data, __import__("data_fetcher").SECTORS)
+        sector_list   = calc_sector_momentum(all_data, SECTORS)
         sector_report = build_sector_weekly_report(sector_list)
     except Exception:
         pass

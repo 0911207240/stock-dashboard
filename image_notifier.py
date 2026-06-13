@@ -7,7 +7,6 @@ import io
 import base64
 import json
 import urllib.request
-import urllib.error
 import urllib.parse
 
 try:
