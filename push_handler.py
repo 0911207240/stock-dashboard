@@ -17,6 +17,8 @@ def run_push(push_type: str = "morning") -> str:
         return _run_aftermarket_push()
     if push_type == "weekly":
         return _run_weekly_push()
+    if push_type == "portfolio":
+        return _run_portfolio_push()
     # morning / all → 委派給 scanner（功能完整版）
     from scanner import run_scan
     found = run_scan()
@@ -167,6 +169,48 @@ def _run_aftermarket_push() -> str:
     lines.append("\n⚠️ 資料 T+1，僅供參考")
     send("\n".join(lines))
     return f"盤後推播：強勢 {len(gainers)} 檔 / 弱勢 {len(losers)} 檔 / 爆量 {len(surge)} 檔"
+
+
+def _run_portfolio_push() -> str:
+    """盤後持倉快照（14:00）：市值＋損益＋停損/停利＋再平衡＋除息提醒"""
+    if not is_trading_day():
+        return "非交易日，跳過"
+
+    from data_fetcher import fetch_all, WATCHLIST
+    from portfolio import (
+        HOLDINGS, calc_summary,
+        build_portfolio_message, build_alert_message,
+        build_rebalance_alert, build_dividend_alert_message,
+    )
+
+    try:
+        all_data = fetch_all(period="5d")
+    except Exception as e:
+        return f"持倉資料抓取失敗：{e}"
+
+    summary = calc_summary(all_data)
+
+    # 緊急停損/停利優先發送
+    alert_msg = build_alert_message(dict(summary))
+    if alert_msg:
+        send(alert_msg)
+
+    # 持倉日報
+    portfolio_msg = build_portfolio_message(dict(summary))
+    send(portfolio_msg)
+
+    # 集中度再平衡警報
+    rebalance_msg = build_rebalance_alert(dict(summary))
+    if rebalance_msg:
+        send(rebalance_msg)
+
+    # 7 天內除息提醒
+    div_msg = build_dividend_alert_message(WATCHLIST)
+    if div_msg:
+        send(div_msg)
+
+    date_str = datetime.now().strftime("%m/%d")
+    return f"持倉推播完成（{date_str}）"
 
 
 if __name__ == "__main__":

@@ -1,0 +1,72 @@
+name: LINE 推播排程
+
+on:
+  schedule:
+    # 早盤訊號 — 08:45 台北（00:45 UTC）週一至週五
+    - cron: '45 0 * * 1-5'
+    # 盤後異動 — 13:45 台北（05:45 UTC）週一至週五
+    - cron: '45 5 * * 1-5'
+    # 持倉日報 — 14:15 台北（06:15 UTC）週一至週五
+    - cron: '15 6 * * 1-5'
+    # 週報    — 週五 16:30 台北（08:30 UTC）
+    - cron: '30 8 * * 5'
+  workflow_dispatch:
+    inputs:
+      push_type:
+        description: '推播類型（morning / aftermarket / portfolio / weekly）'
+        required: true
+        default: portfolio
+        type: choice
+        options:
+          - morning
+          - aftermarket
+          - portfolio
+          - weekly
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: 安裝套件
+        run: pip install -r requirements.txt
+
+      - name: 決定推播類型
+        id: type
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "push_type=${{ inputs.push_type }}" >> $GITHUB_OUTPUT
+          else
+            HOUR=$(date -u +%H)
+            MIN=$(date -u +%M)
+            if [ "$HOUR" = "00" ]; then
+              echo "push_type=morning" >> $GITHUB_OUTPUT
+            elif [ "$HOUR" = "05" ]; then
+              echo "push_type=aftermarket" >> $GITHUB_OUTPUT
+            elif [ "$HOUR" = "06" ]; then
+              echo "push_type=portfolio" >> $GITHUB_OUTPUT
+            elif [ "$HOUR" = "08" ]; then
+              echo "push_type=weekly" >> $GITHUB_OUTPUT
+            else
+              echo "push_type=morning" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: 執行推播
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: |
+          echo "推播類型：${{ steps.type.outputs.push_type }}"
+          python push_handler.py ${{ steps.type.outputs.push_type }}
