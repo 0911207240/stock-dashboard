@@ -30,6 +30,7 @@ def run_backtest(
     """
     from analyzer import add_indicators
     from daytrade_scorer import calc_daytrade_score, calc_entry_exit, is_tw_stock
+    from monthly_revenue import get_revenue_signal
 
     if not is_tw_stock(ticker) or df is None or len(df) < 30:
         return {}
@@ -37,6 +38,9 @@ def run_backtest(
     df = add_indicators(df.copy())
     start_idx = max(20, len(df) - lookback_days - 1)
     trades = []
+
+    # 月營收是月頻資料，對 90 日回測期間視為固定，取一次即可
+    rev_signal = get_revenue_signal(ticker)
 
     for i in range(start_idx, len(df) - 1):
         nxt      = df.iloc[i + 1]
@@ -47,7 +51,7 @@ def run_backtest(
             continue
 
         hist_df = df.iloc[: i + 1]
-        result  = calc_daytrade_score(hist_df)
+        result  = calc_daytrade_score(hist_df, revenue_signal=rev_signal)
         if result["score"] < min_score:
             continue
 
@@ -84,15 +88,15 @@ def run_backtest(
             "open":        round(nxt_open,       2),
             "entry":       round(actual_entry,   2),
             "exit":        round(exit_price,     2),
-            "target":      target,
             "stop":        stop,
             "return_pct":  round(return_pct,     2),
             "outcome":     outcome,
             # 維度分數（供相關性分析）
-            "vol_score":   bd.get("量能",   0),
-            "chip_score":  bd.get("籌碼",   0),
-            "tech_score":  bd.get("技術",   0),
-            "atr_score":   bd.get("波動度", 0),
+            "vol_score":   bd.get("量能",    0),
+            "chip_score":  bd.get("籌碼",    0),
+            "tech_score":  bd.get("技術",    0),
+            "atr_score":   bd.get("波動度",  0),
+            "rev_score":   bd.get("月營收",  0),
         })
 
     if not trades:
@@ -213,10 +217,11 @@ def calc_dimension_correlation(results: list[dict]) -> dict:
 
     df = pd.DataFrame(all_trades)
     dims = {
-        "量能": "vol_score",
-        "籌碼": "chip_score",
-        "技術": "tech_score",
+        "量能":  "vol_score",
+        "籌碼":  "chip_score",
+        "技術":  "tech_score",
         "波動度": "atr_score",
+        "月營收": "rev_score",
     }
     corrs = {}
     for label, col in dims.items():

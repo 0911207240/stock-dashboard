@@ -35,6 +35,23 @@ def vix_label(vix: float) -> tuple[str, int]:
     return f"😐 VIX {vix}（中性）", 0
 
 
+def pcr_label(pcr: float) -> tuple[str, int]:
+    """
+    依台指選擇權 Put/Call Ratio 回傳 (描述, 門檻調整)
+    PCR > 1.2: 市場過度看空 → 反彈機率高 → 降門檻 -3
+    PCR < 0.7: 市場過度樂觀 → 拉回機率高 → 升門檻 +3
+    """
+    if pcr > 1.5:
+        return f"😱 PCR {pcr:.2f}（極端恐慌，反彈訊號）", -5
+    if pcr > 1.2:
+        return f"😰 PCR {pcr:.2f}（偏空情緒，反彈機率升）", -3
+    if pcr < 0.5:
+        return f"🤑 PCR {pcr:.2f}（極端樂觀，拉回風險）", +5
+    if pcr < 0.7:
+        return f"😏 PCR {pcr:.2f}（過樂觀，留意回調）", +3
+    return f"➡️ PCR {pcr:.2f}（中性）", 0
+
+
 def futures_label(net: int) -> tuple[str, int]:
     """
     依外資台指期淨口數回傳 (描述, 門檻調整)
@@ -54,7 +71,7 @@ def futures_label(net: int) -> tuple[str, int]:
     return f"🐻 外資期貨強空 {net:,} 口", +10
 
 
-def detect_regime(df: pd.DataFrame, futures_data: dict = None) -> dict:
+def detect_regime(df: pd.DataFrame, futures_data: dict = None, pcr_data: dict = None) -> dict:
     """
     輸入：add_indicators 處理後的 TAIEX DataFrame
     輸出：
@@ -91,9 +108,13 @@ def detect_regime(df: pd.DataFrame, futures_data: dict = None) -> dict:
     futures_net  = futures_data.get("foreign_net", 0) if futures_data else 0
     futures_desc, fut_adj = futures_label(futures_net) if futures_data else ("期貨無資料", 0)
 
+    # 選擇權 PCR 修正
+    pcr_val = pcr_data.get("pcr") if pcr_data else None
+    pcr_desc, pcr_adj = pcr_label(pcr_val) if pcr_val is not None else ("PCR 無資料", 0)
+
     # ── 多頭：均線多頭排列 + 站上MA20 + 近5日未大跌
     if bull_align and close > ma20 and momentum5d > -3:
-        adj = -5 + vix_adj + fut_adj
+        adj = -5 + vix_adj + fut_adj + pcr_adj
         return {
             "state":         "多頭",
             "emoji":         "🟢",
@@ -105,11 +126,13 @@ def detect_regime(df: pd.DataFrame, futures_data: dict = None) -> dict:
             "vix":           vix,
             "futures_net":   futures_net,
             "futures_desc":  futures_desc,
+            "pcr":           pcr_val,
+            "pcr_desc":      pcr_desc,
         }
 
     # ── 空頭：均線空頭 + 跌破MA20超過3%
     if bear_align and dev_ma20 < -3:
-        adj = 15 + vix_adj + fut_adj
+        adj = 15 + vix_adj + fut_adj + pcr_adj
         return {
             "state":         "空頭",
             "emoji":         "🔴",
@@ -121,6 +144,8 @@ def detect_regime(df: pd.DataFrame, futures_data: dict = None) -> dict:
             "vix":           vix,
             "futures_net":   futures_net,
             "futures_desc":  futures_desc,
+            "pcr":           pcr_val,
+            "pcr_desc":      pcr_desc,
         }
 
     # ── 盤整：其他情況
@@ -128,13 +153,15 @@ def detect_regime(df: pd.DataFrame, futures_data: dict = None) -> dict:
         "state":         "盤整",
         "emoji":         "🟡",
         "description":   f"大盤盤整（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
-        "min_score_adj": vix_adj + fut_adj,
+        "min_score_adj": vix_adj + fut_adj + pcr_adj,
         "close":         close,
         "dev_ma20_pct":  round(dev_ma20,   1),
         "momentum_5d":   round(momentum5d, 1),
         "vix":           vix,
         "futures_net":   futures_net,
         "futures_desc":  futures_desc,
+        "pcr":           pcr_val,
+        "pcr_desc":      pcr_desc,
     }
 
 

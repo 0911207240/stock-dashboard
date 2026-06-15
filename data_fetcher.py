@@ -649,6 +649,73 @@ def fetch_taifex_futures() -> dict:
     return {}
 
 
+def fetch_taifex_pcr() -> dict:
+    """
+    從 TAIFEX 抓台指選擇權（TXO）Put/Call Ratio（未平倉量）
+    PCR > 1.2: 市場過度看空 → 反彈訊號
+    PCR < 0.7: 市場過度樂觀 → 拉回訊號
+    """
+    import urllib.request, re
+    from datetime import datetime, timedelta
+
+    for i in range(5):
+        date_str = (datetime.now() - timedelta(days=i)).strftime("%Y/%m/%d")
+        url = (
+            "https://www.taifex.com.tw/cht/3/callsAndPutsDate"
+            f"?queryType=1&marketCode=0&dateaddcnt=0&commodity_id=TXO&queryDate={date_str}"
+        )
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                html = resp.read().decode("utf-8", errors="replace")
+
+            def _int(s):
+                try:
+                    return int(str(s).replace(",", "").strip())
+                except Exception:
+                    return None
+
+            # 找「全部」或「小計」列，提取 Call/Put 未平倉口數
+            # 頁面結構：Call OI 在前半，Put OI 在後半
+            # 抓所有數字群
+            nums = [_int(n) for n in re.findall(r'>([\d,]{3,})<', html)]
+            nums = [n for n in nums if n is not None and n > 100]
+
+            if len(nums) < 4:
+                continue
+
+            # TAIFEX 頁面：Call 區塊 → Put 區塊，各區塊最後一列為小計
+            # 取最大的兩個非相鄰數（近似 Call OI total + Put OI total）
+            # 更可靠：尋找「買方」「賣方」「未平倉」等標記附近數字
+            call_pos = html.find("買權")
+            put_pos  = html.find("賣權")
+            if call_pos < 0 or put_pos < 0:
+                continue
+
+            def _extract_oi(segment: str) -> int | None:
+                # 取最大的未平倉口數（小計通常是最大值）
+                ns = [_int(n) for n in re.findall(r'>([\d,]{4,})<', segment)]
+                ns = [n for n in ns if n is not None and n > 1000]
+                return max(ns) if ns else None
+
+            call_oi = _extract_oi(html[call_pos: put_pos])
+            put_oi  = _extract_oi(html[put_pos: put_pos + 3000])
+
+            if call_oi and put_oi and call_oi > 0:
+                pcr = round(put_oi / call_oi, 3)
+                if pcr > 3.0 or pcr < 0.1:   # 異常值過濾
+                    continue
+                return {
+                    "date":    date_str,
+                    "call_oi": call_oi,
+                    "put_oi":  put_oi,
+                    "pcr":     pcr,
+                }
+        except Exception:
+            continue
+    return {}
+
+
 def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 20) -> dict[str, pd.DataFrame]:
     from concurrent.futures import ThreadPoolExecutor, as_completed
     names = SECTORS.get(sector, list(WATCHLIST.keys()))
