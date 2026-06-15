@@ -11,6 +11,8 @@ def calc_daytrade_score(
     df: pd.DataFrame,
     inst_data: dict = None,
     margin_data: dict = None,
+    revenue_signal: dict = None,
+    sentiment_signal: dict = None,
 ) -> dict:
     """
     隔日當沖潛力評分（0-100）
@@ -267,13 +269,35 @@ def calc_daytrade_score(
     breakdown["波動度"] = atr_score
     score += atr_score
 
+    # ── 5. 月營收趨勢（台股專屬，+10/-10）────────────
+    rev_score = 0
+    if revenue_signal:
+        rev_score = revenue_signal.get("score_delta", 0)
+        rev_label = revenue_signal.get("label", "")
+        if rev_label:
+            signals.append(rev_label)
+    breakdown["月營收"] = rev_score
+    score += rev_score
+
+    # ── 6. 新聞情緒（+8/-8）─────────────────────────
+    sent_score = 0
+    if sentiment_signal:
+        sent_score = sentiment_signal.get("score_delta", 0)
+        sent_label = sentiment_signal.get("label", "")
+        if sent_label:
+            signals.append(sent_label)
+    breakdown["新聞情緒"] = sent_score
+    score += sent_score
+
     # Fix 8：套用維度倍率（回測後可動態調整）+ ADX 趨勢修正
     mults = load_multipliers()
     weighted = (
         breakdown["量能"]   * mults["量能"]   +
         breakdown["籌碼"]   * mults["籌碼"]   +
         breakdown["技術"]   * mults["技術"]   +
-        breakdown["波動度"] * mults["波動度"]
+        breakdown["波動度"] * mults["波動度"] +
+        breakdown["月營收"] +
+        breakdown["新聞情緒"]
     )
     result["score"]     = max(0, min(100, int(weighted * adx_mult)))
     result["breakdown"] = breakdown
@@ -350,6 +374,8 @@ def get_daytrade_candidates(
     from fundamental_filter import is_fundamentally_weak
     from signal_log import get_stock_win_rate
     from earnings_calendar import has_earnings_risk
+    from monthly_revenue import get_revenue_signal
+    from news_sentiment import get_sentiment_score_delta
     regime_state = (regime or {}).get("state", "盤整")
 
     candidates = []
@@ -359,7 +385,9 @@ def get_daytrade_candidates(
             continue
         if is_fundamentally_weak(ticker):
             continue
-        earnings_risk = has_earnings_risk(name, ticker, days_ahead=3)
+        earnings_risk  = has_earnings_risk(name, ticker, days_ahead=3)
+        rev_signal     = get_revenue_signal(ticker)
+        sent_signal    = get_sentiment_score_delta(ticker)
 
         if not pre_analyzed:
             df = add_indicators(df)
@@ -367,6 +395,8 @@ def get_daytrade_candidates(
             df,
             inst_data=(inst_cache   or {}).get(name),
             margin_data=(margin_cache or {}).get(name),
+            revenue_signal=rev_signal,
+            sentiment_signal=sent_signal,
         )
         if result["score"] == 0:
             continue
@@ -484,8 +514,10 @@ def get_daytrade_candidates(
             "rs20":        rs20,
             "mdd_20":        mdd_20,
             "mdd_60":        mdd_60,
-            "earnings_risk": earnings_risk,
-            "beta_sigs":     beta_sigs,
+            "earnings_risk":  earnings_risk,
+            "beta_sigs":      beta_sigs,
+            "revenue_yoy":    rev_signal.get("score_delta", 0) and rev_signal.get("label", ""),
+            "rev_trend":      rev_signal.get("trend", ""),
         })
 
     candidates.sort(key=lambda x: x["score"], reverse=True)
