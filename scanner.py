@@ -62,6 +62,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
     print(f"\n[{now.strftime('%Y-%m-%d %H:%M')}] {session}掃描開始...")
     from concurrent.futures import ThreadPoolExecutor
     from data_fetcher import fetch_all_institutional, fetch_all_margin, fetch_taifex_futures, fetch_taifex_pcr
+    from us_market import fetch_us_overnight
 
     all_data = fetch_all(period="1y")
 
@@ -72,20 +73,24 @@ def run_scan(min_score: int = 2, notify: bool = True):
             all_data.items()
         ))
 
-    # 批次抓取籌碼資料 + 台指期 + 選擇權PCR（並發執行）
-    with ThreadPoolExecutor(max_workers=4) as _ex:
+    # 批次抓取籌碼資料 + 台指期 + 選擇權PCR + 美股夜盤（並發執行）
+    with ThreadPoolExecutor(max_workers=5) as _ex:
         _inst_f    = _ex.submit(fetch_all_institutional)
         _margin_f  = _ex.submit(fetch_all_margin)
         _futures_f = _ex.submit(fetch_taifex_futures)
         _pcr_f     = _ex.submit(fetch_taifex_pcr)
+        _us_f      = _ex.submit(fetch_us_overnight)
         _inst_by_code   = _inst_f.result()
         _margin_by_code = _margin_f.result()
         futures_data    = _futures_f.result()
         pcr_data        = _pcr_f.result()
+        us_data         = _us_f.result()
     if futures_data:
         print(f"  台指期外資：淨口數 {futures_data.get('foreign_net', 0):,}")
     if pcr_data:
-        print(f"  選擇權PCR：{pcr_data.get('pcr', 'N/A')}（Put {pcr_data.get('put_oi', 0):,} / Call {pcr_data.get('call_oi', 0):,}）")
+        print(f"  選擇權PCR：{pcr_data.get('pcr', 'N/A')}")
+    if us_data and us_data.get("summary"):
+        print(f"  {us_data['summary']}")
 
     def _tw_code(ticker: str) -> str:
         return ticker.replace(".TW", "").replace(".TWO", "")
@@ -109,7 +114,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
     from data_fetcher import fetch_taiex
     taiex_df = fetch_taiex(period="3mo")
     taiex_df = add_indicators(taiex_df) if not taiex_df.empty else taiex_df
-    regime   = detect_regime(taiex_df, futures_data=futures_data, pcr_data=pcr_data)
+    regime   = detect_regime(taiex_df, futures_data=futures_data, pcr_data=pcr_data, us_data=us_data)
     base_min_score = 40 + regime["min_score_adj"]
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
     if regime.get("pcr_desc"):
@@ -355,14 +360,18 @@ def run_scan(min_score: int = 2, notify: bool = True):
     # 大盤快照（每次掃描都存，供復盤）
     if not taiex_df.empty:
         from market_log import save_market_snapshot
-        from sector_rotation import calc_sector_momentum
+        from sector_rotation import calc_sector_momentum, calc_sector_institutional_flow, build_sector_flow_note
         from data_fetcher import SECTORS
         taiex_close = float(taiex_df.iloc[-1]["Close"])
         taiex_chg   = (
             (taiex_close - float(taiex_df.iloc[-2]["Close"])) / float(taiex_df.iloc[-2]["Close"]) * 100
             if len(taiex_df) >= 2 else 0.0
         )
-        top_sectors = calc_sector_momentum(analyzed_data, SECTORS)
+        top_sectors   = calc_sector_momentum(analyzed_data, SECTORS)
+        sector_flow   = calc_sector_institutional_flow(_inst_by_code, WATCHLIST, SECTORS)
+        flow_note     = build_sector_flow_note(sector_flow)
+        if flow_note:
+            print(flow_note)
         save_market_snapshot(
             taiex_close    = taiex_close,
             taiex_chg_pct  = taiex_chg,

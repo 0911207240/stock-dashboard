@@ -1,4 +1,4 @@
-"""板塊輪動偵測 — 計算各產業族群的1日/5日動能，找出主流板塊"""
+"""板塊輪動偵測 — 計算各產業族群的1日/5日動能 + 法人資金流向，找出主流板塊"""
 import pandas as pd
 
 _SKIP_SECTORS = {"全部", "低價波段($50以下)", "槓桿ETF", "我的持股"}
@@ -47,6 +47,67 @@ def calc_sector_momentum(all_data: dict, sectors: dict) -> list[dict]:
 
     result.sort(key=lambda x: x["momentum"], reverse=True)
     return result
+
+
+def calc_sector_institutional_flow(
+    inst_by_code: dict,
+    watchlist: dict,
+    sectors: dict,
+) -> list[dict]:
+    """
+    依產業族群彙整法人買賣超（外資 + 投信 + 自營商合計）
+    inst_by_code: {股票代號: {foreign_net, trust_net, dealer_net, total_net}}
+    回傳：按法人合計淨買超排序的族群清單
+    """
+    result = []
+    for sector_name, stocks in sectors.items():
+        if sector_name in _SKIP_SECTORS:
+            continue
+        foreign_total = trust_total = dealer_total = total = count = 0
+        for name in stocks:
+            ticker = watchlist.get(name, "")
+            code   = ticker.replace(".TW", "").replace(".TWO", "")
+            data   = inst_by_code.get(code)
+            if not data:
+                continue
+            foreign_total += data.get("foreign_net", 0)
+            trust_total   += data.get("trust_net",   0)
+            dealer_total  += data.get("dealer_net",  0)
+            total         += data.get("total_net",   0)
+            count         += 1
+
+        if count == 0:
+            continue
+
+        result.append({
+            "sector":        sector_name,
+            "foreign_net":   foreign_total,
+            "trust_net":     trust_total,
+            "dealer_net":    dealer_total,
+            "total_net":     total,
+            "stock_count":   count,
+        })
+
+    result.sort(key=lambda x: x["total_net"], reverse=True)
+    return result
+
+
+def build_sector_flow_note(flow_list: list[dict], top_n: int = 3) -> str:
+    """早盤推播用：產業法人資金流向摘要"""
+    if not flow_list:
+        return ""
+    top    = [s for s in flow_list[:top_n] if s["total_net"] > 0]
+    bottom = [s for s in flow_list[-top_n:] if s["total_net"] < 0]
+    lines  = ["", "💼 法人資金板塊"]
+    if top:
+        lines.append("  流入：" + "  ".join(
+            f"{s['sector']} +{s['total_net']:,}張" for s in top
+        ))
+    if bottom:
+        lines.append("  流出：" + "  ".join(
+            f"{s['sector']} {s['total_net']:,}張" for s in reversed(bottom)
+        ))
+    return "\n".join(lines)
 
 
 def build_sector_morning_note(sector_list: list[dict], top_n: int = 3) -> str:
