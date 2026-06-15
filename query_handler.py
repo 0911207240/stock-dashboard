@@ -5,6 +5,8 @@ from analyzer import add_indicators
 from daytrade_scorer import calc_daytrade_score, calc_entry_exit, is_tw_stock
 from fundamental_filter import is_fundamentally_weak
 from tdcc_holders import get_holder_signal
+from monthly_revenue import get_revenue_signal
+from news_sentiment import get_sentiment_score_delta
 
 # 雙向查找表
 _NAME_TO_TICKER = {name: ticker for name, ticker in WATCHLIST.items()}
@@ -147,10 +149,28 @@ def build_query_response(name: str, ticker: str) -> str:
         if holder.get("label"):
             lines.append(f"  {holder['label']}")
 
+        # 月營收趨勢
+        rev = get_revenue_signal(ticker)
+        if rev.get("label"):
+            lines += ["", "💰 月營收", f"  {rev['label']}"]
+
+        # 新聞情緒
+        sent = get_sentiment_score_delta(ticker)
+        if sent.get("label"):
+            lines.append(f"  {sent['label']}")
+
     # ── 當沖評分（台股 + 非 ETF）────────────────
     is_etf = ticker.replace(".TW", "").replace(".TWO", "").startswith("00")
     if is_tw_stock(ticker) and not is_etf:
-        result = calc_daytrade_score(df, inst_data=inst_data, margin_data=margin_data)
+        rev_sig  = get_revenue_signal(ticker) if is_tw_stock(ticker) else {}
+        sent_sig = get_sentiment_score_delta(ticker)
+        result = calc_daytrade_score(
+            df,
+            inst_data=inst_data,
+            margin_data=margin_data,
+            revenue_signal=rev_sig,
+            sentiment_signal=sent_sig,
+        )
         score  = result["score"]
         lines += ["", f"🎯 當沖評分：{score}分"]
         if score > 0:
