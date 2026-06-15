@@ -13,6 +13,7 @@ def calc_daytrade_score(
     margin_data: dict = None,
     revenue_signal: dict = None,
     sentiment_signal: dict = None,
+    ownership_signal: dict = None,
 ) -> dict:
     """
     隔日當沖潛力評分（0-100）
@@ -289,6 +290,16 @@ def calc_daytrade_score(
     breakdown["新聞情緒"] = sent_score
     score += sent_score
 
+    # ── 7. 外資持股比例趨勢（+8/-8）────────────────
+    own_score = 0
+    if ownership_signal:
+        own_score = ownership_signal.get("score_delta", 0)
+        own_label = ownership_signal.get("label", "")
+        if own_label:
+            signals.append(own_label)
+    breakdown["外資持股"] = own_score
+    score += own_score
+
     # Fix 8：套用維度倍率（回測後可動態調整）+ ADX 趨勢修正
     mults = load_multipliers()
     weighted = (
@@ -297,7 +308,8 @@ def calc_daytrade_score(
         breakdown["技術"]   * mults["技術"]   +
         breakdown["波動度"] * mults["波動度"] +
         breakdown["月營收"] +
-        breakdown["新聞情緒"]
+        breakdown["新聞情緒"] +
+        breakdown["外資持股"]
     )
     result["score"]     = max(0, min(100, int(weighted * adx_mult)))
     result["breakdown"] = breakdown
@@ -376,6 +388,7 @@ def get_daytrade_candidates(
     from earnings_calendar import has_earnings_risk
     from monthly_revenue import get_revenue_signal
     from news_sentiment import get_sentiment_score_delta
+    from foreign_ownership import get_ownership_score_delta
     regime_state = (regime or {}).get("state", "盤整")
 
     candidates = []
@@ -388,6 +401,7 @@ def get_daytrade_candidates(
         earnings_risk  = has_earnings_risk(name, ticker, days_ahead=3)
         rev_signal     = get_revenue_signal(ticker)
         sent_signal    = get_sentiment_score_delta(ticker)
+        own_signal     = get_ownership_score_delta(ticker) if is_tw_stock(ticker) else {}
 
         if not pre_analyzed:
             df = add_indicators(df)
@@ -397,6 +411,7 @@ def get_daytrade_candidates(
             margin_data=(margin_cache or {}).get(name),
             revenue_signal=rev_signal,
             sentiment_signal=sent_signal,
+            ownership_signal=own_signal,
         )
         if result["score"] == 0:
             continue

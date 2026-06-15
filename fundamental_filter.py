@@ -56,7 +56,7 @@ def _is_fresh(fetched_date: str) -> bool:
 
 
 def fetch_fundamentals(ticker: str) -> dict:
-    """抓取並快取單檔基本面（EPS、營收成長、獲利成長）"""
+    """抓取並快取單檔基本面（含擴充的毛利率/ROE/負債比）"""
     cache = _load_cache()
     cached = cache.get(ticker, {})
     if cached and _is_fresh(cached.get("fetched_date", "")):
@@ -66,10 +66,23 @@ def fetch_fundamentals(ticker: str) -> dict:
     try:
         info = yf.Ticker(ticker).info
         data = {
-            "fetched_date":    today,
-            "trailing_eps":    info.get("trailingEps"),
-            "revenue_growth":  info.get("revenueGrowth"),
-            "earnings_growth": info.get("earningsGrowth"),
+            "fetched_date":       today,
+            # 原有欄位
+            "trailing_eps":       info.get("trailingEps"),
+            "revenue_growth":     info.get("revenueGrowth"),
+            "earnings_growth":    info.get("earningsGrowth"),
+            # 新增：獲利品質
+            "gross_margins":      info.get("grossMargins"),        # 毛利率
+            "operating_margins":  info.get("operatingMargins"),    # 營業利益率
+            "return_on_equity":   info.get("returnOnEquity"),      # ROE
+            "return_on_assets":   info.get("returnOnAssets"),      # ROA
+            # 新增：財務健康
+            "debt_to_equity":     info.get("debtToEquity"),        # 負債/股東權益
+            "current_ratio":      info.get("currentRatio"),        # 流動比率
+            # 新增：估值
+            "trailing_pe":        info.get("trailingPE"),          # 本益比
+            "price_to_book":      info.get("priceToBook"),         # 股價淨值比
+            "forward_pe":         info.get("forwardPE"),           # 預估本益比
         }
     except Exception:
         data = {"fetched_date": today}
@@ -77,6 +90,89 @@ def fetch_fundamentals(ticker: str) -> dict:
     cache[ticker] = data
     _save_cache(cache)
     return data
+
+
+def get_fundamental_score(ticker: str) -> dict:
+    """
+    根據基本面指標計算加減分與標籤
+    回傳：{score_delta: int, labels: list[str], grade: str}
+    - 毛利率 > 40%：+5（高護城河）
+    - ROE > 15%：+5（高效益）
+    - 負債比過高（D/E > 200%）：-5
+    - 本益比過高（PE > 40）：-3
+    grade：A / B / C / D / unknown
+    """
+    if _is_etf(ticker) or _is_finance(ticker):
+        return {"score_delta": 0, "labels": [], "grade": "unknown"}
+
+    data   = fetch_fundamentals(ticker)
+    delta  = 0
+    labels = []
+
+    gm  = data.get("gross_margins")
+    roe = data.get("return_on_equity")
+    de  = data.get("debt_to_equity")
+    pe  = data.get("trailing_pe")
+    cr  = data.get("current_ratio")
+    om  = data.get("operating_margins")
+
+    # 毛利率
+    if gm is not None:
+        if gm >= 0.4:
+            delta += 5
+            labels.append(f"毛利率 {gm*100:.0f}%✅")
+        elif gm >= 0.2:
+            labels.append(f"毛利率 {gm*100:.0f}%")
+        elif gm < 0.1:
+            delta -= 3
+            labels.append(f"毛利率偏低 {gm*100:.0f}%⚠️")
+
+    # ROE
+    if roe is not None:
+        if roe >= 0.20:
+            delta += 5
+            labels.append(f"ROE {roe*100:.0f}%✅")
+        elif roe >= 0.12:
+            delta += 2
+            labels.append(f"ROE {roe*100:.0f}%")
+        elif roe < 0:
+            delta -= 3
+            labels.append(f"ROE負值⚠️")
+
+    # 負債比
+    if de is not None:
+        if de > 200:
+            delta -= 5
+            labels.append(f"負債比 {de:.0f}%⚠️")
+        elif de > 100:
+            delta -= 2
+            labels.append(f"負債比 {de:.0f}%")
+
+    # 本益比
+    if pe is not None and pe > 0:
+        if pe > 50:
+            delta -= 3
+            labels.append(f"PE {pe:.0f}x 偏高")
+        elif pe < 10:
+            delta += 2
+            labels.append(f"PE {pe:.0f}x 低估")
+
+    # 流動比率
+    if cr is not None and cr < 1.0:
+        delta -= 3
+        labels.append(f"流動比 {cr:.1f} 短期償債偏弱⚠️")
+
+    # 綜合評級
+    if delta >= 8:
+        grade = "A"
+    elif delta >= 4:
+        grade = "B"
+    elif delta >= 0:
+        grade = "C"
+    else:
+        grade = "D"
+
+    return {"score_delta": max(-10, min(10, delta)), "labels": labels, "grade": grade}
 
 
 def prefetch_all(watchlist: dict, max_workers: int = 8):

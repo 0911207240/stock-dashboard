@@ -71,7 +71,7 @@ def futures_label(net: int) -> tuple[str, int]:
     return f"🐻 外資期貨強空 {net:,} 口", +10
 
 
-def detect_regime(df: pd.DataFrame, futures_data: dict = None, pcr_data: dict = None) -> dict:
+def detect_regime(df: pd.DataFrame, futures_data: dict = None, pcr_data: dict = None, us_data: dict = None) -> dict:
     """
     輸入：add_indicators 處理後的 TAIEX DataFrame
     輸出：
@@ -112,57 +112,30 @@ def detect_regime(df: pd.DataFrame, futures_data: dict = None, pcr_data: dict = 
     pcr_val = pcr_data.get("pcr") if pcr_data else None
     pcr_desc, pcr_adj = pcr_label(pcr_val) if pcr_val is not None else ("PCR 無資料", 0)
 
+    # 美股夜盤連動修正
+    from us_market import us_overnight_label
+    us_desc, us_adj = us_overnight_label(us_data) if us_data else ("美股資料暫無", 0)
+
     # ── 多頭：均線多頭排列 + 站上MA20 + 近5日未大跌
+    base = {"close": close, "dev_ma20_pct": round(dev_ma20, 1), "momentum_5d": round(momentum5d, 1),
+            "vix": vix, "futures_net": futures_net, "futures_desc": futures_desc,
+            "pcr": pcr_val, "pcr_desc": pcr_desc, "us_desc": us_desc}
+
     if bull_align and close > ma20 and momentum5d > -3:
-        adj = -5 + vix_adj + fut_adj + pcr_adj
-        return {
-            "state":         "多頭",
-            "emoji":         "🟢",
-            "description":   f"均線多頭排列（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
-            "min_score_adj": adj,
-            "close":         close,
-            "dev_ma20_pct":  round(dev_ma20,   1),
-            "momentum_5d":   round(momentum5d, 1),
-            "vix":           vix,
-            "futures_net":   futures_net,
-            "futures_desc":  futures_desc,
-            "pcr":           pcr_val,
-            "pcr_desc":      pcr_desc,
-        }
+        adj = -5 + vix_adj + fut_adj + pcr_adj + us_adj
+        return {**base, "state": "多頭", "emoji": "🟢",
+                "description": f"均線多頭排列（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
+                "min_score_adj": adj}
 
-    # ── 空頭：均線空頭 + 跌破MA20超過3%
     if bear_align and dev_ma20 < -3:
-        adj = 15 + vix_adj + fut_adj + pcr_adj
-        return {
-            "state":         "空頭",
-            "emoji":         "🔴",
-            "description":   f"均線空頭（距MA20 {dev_ma20:.1f}%）｜{vix_desc}",
-            "min_score_adj": adj,
-            "close":         close,
-            "dev_ma20_pct":  round(dev_ma20,   1),
-            "momentum_5d":   round(momentum5d, 1),
-            "vix":           vix,
-            "futures_net":   futures_net,
-            "futures_desc":  futures_desc,
-            "pcr":           pcr_val,
-            "pcr_desc":      pcr_desc,
-        }
+        adj = 15 + vix_adj + fut_adj + pcr_adj + us_adj
+        return {**base, "state": "空頭", "emoji": "🔴",
+                "description": f"均線空頭（距MA20 {dev_ma20:.1f}%）｜{vix_desc}",
+                "min_score_adj": adj}
 
-    # ── 盤整：其他情況
-    return {
-        "state":         "盤整",
-        "emoji":         "🟡",
-        "description":   f"大盤盤整（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
-        "min_score_adj": vix_adj + fut_adj + pcr_adj,
-        "close":         close,
-        "dev_ma20_pct":  round(dev_ma20,   1),
-        "momentum_5d":   round(momentum5d, 1),
-        "vix":           vix,
-        "futures_net":   futures_net,
-        "futures_desc":  futures_desc,
-        "pcr":           pcr_val,
-        "pcr_desc":      pcr_desc,
-    }
+    return {**base, "state": "盤整", "emoji": "🟡",
+            "description": f"大盤盤整（近5日 {momentum5d:+.1f}%）｜{vix_desc}",
+            "min_score_adj": vix_adj + fut_adj + pcr_adj + us_adj}
 
 
 def _neutral() -> dict:
