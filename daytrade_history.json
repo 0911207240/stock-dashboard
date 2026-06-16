@@ -1384,5 +1384,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-16",
+    "name": "群益台灣精選高息",
+    "ticker": "00919.TW",
+    "score": 79,
+    "price": 29.969999313354492,
+    "entry_mid": 29.74,
+    "stop": 29.47,
+    "tp1": 30.14,
+    "tp2": 30.28,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-16",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 69,
+    "price": 65.4000015258789,
+    "entry_mid": 64.91,
+    "stop": 64.15,
+    "tp1": 66.05,
+    "tp2": 66.43,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-16",
+    "name": "日月光投控",
+    "ticker": "3711.TW",
+    "score": 64,
+    "price": 592.0,
+    "entry_mid": 588.88,
+    "stop": 577.1,
+    "tp1": 606.55,
+    "tp2": 612.44,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-16",
+    "name": "中信金",
+    "ticker": "2891.TW",
+    "score": 63,
+    "price": 70.80000305175781,
+    "entry_mid": 70.27,
+    "stop": 68.86,
+    "tp1": 72.38,
+    "tp2": 73.09,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
