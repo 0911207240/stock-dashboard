@@ -71,5 +71,20 @@
     ],
     "portfolio_value": 1231722.0,
     "portfolio_pnl": 351402.0
+  },
+  {
+    "date": "2026-06-16",
+    "taiex_close": 45651.89,
+    "taiex_chg_pct": 0.79,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 31,
+    "top_sectors": [
+      "台積電合作廠商",
+      "光電",
+      "晶圓代工/零組件"
+    ],
+    "portfolio_value": 1227793.0,
+    "portfolio_pnl": 347473.0
   }
 ]
