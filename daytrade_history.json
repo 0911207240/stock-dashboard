@@ -1510,5 +1510,47 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "大成鋼",
+    "ticker": "2027.TW",
+    "score": 95,
+    "price": 41.70000076293945,
+    "entry_mid": 41.39,
+    "stop": 40.56,
+    "tp1": 42.63,
+    "tp2": 43.05,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "啟碁",
+    "ticker": "6285.TW",
+    "score": 64,
+    "price": 270.5,
+    "entry_mid": 268.47,
+    "stop": 263.1,
+    "tp1": 276.53,
+    "tp2": 279.21,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "台灣50",
+    "ticker": "0050.TW",
+    "score": 62,
+    "price": 106.0,
+    "entry_mid": 105.2,
+    "stop": 103.69,
+    "tp1": 107.47,
+    "tp2": 108.22,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
