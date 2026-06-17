@@ -44,7 +44,10 @@ def _push_batch(messages: list[dict]) -> bool:
         with urllib.request.urlopen(req) as res:
             return res.status == 200
     except urllib.error.HTTPError as e:
-        print(f"[LINE] 發送失敗：{e.code} {e.read().decode()}")
+        body = e.read().decode()
+        print(f"[LINE] 發送失敗：{e.code} {body}")
+        if e.code == 429:
+            print("[LINE] 本月免費推播額度已用完（200則/月），請至 LINE Official Account Manager 升級方案")
         return False
 
 

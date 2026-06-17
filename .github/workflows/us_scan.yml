@@ -64,4 +64,5 @@ jobs:
             [ -f "$f" ] && git add "$f"
           done
           git diff --cached --quiet || git commit -m "chore: update state [skip ci]"
-          git push
+          git pull --rebase origin main || true
+          git push || true
