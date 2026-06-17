@@ -975,9 +975,9 @@
     "stop": 42.39,
     "tp1": 44.34,
     "tp2": 44.73,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 43.65,
+    "return_pct": 1.11
   },
   {
     "push_date": "2026-06-12",
@@ -1059,9 +1059,9 @@
     "stop": 90.16,
     "tp1": 94.76,
     "tp2": 95.31,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 90.8,
+    "return_pct": -1.3
   },
   {
     "push_date": "2026-06-12",
@@ -1325,9 +1325,9 @@
     "stop": 488.15,
     "tp1": 503.43,
     "tp2": 506.48,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 506.48,
+    "return_pct": 2.47
   },
   {
     "push_date": "2026-06-16",
@@ -1353,9 +1353,9 @@
     "stop": 75.36,
     "tp1": 77.34,
     "tp2": 77.73,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 75.36,
+    "return_pct": -1.04
   },
   {
     "push_date": "2026-06-16",
@@ -1367,9 +1367,9 @@
     "stop": 30.18,
     "tp1": 30.73,
     "tp2": 30.84,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 30.18,
+    "return_pct": -0.72
   },
   {
     "push_date": "2026-06-16",
@@ -1381,9 +1381,9 @@
     "stop": 29.47,
     "tp1": 30.17,
     "tp2": 30.31,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 30.31,
+    "return_pct": 1.88
   },
   {
     "push_date": "2026-06-16",
@@ -1395,9 +1395,9 @@
     "stop": 29.47,
     "tp1": 30.14,
     "tp2": 30.28,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 30.28,
+    "return_pct": 1.82
   },
   {
     "push_date": "2026-06-16",
@@ -1409,9 +1409,9 @@
     "stop": 64.15,
     "tp1": 66.05,
     "tp2": 66.43,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 66.43,
+    "return_pct": 2.34
   },
   {
     "push_date": "2026-06-16",
@@ -1423,9 +1423,9 @@
     "stop": 577.1,
     "tp1": 606.55,
     "tp2": 612.44,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 577.1,
+    "return_pct": -2.0
   },
   {
     "push_date": "2026-06-16",
@@ -1437,6 +1437,76 @@
     "stop": 68.86,
     "tp1": 72.38,
     "tp2": 73.09,
+    "result": "停利①",
+    "exit_price": 72.38,
+    "return_pct": 3.0
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 80,
+    "price": 118.5,
+    "entry_mid": 117.61,
+    "stop": 117.43,
+    "tp1": 117.88,
+    "tp2": 117.97,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "中華電",
+    "ticker": "2412.TW",
+    "score": 76,
+    "price": 145.5,
+    "entry_mid": 144.41,
+    "stop": 143.83,
+    "tp1": 145.28,
+    "tp2": 145.57,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "遠傳",
+    "ticker": "4904.TW",
+    "score": 74,
+    "price": 110.0,
+    "entry_mid": 109.17,
+    "stop": 106.99,
+    "tp1": 112.44,
+    "tp2": 113.53,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 65,
+    "price": 38.099998474121094,
+    "entry_mid": 37.81,
+    "stop": 37.05,
+    "tp1": 38.95,
+    "tp2": 39.33,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-17",
+    "name": "元大高股息",
+    "ticker": "0056.TW",
+    "score": 62,
+    "price": 51.849998474121094,
+    "entry_mid": 51.46,
+    "stop": 50.44,
+    "tp1": 52.99,
+    "tp2": 53.5,
     "result": null,
     "exit_price": null,
     "return_pct": null
