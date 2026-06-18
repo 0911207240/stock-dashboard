@@ -1311,9 +1311,9 @@
     "stop": 771.74,
     "tp1": 802.59,
     "tp2": 806.29,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 791.0,
+    "return_pct": 0.88
   },
   {
     "push_date": "2026-06-16",
@@ -1451,9 +1451,9 @@
     "stop": 117.43,
     "tp1": 117.88,
     "tp2": 117.97,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 117.97,
+    "return_pct": 0.31
   },
   {
     "push_date": "2026-06-17",
@@ -1465,9 +1465,9 @@
     "stop": 143.83,
     "tp1": 145.28,
     "tp2": 145.57,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 145.28,
+    "return_pct": 0.6
   },
   {
     "push_date": "2026-06-17",
@@ -1493,9 +1493,9 @@
     "stop": 37.05,
     "tp1": 38.95,
     "tp2": 39.33,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 38.95,
+    "return_pct": 3.02
   },
   {
     "push_date": "2026-06-17",
@@ -1535,9 +1535,9 @@
     "stop": 263.1,
     "tp1": 276.53,
     "tp2": 279.21,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 279.21,
+    "return_pct": 4.0
   },
   {
     "push_date": "2026-06-17",
@@ -1549,6 +1549,62 @@
     "stop": 103.69,
     "tp1": 107.47,
     "tp2": 108.22,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "環泥",
+    "ticker": "1104.TW",
+    "score": 75,
+    "price": 29.049999237060547,
+    "entry_mid": 28.83,
+    "stop": 28.92,
+    "tp1": 28.84,
+    "tp2": 28.85,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "富邦特選高股息30",
+    "ticker": "00900.TW",
+    "score": 62,
+    "price": 19.520000457763672,
+    "entry_mid": 19.45,
+    "stop": 19.33,
+    "tp1": 19.63,
+    "tp2": 19.69,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 62,
+    "price": 17.549999237060547,
+    "entry_mid": 17.5,
+    "stop": 17.24,
+    "tp1": 17.89,
+    "tp2": 17.97,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "廣達",
+    "ticker": "2382.TW",
+    "score": 61,
+    "price": 376.5,
+    "entry_mid": 373.75,
+    "stop": 367.14,
+    "tp1": 383.67,
+    "tp2": 386.97,
     "result": null,
     "exit_price": null,
     "return_pct": null
