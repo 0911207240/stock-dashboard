@@ -1608,5 +1608,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "中鋼",
+    "ticker": "2002.TW",
+    "score": 73,
+    "price": 19.100000381469727,
+    "entry_mid": 18.99,
+    "stop": 18.65,
+    "tp1": 19.5,
+    "tp2": 19.67,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "富邦特選高股息30",
+    "ticker": "00900.TW",
+    "score": 73,
+    "price": 19.579999923706055,
+    "entry_mid": 19.48,
+    "stop": 19.33,
+    "tp1": 19.71,
+    "tp2": 19.78,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "台積電",
+    "ticker": "2330.TW",
+    "score": 70,
+    "price": 2410.0,
+    "entry_mid": 2393.0,
+    "stop": 2367.75,
+    "tp1": 2430.88,
+    "tp2": 2443.5,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-18",
+    "name": "聯發科",
+    "ticker": "2454.TW",
+    "score": 69,
+    "price": 4390.0,
+    "entry_mid": 4364.88,
+    "stop": 4287.69,
+    "tp1": 4480.67,
+    "tp2": 4519.26,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]

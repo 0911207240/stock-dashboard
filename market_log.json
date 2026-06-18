@@ -104,15 +104,15 @@
   },
   {
     "date": "2026-06-18",
-    "taiex_close": 46293.88,
-    "taiex_chg_pct": 0.91,
+    "taiex_close": 46465.2,
+    "taiex_chg_pct": 1.28,
     "regime": "多頭",
     "regime_emoji": "🟢",
     "min_score": 31,
     "top_sectors": [
       "晶圓代工/零組件",
       "石化",
-      "封裝測試績優"
+      "半導體供應鏈"
     ],
     "portfolio_value": 1260054.0,
     "portfolio_pnl": 379734.0
