@@ -1664,5 +1664,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-19",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 83,
+    "price": 119.0,
+    "entry_mid": 118.11,
+    "stop": 117.95,
+    "tp1": 118.35,
+    "tp2": 118.43,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-19",
+    "name": "中華電",
+    "ticker": "2412.TW",
+    "score": 80,
+    "price": 144.0,
+    "entry_mid": 142.92,
+    "stop": 143.34,
+    "tp1": 142.93,
+    "tp2": 142.94,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-19",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 69,
+    "price": 68.0,
+    "entry_mid": 67.49,
+    "stop": 66.14,
+    "tp1": 69.51,
+    "tp2": 70.19,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-19",
+    "name": "中信金",
+    "ticker": "2891.TW",
+    "score": 67,
+    "price": 71.9000015258789,
+    "entry_mid": 71.36,
+    "stop": 70.16,
+    "tp1": 73.16,
+    "tp2": 73.76,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
