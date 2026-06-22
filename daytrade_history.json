@@ -1339,9 +1339,9 @@
     "stop": 40.62,
     "tp1": 42.3,
     "tp2": 42.63,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 41.7,
+    "return_pct": 0.99
   },
   {
     "push_date": "2026-06-16",
@@ -1563,9 +1563,9 @@
     "stop": 28.92,
     "tp1": 28.84,
     "tp2": 28.85,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 28.85,
+    "return_pct": 0.07
   },
   {
     "push_date": "2026-06-18",
@@ -1577,9 +1577,9 @@
     "stop": 19.33,
     "tp1": 19.63,
     "tp2": 19.69,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 19.69,
+    "return_pct": 1.23
   },
   {
     "push_date": "2026-06-18",
@@ -1605,9 +1605,9 @@
     "stop": 367.14,
     "tp1": 383.67,
     "tp2": 386.97,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 383.67,
+    "return_pct": 2.65
   },
   {
     "push_date": "2026-06-18",
@@ -1619,9 +1619,9 @@
     "stop": 18.65,
     "tp1": 19.5,
     "tp2": 19.67,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 19.67,
+    "return_pct": 3.58
   },
   {
     "push_date": "2026-06-18",
@@ -1633,9 +1633,9 @@
     "stop": 19.33,
     "tp1": 19.71,
     "tp2": 19.78,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 19.78,
+    "return_pct": 1.54
   },
   {
     "push_date": "2026-06-18",
@@ -1647,9 +1647,9 @@
     "stop": 2367.75,
     "tp1": 2430.88,
     "tp2": 2443.5,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 2443.5,
+    "return_pct": 2.11
   },
   {
     "push_date": "2026-06-18",
@@ -1661,9 +1661,9 @@
     "stop": 4287.69,
     "tp1": 4480.67,
     "tp2": 4519.26,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 4519.26,
+    "return_pct": 3.54
   },
   {
     "push_date": "2026-06-19",
@@ -1675,9 +1675,9 @@
     "stop": 117.95,
     "tp1": 118.35,
     "tp2": 118.43,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 117.95,
+    "return_pct": -0.14
   },
   {
     "push_date": "2026-06-19",
@@ -1689,9 +1689,9 @@
     "stop": 143.34,
     "tp1": 142.93,
     "tp2": 142.94,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 142.94,
+    "return_pct": 0.01
   },
   {
     "push_date": "2026-06-19",
@@ -1717,6 +1717,76 @@
     "stop": 70.16,
     "tp1": 73.16,
     "tp2": 73.76,
+    "result": "停損",
+    "exit_price": 70.16,
+    "return_pct": -1.68
+  },
+  {
+    "push_date": "2026-06-22",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 87,
+    "price": 119.0,
+    "entry_mid": 118.11,
+    "stop": 116.6,
+    "tp1": 120.38,
+    "tp2": 121.13,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-22",
+    "name": "中鋼",
+    "ticker": "2002.TW",
+    "score": 85,
+    "price": 19.450000762939453,
+    "entry_mid": 19.33,
+    "stop": 19.01,
+    "tp1": 19.81,
+    "tp2": 19.97,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-22",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 71,
+    "price": 17.450000762939453,
+    "entry_mid": 17.32,
+    "stop": 17.29,
+    "tp1": 17.37,
+    "tp2": 17.38,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-22",
+    "name": "合庫金",
+    "ticker": "5880.TW",
+    "score": 70,
+    "price": 24.450000762939453,
+    "entry_mid": 24.27,
+    "stop": 24.24,
+    "tp1": 24.32,
+    "tp2": 24.33,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-22",
+    "name": "遠雄",
+    "ticker": "5522.TW",
+    "score": 68,
+    "price": 73.0,
+    "entry_mid": 72.45,
+    "stop": 71.0,
+    "tp1": 74.62,
+    "tp2": 75.35,
     "result": null,
     "exit_price": null,
     "return_pct": null
