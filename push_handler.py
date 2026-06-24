@@ -190,24 +190,25 @@ def _run_portfolio_push() -> str:
 
     summary = calc_summary(all_data)
 
-    # 緊急停損/停利優先發送
+    parts = []
+
     alert_msg = build_alert_message(dict(summary))
     if alert_msg:
-        send(alert_msg)
+        parts.append(alert_msg)
 
-    # 持倉日報
     portfolio_msg = build_portfolio_message(dict(summary))
-    send(portfolio_msg)
+    parts.append(portfolio_msg)
 
-    # 集中度再平衡警報
     rebalance_msg = build_rebalance_alert(dict(summary))
     if rebalance_msg:
-        send(rebalance_msg)
+        parts.append(rebalance_msg)
 
-    # 7 天內除息提醒
     div_msg = build_dividend_alert_message(WATCHLIST)
     if div_msg:
-        send(div_msg)
+        parts.append(div_msg)
+
+    if parts:
+        send("\n\n".join(parts))
 
     date_str = datetime.now().strftime("%m/%d")
     return f"持倉推播完成（{date_str}）"
