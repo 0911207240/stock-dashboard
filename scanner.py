@@ -130,38 +130,46 @@ def run_scan(min_score: int = 2, notify: bool = True):
             summary = calc_summary(dict(all_data))
             total_value  = summary.get("__total__", {}).get("total_value", 0.0)
             portfolio_pnl = summary.get("__total__", {}).get("total_pnl")
+            morning_parts = []
+
             alert_msg = build_alert_message(summary)
             if alert_msg:
-                send(alert_msg)
-                print("  ⚠️ 停損/停利警報已推播")
+                morning_parts.append(alert_msg)
+                print("  ⚠️ 停損/停利警報")
+
             portfolio_msg = build_portfolio_message(summary)
-            send(portfolio_msg)
-            print("  持股日報已推播")
+            morning_parts.append(portfolio_msg)
+            print("  持股日報")
 
             div_msg = build_dividend_alert_message(WATCHLIST)
             if div_msg:
-                send(div_msg)
-                print("  除息提醒已推播")
+                morning_parts.append(div_msg)
+                print("  除息提醒")
 
             ann_msg = build_announcement_alert(HOLDINGS, WATCHLIST)
             if ann_msg:
-                send(ann_msg)
-                print("  重大公告已推播")
+                morning_parts.append(ann_msg)
+                print("  重大公告")
 
             earn_msg = build_earnings_alert(HOLDINGS, WATCHLIST)
             if earn_msg:
-                send(earn_msg)
-                print("  財報警示已推播")
+                morning_parts.append(earn_msg)
+                print("  財報警示")
 
             rebal_msg = build_rebalance_alert(summary)
             if rebal_msg:
-                send(rebal_msg)
-                print("  再平衡警報已推播")
+                morning_parts.append(rebal_msg)
+                print("  再平衡警報")
 
             corr_msg = build_correlation_alert(dict(all_data))
             if corr_msg:
-                send(corr_msg)
-                print("  持股相關性警報已推播")
+                morning_parts.append(corr_msg)
+                print("  持股相關性警報")
+
+            if morning_parts:
+                combined = "\n\n".join(morning_parts)
+                success = send(combined)
+                print(f"  早盤報告（{len(morning_parts)} 項合併）：{'已推播' if success else '推播失敗'}")
 
             _mark_morning_done()
 
