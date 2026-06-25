@@ -45,7 +45,7 @@ jobs:
           fc-cache -fv
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install --upgrade setuptools && pip install -r requirements.txt
 
       - name: Run scan
         env:

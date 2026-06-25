@@ -37,7 +37,7 @@ jobs:
           cache: pip
 
       - name: 安裝套件
-        run: pip install -r requirements.txt
+        run: pip install --upgrade setuptools && pip install -r requirements.txt
 
       - name: 決定推播類型
         id: type

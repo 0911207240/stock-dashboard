@@ -12,6 +12,7 @@ from line_notifier import send, build_signal_message, build_daytrade_message
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 from signal_log import load_log, save_signal, update_and_load, win_rate, daytrade_win_rate, calc_monthly_performance
 from signal_log import _load_dt_log
+import etf_tracker
 import copy
 
 st.set_page_config(page_title="股票儀表板", layout="wide", page_icon="📈")
@@ -193,8 +194,8 @@ def row_color(row, col="漲跌%"):
     return [""] * len(row)
 
 # ── Tabs ──────────────────────────────────────────
-tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
-    "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效"
+tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+    "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效", "💰 ETF 追蹤"
 ])
 
 # ══════════════════════════════════════════════════
@@ -1081,3 +1082,9 @@ with tab7:
             )
         else:
             st.info("無符合篩選條件的紀錄")
+
+# ══════════════════════════════════════════════════
+# Tab 8：ETF 追蹤
+# ══════════════════════════════════════════════════
+with tab8:
+    etf_tracker.render()
