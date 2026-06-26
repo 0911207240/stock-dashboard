@@ -1969,9 +1969,9 @@
     "stop": 30.04,
     "tp1": 30.49,
     "tp2": 30.54,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 30.04,
+    "return_pct": -0.6
   },
   {
     "push_date": "2026-06-25",
@@ -1983,9 +1983,9 @@
     "stop": 19.46,
     "tp1": 20.23,
     "tp2": 20.39,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 19.46,
+    "return_pct": -1.57
   },
   {
     "push_date": "2026-06-25",
@@ -2025,9 +2025,9 @@
     "stop": 29.92,
     "tp1": 30.55,
     "tp2": 30.62,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 29.92,
+    "return_pct": -0.83
   },
   {
     "push_date": "2026-06-25",
@@ -2039,6 +2039,48 @@
     "stop": 37.09,
     "tp1": 38.99,
     "tp2": 39.22,
+    "result": "停損",
+    "exit_price": 37.09,
+    "return_pct": -2.01
+  },
+  {
+    "push_date": "2026-06-26",
+    "name": "國泰永續高股息",
+    "ticker": "00878.TW",
+    "score": 66,
+    "price": 32.959999084472656,
+    "entry_mid": 32.71,
+    "stop": 32.49,
+    "tp1": 33.04,
+    "tp2": 33.15,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-26",
+    "name": "復華台灣科技優息",
+    "ticker": "00929.TW",
+    "score": 64,
+    "price": 30.34000015258789,
+    "entry_mid": 30.21,
+    "stop": 29.65,
+    "tp1": 31.05,
+    "tp2": 31.33,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-26",
+    "name": "玉山金",
+    "ticker": "2884.TW",
+    "score": 63,
+    "price": 34.849998474121094,
+    "entry_mid": 34.59,
+    "stop": 34.57,
+    "tp1": 34.62,
+    "tp2": 34.63,
     "result": null,
     "exit_price": null,
     "return_pct": null
