@@ -1,0 +1,57 @@
+name: Morning Briefing
+
+on:
+  schedule:
+    - cron: "30 23 * * 0-4"   # 07:30 台灣時間（UTC 23:30 前一天）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      TZ: Asia/Taipei
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run morning briefing
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python morning_briefing.py
+
+      - name: Notify failure
+        if: failure()
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          curl -s -X POST https://api.line.me/v2/bot/message/push \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $LINE_TOKEN" \
+            -d "{\"to\":\"$LINE_USER_ID\",\"messages\":[{\"type\":\"text\",\"text\":\"⚠️ 早安日報推播失敗\nhttps://github.com/0911207240/stock-dashboard/actions\"}]}"
+
+      - name: Save state files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          for f in briefing_lock.json exchange_cache.json gmail_cache.json; do
+            [ -f "$f" ] && git add "$f"
+          done
+          git diff --cached --quiet || git commit -m "chore: update briefing state [skip ci]"
+          git pull --rebase origin main || true
+          git push || true
