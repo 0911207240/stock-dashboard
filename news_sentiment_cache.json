@@ -1,0 +1,48 @@
+{
+  "2330": {
+    "fetched_at": "2026-06-16T08:31:38.338974",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Best ETF Ideas for the Rest of 2026",
+      "Intel Draws Cramer Support",
+      "Google's Samsung Talks Highlight TSMC Capacity Crunch"
+    ]
+  },
+  "0056": {
+    "fetched_at": "2026-06-16T08:31:52.939552",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 0056.TW News"
+    ]
+  },
+  "2317": {
+    "fetched_at": "2026-06-16T08:32:04.252548",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Schneider Electric Taps Foxconn And Torngat To Target AI Growth",
+      "SoftBank Surges as Geopolitical Risk Cools",
+      "Schneider Electric and Hon Hai Technology Group (Foxconn) announce strategic collaboration to accelerate next-generation AI data centers"
+    ]
+  },
+  "0050": {
+    "fetched_at": "2026-06-16T08:32:23.865549",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 0050.TW News"
+    ]
+  }
+}

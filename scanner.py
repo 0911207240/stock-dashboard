@@ -29,6 +29,7 @@ from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_w
 from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
 from market_regime import detect_regime
+from fx_rates import fetch_fx_rates, build_fx_message
 
 
 def _check_concentration(candidates: list[dict]) -> str:
@@ -140,6 +141,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
             portfolio_msg = build_portfolio_message(summary)
             morning_parts.append(portfolio_msg)
             print("  持股日報")
+
+            fx_msg = build_fx_message(fetch_fx_rates())
+            if fx_msg:
+                send(fx_msg)
+                print("  匯率已推播")
 
             div_msg = build_dividend_alert_message(WATCHLIST)
             if div_msg:
