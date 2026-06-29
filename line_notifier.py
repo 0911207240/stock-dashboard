@@ -1,10 +1,44 @@
 import urllib.request
 import urllib.parse
 import json
+import os
+from datetime import datetime
 from config import LINE_CHANNEL_ACCESS_TOKEN, LINE_USER_ID
 
 _MSG_LIMIT = 4900   # LINE 單則文字上限 5000，留緩衝
 _BATCH     = 5      # LINE 每次推播最多 5 則
+
+
+def _fallback_to_drive(message: str) -> bool:
+    """LINE 額度用完（429）時，將訊息備援寫入 Google Drive"""
+    try:
+        from googleapiclient.discovery import build
+        from googleapiclient.http import MediaInMemoryUpload
+        from google.oauth2.service_account import Credentials
+
+        creds_json = os.getenv("GOOGLE_CREDENTIALS")
+        folder_id  = os.getenv("GDRIVE_FOLDER_ID")
+        if not creds_json or not folder_id:
+            print("[Drive] 未設定 GOOGLE_CREDENTIALS 或 GDRIVE_FOLDER_ID，跳過備援")
+            return False
+
+        creds = Credentials.from_service_account_info(
+            json.loads(creds_json),
+            scopes=["https://www.googleapis.com/auth/drive.file"],
+        )
+        service = build("drive", "v3", credentials=creds, cache_discovery=False)
+        now      = datetime.now().strftime("%Y%m%d_%H%M")
+        filename = f"stock_report_{now}.txt"
+        media    = MediaInMemoryUpload(message.encode("utf-8"), mimetype="text/plain")
+        service.files().create(
+            body={"name": filename, "parents": [folder_id]},
+            media_body=media,
+        ).execute()
+        print(f"[Drive] 備援寫入成功：{filename}")
+        return True
+    except Exception as e:
+        print(f"[Drive] 備援寫入失敗：{e}")
+        return False
 
 
 def _split_message(message: str) -> list[str]:
@@ -47,7 +81,9 @@ def _push_batch(messages: list[dict]) -> bool:
         body = e.read().decode()
         print(f"[LINE] 發送失敗：{e.code} {body}")
         if e.code == 429:
-            print("[LINE] 本月免費推播額度已用完（200則/月），請至 LINE Official Account Manager 升級方案")
+            print("[LINE] 本月免費推播額度已用完，啟動 Google Drive 備援")
+            combined = "\n".join(m["text"] for m in messages if m.get("type") == "text")
+            _fallback_to_drive(combined)
         return False
 
 
