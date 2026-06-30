@@ -2294,5 +2294,33 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-06-30",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 75,
+    "price": 17.75,
+    "entry_mid": 17.62,
+    "stop": 17.6,
+    "tp1": 17.65,
+    "tp2": 17.66,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-06-30",
+    "name": "富邦金",
+    "ticker": "2881.TW",
+    "score": 62,
+    "price": 129.5,
+    "entry_mid": 128.53,
+    "stop": 125.96,
+    "tp1": 132.39,
+    "tp2": 133.67,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
