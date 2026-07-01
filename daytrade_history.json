@@ -2067,9 +2067,9 @@
     "stop": 29.65,
     "tp1": 31.05,
     "tp2": 31.33,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 29.99,
+    "return_pct": -0.73
   },
   {
     "push_date": "2026-06-26",
@@ -2235,9 +2235,9 @@
     "stop": 18.66,
     "tp1": 18.79,
     "tp2": 18.81,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 18.66,
+    "return_pct": -0.27
   },
   {
     "push_date": "2026-06-30",
@@ -2291,9 +2291,9 @@
     "stop": 18.97,
     "tp1": 19.42,
     "tp2": 19.51,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 19.42,
+    "return_pct": 1.41
   },
   {
     "push_date": "2026-06-30",
@@ -2305,9 +2305,9 @@
     "stop": 17.6,
     "tp1": 17.65,
     "tp2": 17.66,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 17.6,
+    "return_pct": -0.11
   },
   {
     "push_date": "2026-06-30",
@@ -2319,6 +2319,34 @@
     "stop": 125.96,
     "tp1": 132.39,
     "tp2": 133.67,
+    "result": "停損",
+    "exit_price": 125.96,
+    "return_pct": -2.0
+  },
+  {
+    "push_date": "2026-07-01",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 68,
+    "price": 37.04999923706055,
+    "entry_mid": 36.86,
+    "stop": 36.64,
+    "tp1": 37.19,
+    "tp2": 37.3,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-01",
+    "name": "元大高股息",
+    "ticker": "0056.TW",
+    "score": 62,
+    "price": 52.79999923706055,
+    "entry_mid": 52.65,
+    "stop": 52.16,
+    "tp1": 53.39,
+    "tp2": 53.63,
     "result": null,
     "exit_price": null,
     "return_pct": null
