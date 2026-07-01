@@ -2350,5 +2350,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-07-01",
+    "name": "合庫金",
+    "ticker": "5880.TW",
+    "score": 73,
+    "price": 24.850000381469727,
+    "entry_mid": 24.67,
+    "stop": 24.53,
+    "tp1": 24.88,
+    "tp2": 24.95,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-01",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 71,
+    "price": 66.0,
+    "entry_mid": 65.59,
+    "stop": 64.3,
+    "tp1": 67.53,
+    "tp2": 68.17,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-01",
+    "name": "玉山金",
+    "ticker": "2884.TW",
+    "score": 67,
+    "price": 32.900001525878906,
+    "entry_mid": 32.66,
+    "stop": 32.56,
+    "tp1": 32.81,
+    "tp2": 32.86,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-01",
+    "name": "第一金",
+    "ticker": "2892.TW",
+    "score": 61,
+    "price": 33.20000076293945,
+    "entry_mid": 33.05,
+    "stop": 32.47,
+    "tp1": 33.92,
+    "tp2": 34.09,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
