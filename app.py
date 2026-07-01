@@ -34,6 +34,57 @@ with st.sidebar:
         ok = send("股票儀表板連線測試成功！")
         st.success("推播成功！") if ok else st.error("失敗，請確認 Token")
 
+    st.markdown("---")
+    st.caption("Google Sheets 同步")
+    try:
+        import sheets_sync
+        sheets_ok = sheets_sync.is_configured()
+    except Exception:
+        sheets_ok = False
+
+    if sheets_ok:
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("⬆️ 上傳持股"):
+                from portfolio_manager import load_holdings
+                ok = sheets_sync.push_portfolio(load_holdings())
+                st.success("已同步到 Sheets！") if ok else st.error("同步失敗")
+        with col2:
+            if st.button("⬇️ 從 Sheets 讀取"):
+                data = sheets_sync.pull_portfolio()
+                if data:
+                    st.session_state.holdings = data
+                    st.success(f"已載入 {len(data)} 筆持股")
+                else:
+                    st.warning("Sheets 無資料或讀取失敗")
+    else:
+        st.caption("⚠️ 請在 Secrets 設定 GOOGLE_SERVICE_ACCOUNT_JSON 和 SHEETS_PORTFOLIO_ID")
+
+    st.markdown("---")
+    st.caption("Gmail 摘要")
+    try:
+        import gmail_digest
+        gmail_ok = gmail_digest.is_configured()
+    except Exception:
+        gmail_ok = False
+
+    if gmail_ok:
+        if st.button("📧 抓取今日信件"):
+            with st.spinner("讀取中..."):
+                data = gmail_digest.fetch_gmail_summary()
+            finance = data.get("finance_emails", [])
+            emails = data.get("emails", [])
+            if data.get("note"):
+                st.warning(data["note"])
+            else:
+                st.success(f"共 {data.get('total_unread', 0)} 封未讀，其中 {len(finance)} 封財經相關")
+                if finance:
+                    st.markdown("**💹 財經信件：**")
+                    for e in finance[:5]:
+                        st.markdown(f"- {e['from']}：{e['subject']}")
+    else:
+        st.caption("⚠️ 請設定 GMAIL_CREDENTIALS_JSON 或 GOOGLE_SERVICE_ACCOUNT_JSON")
+
 # ── session state 持股 ──────────────────────────────
 if "holdings" not in st.session_state:
     st.session_state.holdings = copy.deepcopy(HOLDINGS)
