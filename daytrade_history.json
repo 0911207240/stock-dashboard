@@ -2221,9 +2221,9 @@
     "stop": 24.58,
     "tp1": 25.01,
     "tp2": 25.06,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 24.85,
+    "return_pct": 0.4
   },
   {
     "push_date": "2026-06-30",
@@ -2333,9 +2333,9 @@
     "stop": 36.64,
     "tp1": 37.19,
     "tp2": 37.3,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 36.64,
+    "return_pct": -0.6
   },
   {
     "push_date": "2026-07-01",
@@ -2347,9 +2347,9 @@
     "stop": 52.16,
     "tp1": 53.39,
     "tp2": 53.63,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 52.16,
+    "return_pct": -0.93
   },
   {
     "push_date": "2026-07-01",
@@ -2389,9 +2389,9 @@
     "stop": 32.56,
     "tp1": 32.81,
     "tp2": 32.86,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 32.86,
+    "return_pct": 0.61
   },
   {
     "push_date": "2026-07-01",
@@ -2403,6 +2403,62 @@
     "stop": 32.47,
     "tp1": 33.92,
     "tp2": 34.09,
+    "result": "停損",
+    "exit_price": 32.47,
+    "return_pct": -1.75
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "中信金",
+    "ticker": "2891.TW",
+    "score": 71,
+    "price": 70.0,
+    "entry_mid": 69.7,
+    "stop": 69.13,
+    "tp1": 70.56,
+    "tp2": 70.84,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "復華台灣科技優息",
+    "ticker": "00929.TW",
+    "score": 65,
+    "price": 30.989999771118164,
+    "entry_mid": 30.85,
+    "stop": 30.23,
+    "tp1": 31.78,
+    "tp2": 32.09,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "國泰永續高股息",
+    "ticker": "00878.TW",
+    "score": 63,
+    "price": 33.060001373291016,
+    "entry_mid": 32.81,
+    "stop": 32.68,
+    "tp1": 33.01,
+    "tp2": 33.07,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "富邦特選高股息30",
+    "ticker": "00900.TW",
+    "score": 67,
+    "price": 19.260000228881836,
+    "entry_mid": 19.24,
+    "stop": 18.87,
+    "tp1": 19.79,
+    "tp2": 19.98,
     "result": null,
     "exit_price": null,
     "return_pct": null
