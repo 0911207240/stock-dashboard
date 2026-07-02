@@ -3,9 +3,6 @@ name: Daily Stock Scan
 on:
   schedule:
     - cron: "30 0 * * 1-5"   # 08:30 台灣早盤（UTC 00:30）
-    - cron: "0 1 * * 1-5"    # 09:00 台灣備援（UTC 01:00）
-    - cron: "30 1 * * 1-5"   # 09:30 台灣備援（UTC 01:30）
-    - cron: "30 4 * * 1-5"   # 12:30 台灣午盤（UTC 04:30）
   workflow_dispatch:
 
 permissions:
@@ -69,7 +66,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json tdcc_cache.json morning_lock.json market_log.json; do
+          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json tdcc_cache.json morning_lock.json market_log.json scan_results.json; do
             [ -f "$f" ] && git add "$f"
           done
           git diff --cached --quiet || git commit -m "chore: update state [skip ci]"

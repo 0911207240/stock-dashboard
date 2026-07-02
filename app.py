@@ -194,9 +194,167 @@ def row_color(row, col="漲跌%"):
     return [""] * len(row)
 
 # ── Tabs ──────────────────────────────────────────
-tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
-    "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效", "💰 ETF 追蹤"
+tab_today, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+    "📡 今日快報", "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效", "💰 ETF 追蹤"
 ])
+
+# ══════════════════════════════════════════════════
+# Tab Today：今日快報
+# ══════════════════════════════════════════════════
+with tab_today:
+    st.header("📡 今日快報")
+
+    # ── 載入今日掃描結果（GitHub Actions 存的 JSON）──
+    import json as _json
+    from pathlib import Path as _Path
+
+    def _load_scan_results() -> dict:
+        local = _Path("scan_results.json")
+        if local.exists():
+            try:
+                return _json.loads(local.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        try:
+            import requests as _req
+            r = _req.get(
+                "https://raw.githubusercontent.com/0911207240/stock-dashboard/main/scan_results.json",
+                timeout=5,
+            )
+            if r.ok:
+                return r.json()
+        except Exception:
+            pass
+        return {}
+
+    scan = _load_scan_results()
+    if scan:
+        ts = scan.get("timestamp", "")
+        regime_info = scan.get("regime", {})
+        st.caption(f"最後掃描：{ts}　大盤：{regime_info.get('emoji','')} {regime_info.get('state','')}")
+    else:
+        st.info("尚無今日掃描結果，等待 GitHub Actions 早盤掃描（08:30）")
+
+    st.markdown("---")
+
+    # ── 技術訊號 ──────────────────────────────────
+    buys  = scan.get("buy_signals", [])
+    sells = scan.get("sell_signals", [])
+
+    col_b, col_s = st.columns(2)
+    with col_b:
+        st.subheader(f"📈 買進訊號（{len(buys)} 檔）")
+        if buys:
+            for x in buys[:10]:
+                tag = "★ " if x.get("is_holding") else ""
+                arrow = "▲" if x["change_pct"] >= 0 else "▼"
+                with st.container():
+                    st.markdown(f"**{tag}{x['name']}** `${x['price']:.1f}` {arrow}{abs(x['change_pct']):.1f}%　分數 {x['score']}")
+                    if x.get("signals"):
+                        st.caption("、".join(x["signals"][:3]))
+        else:
+            st.caption("無買進訊號")
+
+    with col_s:
+        st.subheader(f"📉 賣出訊號（{len(sells)} 檔）")
+        if sells:
+            for x in sells[:5]:
+                tag = "★ " if x.get("is_holding") else ""
+                arrow = "▲" if x["change_pct"] >= 0 else "▼"
+                with st.container():
+                    st.markdown(f"**{tag}{x['name']}** `${x['price']:.1f}` {arrow}{abs(x['change_pct']):.1f}%　分數 {x['score']}")
+                    if x.get("signals"):
+                        st.caption("、".join(x["signals"][:3]))
+        else:
+            st.caption("無賣出訊號")
+
+    st.markdown("---")
+
+    # ── 當沖候選 ──────────────────────────────────
+    daytrade_list = scan.get("daytrade", [])
+    st.subheader(f"⚡ 明日當沖候選（{len(daytrade_list)} 檔）")
+    if daytrade_list:
+        dt_rows = []
+        for i, c in enumerate(daytrade_list, 1):
+            arrow = "▲" if c["change_pct"] >= 0 else "▼"
+            dt_rows.append({
+                "#": i, "名稱": c["name"], "分數": c["score"],
+                "昨收": f"${c['price']:.1f}", "漲跌": f"{arrow}{abs(c['change_pct']):.1f}%",
+                "量比": f"{c['vol_ratio']:.1f}x",
+                "進場": f"${c.get('entry_mid', '-')}",
+                "停損": f"${c.get('stop', '-')}",
+                "停利①": f"${c.get('tp1', '-')}",
+                "停利②": f"${c.get('tp2', '-')}",
+            })
+        st.dataframe(pd.DataFrame(dt_rows), use_container_width=True, hide_index=True)
+    else:
+        st.caption("無當沖候選（冷卻期或未達門檻）")
+
+    st.markdown("---")
+
+    # ── 盤後異動（即時計算）──────────────────────
+    st.subheader("📊 盤後異動彙整")
+    if st.button("🔄 載入盤後資料", key="load_aftermarket"):
+        with st.spinner("計算中..."):
+            try:
+                am_data = fetch_all("5d", "全部")
+                gainers, losers, surge = [], [], []
+                for name, df in am_data.items():
+                    if df is None or df.empty or len(df) < 2:
+                        continue
+                    try:
+                        latest   = df.iloc[-1]; prev = df.iloc[-2]
+                        close    = float(latest["Close"]); prev_c = float(prev["Close"])
+                        chg_pct  = (close - prev_c) / prev_c * 100
+                        vol_t    = float(latest.get("Volume", 0))
+                        vol_p    = float(prev.get("Volume", 1))
+                        vol_ratio = vol_t / vol_p if vol_p > 0 else 1.0
+                        item = {"名稱": name, "現價": round(close, 1),
+                                "漲跌%": round(chg_pct, 2), "量比": round(vol_ratio, 2)}
+                        if chg_pct >= 3.0:
+                            gainers.append(item)
+                        elif chg_pct <= -3.0:
+                            losers.append(item)
+                        if vol_ratio >= 2.5 and abs(chg_pct) >= 1.5:
+                            surge.append(item)
+                    except Exception:
+                        continue
+
+                col_g, col_l, col_v = st.columns(3)
+                with col_g:
+                    st.markdown("🔴 **強勢股 +3%↑**")
+                    if gainers:
+                        st.dataframe(
+                            pd.DataFrame(sorted(gainers, key=lambda x: -x["漲跌%"])).head(10),
+                            use_container_width=True, hide_index=True,
+                        )
+                    else:
+                        st.caption("無")
+                with col_l:
+                    st.markdown("🟢 **弱勢股 -3%↓**")
+                    if losers:
+                        st.dataframe(
+                            pd.DataFrame(sorted(losers, key=lambda x: x["漲跌%"])).head(10),
+                            use_container_width=True, hide_index=True,
+                        )
+                    else:
+                        st.caption("無")
+                with col_v:
+                    st.markdown("🔥 **爆量異動 量比≥2.5x**")
+                    if surge:
+                        st.dataframe(
+                            pd.DataFrame(sorted(surge, key=lambda x: -x["量比"])).head(10),
+                            use_container_width=True, hide_index=True,
+                        )
+                    else:
+                        st.caption("無")
+            except Exception as e:
+                st.error(f"載入失敗：{e}")
+    else:
+        st.caption("點擊上方按鈕載入盤後異動（約需 30 秒）")
+
+    st.markdown("---")
+    st.caption("⚠️ 技術訊號與當沖候選使用 T+1 資料，盤後異動為即時計算。僅供參考，不構成投資建議。")
 
 # ══════════════════════════════════════════════════
 # Tab 0：大盤展望

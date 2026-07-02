@@ -13,6 +13,8 @@ from sector_rotation import (
 
 def run_push(push_type: str = "morning") -> str:
     """執行推播，回傳結果摘要字串"""
+    if push_type == "afternoon":
+        return _run_afternoon_push()
     if push_type == "aftermarket":
         return _run_aftermarket_push()
     if push_type == "weekly":
@@ -212,6 +214,95 @@ def _run_portfolio_push() -> str:
 
     date_str = datetime.now().strftime("%m/%d")
     return f"持倉推播完成（{date_str}）"
+
+
+def _run_afternoon_push() -> str:
+    """下午報告（13:30）：盤後異動彙整 + 持倉快照，合成一則推播"""
+    if not is_trading_day():
+        return "非交易日，跳過"
+
+    date_str = datetime.now().strftime("%m/%d")
+
+    try:
+        all_data = fetch_all(period="5d")
+    except Exception as e:
+        return f"下午資料抓取失敗：{e}"
+
+    # ── 盤後異動 ──────────────────────────────────
+    gainers, losers, surge = [], [], []
+    for name, df in all_data.items():
+        if df is None or df.empty or len(df) < 2:
+            continue
+        try:
+            latest    = df.iloc[-1]
+            prev      = df.iloc[-2]
+            close     = float(latest["Close"])
+            prev_c    = float(prev["Close"])
+            chg_pct   = (close - prev_c) / prev_c * 100
+            vol_today = float(latest.get("Volume", 0))
+            vol_prev  = float(prev.get("Volume", 1))
+            vol_ratio = vol_today / vol_prev if vol_prev > 0 else 1.0
+            item = {"name": name, "close": close, "chg_pct": chg_pct, "vol_ratio": vol_ratio}
+            if chg_pct >= 3.0:
+                gainers.append(item)
+            elif chg_pct <= -3.0:
+                losers.append(item)
+            if vol_ratio >= 2.5 and abs(chg_pct) >= 1.5:
+                surge.append(item)
+        except Exception:
+            continue
+
+    gainers.sort(key=lambda x: -x["chg_pct"])
+    losers.sort(key=lambda x: x["chg_pct"])
+    surge.sort(key=lambda x: -x["vol_ratio"])
+
+    lines = [f"📊 下午快報（{date_str}）", ""]
+
+    if gainers:
+        lines.append("🔴 強勢股（+3%↑）")
+        for d in gainers[:5]:
+            lines.append(f"  {d['name']} +{d['chg_pct']:.1f}%  ${d['close']:.1f}")
+        lines.append("")
+    if losers:
+        lines.append("🟢 弱勢股（-3%↓）")
+        for d in losers[:5]:
+            lines.append(f"  {d['name']} {d['chg_pct']:.1f}%  ${d['close']:.1f}")
+        lines.append("")
+    if surge:
+        lines.append("🔥 爆量異動（量比≥2.5x）")
+        for d in surge[:5]:
+            arrow = "▲" if d["chg_pct"] >= 0 else "▼"
+            lines.append(f"  {d['name']} {arrow}{abs(d['chg_pct']):.1f}%  量比 {d['vol_ratio']:.1f}x")
+        lines.append("")
+
+    if not gainers and not losers and not surge:
+        lines.append("今日無顯著異動")
+        lines.append("")
+
+    # ── 持倉快照 ──────────────────────────────────
+    try:
+        from portfolio import (
+            HOLDINGS, calc_summary,
+            build_portfolio_message, build_alert_message,
+            build_rebalance_alert,
+        )
+        summary = calc_summary(all_data)
+        alert_msg = build_alert_message(dict(summary))
+        if alert_msg:
+            lines.append(alert_msg)
+            lines.append("")
+        portfolio_msg = build_portfolio_message(dict(summary))
+        lines.append(portfolio_msg)
+        rebalance_msg = build_rebalance_alert(dict(summary))
+        if rebalance_msg:
+            lines.append("")
+            lines.append(rebalance_msg)
+    except Exception as e:
+        lines.append(f"（持倉資料抓取失敗：{e}）")
+
+    lines.append("\n⚠️ 資料 T+1，僅供參考")
+    send("\n".join(lines))
+    return f"下午報告推播：強勢 {len(gainers)} 檔 / 弱勢 {len(losers)} 檔 / 爆量 {len(surge)} 檔"
 
 
 if __name__ == "__main__":

@@ -29,7 +29,41 @@ from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_w
 from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
 from market_regime import detect_regime
-from fx_rates import fetch_fx_rates, build_fx_message
+
+_DASHBOARD_URL = "http://localhost:8501"
+_SCAN_RESULTS  = Path("scan_results.json")
+
+
+def _save_scan_results(found: list, regime: dict, daytrade: list):
+    """將掃描結果存檔，供儀表板「今日快報」頁籤讀取"""
+    data = {
+        "date":      datetime.now().strftime("%Y-%m-%d"),
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "regime":    {"state": regime.get("state", ""), "emoji": regime.get("emoji", "")},
+        "buy_signals":  [
+            {"name": x["name"], "ticker": x["ticker"], "score": x["score"],
+             "price": x["price"], "change_pct": round(x["change_pct"], 2),
+             "vol_ratio": round(x["vol_ratio"], 2), "is_holding": x.get("is_holding", False),
+             "signals": [s["msg"] for s in x["signals"] if s["type"] == "buy"]}
+            for x in found if x["score"] > 0
+        ],
+        "sell_signals": [
+            {"name": x["name"], "ticker": x["ticker"], "score": x["score"],
+             "price": x["price"], "change_pct": round(x["change_pct"], 2),
+             "vol_ratio": round(x["vol_ratio"], 2), "is_holding": x.get("is_holding", False),
+             "signals": [s["msg"] for s in x["signals"] if s["type"] == "sell"]}
+            for x in found if x["score"] < 0
+        ],
+        "daytrade": [
+            {"name": c["name"], "ticker": c["ticker"], "score": c["score"],
+             "price": round(c["price"], 2), "change_pct": round(c["change_pct"], 2),
+             "entry_mid": c.get("entry_mid"), "stop": c.get("stop"),
+             "tp1": c.get("tp1"), "tp2": c.get("tp2"),
+             "vol_ratio": round(c["vol_ratio"], 2)}
+            for c in daytrade
+        ],
+    }
+    _SCAN_RESULTS.write_text(json.dumps(data, ensure_ascii=False, indent=2))
 
 
 def _check_concentration(candidates: list[dict]) -> str:
@@ -142,11 +176,6 @@ def run_scan(min_score: int = 2, notify: bool = True):
             morning_parts.append(portfolio_msg)
             print("  持股日報")
 
-            fx_msg = build_fx_message(fetch_fx_rates())
-            if fx_msg:
-                send(fx_msg)
-                print("  匯率已推播")
-
             div_msg = build_dividend_alert_message(WATCHLIST)
             if div_msg:
                 morning_parts.append(div_msg)
@@ -174,6 +203,7 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
             if morning_parts:
                 combined = "\n\n".join(morning_parts)
+                combined += f"\n\n📊 技術訊號＆當沖詳情\n{_DASHBOARD_URL}"
                 success = send(combined)
                 print(f"  早盤報告（{len(morning_parts)} 項合併）：{'已推播' if success else '推播失敗'}")
 
@@ -209,18 +239,12 @@ def run_scan(min_score: int = 2, notify: bool = True):
             })
             print(f"  -> {name} ({ticker}) 分數={sc}: {[s['msg'] for s in sigs]}")
 
-    if notify:
-        date_str = datetime.now().strftime("%m/%d")
-        session_tag = "【午盤更新】" if is_midday else ""
-        if found:
-            sorted_found = sorted(found, key=lambda x: (x["is_holding"], abs(x["score"])), reverse=True)
-            summary_msg  = build_summary_message(sorted_found, date_str)
-            if session_tag:
-                summary_msg = session_tag + "\n" + summary_msg
-            success = send(summary_msg)
-            print(f"  {session_tag}彙整報告: {'已推播' if success else '推播失敗'}")
-        else:
-            print(f"  {session_tag}無符合條件的技術訊號，繼續掃描當沖候選...")
+    session_tag = "【午盤更新】" if is_midday else ""
+    if found:
+        sorted_found = sorted(found, key=lambda x: (x["is_holding"], abs(x["score"])), reverse=True)
+        print(f"  {session_tag}技術訊號 {len(found)} 檔 → 存入 scan_results.json")
+    else:
+        print(f"  {session_tag}無符合條件的技術訊號，繼續掃描當沖候選...")
 
     print(f"掃描完成，共 {len(found)} 檔有訊號")
 
@@ -264,7 +288,6 @@ def run_scan(min_score: int = 2, notify: bool = True):
     if push_list:
         for c in push_list:
             mark_pushed(c["name"], c["score"])
-            # 資金配置：每筆最多虧總資產 1%，計算建議張數
             if total_value > 0:
                 risk_per_share = c["entry_mid"] - c["stop"]
                 if risk_per_share > 0:
@@ -272,21 +295,12 @@ def run_scan(min_score: int = 2, notify: bool = True):
                 else:
                     c["suggested_lots"] = 1
         save_daytrade_signal(push_list)
-
-        # 部位集中警示：同族群超過2檔 → 附加提示
-        concentration_warning = _check_concentration(push_list)
-
-        if notify:
-            date_str = datetime.now().strftime("%m/%d")
-            success = send_daytrade_image(push_list, date_str, regime, concentration_warning)
-            if not success:
-                dt_msg = build_daytrade_message(push_list, date_str, regime, concentration_warning)
-                success = send(dt_msg)
-            print(f"  當沖候選 Top{len(push_list)}（{regime['state']}，門檻{base_min_score}）：{'已推播' if success else '推播失敗'}")
-        else:
-            print(f"  當沖候選：{', '.join(c['name'] for c in push_list)}")
+        print(f"  當沖候選 Top{len(push_list)}（{regime['state']}，門檻{base_min_score}）→ 存入 scan_results.json")
     else:
         print(f"  無當沖候選（{regime['state']}，門檻{base_min_score}，或全在冷卻期）")
+
+    # 存掃描結果供儀表板「今日快報」頁籤顯示
+    _save_scan_results(found, regime, push_list)
 
     # 每週一：績效對帳 + 勝率統計 + 回測更新評分權重
     if notify and datetime.now().weekday() == 0:
