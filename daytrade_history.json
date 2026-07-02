@@ -2249,9 +2249,9 @@
     "stop": 32.83,
     "tp1": 34.25,
     "tp2": 34.54,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 32.83,
+    "return_pct": -1.71
   },
   {
     "push_date": "2026-06-30",
@@ -2263,9 +2263,9 @@
     "stop": 29.99,
     "tp1": 31.49,
     "tp2": 31.79,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 29.99,
+    "return_pct": -1.96
   },
   {
     "push_date": "2026-06-30",
@@ -2459,6 +2459,62 @@
     "stop": 18.87,
     "tp1": 19.79,
     "tp2": 19.98,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 66,
+    "price": 17.75,
+    "entry_mid": 17.74,
+    "stop": 17.47,
+    "tp1": 18.14,
+    "tp2": 18.28,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "彰銀",
+    "ticker": "2801.TW",
+    "score": 61,
+    "price": 23.350000381469727,
+    "entry_mid": 23.18,
+    "stop": 23.11,
+    "tp1": 23.29,
+    "tp2": 23.31,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "遠傳",
+    "ticker": "4904.TW",
+    "score": 61,
+    "price": 103.0,
+    "entry_mid": 102.22,
+    "stop": 102.06,
+    "tp1": 102.46,
+    "tp2": 102.54,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-02",
+    "name": "中鋼",
+    "ticker": "2002.TW",
+    "score": 66,
+    "price": 18.600000381469727,
+    "entry_mid": 18.5,
+    "stop": 18.42,
+    "tp1": 18.62,
+    "tp2": 18.64,
     "result": null,
     "exit_price": null,
     "return_pct": null
