@@ -2277,9 +2277,9 @@
     "stop": 69.3,
     "tp1": 72.82,
     "tp2": 73.53,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 70.6,
+    "return_pct": -0.16
   },
   {
     "push_date": "2026-06-30",
@@ -2417,9 +2417,9 @@
     "stop": 69.13,
     "tp1": 70.56,
     "tp2": 70.84,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 70.84,
+    "return_pct": 1.64
   },
   {
     "push_date": "2026-07-02",
@@ -2445,9 +2445,9 @@
     "stop": 32.68,
     "tp1": 33.01,
     "tp2": 33.07,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 33.07,
+    "return_pct": 0.79
   },
   {
     "push_date": "2026-07-02",
@@ -2487,9 +2487,9 @@
     "stop": 23.11,
     "tp1": 23.29,
     "tp2": 23.31,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 23.11,
+    "return_pct": -0.3
   },
   {
     "push_date": "2026-07-02",
@@ -2501,9 +2501,9 @@
     "stop": 102.06,
     "tp1": 102.46,
     "tp2": 102.54,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 102.54,
+    "return_pct": 0.31
   },
   {
     "push_date": "2026-07-02",
@@ -2515,6 +2515,34 @@
     "stop": 18.42,
     "tp1": 18.62,
     "tp2": 18.64,
+    "result": "停利②",
+    "exit_price": 18.64,
+    "return_pct": 0.76
+  },
+  {
+    "push_date": "2026-07-03",
+    "name": "開發金",
+    "ticker": "2883.TW",
+    "score": 61,
+    "price": 28.25,
+    "entry_mid": 28.04,
+    "stop": 27.48,
+    "tp1": 28.88,
+    "tp2": 29.16,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-03",
+    "name": "元大台灣高息低波",
+    "ticker": "00713.TW",
+    "score": 57,
+    "price": 60.70000076293945,
+    "entry_mid": 60.42,
+    "stop": 59.21,
+    "tp1": 62.23,
+    "tp2": 62.6,
     "result": null,
     "exit_price": null,
     "return_pct": null
