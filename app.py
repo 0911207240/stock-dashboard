@@ -3,6 +3,30 @@ import pandas as pd
 import altair as alt
 import plotly.graph_objects as go
 import plotly.express as px
+
+# ── 雲端部署時從 GitHub 同步狀態檔案 ──────────────
+def _sync_state_files():
+    from pathlib import Path as _P
+    _BASE = "https://raw.githubusercontent.com/0911207240/stock-dashboard/main"
+    _FILES = [
+        "scan_results.json", "daytrade_history.json", "signal_history.json",
+        "scoring_weights.json", "push_cooldown.json", "tdcc_cache.json",
+    ]
+    try:
+        import requests as _rq
+        for _f in _FILES:
+            _p = _P(_f)
+            if not _p.exists():
+                try:
+                    _r = _rq.get(f"{_BASE}/{_f}", timeout=8)
+                    if _r.ok:
+                        _p.write_bytes(_r.content)
+                except Exception:
+                    pass
+    except ImportError:
+        pass
+
+_sync_state_files()
 from data_fetcher import fetch, fetch_all, fetch_taiex, fetch_dividends, fetch_institutional, fetch_margin_data, WATCHLIST, SECTORS
 from daytrade_scorer import get_daytrade_candidates, is_tw_stock
 from scoring_config import load_multipliers, save_multipliers, reset_multipliers

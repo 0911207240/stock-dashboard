@@ -30,7 +30,7 @@ from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
 from market_regime import detect_regime
 
-_DASHBOARD_URL = "http://localhost:8501"
+_DASHBOARD_URL = "https://stock-dashboard-ui.onrender.com"
 _SCAN_RESULTS  = Path("scan_results.json")
 
 
