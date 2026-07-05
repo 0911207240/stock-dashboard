@@ -11,6 +11,7 @@ def _sync_state_files():
     _FILES = [
         "scan_results.json", "daytrade_history.json", "signal_history.json",
         "scoring_weights.json", "push_cooldown.json", "tdcc_cache.json",
+        "us_scan_results.json", "morning_briefing.json", "push_reports.json",
     ]
     try:
         import requests as _rq
@@ -32,7 +33,6 @@ from daytrade_scorer import get_daytrade_candidates, is_tw_stock
 from scoring_config import load_multipliers, save_multipliers, reset_multipliers
 from push_cooldown import get_status as cooldown_status, clear_cooldown
 from analyzer import add_indicators, detect_signals, score, calc_support_resistance, calc_week52, detect_pre_signals, pre_score
-from line_notifier import send, build_signal_message, build_daytrade_message
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 from signal_log import load_log, save_signal, update_and_load, win_rate, daytrade_win_rate, calc_monthly_performance
 from signal_log import _load_dt_log
@@ -45,18 +45,6 @@ st.set_page_config(page_title="股票儀表板", layout="wide", page_icon="📈"
 with st.sidebar:
     st.header("⚙️ 設定")
     period = st.selectbox("資料區間", ["3mo", "6mo", "1y", "2y"], index=2)
-    import config
-    st.markdown("---")
-    st.caption("LINE 推播")
-    line_token = st.text_input("Channel Access Token", value=config.LINE_CHANNEL_ACCESS_TOKEN, type="password")
-    line_uid   = st.text_input("User ID", value=config.LINE_USER_ID)
-    if st.button("儲存"):
-        config.LINE_CHANNEL_ACCESS_TOKEN = line_token
-        config.LINE_USER_ID = line_uid
-        st.success("已儲存")
-    if st.button("測試推播"):
-        ok = send("股票儀表板連線測試成功！")
-        st.success("推播成功！") if ok else st.error("失敗，請確認 Token")
 
 # ── session state 持股 ──────────────────────────────
 if "holdings" not in st.session_state:
@@ -261,6 +249,68 @@ with tab_today:
 
     st.markdown("---")
 
+    # ── 早盤警示彙整（原 LINE 推播內容，改存 scan_results.json）──
+    morning_report = scan.get("morning_report", {})
+    if morning_report:
+        st.subheader(f"🔔 早盤警示彙整（{scan.get('morning_report_time', '')}）")
+        _tag_style = {
+            "alert":        st.error,
+            "rebalance":    st.warning,
+            "correlation":  st.warning,
+            "earnings":     st.warning,
+            "announcement": st.info,
+            "dividend":     st.info,
+            "portfolio":    st.info,
+        }
+        for key, text in morning_report.items():
+            (_tag_style.get(key, st.info))(text)
+        st.markdown("---")
+
+    # ── 美股夜盤訊號（us_scanner.py）──────────────
+    def _load_json_file(name: str) -> dict:
+        p = _Path(name)
+        if p.exists():
+            try:
+                return _json.loads(p.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        return {}
+
+    us_scan = _load_json_file("us_scan_results.json")
+    if us_scan.get("signals"):
+        with st.expander(f"🌙 美股夜盤訊號（{us_scan.get('timestamp', '')}，{len(us_scan['signals'])} 檔）"):
+            for x in us_scan["signals"][:10]:
+                arrow = "▲" if x["change_pct"] >= 0 else "▼"
+                st.markdown(f"**{x['name']}** `${x['price']:.1f}` {arrow}{abs(x['change_pct']):.1f}%　分數 {x['score']}")
+                if x.get("signals"):
+                    st.caption("、".join(x["signals"][:3]))
+
+    # ── 早安日報（morning_briefing.py：匯率/新聞/趨勢/Gmail）──
+    briefing = _load_json_file("morning_briefing.json")
+    if briefing:
+        with st.expander(f"☀️ 早安日報（{briefing.get('timestamp', '')}）"):
+            for key in ("us_summary", "fx", "news", "trends", "gmail"):
+                if briefing.get(key):
+                    st.markdown(briefing[key])
+                    st.markdown("")
+
+    # ── 週報 / 月報 ────────────────────────────────
+    weekly_report  = scan.get("weekly_report")
+    monthly_report = scan.get("monthly_report")
+    if weekly_report or monthly_report:
+        col_w, col_m = st.columns(2)
+        if weekly_report:
+            with col_w:
+                with st.expander(f"📊 當沖推播週報（{scan.get('weekly_report_date', '')}）"):
+                    st.text(weekly_report)
+        if monthly_report:
+            with col_m:
+                with st.expander(f"📅 月報（{scan.get('monthly_report_date', '')}）"):
+                    st.text(monthly_report)
+
+    if morning_report or us_scan.get("signals") or briefing or weekly_report or monthly_report:
+        st.markdown("---")
+
     # ── 技術訊號 ──────────────────────────────────
     buys  = scan.get("buy_signals", [])
     sells = scan.get("sell_signals", [])
@@ -376,6 +426,18 @@ with tab_today:
                 st.error(f"載入失敗：{e}")
     else:
         st.caption("點擊上方按鈕載入盤後異動（約需 30 秒）")
+
+    # ── 排程彙整報告（push_handler.py：週報/盤後/持倉，若有排程觸發）──
+    push_reports = _load_json_file("push_reports.json")
+    if push_reports:
+        st.markdown("---")
+        st.subheader("🗂️ 排程彙整報告")
+        _report_labels = {"weekly": "週報（板塊輪動/相關性）", "aftermarket": "盤後異動",
+                           "portfolio": "持倉快照", "afternoon": "下午報告"}
+        for key, label in _report_labels.items():
+            if push_reports.get(key):
+                with st.expander(f"{label}（{push_reports.get(f'{key}_time', '')}）"):
+                    st.text(push_reports[key])
 
     st.markdown("---")
     st.caption("⚠️ 技術訊號與當沖候選使用 T+1 資料，盤後異動為即時計算。僅供參考，不構成投資建議。")
@@ -634,14 +696,6 @@ with tab2:
 
             st.dataframe(filtered.style.apply(hl, axis=1), use_container_width=True, hide_index=True)
 
-            if st.button("推播達標訊號到 LINE"):
-                sent = 0
-                for _, r in filtered.iterrows():
-                    if r["訊號"] != "無":
-                        sp = [{"type":"buy" if r["訊號分數"]>0 else "sell","msg":m} for m in r["訊號"].split(" | ")]
-                        if send(build_signal_message(r["名稱"],r["代碼"],sp,r["現價"],r["漲跌%"])): sent+=1
-                st.success(f"已推播 {sent} 則") if sent else st.warning("無訊號或推播失敗")
-
 # ══════════════════════════════════════════════════
 # Tab 3：個股分析
 # ══════════════════════════════════════════════════
@@ -719,16 +773,10 @@ with tab3:
             c_ = "green" if s["type"]=="buy" else ("red" if s["type"]=="sell" else "orange")
             lbl= "買進"  if s["type"]=="buy" else ("賣出" if s["type"]=="sell" else "觀察")
             st.markdown(f":{c_}[**[{lbl}] {s['indicator']}**] — {s['msg']}")
-        col_pb, col_log = st.columns(2)
-        with col_pb:
-            if st.button("推播此訊號到 LINE"):
-                msg = build_signal_message(selected_name, ticker, signals, price, chg)
-                st.success("已推播！") if send(msg) else st.error("推播失敗")
-        with col_log:
-            sig_type = "buy" if sc > 0 else "sell"
-            if st.button("記錄此訊號到歷史"):
-                save_signal(selected_name, ticker, sig_type, price, signals)
-                st.success("已記錄")
+        sig_type = "buy" if sc > 0 else "sell"
+        if st.button("記錄此訊號到歷史"):
+            save_signal(selected_name, ticker, sig_type, price, signals)
+            st.success("已記錄")
     else:
         st.info("目前無明確訊號")
 
@@ -1032,12 +1080,6 @@ with tab6:
                 return [""] * len(row)
 
             st.dataframe(df_dt.style.apply(dt_color, axis=1), use_container_width=True, hide_index=True)
-
-            # 推播
-            st.markdown("---")
-            if st.button("📲 推播 Top5 到 LINE", key="dt_push"):
-                msg = build_daytrade_message(candidates[:5], __import__("datetime").datetime.now().strftime("%m/%d"))
-                st.success("已推播！") if send(msg) else st.error("推播失敗，請確認 LINE Token")
 
             # 分數結構圖（前三名）
             if len(candidates) >= 1:

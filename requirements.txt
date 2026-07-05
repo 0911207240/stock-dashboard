@@ -7,7 +7,6 @@ requests
 python-dotenv
 ta
 plotly
-Pillow
 flask
 gunicorn
 google-api-python-client

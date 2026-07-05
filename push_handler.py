@@ -1,14 +1,74 @@
-"""推播入口 — 早盤委派 scanner.py，盤後 / 週報由本模組處理"""
+"""報告入口 — 早盤委派 scanner.py，盤後 / 週報由本模組處理，結果存入 push_reports.json 供儀表板顯示"""
+import json
 import sys
 from datetime import datetime
+from pathlib import Path
 
 from tw_calendar import is_trading_day
 from data_fetcher import fetch_all, WATCHLIST, SECTORS
-from line_notifier import send, build_weekly_message
 from sector_rotation import (
     calc_sector_momentum, build_sector_weekly_report,
     calc_holding_correlation, build_correlation_warning,
 )
+
+_REPORTS_FILE = Path("push_reports.json")
+
+
+def _save_report(key: str, text: str):
+    try:
+        data = json.loads(_REPORTS_FILE.read_text(encoding="utf-8")) if _REPORTS_FILE.exists() else {}
+    except Exception:
+        data = {}
+    data[key] = text
+    data[f"{key}_time"] = datetime.now().strftime("%Y-%m-%d %H:%M")
+    _REPORTS_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+
+
+def build_weekly_message(weekly: list[dict], date_str: str,
+                         sector_report: str = "", corr_warning: str = "") -> str:
+    """週報：漲跌排行 + 強勢/弱勢股彙整"""
+    sorted_w = sorted(weekly, key=lambda x: x["chg_w"], reverse=True)
+    gainers  = [x for x in sorted_w if x["chg_w"] > 0][:5]
+    losers   = [x for x in reversed(sorted_w) if x["chg_w"] < 0][:5]
+
+    strong = [x for x in sorted_w
+              if x["chg_w"] > 1 and x["trend"] == "多" and x["macd_bull"]][:5]
+    weak = [x for x in sorted_w
+            if x["chg_w"] < -1 and x["trend"] == "空"][:5]
+
+    lines = [f"📊 【週報 {date_str}】監測 {len(weekly)} 檔", ""]
+
+    if gainers:
+        lines.append("🔥 本週漲幅 Top5")
+        for i, x in enumerate(gainers, 1):
+            lines.append(f"  {i}. {x['name']} ${x['close']:.1f}  +{x['chg_w']:.1f}%")
+        lines.append("")
+
+    if losers:
+        lines.append("📉 本週跌幅 Top5")
+        for i, x in enumerate(losers, 1):
+            lines.append(f"  {i}. {x['name']} ${x['close']:.1f}  {x['chg_w']:.1f}%")
+        lines.append("")
+
+    if strong:
+        lines.append("✅ 強勢股（漲＋多頭＋MACD多）")
+        for x in strong:
+            lines.append(f"  {x['name']}  RSI {x['rsi']:.0f}  週漲 +{x['chg_w']:.1f}%")
+        lines.append("")
+
+    if weak:
+        lines.append("⚠️ 弱勢股（跌＋空頭排列）")
+        for x in weak:
+            lines.append(f"  {x['name']}  RSI {x['rsi']:.0f}  週跌 {x['chg_w']:.1f}%")
+        lines.append("")
+
+    if sector_report:
+        lines.append(sector_report)
+    if corr_warning:
+        lines.append(corr_warning)
+    lines.append("")
+    lines.append("⚠️ 資料 T+1，僅供參考")
+    return "\n".join(lines)
 
 
 def run_push(push_type: str = "morning") -> str:
@@ -95,8 +155,8 @@ def _run_weekly_push() -> str:
     msg = build_weekly_message(weekly, date_str,
                                sector_report=sector_report,
                                corr_warning=corr_warning)
-    send(msg)
-    return f"週報推播完成，共 {len(weekly)} 檔"
+    _save_report("weekly", msg)
+    return f"週報已存入 push_reports.json，共 {len(weekly)} 檔"
 
 
 def _run_aftermarket_push() -> str:
@@ -169,8 +229,8 @@ def _run_aftermarket_push() -> str:
             )
 
     lines.append("\n⚠️ 資料 T+1，僅供參考")
-    send("\n".join(lines))
-    return f"盤後推播：強勢 {len(gainers)} 檔 / 弱勢 {len(losers)} 檔 / 爆量 {len(surge)} 檔"
+    _save_report("aftermarket", "\n".join(lines))
+    return f"盤後彙整已存入 push_reports.json：強勢 {len(gainers)} 檔 / 弱勢 {len(losers)} 檔 / 爆量 {len(surge)} 檔"
 
 
 def _run_portfolio_push() -> str:
@@ -210,10 +270,10 @@ def _run_portfolio_push() -> str:
         parts.append(div_msg)
 
     if parts:
-        send("\n\n".join(parts))
+        _save_report("portfolio", "\n\n".join(parts))
 
     date_str = datetime.now().strftime("%m/%d")
-    return f"持倉推播完成（{date_str}）"
+    return f"持倉快照已存入 push_reports.json（{date_str}）"
 
 
 def _run_afternoon_push() -> str:
@@ -301,8 +361,8 @@ def _run_afternoon_push() -> str:
         lines.append(f"（持倉資料抓取失敗：{e}）")
 
     lines.append("\n⚠️ 資料 T+1，僅供參考")
-    send("\n".join(lines))
-    return f"下午報告推播：強勢 {len(gainers)} 檔 / 弱勢 {len(losers)} 檔 / 爆量 {len(surge)} 檔"
+    _save_report("afternoon", "\n".join(lines))
+    return f"下午報告已存入 push_reports.json：強勢 {len(gainers)} 檔 / 弱勢 {len(losers)} 檔 / 爆量 {len(surge)} 檔"
 
 
 if __name__ == "__main__":

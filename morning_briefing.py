@@ -5,6 +5,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 
 _LOCK_FILE = Path("briefing_lock.json")
+_BRIEFING_FILE = Path("morning_briefing.json")
 
 
 def _done_today() -> bool:
@@ -77,9 +78,16 @@ def run_morning_briefing(notify: bool = True):
     print(f"  日報內容共 {len(combined)} 字")
 
     if notify:
-        from line_notifier import send
-        success = send(combined)
-        print(f"  早安日報：{'已推播' if success else '推播失敗'}")
+        _BRIEFING_FILE.write_text(json.dumps({
+            "date":      now.strftime("%Y-%m-%d"),
+            "timestamp": now.strftime("%Y-%m-%d %H:%M"),
+            "us_summary": us_summary,
+            "fx":         fx_text,
+            "news":       news_text,
+            "trends":     trends_text,
+            "gmail":      gmail_text,
+        }, ensure_ascii=False, indent=2))
+        print("  早安日報 → 存入 morning_briefing.json")
     else:
         print(combined)
 

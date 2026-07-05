@@ -19,8 +19,6 @@ from twse_announcements import build_announcement_alert
 from earnings_calendar import build_earnings_alert, has_earnings_risk
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
-from line_notifier import send, build_signal_message, build_summary_message, build_daytrade_message
-from image_notifier import send_daytrade_image
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message, build_rebalance_alert, build_correlation_alert
 from daytrade_scorer import get_daytrade_candidates
 from push_cooldown import is_cooled_down, mark_pushed
@@ -30,8 +28,17 @@ from backtest import auto_update_weights
 from fundamental_filter import prefetch_all
 from market_regime import detect_regime
 
-_DASHBOARD_URL = "https://stock-dashboard-ui.onrender.com"
 _SCAN_RESULTS  = Path("scan_results.json")
+
+
+def _patch_scan_results(patch: dict):
+    """合併寫入 scan_results.json（供早盤警示/週報/月報等非同時產生的區塊使用）"""
+    try:
+        data = json.loads(_SCAN_RESULTS.read_text(encoding="utf-8")) if _SCAN_RESULTS.exists() else {}
+    except Exception:
+        data = {}
+    data.update(patch)
+    _SCAN_RESULTS.write_text(json.dumps(data, ensure_ascii=False, indent=2))
 
 
 def _save_scan_results(found: list, regime: dict, daytrade: list):
@@ -201,11 +208,27 @@ def run_scan(min_score: int = 2, notify: bool = True):
                 morning_parts.append(corr_msg)
                 print("  持股相關性警報")
 
-            if morning_parts:
-                combined = "\n\n".join(morning_parts)
-                combined += f"\n\n📊 技術訊號＆當沖詳情\n{_DASHBOARD_URL}"
-                success = send(combined)
-                print(f"  早盤報告（{len(morning_parts)} 項合併）：{'已推播' if success else '推播失敗'}")
+            morning_sections = {}
+            if alert_msg:
+                morning_sections["alert"] = alert_msg
+            morning_sections["portfolio"] = portfolio_msg
+            if div_msg:
+                morning_sections["dividend"] = div_msg
+            if ann_msg:
+                morning_sections["announcement"] = ann_msg
+            if earn_msg:
+                morning_sections["earnings"] = earn_msg
+            if rebal_msg:
+                morning_sections["rebalance"] = rebal_msg
+            if corr_msg:
+                morning_sections["correlation"] = corr_msg
+
+            if morning_sections:
+                _patch_scan_results({
+                    "morning_report":      morning_sections,
+                    "morning_report_time": now.strftime("%Y-%m-%d %H:%M"),
+                })
+                print(f"  早盤報告（{len(morning_sections)} 項）→ 存入 scan_results.json")
 
             _mark_morning_done()
 
@@ -347,8 +370,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
             stats_lines.append(f"  權重未更新：{wt.get('reason', '')}")
 
         if stats["total"] >= 5 or wt["updated"]:
-            send("\n".join(stats_lines))
-            print(f"  週報已推播（勝率 {stats['win_rate']}%）")
+            _patch_scan_results({
+                "weekly_report":      "\n".join(stats_lines),
+                "weekly_report_date": datetime.now().strftime("%Y-%m-%d"),
+            })
+            print(f"  週報已存入 scan_results.json（勝率 {stats['win_rate']}%）")
 
     # 每月 1 日：月報
     if notify and datetime.now().day == 1:
@@ -382,8 +408,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
         else:
             mlines.append("\n【當月當沖】無已結案紀錄")
 
-        send("\n".join(mlines))
-        print(f"  月報已推播（{mperf['month_str']}）")
+        _patch_scan_results({
+            "monthly_report":      "\n".join(mlines),
+            "monthly_report_date": mperf["month_str"],
+        })
+        print(f"  月報已存入 scan_results.json（{mperf['month_str']}）")
 
     # 大盤快照（每次掃描都存，供復盤）
     if not taiex_df.empty:

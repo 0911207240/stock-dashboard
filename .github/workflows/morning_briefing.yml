@@ -29,9 +29,6 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run morning briefing
-        env:
-          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
-          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python morning_briefing.py
 
       - name: Notify failure
@@ -49,7 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in briefing_lock.json exchange_cache.json gmail_cache.json; do
+          for f in briefing_lock.json exchange_cache.json gmail_cache.json morning_briefing.json; do
             [ -f "$f" ] && git add "$f"
           done
           git diff --cached --quiet || git commit -m "chore: update briefing state [skip ci]"

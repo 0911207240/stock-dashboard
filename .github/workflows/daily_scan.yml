@@ -45,10 +45,6 @@ jobs:
         run: pip install --upgrade setuptools && pip install -r requirements.txt
 
       - name: Run scan
-        env:
-          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
-          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
-          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
         run: python scanner.py
 
       - name: Notify failure

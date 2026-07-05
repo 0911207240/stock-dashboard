@@ -40,9 +40,6 @@ jobs:
         run: pip install --upgrade setuptools && pip install -r requirements.txt
 
       - name: Run US scan
-        env:
-          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
-          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python us_scanner.py
 
       - name: Notify failure
@@ -60,7 +57,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json; do
+          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json us_scan_results.json; do
             [ -f "$f" ] && git add "$f"
           done
           git diff --cached --quiet || git commit -m "chore: update state [skip ci]"
