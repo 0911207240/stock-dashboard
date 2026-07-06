@@ -1,0 +1,18 @@
+{
+  "date": "2026-07-07",
+  "timestamp": "2026-07-07 06:44",
+  "signals": [
+    {
+      "name": "ASML",
+      "ticker": "ASML",
+      "score": 2,
+      "price": 1825.07,
+      "change_pct": 3.15,
+      "vol_ratio": 0.81,
+      "signals": [
+        "KD 黃金交叉 (K=35.1)",
+        "威廉%R 超賣反彈 (-64.9)"
+      ]
+    }
+  ]
+}
