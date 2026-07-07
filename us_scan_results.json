@@ -1,17 +1,17 @@
 {
-  "date": "2026-07-07",
-  "timestamp": "2026-07-07 06:44",
+  "date": "2026-07-08",
+  "timestamp": "2026-07-08 06:35",
   "signals": [
     {
-      "name": "ASML",
-      "ticker": "ASML",
-      "score": 2,
-      "price": 1825.07,
-      "change_pct": 3.15,
-      "vol_ratio": 0.81,
+      "name": "蘋果",
+      "ticker": "AAPL",
+      "score": -2,
+      "price": 310.66,
+      "change_pct": -0.64,
+      "vol_ratio": 0.74,
       "signals": [
-        "KD 黃金交叉 (K=35.1)",
-        "威廉%R 超賣反彈 (-64.9)"
+        "KD 死亡交叉 (K=88.4)",
+        "布林通道上軌回落"
       ]
     }
   ]
