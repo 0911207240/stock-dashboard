@@ -281,5 +281,20 @@
     ],
     "portfolio_value": 1270314.0,
     "portfolio_pnl": 389994.0
+  },
+  {
+    "date": "2026-07-07",
+    "taiex_close": 45904.4,
+    "taiex_chg_pct": -1.4,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 31,
+    "top_sectors": [
+      "石化",
+      "封裝測試績優",
+      "AI概念"
+    ],
+    "portfolio_value": 1256087.0,
+    "portfolio_pnl": 375767.0
   }
 ]

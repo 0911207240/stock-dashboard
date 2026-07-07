@@ -2361,9 +2361,9 @@
     "stop": 24.53,
     "tp1": 24.88,
     "tp2": 24.95,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 24.55,
+    "return_pct": -0.49
   },
   {
     "push_date": "2026-07-01",
@@ -2375,9 +2375,9 @@
     "stop": 64.3,
     "tp1": 67.53,
     "tp2": 68.17,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 65.8,
+    "return_pct": 0.32
   },
   {
     "push_date": "2026-07-01",
@@ -2473,9 +2473,9 @@
     "stop": 17.47,
     "tp1": 18.14,
     "tp2": 18.28,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 17.95,
+    "return_pct": 1.18
   },
   {
     "push_date": "2026-07-02",
@@ -2529,9 +2529,9 @@
     "stop": 27.48,
     "tp1": 28.88,
     "tp2": 29.16,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 28.88,
+    "return_pct": 3.0
   },
   {
     "push_date": "2026-07-03",
@@ -2543,6 +2543,76 @@
     "stop": 59.21,
     "tp1": 62.23,
     "tp2": 62.6,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-07",
+    "name": "中信金",
+    "ticker": "2891.TW",
+    "score": 74,
+    "price": 71.0999984741211,
+    "entry_mid": 70.91,
+    "stop": 70.27,
+    "tp1": 71.87,
+    "tp2": 72.19,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-07",
+    "name": "國泰永續高股息",
+    "ticker": "00878.TW",
+    "score": 73,
+    "price": 33.06999969482422,
+    "entry_mid": 32.82,
+    "stop": 32.83,
+    "tp1": 32.84,
+    "tp2": 32.84,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-07",
+    "name": "元大高股息",
+    "ticker": "0056.TW",
+    "score": 70,
+    "price": 52.400001525878906,
+    "entry_mid": 52.01,
+    "stop": 51.86,
+    "tp1": 52.23,
+    "tp2": 52.31,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-07",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 69,
+    "price": 38.70000076293945,
+    "entry_mid": 38.41,
+    "stop": 37.64,
+    "tp1": 39.56,
+    "tp2": 39.95,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-07",
+    "name": "中鋼",
+    "ticker": "2002.TW",
+    "score": 75,
+    "price": 18.700000762939453,
+    "entry_mid": 18.56,
+    "stop": 18.52,
+    "tp1": 18.62,
+    "tp2": 18.64,
     "result": null,
     "exit_price": null,
     "return_pct": null
