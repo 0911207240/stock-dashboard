@@ -2431,9 +2431,9 @@
     "stop": 30.23,
     "tp1": 31.78,
     "tp2": 32.09,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 31.34,
+    "return_pct": 1.59
   },
   {
     "push_date": "2026-07-02",
@@ -2459,9 +2459,9 @@
     "stop": 18.87,
     "tp1": 19.79,
     "tp2": 19.98,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 19.51,
+    "return_pct": 1.4
   },
   {
     "push_date": "2026-07-02",
@@ -2557,9 +2557,9 @@
     "stop": 70.27,
     "tp1": 71.87,
     "tp2": 72.19,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 70.27,
+    "return_pct": -0.9
   },
   {
     "push_date": "2026-07-07",
@@ -2571,9 +2571,9 @@
     "stop": 32.83,
     "tp1": 32.84,
     "tp2": 32.84,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 32.83,
+    "return_pct": 0.03
   },
   {
     "push_date": "2026-07-07",
@@ -2585,9 +2585,9 @@
     "stop": 51.86,
     "tp1": 52.23,
     "tp2": 52.31,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 51.86,
+    "return_pct": -0.29
   },
   {
     "push_date": "2026-07-07",
@@ -2613,6 +2613,76 @@
     "stop": 18.52,
     "tp1": 18.62,
     "tp2": 18.64,
+    "result": "停利②",
+    "exit_price": 18.64,
+    "return_pct": 0.43
+  },
+  {
+    "push_date": "2026-07-08",
+    "name": "玉山金",
+    "ticker": "2884.TW",
+    "score": 72,
+    "price": 34.849998474121094,
+    "entry_mid": 34.76,
+    "stop": 34.11,
+    "tp1": 35.73,
+    "tp2": 36.06,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-08",
+    "name": "復華台灣科技優息",
+    "ticker": "00929.TW",
+    "score": 65,
+    "price": 30.219999313354492,
+    "entry_mid": 30.16,
+    "stop": 29.56,
+    "tp1": 31.06,
+    "tp2": 31.36,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-08",
+    "name": "富邦特選高股息30",
+    "ticker": "00900.TW",
+    "score": 68,
+    "price": 19.09000015258789,
+    "entry_mid": 18.95,
+    "stop": 18.67,
+    "tp1": 19.37,
+    "tp2": 19.51,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-08",
+    "name": "富邦金",
+    "ticker": "2881.TW",
+    "score": 61,
+    "price": 125.0,
+    "entry_mid": 124.06,
+    "stop": 121.58,
+    "tp1": 127.78,
+    "tp2": 129.02,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-08",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 59,
+    "price": 18.149999618530273,
+    "entry_mid": 18.07,
+    "stop": 17.81,
+    "tp1": 18.46,
+    "tp2": 18.54,
     "result": null,
     "exit_price": null,
     "return_pct": null
