@@ -1,42 +1,17 @@
 {
-  "date": "2026-07-09",
-  "timestamp": "2026-07-09 06:31",
+  "date": "2026-07-10",
+  "timestamp": "2026-07-10 06:48",
   "signals": [
     {
-      "name": "Meta",
-      "ticker": "META",
-      "score": -3,
-      "price": 603.12,
-      "change_pct": -2.02,
-      "vol_ratio": 0.57,
-      "signals": [
-        "KD 死亡交叉 (K=71.4)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-28.6)"
-      ]
-    },
-    {
-      "name": "應用材料",
-      "ticker": "AMAT",
+      "name": "ASML",
+      "ticker": "ASML",
       "score": 2,
-      "price": 570.5,
-      "change_pct": 2.89,
-      "vol_ratio": 0.63,
+      "price": 1804.25,
+      "change_pct": 2.01,
+      "vol_ratio": 0.81,
       "signals": [
-        "KD 黃金交叉 (K=20.2)",
-        "威廉%R 超賣反彈 (-79.8)"
-      ]
-    },
-    {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
-      "score": -2,
-      "price": 243.62,
-      "change_pct": -0.96,
-      "vol_ratio": 0.66,
-      "signals": [
-        "KD 死亡交叉 (K=74.8)",
-        "威廉%R 超買回落 (-25.2)"
+        "KD 黃金交叉 (K=30.8)",
+        "威廉%R 超賣反彈 (-69.2)"
       ]
     }
   ]
