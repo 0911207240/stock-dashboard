@@ -2543,9 +2543,9 @@
     "stop": 59.21,
     "tp1": 62.23,
     "tp2": 62.6,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 61.0,
+    "return_pct": 0.96
   },
   {
     "push_date": "2026-07-07",
@@ -2599,9 +2599,9 @@
     "stop": 37.64,
     "tp1": 39.56,
     "tp2": 39.95,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 39.56,
+    "return_pct": 2.99
   },
   {
     "push_date": "2026-07-07",
@@ -2669,9 +2669,9 @@
     "stop": 121.58,
     "tp1": 127.78,
     "tp2": 129.02,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 127.78,
+    "return_pct": 3.0
   },
   {
     "push_date": "2026-07-08",
@@ -2683,6 +2683,48 @@
     "stop": 17.81,
     "tp1": 18.46,
     "tp2": 18.54,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-09",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 73,
+    "price": 18.0,
+    "entry_mid": 17.87,
+    "stop": 17.85,
+    "tp1": 17.9,
+    "tp2": 17.91,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-09",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 60,
+    "price": 68.69999694824219,
+    "entry_mid": 68.18,
+    "stop": 67.95,
+    "tp1": 68.53,
+    "tp2": 68.59,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-09",
+    "name": "開發金",
+    "ticker": "2883.TW",
+    "score": 58,
+    "price": 30.200000762939453,
+    "entry_mid": 29.98,
+    "stop": 29.39,
+    "tp1": 30.87,
+    "tp2": 31.04,
     "result": null,
     "exit_price": null,
     "return_pct": null
