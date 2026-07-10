@@ -326,5 +326,20 @@
     ],
     "portfolio_value": 1266871.0,
     "portfolio_pnl": 386551.0
+  },
+  {
+    "date": "2026-07-10",
+    "taiex_close": 45354.61,
+    "taiex_chg_pct": -0.83,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 32,
+    "top_sectors": [
+      "封裝測試績優",
+      "石化",
+      "網通設備"
+    ],
+    "portfolio_value": 1256624.0,
+    "portfolio_pnl": 376304.0
   }
 ]

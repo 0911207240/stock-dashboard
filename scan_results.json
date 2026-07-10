@@ -1,189 +1,34 @@
 {
-  "date": "2026-07-09",
-  "timestamp": "2026-07-09 15:03",
+  "date": "2026-07-10",
+  "timestamp": "2026-07-10 14:19",
   "regime": {
-    "state": "多頭",
-    "emoji": "🟢"
+    "state": "盤整",
+    "emoji": "🟡"
   },
   "buy_signals": [
     {
-      "name": "元大高股息",
-      "ticker": "0056.TW",
-      "score": 1,
-      "price": 52.849998474121094,
-      "change_pct": 1.34,
-      "vol_ratio": 0.47,
-      "is_holding": true,
-      "signals": [
-        "KD 黃金交叉 (K=42.3)"
-      ]
-    },
-    {
-      "name": "東泥",
-      "ticker": "1110.TW",
+      "name": "ASML",
+      "ticker": "ASML",
       "score": 2,
-      "price": 15.699999809265137,
-      "change_pct": 0.32,
-      "vol_ratio": 0.32,
+      "price": 1804.25,
+      "change_pct": 2.01,
+      "vol_ratio": 0.82,
       "is_holding": false,
       "signals": [
-        "MACD 黃金交叉",
-        "均線剛形成多頭排列 (MA5>MA20>MA60)"
-      ]
-    },
-    {
-      "name": "國泰永續高股息",
-      "ticker": "00878.TW",
-      "score": 1,
-      "price": 33.29999923706055,
-      "change_pct": 1.0,
-      "vol_ratio": 0.69,
-      "is_holding": true,
-      "signals": [
-        "KD 黃金交叉 (K=32.0)"
-      ]
-    },
-    {
-      "name": "台達電",
-      "ticker": "2308.TW",
-      "score": 2,
-      "price": 1900.0,
-      "change_pct": 0.8,
-      "vol_ratio": 0.66,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=31.9)",
-        "威廉%R 超賣反彈 (-76.5)"
-      ]
-    },
-    {
-      "name": "應用材料",
-      "ticker": "AMAT",
-      "score": 2,
-      "price": 570.5,
-      "change_pct": 2.89,
-      "vol_ratio": 0.63,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=20.2)",
-        "威廉%R 超賣反彈 (-79.8)"
-      ]
-    },
-    {
-      "name": "中華電",
-      "ticker": "2412.TW",
-      "score": 2,
-      "price": 133.5,
-      "change_pct": -0.6,
-      "vol_ratio": 2.01,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=4.0)",
-        "布林通道下軌反彈"
-      ]
-    },
-    {
-      "name": "南亞科",
-      "ticker": "2408.TW",
-      "score": 2,
-      "price": 435.5,
-      "change_pct": 9.97,
-      "vol_ratio": 1.21,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=41.6)",
-        "威廉%R 超賣反彈 (-61.0)"
-      ]
-    },
-    {
-      "name": "華邦電",
-      "ticker": "2344.TW",
-      "score": 2,
-      "price": 180.0,
-      "change_pct": 6.82,
-      "vol_ratio": 0.92,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=25.0)",
-        "威廉%R 超賣反彈 (-78.1)"
-      ]
-    },
-    {
-      "name": "世芯-KY",
-      "ticker": "3661.TW",
-      "score": 2,
-      "price": 4270.0,
-      "change_pct": 5.04,
-      "vol_ratio": 0.65,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=39.2)",
-        "威廉%R 超賣反彈 (-60.8)"
-      ]
-    },
-    {
-      "name": "中磊",
-      "ticker": "5388.TW",
-      "score": 2,
-      "price": 85.19999694824219,
-      "change_pct": 2.53,
-      "vol_ratio": 1.06,
-      "is_holding": false,
-      "signals": [
-        "MACD 黃金交叉",
-        "均線剛形成多頭排列 (MA5>MA20>MA60)"
+        "KD 黃金交叉 (K=30.8)",
+        "威廉%R 超賣反彈 (-69.2)"
       ]
     },
     {
       "name": "昆盈",
       "ticker": "2365.TW",
       "score": 1,
-      "price": 33.0,
-      "change_pct": 3.12,
-      "vol_ratio": 0.59,
+      "price": 32.5,
+      "change_pct": 1.56,
+      "vol_ratio": 0.64,
       "is_holding": true,
       "signals": [
-        "KD 黃金交叉 (K=40.0)"
-      ]
-    },
-    {
-      "name": "嘉晶",
-      "ticker": "3016.TW",
-      "score": 2,
-      "price": 125.0,
-      "change_pct": 4.17,
-      "vol_ratio": 0.53,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=26.7)",
-        "威廉%R 超賣反彈 (-73.3)"
-      ]
-    },
-    {
-      "name": "光磊",
-      "ticker": "2340.TW",
-      "score": 3,
-      "price": 37.599998474121094,
-      "change_pct": 2.17,
-      "vol_ratio": 0.4,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=25.7)",
-        "均線剛形成多頭排列 (MA5>MA20>MA60)",
-        "威廉%R 超賣反彈 (-77.4)"
-      ]
-    },
-    {
-      "name": "遠傳",
-      "ticker": "4904.TW",
-      "score": 2,
-      "price": 94.80000305175781,
-      "change_pct": 1.72,
-      "vol_ratio": 0.43,
-      "is_holding": false,
-      "signals": [
-        "RSI 從超賣區回升 (34.0)",
-        "KD 黃金交叉 (K=16.5)"
+        "KD 黃金交叉 (K=30.6)"
       ]
     }
   ],
@@ -192,144 +37,181 @@
       "name": "台積電",
       "ticker": "2330.TW",
       "score": -1,
-      "price": 2440.0,
-      "change_pct": -1.01,
-      "vol_ratio": 0.82,
+      "price": 2415.0,
+      "change_pct": -2.03,
+      "vol_ratio": 1.14,
       "is_holding": true,
       "signals": [
         "MACD 死亡交叉"
       ]
     },
     {
-      "name": "華南金",
-      "ticker": "2880.TW",
-      "score": -1,
-      "price": 39.25,
-      "change_pct": -1.13,
-      "vol_ratio": 0.38,
-      "is_holding": true,
-      "signals": [
-        "KD 死亡交叉 (K=82.9)"
-      ]
-    },
-    {
       "name": "元大金",
       "ticker": "2885.TW",
       "score": -4,
-      "price": 68.69999694824219,
-      "change_pct": -3.92,
-      "vol_ratio": 0.79,
+      "price": 68.30000305175781,
+      "change_pct": -4.48,
+      "vol_ratio": 1.13,
       "is_holding": false,
       "signals": [
-        "RSI 從超買區回落 (61.3)",
+        "RSI 從超買區回落 (60.2)",
         "MACD 死亡交叉",
         "布林通道上軌回落",
-        "威廉%R 超買回落 (-48.0)"
+        "威廉%R 超買回落 (-51.9)"
+      ]
+    },
+    {
+      "name": "華南金",
+      "ticker": "2880.TW",
+      "score": -2,
+      "price": 38.849998474121094,
+      "change_pct": -2.14,
+      "vol_ratio": 0.66,
+      "is_holding": true,
+      "signals": [
+        "KD 死亡交叉 (K=71.2)",
+        "威廉%R 超買回落 (-27.6)"
+      ]
+    },
+    {
+      "name": "台塑化",
+      "ticker": "6505.TW",
+      "score": -2,
+      "price": 58.79999923706055,
+      "change_pct": -1.01,
+      "vol_ratio": 0.83,
+      "is_holding": false,
+      "signals": [
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-25.0)"
       ]
     },
     {
       "name": "第一金",
       "ticker": "2892.TW",
       "score": -1,
-      "price": 33.75,
-      "change_pct": -1.03,
-      "vol_ratio": 0.31,
+      "price": 33.599998474121094,
+      "change_pct": -1.47,
+      "vol_ratio": 0.47,
       "is_holding": true,
       "signals": [
-        "KD 死亡交叉 (K=81.4)"
+        "KD 死亡交叉 (K=74.4)"
       ]
     },
     {
-      "name": "Meta",
-      "ticker": "META",
-      "score": -3,
-      "price": 603.1199951171875,
-      "change_pct": -2.02,
-      "vol_ratio": 0.58,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=71.4)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-28.6)"
-      ]
-    },
-    {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
+      "name": "永豐金",
+      "ticker": "2890.TW",
       "score": -2,
-      "price": 243.6199951171875,
-      "change_pct": -0.96,
-      "vol_ratio": 0.7,
+      "price": 40.45000076293945,
+      "change_pct": -3.46,
+      "vol_ratio": 0.78,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=74.8)",
-        "威廉%R 超買回落 (-25.2)"
+        "RSI 從超買區回落 (68.9)",
+        "威廉%R 超買回落 (-22.8)"
       ]
     },
     {
       "name": "臺企銀",
       "ticker": "2834.TW",
       "score": -3,
-      "price": 18.0,
-      "change_pct": -1.37,
-      "vol_ratio": 0.6,
+      "price": 17.950000762939453,
+      "change_pct": -1.64,
+      "vol_ratio": 0.76,
       "is_holding": false,
       "signals": [
-        "RSI 從超買區回落 (63.9)",
-        "KD 死亡交叉 (K=66.7)",
-        "威廉%R 超買回落 (-27.8)"
+        "RSI 從超買區回落 (62.9)",
+        "KD 死亡交叉 (K=62.5)",
+        "威廉%R 超買回落 (-28.6)"
       ]
     },
     {
       "name": "開發金",
       "ticker": "2883.TW",
       "score": -2,
-      "price": 30.200000762939453,
-      "change_pct": -1.63,
-      "vol_ratio": 0.49,
+      "price": 30.049999237060547,
+      "change_pct": -2.12,
+      "vol_ratio": 0.59,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=72.2)",
-        "威廉%R 超買回落 (-27.8)"
+        "KD 死亡交叉 (K=56.6)",
+        "威廉%R 超買回落 (-36.5)"
+      ]
+    },
+    {
+      "name": "聯茂",
+      "ticker": "6213.TW",
+      "score": -2,
+      "price": 385.0,
+      "change_pct": -2.16,
+      "vol_ratio": 0.93,
+      "is_holding": false,
+      "signals": [
+        "RSI 從超買區回落 (68.7)",
+        "威廉%R 超買回落 (-23.0)"
       ]
     }
   ],
   "daytrade": [
     {
-      "name": "臺企銀",
-      "ticker": "2834.TW",
-      "score": 73,
-      "price": 18.0,
-      "change_pct": -1.37,
-      "entry_mid": 17.87,
-      "stop": 17.85,
-      "tp1": 17.9,
-      "tp2": 17.91,
-      "vol_ratio": 0.6
+      "name": "台灣大",
+      "ticker": "3045.TW",
+      "score": 83,
+      "price": 108.5,
+      "change_pct": 0.23,
+      "entry_mid": 107.69,
+      "stop": 105.73,
+      "tp1": 110.63,
+      "tp2": 111.61,
+      "vol_ratio": 2.23
     },
     {
-      "name": "元大金",
-      "ticker": "2885.TW",
+      "name": "國泰永續高股息",
+      "ticker": "00878.TW",
+      "score": 70,
+      "price": 33.2,
+      "change_pct": 0.7,
+      "entry_mid": 33.12,
+      "stop": 32.53,
+      "tp1": 34.0,
+      "tp2": 34.3,
+      "vol_ratio": 0.72
+    },
+    {
+      "name": "中鋼",
+      "ticker": "2002.TW",
+      "score": 71,
+      "price": 18.55,
+      "change_pct": -0.8,
+      "entry_mid": 18.46,
+      "stop": 18.43,
+      "tp1": 18.51,
+      "tp2": 18.52,
+      "vol_ratio": 0.93
+    },
+    {
+      "name": "元大高股息",
+      "ticker": "0056.TW",
       "score": 60,
-      "price": 68.7,
-      "change_pct": -3.92,
-      "entry_mid": 68.18,
-      "stop": 67.95,
-      "tp1": 68.53,
-      "tp2": 68.59,
-      "vol_ratio": 0.79
+      "price": 52.35,
+      "change_pct": 0.38,
+      "entry_mid": 52.26,
+      "stop": 51.24,
+      "tp1": 53.79,
+      "tp2": 54.3,
+      "vol_ratio": 0.82
     },
     {
-      "name": "開發金",
-      "ticker": "2883.TW",
-      "score": 58,
-      "price": 30.2,
-      "change_pct": -1.63,
-      "entry_mid": 29.98,
-      "stop": 29.39,
-      "tp1": 30.87,
-      "tp2": 31.04,
-      "vol_ratio": 0.49
+      "name": "華南金",
+      "ticker": "2880.TW",
+      "score": 60,
+      "price": 38.85,
+      "change_pct": -2.14,
+      "entry_mid": 38.77,
+      "stop": 38.47,
+      "tp1": 39.22,
+      "tp2": 39.31,
+      "vol_ratio": 0.66
     }
   ]
 }
