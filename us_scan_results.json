@@ -1,17 +1,30 @@
 {
-  "date": "2026-07-10",
-  "timestamp": "2026-07-10 06:48",
+  "date": "2026-07-11",
+  "timestamp": "2026-07-11 06:31",
   "signals": [
     {
-      "name": "ASML",
-      "ticker": "ASML",
-      "score": 2,
-      "price": 1804.25,
-      "change_pct": 2.01,
-      "vol_ratio": 0.81,
+      "name": "戴爾",
+      "ticker": "DELL",
+      "score": -3,
+      "price": 434.97,
+      "change_pct": -3.39,
+      "vol_ratio": 0.68,
       "signals": [
-        "KD 黃金交叉 (K=30.8)",
-        "威廉%R 超賣反彈 (-69.2)"
+        "KD 死亡交叉 (K=68.8)",
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-31.2)"
+      ]
+    },
+    {
+      "name": "亞馬遜",
+      "ticker": "AMZN",
+      "score": -2,
+      "price": 245.34,
+      "change_pct": -0.69,
+      "vol_ratio": 0.87,
+      "signals": [
+        "KD 死亡交叉 (K=67.0)",
+        "威廉%R 超買回落 (-22.3)"
       ]
     }
   ]
