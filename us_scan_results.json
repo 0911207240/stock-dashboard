@@ -1,30 +1,29 @@
 {
-  "date": "2026-07-11",
-  "timestamp": "2026-07-11 06:31",
+  "date": "2026-07-14",
+  "timestamp": "2026-07-14 06:25",
   "signals": [
     {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": -3,
-      "price": 434.97,
-      "change_pct": -3.39,
-      "vol_ratio": 0.68,
+      "name": "輝達",
+      "ticker": "NVDA",
+      "score": -2,
+      "price": 203.53,
+      "change_pct": -3.52,
+      "vol_ratio": 0.85,
       "signals": [
-        "KD 死亡交叉 (K=68.8)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-31.2)"
+        "KD 死亡交叉 (K=62.4)",
+        "威廉%R 超買回落 (-35.2)"
       ]
     },
     {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
+      "name": "Meta",
+      "ticker": "META",
       "score": -2,
-      "price": 245.34,
-      "change_pct": -0.69,
-      "vol_ratio": 0.87,
+      "price": 656.73,
+      "change_pct": -1.86,
+      "vol_ratio": 0.77,
       "signals": [
-        "KD 死亡交叉 (K=67.0)",
-        "威廉%R 超買回落 (-22.3)"
+        "KD 死亡交叉 (K=83.3)",
+        "布林通道上軌回落"
       ]
     }
   ]
