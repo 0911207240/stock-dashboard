@@ -341,5 +341,20 @@
     ],
     "portfolio_value": 1256624.0,
     "portfolio_pnl": 376304.0
+  },
+  {
+    "date": "2026-07-14",
+    "taiex_close": 43745.56,
+    "taiex_chg_pct": -3.6,
+    "regime": "空頭",
+    "regime_emoji": "🔴",
+    "min_score": 65,
+    "top_sectors": [
+      "石化",
+      "鋼鐵",
+      "水泥"
+    ],
+    "portfolio_value": 1199313.0,
+    "portfolio_pnl": 318993.0
   }
 ]
