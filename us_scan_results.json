@@ -1,77 +1,17 @@
 {
-  "date": "2026-07-15",
-  "timestamp": "2026-07-15 06:29",
+  "date": "2026-07-16",
+  "timestamp": "2026-07-16 06:27",
   "signals": [
     {
-      "name": "微軟",
-      "ticker": "MSFT",
+      "name": "戴爾",
+      "ticker": "DELL",
       "score": -2,
-      "price": 384.93,
-      "change_pct": -1.55,
-      "vol_ratio": 1.0,
+      "price": 412.68,
+      "change_pct": -9.8,
+      "vol_ratio": 1.65,
       "signals": [
-        "KD 死亡交叉 (K=52.1)",
-        "威廉%R 超買回落 (-22.9)"
-      ]
-    },
-    {
-      "name": "美光",
-      "ticker": "MU",
-      "score": 2,
-      "price": 983.12,
-      "change_pct": 4.92,
-      "vol_ratio": 0.84,
-      "signals": [
-        "KD 黃金交叉 (K=44.6)",
-        "威廉%R 超賣反彈 (-74.8)"
-      ]
-    },
-    {
-      "name": "ASML",
-      "ticker": "ASML",
-      "score": 2,
-      "price": 1775.64,
-      "change_pct": 2.87,
-      "vol_ratio": 1.52,
-      "signals": [
-        "KD 黃金交叉 (K=25.8)",
-        "威廉%R 超賣反彈 (-79.4)"
-      ]
-    },
-    {
-      "name": "科林研發",
-      "ticker": "LRCX",
-      "score": 2,
-      "price": 346.1,
-      "change_pct": 4.9,
-      "vol_ratio": 0.99,
-      "signals": [
-        "KD 黃金交叉 (K=32.2)",
-        "威廉%R 超賣反彈 (-73.7)"
-      ]
-    },
-    {
-      "name": "KLA",
-      "ticker": "KLAC",
-      "score": 2,
-      "price": 230.37,
-      "change_pct": 3.65,
-      "vol_ratio": 0.84,
-      "signals": [
-        "KD 黃金交叉 (K=24.4)",
-        "威廉%R 超賣反彈 (-79.8)"
-      ]
-    },
-    {
-      "name": "英特爾",
-      "ticker": "INTC",
-      "score": 2,
-      "price": 107.76,
-      "change_pct": 4.5,
-      "vol_ratio": 0.97,
-      "signals": [
-        "KD 黃金交叉 (K=17.6)",
-        "布林通道下軌反彈"
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-59.9)"
       ]
     }
   ]
