@@ -2809,9 +2809,9 @@
     "stop": 33.73,
     "tp1": 34.41,
     "tp2": 34.54,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 34.54,
+    "return_pct": 1.59
   },
   {
     "push_date": "2026-07-14",
@@ -2823,9 +2823,9 @@
     "stop": 65.71,
     "tp1": 67.36,
     "tp2": 67.69,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 65.71,
+    "return_pct": -0.99
   },
   {
     "push_date": "2026-07-14",
@@ -2851,9 +2851,9 @@
     "stop": 106.78,
     "tp1": 108.68,
     "tp2": 109.06,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 109.06,
+    "return_pct": 1.41
   },
   {
     "push_date": "2026-07-14",
@@ -2865,6 +2865,76 @@
     "stop": 62.78,
     "tp1": 64.13,
     "tp2": 64.4,
+    "result": "停利②",
+    "exit_price": 64.4,
+    "return_pct": 1.71
+  },
+  {
+    "push_date": "2026-07-15",
+    "name": "國泰永續高股息",
+    "ticker": "00878.TW",
+    "score": 66,
+    "price": 33.15999984741211,
+    "entry_mid": 33.12,
+    "stop": 32.66,
+    "tp1": 33.81,
+    "tp2": 34.04,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-15",
+    "name": "元大高股息",
+    "ticker": "0056.TW",
+    "score": 52,
+    "price": 52.70000076293945,
+    "entry_mid": 52.56,
+    "stop": 52.0,
+    "tp1": 53.4,
+    "tp2": 53.57,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-15",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 61,
+    "price": 17.700000762939453,
+    "entry_mid": 17.57,
+    "stop": 17.5,
+    "tp1": 17.68,
+    "tp2": 17.7,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-15",
+    "name": "長榮",
+    "ticker": "2603.TW",
+    "score": 56,
+    "price": 196.0,
+    "entry_mid": 195.45,
+    "stop": 192.16,
+    "tp1": 200.38,
+    "tp2": 202.03,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-15",
+    "name": "富邦金",
+    "ticker": "2881.TW",
+    "score": 53,
+    "price": 129.0,
+    "entry_mid": 128.03,
+    "stop": 125.47,
+    "tp1": 131.87,
+    "tp2": 132.64,
     "result": null,
     "exit_price": null,
     "return_pct": null
