@@ -2837,9 +2837,9 @@
     "stop": 37.98,
     "tp1": 39.78,
     "tp2": 40.14,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 38.85,
+    "return_pct": 0.39
   },
   {
     "push_date": "2026-07-14",
@@ -2893,9 +2893,9 @@
     "stop": 52.0,
     "tp1": 53.4,
     "tp2": 53.57,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 52.0,
+    "return_pct": -1.07
   },
   {
     "push_date": "2026-07-15",
@@ -2963,9 +2963,9 @@
     "stop": 65.47,
     "tp1": 67.8,
     "tp2": 68.26,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 65.47,
+    "return_pct": -1.4
   },
   {
     "push_date": "2026-07-16",
@@ -2977,9 +2977,9 @@
     "stop": 98.73,
     "tp1": 103.75,
     "tp2": 104.76,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 103.75,
+    "return_pct": 2.99
   },
   {
     "push_date": "2026-07-16",
@@ -3005,6 +3005,62 @@
     "stop": 132.96,
     "tp1": 138.01,
     "tp2": 139.02,
+    "result": "停利②",
+    "exit_price": 139.02,
+    "return_pct": 2.99
+  },
+  {
+    "push_date": "2026-07-17",
+    "name": "玉山金",
+    "ticker": "2884.TW",
+    "score": 86,
+    "price": 35.29999923706055,
+    "entry_mid": 35.04,
+    "stop": 34.43,
+    "tp1": 35.95,
+    "tp2": 36.26,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-17",
+    "name": "中華電",
+    "ticker": "2412.TW",
+    "score": 81,
+    "price": 138.0,
+    "entry_mid": 136.97,
+    "stop": 135.2,
+    "tp1": 139.62,
+    "tp2": 140.51,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-17",
+    "name": "東和鋼鐵",
+    "ticker": "2006.TW",
+    "score": 70,
+    "price": 71.0999984741211,
+    "entry_mid": 70.56,
+    "stop": 70.01,
+    "tp1": 71.38,
+    "tp2": 71.66,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-17",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 68,
+    "price": 111.0,
+    "entry_mid": 110.4,
+    "stop": 109.78,
+    "tp1": 111.33,
+    "tp2": 111.64,
     "result": null,
     "exit_price": null,
     "return_pct": null
