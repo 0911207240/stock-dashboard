@@ -1,42 +1,65 @@
 {
-  "date": "2026-07-17",
-  "timestamp": "2026-07-17 06:27",
+  "date": "2026-07-18",
+  "timestamp": "2026-07-18 06:12",
   "signals": [
     {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
-      "score": -3,
-      "price": 249.89,
-      "change_pct": -1.99,
-      "vol_ratio": 1.2,
+      "name": "微軟",
+      "ticker": "MSFT",
+      "score": -2,
+      "price": 393.82,
+      "change_pct": -1.82,
+      "vol_ratio": 1.01,
       "signals": [
-        "KD 死亡交叉 (K=58.7)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-25.6)"
+        "KD 死亡交叉 (K=62.7)",
+        "威廉%R 超買回落 (-26.4)"
       ]
     },
     {
-      "name": "輝達",
-      "ticker": "NVDA",
-      "score": -2,
-      "price": 207.4,
-      "change_pct": -2.4,
-      "vol_ratio": 0.92,
+      "name": "超微半導體",
+      "ticker": "AMD",
+      "score": 2,
+      "price": 495.76,
+      "change_pct": -1.03,
+      "vol_ratio": 1.17,
       "signals": [
-        "KD 死亡交叉 (K=71.7)",
-        "威廉%R 超買回落 (-26.7)"
+        "KD 黃金交叉 (K=31.2)",
+        "威廉%R 超賣反彈 (-71.5)"
       ]
     },
     {
-      "name": "Meta",
-      "ticker": "META",
-      "score": -2,
-      "price": 664.54,
-      "change_pct": -2.46,
-      "vol_ratio": 0.7,
+      "name": "高通",
+      "ticker": "QCOM",
+      "score": 2,
+      "price": 171.78,
+      "change_pct": 0.69,
+      "vol_ratio": 1.15,
       "signals": [
-        "KD 死亡交叉 (K=80.2)",
-        "布林通道上軌回落"
+        "KD 黃金交叉 (K=22.4)",
+        "威廉%R 超賣反彈 (-77.6)"
+      ]
+    },
+    {
+      "name": "Palantir",
+      "ticker": "PLTR",
+      "score": -2,
+      "price": 132.38,
+      "change_pct": -1.53,
+      "vol_ratio": 0.9,
+      "signals": [
+        "KD 死亡交叉 (K=59.9)",
+        "威廉%R 超買回落 (-26.8)"
+      ]
+    },
+    {
+      "name": "戴爾",
+      "ticker": "DELL",
+      "score": 2,
+      "price": 396.34,
+      "change_pct": 1.27,
+      "vol_ratio": 0.85,
+      "signals": [
+        "KD 黃金交叉 (K=29.6)",
+        "威廉%R 超賣反彈 (-70.4)"
       ]
     }
   ]
