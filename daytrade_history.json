@@ -3033,9 +3033,9 @@
     "stop": 135.2,
     "tp1": 139.62,
     "tp2": 140.51,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 139.62,
+    "return_pct": 1.93
   },
   {
     "push_date": "2026-07-17",
@@ -3047,9 +3047,9 @@
     "stop": 70.01,
     "tp1": 71.38,
     "tp2": 71.66,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 70.01,
+    "return_pct": -0.78
   },
   {
     "push_date": "2026-07-17",
@@ -3061,6 +3061,76 @@
     "stop": 109.78,
     "tp1": 111.33,
     "tp2": 111.64,
+    "result": "停利②",
+    "exit_price": 111.64,
+    "return_pct": 1.12
+  },
+  {
+    "push_date": "2026-07-20",
+    "name": "中華電",
+    "ticker": "2412.TW",
+    "score": 80,
+    "price": 138.0,
+    "entry_mid": 136.97,
+    "stop": 136.17,
+    "tp1": 138.17,
+    "tp2": 138.57,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-20",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 80,
+    "price": 18.0,
+    "entry_mid": 17.97,
+    "stop": 17.68,
+    "tp1": 18.4,
+    "tp2": 18.55,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-20",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 73,
+    "price": 111.5,
+    "entry_mid": 110.85,
+    "stop": 109.76,
+    "tp1": 112.48,
+    "tp2": 113.03,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-20",
+    "name": "遠傳",
+    "ticker": "4904.TW",
+    "score": 67,
+    "price": 104.0,
+    "entry_mid": 103.22,
+    "stop": 102.37,
+    "tp1": 104.49,
+    "tp2": 104.92,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-20",
+    "name": "玉山金",
+    "ticker": "2884.TW",
+    "score": 70,
+    "price": 35.75,
+    "entry_mid": 35.48,
+    "stop": 34.86,
+    "tp1": 36.41,
+    "tp2": 36.72,
     "result": null,
     "exit_price": null,
     "return_pct": null
