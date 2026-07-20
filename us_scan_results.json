@@ -1,65 +1,17 @@
 {
-  "date": "2026-07-18",
-  "timestamp": "2026-07-18 06:12",
+  "date": "2026-07-21",
+  "timestamp": "2026-07-21 06:29",
   "signals": [
     {
-      "name": "微軟",
-      "ticker": "MSFT",
-      "score": -2,
-      "price": 393.82,
-      "change_pct": -1.82,
-      "vol_ratio": 1.01,
-      "signals": [
-        "KD 死亡交叉 (K=62.7)",
-        "威廉%R 超買回落 (-26.4)"
-      ]
-    },
-    {
-      "name": "超微半導體",
-      "ticker": "AMD",
+      "name": "Alphabet",
+      "ticker": "GOOGL",
       "score": 2,
-      "price": 495.76,
-      "change_pct": -1.03,
-      "vol_ratio": 1.17,
+      "price": 351.99,
+      "change_pct": 1.51,
+      "vol_ratio": 0.86,
       "signals": [
-        "KD 黃金交叉 (K=31.2)",
-        "威廉%R 超賣反彈 (-71.5)"
-      ]
-    },
-    {
-      "name": "高通",
-      "ticker": "QCOM",
-      "score": 2,
-      "price": 171.78,
-      "change_pct": 0.69,
-      "vol_ratio": 1.15,
-      "signals": [
-        "KD 黃金交叉 (K=22.4)",
-        "威廉%R 超賣反彈 (-77.6)"
-      ]
-    },
-    {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": -2,
-      "price": 132.38,
-      "change_pct": -1.53,
-      "vol_ratio": 0.9,
-      "signals": [
-        "KD 死亡交叉 (K=59.9)",
-        "威廉%R 超買回落 (-26.8)"
-      ]
-    },
-    {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": 2,
-      "price": 396.34,
-      "change_pct": 1.27,
-      "vol_ratio": 0.85,
-      "signals": [
-        "KD 黃金交叉 (K=29.6)",
-        "威廉%R 超賣反彈 (-70.4)"
+        "KD 黃金交叉 (K=31.3)",
+        "威廉%R 超賣反彈 (-68.7)"
       ]
     }
   ]
