@@ -431,5 +431,20 @@
     ],
     "portfolio_value": 1186198.0,
     "portfolio_pnl": 305877.0
+  },
+  {
+    "date": "2026-07-22",
+    "taiex_close": 45005.54,
+    "taiex_chg_pct": 1.75,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 32,
+    "top_sectors": [
+      "輝達生態圈",
+      "石化",
+      "科技/ETF"
+    ],
+    "portfolio_value": 1217219.0,
+    "portfolio_pnl": 336898.0
   }
 ]

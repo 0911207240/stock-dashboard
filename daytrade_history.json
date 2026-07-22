@@ -3145,9 +3145,9 @@
     "stop": 110.77,
     "tp1": 112.47,
     "tp2": 112.81,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 112.81,
+    "return_pct": 1.22
   },
   {
     "push_date": "2026-07-21",
@@ -3159,9 +3159,9 @@
     "stop": 101.36,
     "tp1": 102.91,
     "tp2": 103.22,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 103.22,
+    "return_pct": 1.22
   },
   {
     "push_date": "2026-07-21",
@@ -3173,9 +3173,9 @@
     "stop": 59.25,
     "tp1": 61.0,
     "tp2": 61.35,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 61.35,
+    "return_pct": 2.34
   },
   {
     "push_date": "2026-07-21",
@@ -3187,9 +3187,9 @@
     "stop": 31.27,
     "tp1": 32.47,
     "tp2": 32.71,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 32.71,
+    "return_pct": 3.02
   },
   {
     "push_date": "2026-07-21",
@@ -3201,6 +3201,76 @@
     "stop": 29.23,
     "tp1": 29.76,
     "tp2": 29.86,
+    "result": "停利②",
+    "exit_price": 29.86,
+    "return_pct": 1.43
+  },
+  {
+    "push_date": "2026-07-22",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 73,
+    "price": 62.0,
+    "entry_mid": 61.53,
+    "stop": 60.63,
+    "tp1": 62.88,
+    "tp2": 63.33,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-22",
+    "name": "群益台灣精選高息",
+    "ticker": "00919.TW",
+    "score": 70,
+    "price": 29.579999923706055,
+    "entry_mid": 29.43,
+    "stop": 29.2,
+    "tp1": 29.77,
+    "tp2": 29.89,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-22",
+    "name": "富邦特選高股息30",
+    "ticker": "00900.TW",
+    "score": 68,
+    "price": 18.489999771118164,
+    "entry_mid": 18.44,
+    "stop": 18.18,
+    "tp1": 18.83,
+    "tp2": 18.96,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-22",
+    "name": "東和鋼鐵",
+    "ticker": "2006.TW",
+    "score": 62,
+    "price": 71.69999694824219,
+    "entry_mid": 71.43,
+    "stop": 70.72,
+    "tp1": 72.5,
+    "tp2": 72.71,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-22",
+    "name": "富邦金",
+    "ticker": "2881.TW",
+    "score": 58,
+    "price": 127.5,
+    "entry_mid": 126.55,
+    "stop": 124.02,
+    "tp1": 130.34,
+    "tp2": 131.61,
     "result": null,
     "exit_price": null,
     "return_pct": null
