@@ -3089,9 +3089,9 @@
     "stop": 17.68,
     "tp1": 18.4,
     "tp2": 18.55,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 18.0,
+    "return_pct": 0.17
   },
   {
     "push_date": "2026-07-20",
@@ -3215,9 +3215,9 @@
     "stop": 60.63,
     "tp1": 62.88,
     "tp2": 63.33,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 63.33,
+    "return_pct": 2.93
   },
   {
     "push_date": "2026-07-22",
@@ -3229,9 +3229,9 @@
     "stop": 29.2,
     "tp1": 29.77,
     "tp2": 29.89,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 29.77,
+    "return_pct": 1.16
   },
   {
     "push_date": "2026-07-22",
@@ -3271,6 +3271,76 @@
     "stop": 124.02,
     "tp1": 130.34,
     "tp2": 131.61,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-23",
+    "name": "玉山金",
+    "ticker": "2884.TW",
+    "score": 84,
+    "price": 35.54999923706055,
+    "entry_mid": 35.41,
+    "stop": 35.14,
+    "tp1": 35.81,
+    "tp2": 35.95,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-23",
+    "name": "臺企銀",
+    "ticker": "2834.TW",
+    "score": 82,
+    "price": 17.899999618530273,
+    "entry_mid": 17.79,
+    "stop": 17.8,
+    "tp1": 17.8,
+    "tp2": 17.81,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-23",
+    "name": "中華電",
+    "ticker": "2412.TW",
+    "score": 81,
+    "price": 138.5,
+    "entry_mid": 137.46,
+    "stop": 136.71,
+    "tp1": 138.59,
+    "tp2": 138.96,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-23",
+    "name": "永豐金",
+    "ticker": "2890.TW",
+    "score": 68,
+    "price": 37.70000076293945,
+    "entry_mid": 37.42,
+    "stop": 37.25,
+    "tp1": 37.68,
+    "tp2": 37.76,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-07-23",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 62,
+    "price": 40.20000076293945,
+    "entry_mid": 39.9,
+    "stop": 39.25,
+    "tp1": 40.88,
+    "tp2": 41.07,
     "result": null,
     "exit_price": null,
     "return_pct": null
