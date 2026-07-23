@@ -1,53 +1,29 @@
 {
-  "date": "2026-07-22",
-  "timestamp": "2026-07-22 06:25",
+  "date": "2026-07-24",
+  "timestamp": "2026-07-24 06:29",
   "signals": [
     {
-      "name": "微軟",
-      "ticker": "MSFT",
+      "name": "輝達",
+      "ticker": "NVDA",
       "score": -2,
-      "price": 397.75,
-      "change_pct": -1.13,
-      "vol_ratio": 0.76,
+      "price": 208.76,
+      "change_pct": -1.56,
+      "vol_ratio": 0.93,
       "signals": [
-        "KD 死亡交叉 (K=74.8)",
-        "威廉%R 超買回落 (-25.2)"
+        "KD 死亡交叉 (K=65.7)",
+        "威廉%R 超買回落 (-24.2)"
       ]
     },
     {
-      "name": "應用材料",
-      "ticker": "AMAT",
-      "score": 2,
-      "price": 564.55,
-      "change_pct": 7.39,
-      "vol_ratio": 0.92,
-      "signals": [
-        "KD 黃金交叉 (K=44.0)",
-        "威廉%R 超賣反彈 (-71.6)"
-      ]
-    },
-    {
-      "name": "Palantir",
-      "ticker": "PLTR",
+      "name": "超微半導體",
+      "ticker": "AMD",
       "score": -2,
-      "price": 132.66,
-      "change_pct": -1.62,
-      "vol_ratio": 0.79,
+      "price": 539.69,
+      "change_pct": -2.29,
+      "vol_ratio": 0.99,
       "signals": [
-        "KD 死亡交叉 (K=70.4)",
-        "威廉%R 超買回落 (-31.9)"
-      ]
-    },
-    {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": 2,
-      "price": 404.15,
-      "change_pct": 5.83,
-      "vol_ratio": 0.68,
-      "signals": [
-        "KD 黃金交叉 (K=37.8)",
-        "威廉%R 超賣反彈 (-62.2)"
+        "KD 死亡交叉 (K=69.7)",
+        "威廉%R 超買回落 (-30.3)"
       ]
     }
   ]
