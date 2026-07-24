@@ -1,29 +1,29 @@
 {
-  "date": "2026-07-24",
-  "timestamp": "2026-07-24 06:29",
+  "date": "2026-07-25",
+  "timestamp": "2026-07-25 06:33",
   "signals": [
     {
-      "name": "輝達",
-      "ticker": "NVDA",
+      "name": "美光",
+      "ticker": "MU",
       "score": -2,
-      "price": 208.76,
-      "change_pct": -1.56,
-      "vol_ratio": 0.93,
+      "price": 920.95,
+      "change_pct": -6.99,
+      "vol_ratio": 1.01,
       "signals": [
-        "KD 死亡交叉 (K=65.7)",
-        "威廉%R 超買回落 (-24.2)"
+        "KD 死亡交叉 (K=56.3)",
+        "威廉%R 超買回落 (-49.5)"
       ]
     },
     {
-      "name": "超微半導體",
-      "ticker": "AMD",
+      "name": "超微電腦",
+      "ticker": "SMCI",
       "score": -2,
-      "price": 539.69,
-      "change_pct": -2.29,
-      "vol_ratio": 0.99,
+      "price": 30.1,
+      "change_pct": -3.53,
+      "vol_ratio": 0.65,
       "signals": [
-        "KD 死亡交叉 (K=69.7)",
-        "威廉%R 超買回落 (-30.3)"
+        "KD 死亡交叉 (K=73.0)",
+        "威廉%R 超買回落 (-27.0)"
       ]
     }
   ]
