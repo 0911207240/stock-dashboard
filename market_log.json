@@ -476,5 +476,20 @@
     ],
     "portfolio_value": 1183359.0,
     "portfolio_pnl": 303039.0
+  },
+  {
+    "date": "2026-07-27",
+    "taiex_close": 43020.08,
+    "taiex_chg_pct": -1.45,
+    "regime": "空頭",
+    "regime_emoji": "🔴",
+    "min_score": 65,
+    "top_sectors": [
+      "銀行/金控",
+      "輝達生態圈",
+      "電腦周邊"
+    ],
+    "portfolio_value": 1155160.0,
+    "portfolio_pnl": 274840.0
   }
 ]
