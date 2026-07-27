@@ -1,29 +1,17 @@
 {
-  "date": "2026-07-25",
-  "timestamp": "2026-07-25 06:33",
+  "date": "2026-07-28",
+  "timestamp": "2026-07-28 06:32",
   "signals": [
     {
-      "name": "美光",
-      "ticker": "MU",
-      "score": -2,
-      "price": 920.95,
-      "change_pct": -6.99,
-      "vol_ratio": 1.01,
+      "name": "安謀控股",
+      "ticker": "ARM",
+      "score": 2,
+      "price": 266.33,
+      "change_pct": 2.43,
+      "vol_ratio": 1.18,
       "signals": [
-        "KD 死亡交叉 (K=56.3)",
-        "威廉%R 超買回落 (-49.5)"
-      ]
-    },
-    {
-      "name": "超微電腦",
-      "ticker": "SMCI",
-      "score": -2,
-      "price": 30.1,
-      "change_pct": -3.53,
-      "vol_ratio": 0.65,
-      "signals": [
-        "KD 死亡交叉 (K=73.0)",
-        "威廉%R 超買回落 (-27.0)"
+        "KD 黃金交叉 (K=45.6)",
+        "威廉%R 超賣反彈 (-75.9)"
       ]
     }
   ]
