@@ -1,17 +1,17 @@
 {
-  "date": "2026-07-28",
-  "timestamp": "2026-07-28 06:32",
+  "date": "2026-07-29",
+  "timestamp": "2026-07-29 06:32",
   "signals": [
     {
-      "name": "安謀控股",
-      "ticker": "ARM",
+      "name": "亞馬遜",
+      "ticker": "AMZN",
       "score": 2,
-      "price": 266.33,
-      "change_pct": 2.43,
-      "vol_ratio": 1.18,
+      "price": 230.86,
+      "change_pct": -0.23,
+      "vol_ratio": 1.09,
       "signals": [
-        "KD 黃金交叉 (K=45.6)",
-        "威廉%R 超賣反彈 (-75.9)"
+        "KD 黃金交叉 (K=9.2)",
+        "布林通道下軌反彈"
       ]
     }
   ]
