@@ -3453,9 +3453,9 @@
     "stop": 38.5,
     "tp1": 39.38,
     "tp2": 39.55,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 39.38,
+    "return_pct": 1.36
   },
   {
     "push_date": "2026-07-27",
@@ -3467,9 +3467,9 @@
     "stop": 30.21,
     "tp1": 31.06,
     "tp2": 31.23,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 30.21,
+    "return_pct": -1.11
   },
   {
     "push_date": "2026-07-27",
@@ -3481,6 +3481,20 @@
     "stop": 62.64,
     "tp1": 65.84,
     "tp2": 66.48,
+    "result": "停損",
+    "exit_price": 62.64,
+    "return_pct": -2.0
+  },
+  {
+    "push_date": "2026-07-28",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 61,
+    "price": 113.0,
+    "entry_mid": 112.95,
+    "stop": 111.86,
+    "tp1": 114.59,
+    "tp2": 114.91,
     "result": null,
     "exit_price": null,
     "return_pct": null
