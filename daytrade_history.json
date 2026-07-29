@@ -3383,9 +3383,9 @@
     "stop": 95.28,
     "tp1": 98.56,
     "tp2": 99.21,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 98.5,
+    "return_pct": 1.98
   },
   {
     "push_date": "2026-07-24",
@@ -3397,9 +3397,9 @@
     "stop": 25.28,
     "tp1": 26.08,
     "tp2": 26.18,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 25.95,
+    "return_pct": 1.37
   },
   {
     "push_date": "2026-07-24",
@@ -3411,9 +3411,9 @@
     "stop": 18.77,
     "tp1": 19.52,
     "tp2": 19.61,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 19.25,
+    "return_pct": 0.94
   },
   {
     "push_date": "2026-07-27",
@@ -3495,8 +3495,8 @@
     "stop": 111.86,
     "tp1": 114.59,
     "tp2": 114.91,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 114.91,
+    "return_pct": 1.74
   }
 ]
