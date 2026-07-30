@@ -3425,9 +3425,9 @@
     "stop": 35.65,
     "tp1": 37.13,
     "tp2": 37.42,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 36.25,
+    "return_pct": 0.03
   },
   {
     "push_date": "2026-07-27",
@@ -3439,9 +3439,9 @@
     "stop": 17.9,
     "tp1": 18.3,
     "tp2": 18.38,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 18.1,
+    "return_pct": 0.22
   },
   {
     "push_date": "2026-07-27",
