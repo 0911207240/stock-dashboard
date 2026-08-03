@@ -551,5 +551,20 @@
     ],
     "portfolio_value": 1116189.0,
     "portfolio_pnl": 235869.0
+  },
+  {
+    "date": "2026-08-03",
+    "taiex_close": 43467.2,
+    "taiex_chg_pct": 0.81,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 40,
+    "top_sectors": [
+      "資訊服務/雲端",
+      "網通設備",
+      "電源/散熱績優"
+    ],
+    "portfolio_value": 1131634.0,
+    "portfolio_pnl": 251314.0
   }
 ]

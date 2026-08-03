@@ -3523,9 +3523,9 @@
     "stop": 29.91,
     "tp1": 31.43,
     "tp2": 31.62,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 29.91,
+    "return_pct": -2.0
   },
   {
     "push_date": "2026-07-31",
@@ -3537,9 +3537,9 @@
     "stop": 126.91,
     "tp1": 133.38,
     "tp2": 134.16,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 126.91,
+    "return_pct": -2.0
   },
   {
     "push_date": "2026-07-31",
@@ -3565,6 +3565,76 @@
     "stop": 97.75,
     "tp1": 102.75,
     "tp2": 103.35,
+    "result": "停損",
+    "exit_price": 97.75,
+    "return_pct": -2.01
+  },
+  {
+    "push_date": "2026-08-03",
+    "name": "永豐金",
+    "ticker": "2890.TW",
+    "score": 60,
+    "price": 40.0,
+    "entry_mid": 39.7,
+    "stop": 39.14,
+    "tp1": 40.54,
+    "tp2": 40.71,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-03",
+    "name": "兆豐金",
+    "ticker": "2886.TW",
+    "score": 54,
+    "price": 51.400001525878906,
+    "entry_mid": 51.24,
+    "stop": 50.57,
+    "tp1": 52.25,
+    "tp2": 52.45,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-03",
+    "name": "群光",
+    "ticker": "2385.TW",
+    "score": 54,
+    "price": 106.0,
+    "entry_mid": 105.68,
+    "stop": 104.46,
+    "tp1": 107.51,
+    "tp2": 107.88,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-03",
+    "name": "第一金",
+    "ticker": "2892.TW",
+    "score": 51,
+    "price": 36.20000076293945,
+    "entry_mid": 35.93,
+    "stop": 35.39,
+    "tp1": 36.74,
+    "tp2": 36.9,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-03",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 55,
+    "price": 42.849998474121094,
+    "entry_mid": 42.66,
+    "stop": 41.81,
+    "tp1": 43.93,
+    "tp2": 44.19,
     "result": null,
     "exit_price": null,
     "return_pct": null
