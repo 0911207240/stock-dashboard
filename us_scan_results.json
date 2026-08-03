@@ -1,133 +1,19 @@
 {
-  "date": "2026-07-31",
-  "timestamp": "2026-07-31 06:34",
+  "date": "2026-08-04",
+  "timestamp": "2026-08-04 06:33",
   "signals": [
     {
-      "name": "輝達",
-      "ticker": "NVDA",
-      "score": 3,
-      "price": 195.04,
-      "change_pct": 2.65,
-      "vol_ratio": 0.91,
+      "name": "高通",
+      "ticker": "QCOM",
+      "score": 4,
+      "price": 151.57,
+      "change_pct": 2.68,
+      "vol_ratio": 0.78,
       "signals": [
-        "KD 黃金交叉 (K=20.6)",
+        "RSI 從超賣區回升 (32.8)",
+        "KD 黃金交叉 (K=24.3)",
         "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-79.4)"
-      ]
-    },
-    {
-      "name": "超微半導體",
-      "ticker": "AMD",
-      "score": 3,
-      "price": 485.39,
-      "change_pct": 13.0,
-      "vol_ratio": 1.08,
-      "signals": [
-        "KD 黃金交叉 (K=44.6)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-59.1)"
-      ]
-    },
-    {
-      "name": "美光",
-      "ticker": "MU",
-      "score": 3,
-      "price": 874.66,
-      "change_pct": 18.36,
-      "vol_ratio": 1.07,
-      "signals": [
-        "KD 黃金交叉 (K=49.9)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-50.1)"
-      ]
-    },
-    {
-      "name": "安謀控股",
-      "ticker": "ARM",
-      "score": 3,
-      "price": 241.54,
-      "change_pct": 7.4,
-      "vol_ratio": 1.67,
-      "signals": [
-        "KD 黃金交叉 (K=26.6)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-78.6)"
-      ]
-    },
-    {
-      "name": "ASML",
-      "ticker": "ASML",
-      "score": 3,
-      "price": 1651.44,
-      "change_pct": 6.5,
-      "vol_ratio": 0.86,
-      "signals": [
-        "KD 黃金交叉 (K=41.2)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-62.6)"
-      ]
-    },
-    {
-      "name": "應用材料",
-      "ticker": "AMAT",
-      "score": 3,
-      "price": 501.77,
-      "change_pct": 14.97,
-      "vol_ratio": 1.3,
-      "signals": [
-        "KD 黃金交叉 (K=46.7)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-63.2)"
-      ]
-    },
-    {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
-      "score": 3,
-      "price": 235.5,
-      "change_pct": 3.9,
-      "vol_ratio": 1.65,
-      "signals": [
-        "KD 黃金交叉 (K=34.9)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-70.7)"
-      ]
-    },
-    {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": 3,
-      "price": 404.81,
-      "change_pct": 9.51,
-      "vol_ratio": 0.83,
-      "signals": [
-        "KD 黃金交叉 (K=47.9)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-56.1)"
-      ]
-    },
-    {
-      "name": "科林研發",
-      "ticker": "LRCX",
-      "score": 2,
-      "price": 297.72,
-      "change_pct": 17.98,
-      "vol_ratio": 1.41,
-      "signals": [
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-55.8)"
-      ]
-    },
-    {
-      "name": "英特爾",
-      "ticker": "INTC",
-      "score": 2,
-      "price": 91.13,
-      "change_pct": 11.3,
-      "vol_ratio": 0.89,
-      "signals": [
-        "KD 黃金交叉 (K=37.3)",
-        "威廉%R 超賣反彈 (-66.4)"
+        "威廉%R 超賣反彈 (-77.0)"
       ]
     }
   ]
