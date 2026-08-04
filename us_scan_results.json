@@ -1,19 +1,29 @@
 {
-  "date": "2026-08-04",
-  "timestamp": "2026-08-04 06:33",
+  "date": "2026-08-05",
+  "timestamp": "2026-08-05 06:34",
   "signals": [
     {
-      "name": "高通",
-      "ticker": "QCOM",
-      "score": 4,
-      "price": 151.57,
-      "change_pct": 2.68,
-      "vol_ratio": 0.78,
+      "name": "蘋果",
+      "ticker": "AAPL",
+      "score": 2,
+      "price": 309.38,
+      "change_pct": 1.96,
+      "vol_ratio": 0.83,
       "signals": [
-        "RSI 從超賣區回升 (32.8)",
-        "KD 黃金交叉 (K=24.3)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-77.0)"
+        "KD 黃金交叉 (K=21.0)",
+        "威廉%R 超賣反彈 (-79.0)"
+      ]
+    },
+    {
+      "name": "亞馬遜",
+      "ticker": "AMZN",
+      "score": -2,
+      "price": 277.42,
+      "change_pct": -2.32,
+      "vol_ratio": 0.8,
+      "signals": [
+        "RSI 從超買區回落 (67.0)",
+        "KD 死亡交叉 (K=84.0)"
       ]
     }
   ]
