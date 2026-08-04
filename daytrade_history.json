@@ -3579,9 +3579,9 @@
     "stop": 39.14,
     "tp1": 40.54,
     "tp2": 40.71,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 40.54,
+    "return_pct": 2.12
   },
   {
     "push_date": "2026-08-03",
@@ -3593,9 +3593,9 @@
     "stop": 50.57,
     "tp1": 52.25,
     "tp2": 52.45,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 50.57,
+    "return_pct": -1.31
   },
   {
     "push_date": "2026-08-03",
@@ -3607,9 +3607,9 @@
     "stop": 104.46,
     "tp1": 107.51,
     "tp2": 107.88,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 104.46,
+    "return_pct": -1.15
   },
   {
     "push_date": "2026-08-03",
@@ -3635,6 +3635,76 @@
     "stop": 41.81,
     "tp1": 43.93,
     "tp2": 44.19,
+    "result": "停利①",
+    "exit_price": 43.93,
+    "return_pct": 2.98
+  },
+  {
+    "push_date": "2026-08-04",
+    "name": "永豐金",
+    "ticker": "2890.TW",
+    "score": 79,
+    "price": 40.04999923706055,
+    "entry_mid": 39.84,
+    "stop": 39.04,
+    "tp1": 41.04,
+    "tp2": 41.44,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-04",
+    "name": "合庫金",
+    "ticker": "5880.TW",
+    "score": 57,
+    "price": 26.600000381469727,
+    "entry_mid": 26.4,
+    "stop": 26.29,
+    "tp1": 26.56,
+    "tp2": 26.6,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-04",
+    "name": "台新金",
+    "ticker": "2887.TW",
+    "score": 56,
+    "price": 35.70000076293945,
+    "entry_mid": 35.43,
+    "stop": 34.72,
+    "tp1": 36.5,
+    "tp2": 36.71,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-04",
+    "name": "研華",
+    "ticker": "2395.TW",
+    "score": 50,
+    "price": 571.0,
+    "entry_mid": 566.71,
+    "stop": 555.38,
+    "tp1": 583.71,
+    "tp2": 587.1,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-04",
+    "name": "大成鋼",
+    "ticker": "2027.TW",
+    "score": 53,
+    "price": 43.849998474121094,
+    "entry_mid": 43.77,
+    "stop": 43.17,
+    "tp1": 44.67,
+    "tp2": 44.85,
     "result": null,
     "exit_price": null,
     "return_pct": null

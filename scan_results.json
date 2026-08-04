@@ -1,170 +1,127 @@
 {
-  "date": "2026-08-03",
-  "timestamp": "2026-08-03 14:02",
+  "date": "2026-08-04",
+  "timestamp": "2026-08-04 14:01",
   "regime": {
     "state": "盤整",
     "emoji": "🟡"
   },
   "buy_signals": [
     {
-      "name": "瑞儀",
-      "ticker": "6176.TW",
-      "score": 3,
-      "price": 84.69999694824219,
-      "change_pct": 2.92,
-      "vol_ratio": 0.52,
+      "name": "高通",
+      "ticker": "QCOM",
+      "score": 4,
+      "price": 151.57000732421875,
+      "change_pct": 2.68,
+      "vol_ratio": 0.78,
       "is_holding": false,
       "signals": [
-        "MACD 黃金交叉",
-        "KD 黃金交叉 (K=45.5)",
-        "威廉%R 超賣反彈 (-54.5)"
-      ]
-    },
-    {
-      "name": "南茂",
-      "ticker": "8150.TW",
-      "score": 1,
-      "price": 77.9000015258789,
-      "change_pct": 7.3,
-      "vol_ratio": 1.44,
-      "is_holding": true,
-      "signals": [
-        "威廉%R 超賣反彈 (-79.4)"
-      ]
-    },
-    {
-      "name": "智原",
-      "ticker": "3035.TW",
-      "score": 3,
-      "price": 160.5,
-      "change_pct": 7.36,
-      "vol_ratio": 0.81,
-      "is_holding": false,
-      "signals": [
-        "RSI 從超賣區回升 (36.9)",
+        "RSI 從超賣區回升 (32.8)",
+        "KD 黃金交叉 (K=24.3)",
         "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-78.1)"
-      ]
-    },
-    {
-      "name": "燿華電子",
-      "ticker": "2367.TW",
-      "score": 2,
-      "price": 38.20000076293945,
-      "change_pct": 5.82,
-      "vol_ratio": 0.61,
-      "is_holding": false,
-      "signals": [
-        "RSI 從超賣區回升 (33.2)",
-        "威廉%R 超賣反彈 (-72.8)"
-      ]
-    },
-    {
-      "name": "敬鵬",
-      "ticker": "2355.TW",
-      "score": 2,
-      "price": 38.20000076293945,
-      "change_pct": 4.23,
-      "vol_ratio": 0.59,
-      "is_holding": false,
-      "signals": [
-        "RSI 從超賣區回升 (32.9)",
-        "威廉%R 超賣反彈 (-72.2)"
+        "威廉%R 超賣反彈 (-77.0)"
       ]
     }
   ],
   "sell_signals": [
     {
-      "name": "第一金",
-      "ticker": "2892.TW",
-      "score": -2,
-      "price": 36.20000076293945,
-      "change_pct": -1.5,
-      "vol_ratio": 0.57,
-      "is_holding": true,
-      "signals": [
-        "KD 死亡交叉 (K=80.0)",
-        "布林通道上軌回落"
-      ]
-    },
-    {
       "name": "台積電",
       "ticker": "2330.TW",
       "score": -1,
-      "price": 2375.0,
-      "change_pct": -2.06,
-      "vol_ratio": 0.49,
+      "price": 2325.0,
+      "change_pct": -1.9,
+      "vol_ratio": 0.58,
       "is_holding": true,
       "signals": [
-        "威廉%R 超買回落 (-32.8)"
+        "KD 死亡交叉 (K=59.2)"
       ]
     },
     {
-      "name": "兆豐金",
-      "ticker": "2886.TW",
-      "score": -4,
-      "price": 51.400001525878906,
-      "change_pct": -3.2,
-      "vol_ratio": 0.51,
+      "name": "台灣50",
+      "ticker": "0050.TW",
+      "score": -1,
+      "price": 101.05000305175781,
+      "change_pct": -0.93,
+      "vol_ratio": 0.29,
+      "is_holding": true,
+      "signals": [
+        "KD 死亡交叉 (K=71.2)"
+      ]
+    },
+    {
+      "name": "鴻海",
+      "ticker": "2317.TW",
+      "score": -2,
+      "price": 250.0,
+      "change_pct": -1.19,
+      "vol_ratio": 0.39,
       "is_holding": false,
       "signals": [
-        "RSI 從超買區回落 (69.7)",
-        "KD 死亡交叉 (K=65.2)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-29.1)"
+        "KD 死亡交叉 (K=71.2)",
+        "威廉%R 超買回落 (-28.8)"
       ]
     },
     {
-      "name": "華南金",
-      "ticker": "2880.TW",
+      "name": "第一金",
+      "ticker": "2892.TW",
       "score": -1,
-      "price": 42.849998474121094,
-      "change_pct": -1.95,
+      "price": 35.54999923706055,
+      "change_pct": -1.11,
       "vol_ratio": 0.53,
       "is_holding": true,
       "signals": [
-        "RSI 從超買區回落 (68.1)"
+        "RSI 從超買區回落 (66.9)"
       ]
     },
     {
-      "name": "合庫金",
-      "ticker": "5880.TW",
-      "score": -4,
-      "price": 26.899999618530273,
-      "change_pct": -2.54,
-      "vol_ratio": 0.44,
+      "name": "台泥",
+      "ticker": "1101.TW",
+      "score": -1,
+      "price": 23.450000762939453,
+      "change_pct": -1.47,
+      "vol_ratio": 0.51,
+      "is_holding": true,
+      "signals": [
+        "MACD 死亡交叉"
+      ]
+    },
+    {
+      "name": "玉山金",
+      "ticker": "2884.TW",
+      "score": -3,
+      "price": 38.04999923706055,
+      "change_pct": -1.04,
+      "vol_ratio": 0.41,
       "is_holding": false,
       "signals": [
-        "RSI 從超買區回落 (69.9)",
-        "KD 死亡交叉 (K=68.7)",
+        "RSI 從超買區回落 (68.0)",
         "布林通道上軌回落",
-        "威廉%R 超買回落 (-30.0)"
+        "威廉%R 超買回落 (-22.3)"
       ]
     },
     {
-      "name": "東泥",
-      "ticker": "1110.TW",
+      "name": "大成鋼",
+      "ticker": "2027.TW",
       "score": -2,
-      "price": 15.899999618530273,
-      "change_pct": -1.55,
-      "vol_ratio": 0.06,
+      "price": 43.849998474121094,
+      "change_pct": -1.35,
+      "vol_ratio": 0.29,
       "is_holding": false,
       "signals": [
-        "MACD 死亡交叉",
-        "威廉%R 超買回落 (-53.8)"
+        "KD 死亡交叉 (K=52.9)",
+        "威廉%R 超買回落 (-30.3)"
       ]
     },
     {
-      "name": "臺企銀",
-      "ticker": "2834.TW",
+      "name": "鴻準",
+      "ticker": "2354.TW",
       "score": -2,
-      "price": 18.149999618530273,
-      "change_pct": -0.27,
-      "vol_ratio": 0.84,
+      "price": 56.20000076293945,
+      "change_pct": -0.35,
+      "vol_ratio": 0.35,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=64.3)",
-        "威廉%R 超買回落 (-31.3)"
+        "KD 死亡交叉 (K=76.9)",
+        "威廉%R 超買回落 (-23.1)"
       ]
     }
   ],
@@ -172,64 +129,62 @@
     {
       "name": "永豐金",
       "ticker": "2890.TW",
-      "score": 60,
-      "price": 40.0,
-      "change_pct": -1.48,
-      "entry_mid": 39.7,
-      "stop": 39.14,
-      "tp1": 40.54,
-      "tp2": 40.71,
-      "vol_ratio": 0.41
-    },
-    {
-      "name": "兆豐金",
-      "ticker": "2886.TW",
-      "score": 54,
-      "price": 51.4,
-      "change_pct": -3.2,
-      "entry_mid": 51.24,
-      "stop": 50.57,
-      "tp1": 52.25,
-      "tp2": 52.45,
-      "vol_ratio": 0.51
-    },
-    {
-      "name": "群光",
-      "ticker": "2385.TW",
-      "score": 54,
-      "price": 106.0,
+      "score": 79,
+      "price": 40.05,
       "change_pct": 0.0,
-      "entry_mid": 105.68,
-      "stop": 104.46,
-      "tp1": 107.51,
-      "tp2": 107.88,
-      "vol_ratio": 0.48
+      "entry_mid": 39.84,
+      "stop": 39.04,
+      "tp1": 41.04,
+      "tp2": 41.44,
+      "vol_ratio": 0.49
     },
     {
-      "name": "第一金",
-      "ticker": "2892.TW",
-      "score": 51,
-      "price": 36.2,
-      "change_pct": -1.5,
-      "entry_mid": 35.93,
-      "stop": 35.39,
-      "tp1": 36.74,
-      "tp2": 36.9,
-      "vol_ratio": 0.57
+      "name": "合庫金",
+      "ticker": "5880.TW",
+      "score": 57,
+      "price": 26.6,
+      "change_pct": -1.12,
+      "entry_mid": 26.4,
+      "stop": 26.29,
+      "tp1": 26.56,
+      "tp2": 26.6,
+      "vol_ratio": 0.37
     },
     {
-      "name": "華南金",
-      "ticker": "2880.TW",
-      "score": 55,
-      "price": 42.85,
-      "change_pct": -1.95,
-      "entry_mid": 42.66,
-      "stop": 41.81,
-      "tp1": 43.93,
-      "tp2": 44.19,
-      "vol_ratio": 0.53
+      "name": "台新金",
+      "ticker": "2887.TW",
+      "score": 56,
+      "price": 35.7,
+      "change_pct": 1.13,
+      "entry_mid": 35.43,
+      "stop": 34.72,
+      "tp1": 36.5,
+      "tp2": 36.71,
+      "vol_ratio": 0.37
+    },
+    {
+      "name": "研華",
+      "ticker": "2395.TW",
+      "score": 50,
+      "price": 571.0,
+      "change_pct": -0.87,
+      "entry_mid": 566.71,
+      "stop": 555.38,
+      "tp1": 583.71,
+      "tp2": 587.1,
+      "vol_ratio": 0.38
+    },
+    {
+      "name": "大成鋼",
+      "ticker": "2027.TW",
+      "score": 53,
+      "price": 43.85,
+      "change_pct": -1.35,
+      "entry_mid": 43.77,
+      "stop": 43.17,
+      "tp1": 44.67,
+      "tp2": 44.85,
+      "vol_ratio": 0.29
     }
-  ],
-  "weekly_report": "📊 當沖推播週報\n\n【近7日績效】7 筆已結案\n勝率 28.6%　每筆均報酬 -0.86%\n大盤同期 +1.04%　超額 -1.01%\n\n【累計】186 筆已結案\n停利② 84 筆　停利① 29 筆　停損 73 筆\n勝率 60.8%　平均報酬 +0.77%\n\n🔧 評分權重已更新（63 檔 / 1522 筆回測）\n  籌碼 0.5→1.19　技術 0.58→2.0　波動度 2.0→0.5",
-  "weekly_report_date": "2026-08-03"
+  ]
 }
