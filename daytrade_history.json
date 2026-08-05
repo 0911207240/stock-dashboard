@@ -3509,9 +3509,9 @@
     "stop": 104.4,
     "tp1": 109.33,
     "tp2": 110.31,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 106.0,
+    "return_pct": -0.35
   },
   {
     "push_date": "2026-07-31",
@@ -3551,9 +3551,9 @@
     "stop": 39.3,
     "tp1": 41.3,
     "tp2": 41.54,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 40.05,
+    "return_pct": -0.12
   },
   {
     "push_date": "2026-07-31",
@@ -3621,9 +3621,9 @@
     "stop": 35.39,
     "tp1": 36.74,
     "tp2": 36.9,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 35.39,
+    "return_pct": -1.5
   },
   {
     "push_date": "2026-08-03",
@@ -3663,9 +3663,9 @@
     "stop": 26.29,
     "tp1": 26.56,
     "tp2": 26.6,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 26.6,
+    "return_pct": 0.76
   },
   {
     "push_date": "2026-08-04",
@@ -3691,9 +3691,9 @@
     "stop": 555.38,
     "tp1": 583.71,
     "tp2": 587.1,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 587.1,
+    "return_pct": 3.6
   },
   {
     "push_date": "2026-08-04",
@@ -3705,6 +3705,76 @@
     "stop": 43.17,
     "tp1": 44.67,
     "tp2": 44.85,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-05",
+    "name": "萬海",
+    "ticker": "2615.TW",
+    "score": 59,
+    "price": 85.19999694824219,
+    "entry_mid": 84.56,
+    "stop": 84.35,
+    "tp1": 84.88,
+    "tp2": 84.94,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-05",
+    "name": "富邦金",
+    "ticker": "2881.TW",
+    "score": 56,
+    "price": 130.0,
+    "entry_mid": 129.2,
+    "stop": 128.13,
+    "tp1": 130.8,
+    "tp2": 131.13,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-05",
+    "name": "中信金",
+    "ticker": "2891.TW",
+    "score": 57,
+    "price": 66.19999694824219,
+    "entry_mid": 65.7,
+    "stop": 64.47,
+    "tp1": 67.55,
+    "tp2": 67.91,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-05",
+    "name": "開發金",
+    "ticker": "2883.TW",
+    "score": 51,
+    "price": 31.5,
+    "entry_mid": 31.27,
+    "stop": 30.64,
+    "tp1": 32.21,
+    "tp2": 32.4,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-05",
+    "name": "偉詮電",
+    "ticker": "2436.TW",
+    "score": 51,
+    "price": 62.29999923706055,
+    "entry_mid": 62.12,
+    "stop": 60.88,
+    "tp1": 63.98,
+    "tp2": 64.6,
     "result": null,
     "exit_price": null,
     "return_pct": null
