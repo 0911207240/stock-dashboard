@@ -1,29 +1,29 @@
 {
-  "date": "2026-08-05",
-  "timestamp": "2026-08-05 06:34",
+  "date": "2026-08-06",
+  "timestamp": "2026-08-06 06:33",
   "signals": [
     {
-      "name": "蘋果",
-      "ticker": "AAPL",
-      "score": 2,
-      "price": 309.38,
-      "change_pct": 1.96,
-      "vol_ratio": 0.83,
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "score": -2,
+      "price": 362.43,
+      "change_pct": -4.03,
+      "vol_ratio": 1.17,
       "signals": [
-        "KD 黃金交叉 (K=21.0)",
-        "威廉%R 超賣反彈 (-79.0)"
+        "KD 死亡交叉 (K=67.2)",
+        "威廉%R 超買回落 (-31.7)"
       ]
     },
     {
       "name": "亞馬遜",
       "ticker": "AMZN",
       "score": -2,
-      "price": 277.42,
-      "change_pct": -2.32,
-      "vol_ratio": 0.8,
+      "price": 272.65,
+      "change_pct": -1.72,
+      "vol_ratio": 0.49,
       "signals": [
-        "RSI 從超買區回落 (67.0)",
-        "KD 死亡交叉 (K=84.0)"
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-23.8)"
       ]
     }
   ]
