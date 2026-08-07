@@ -3649,9 +3649,9 @@
     "stop": 39.04,
     "tp1": 41.04,
     "tp2": 41.44,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 39.55,
+    "return_pct": -0.73
   },
   {
     "push_date": "2026-08-04",
@@ -3761,9 +3761,9 @@
     "stop": 30.64,
     "tp1": 32.21,
     "tp2": 32.4,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 30.64,
+    "return_pct": -2.01
   },
   {
     "push_date": "2026-08-05",
@@ -3803,9 +3803,9 @@
     "stop": 23.01,
     "tp1": 23.16,
     "tp2": 23.18,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 23.01,
+    "return_pct": -0.26
   },
   {
     "push_date": "2026-08-06",
@@ -3831,9 +3831,9 @@
     "stop": 34.32,
     "tp1": 35.37,
     "tp2": 35.5,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 35.5,
+    "return_pct": 2.19
   },
   {
     "push_date": "2026-08-06",
@@ -3845,6 +3845,62 @@
     "stop": 100.44,
     "tp1": 104.89,
     "tp2": 105.42,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-07",
+    "name": "第一金",
+    "ticker": "2892.TW",
+    "score": 45,
+    "price": 35.54999923706055,
+    "entry_mid": 35.28,
+    "stop": 35.04,
+    "tp1": 35.64,
+    "tp2": 35.71,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-07",
+    "name": "富邦特選高股息30",
+    "ticker": "00900.TW",
+    "score": 48,
+    "price": 18.670000076293945,
+    "entry_mid": 18.57,
+    "stop": 18.5,
+    "tp1": 18.68,
+    "tp2": 18.7,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-07",
+    "name": "春源鋼鐵",
+    "ticker": "2010.TW",
+    "score": 43,
+    "price": 23.0,
+    "entry_mid": 22.83,
+    "stop": 22.42,
+    "tp1": 23.44,
+    "tp2": 23.57,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-07",
+    "name": "金像電",
+    "ticker": "2368.TW",
+    "score": 40,
+    "price": 1005.0,
+    "entry_mid": 997.46,
+    "stop": 977.51,
+    "tp1": 1027.39,
+    "tp2": 1033.37,
     "result": null,
     "exit_price": null,
     "return_pct": null
