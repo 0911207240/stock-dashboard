@@ -1,31 +1,17 @@
 {
-  "date": "2026-08-07",
-  "timestamp": "2026-08-07 09:03",
+  "date": "2026-08-08",
+  "timestamp": "2026-08-08 06:04",
   "signals": [
     {
-      "name": "輝達",
-      "ticker": "NVDA",
+      "name": "安謀控股",
+      "ticker": "ARM",
       "score": -2,
-      "price": 218.99,
-      "change_pct": -0.1,
-      "vol_ratio": 0.84,
+      "price": 282.57,
+      "change_pct": -1.43,
+      "vol_ratio": 0.67,
       "signals": [
-        "KD 死亡交叉 (K=86.2)",
-        "布林通道上軌回落"
-      ]
-    },
-    {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": -2,
-      "price": 155.92,
-      "change_pct": -1.58,
-      "vol_ratio": 0.5,
-      "signals": [
-        "KD 死亡交叉 (K=78.9)",
-        "均線剛形成多頭排列 (MA5>MA20>MA60)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-21.1)"
+        "KD 死亡交叉 (K=79.4)",
+        "威廉%R 超買回落 (-20.6)"
       ]
     }
   ]
