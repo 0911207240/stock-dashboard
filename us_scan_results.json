@@ -1,29 +1,31 @@
 {
-  "date": "2026-08-06",
-  "timestamp": "2026-08-06 06:33",
+  "date": "2026-08-07",
+  "timestamp": "2026-08-07 09:03",
   "signals": [
     {
-      "name": "Alphabet",
-      "ticker": "GOOGL",
+      "name": "輝達",
+      "ticker": "NVDA",
       "score": -2,
-      "price": 362.43,
-      "change_pct": -4.03,
-      "vol_ratio": 1.17,
+      "price": 218.99,
+      "change_pct": -0.1,
+      "vol_ratio": 0.84,
       "signals": [
-        "KD 死亡交叉 (K=67.2)",
-        "威廉%R 超買回落 (-31.7)"
+        "KD 死亡交叉 (K=86.2)",
+        "布林通道上軌回落"
       ]
     },
     {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
+      "name": "Palantir",
+      "ticker": "PLTR",
       "score": -2,
-      "price": 272.65,
-      "change_pct": -1.72,
-      "vol_ratio": 0.49,
+      "price": 155.92,
+      "change_pct": -1.58,
+      "vol_ratio": 0.5,
       "signals": [
+        "KD 死亡交叉 (K=78.9)",
+        "均線剛形成多頭排列 (MA5>MA20>MA60)",
         "布林通道上軌回落",
-        "威廉%R 超買回落 (-23.8)"
+        "威廉%R 超買回落 (-21.1)"
       ]
     }
   ]
