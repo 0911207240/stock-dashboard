@@ -47,6 +47,14 @@ jobs:
       - name: Run scan
         run: python scanner.py
 
+      - name: Send daily email
+        continue-on-error: true
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_TO: ${{ secrets.GMAIL_TO }}
+        run: python email_notifier.py
+
       - name: Notify failure
         if: failure()
         env:
