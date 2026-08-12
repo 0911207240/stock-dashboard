@@ -1,336 +1,266 @@
 {
-  "date": "2026-08-11",
-  "timestamp": "2026-08-11 12:38",
+  "date": "2026-08-12",
+  "timestamp": "2026-08-12 13:12",
   "regime": {
     "state": "盤整",
     "emoji": "🟡"
   },
   "buy_signals": [
     {
-      "name": "IC_3094",
-      "ticker": "3094.TW",
+      "name": "第一金",
+      "ticker": "2892.TW",
+      "score": 1,
+      "price": 32.70000076293945,
+      "change_pct": 0.0,
+      "vol_ratio": 0.41,
+      "is_holding": true,
+      "signals": [
+        "KD 黃金交叉 (K=5.6)"
+      ]
+    },
+    {
+      "name": "合庫金",
+      "ticker": "5880.TW",
       "score": 2,
-      "price": 36.849998474121094,
-      "change_pct": -0.27,
-      "vol_ratio": 0.58,
+      "price": 23.950000762939453,
+      "change_pct": -0.21,
+      "vol_ratio": 0.3,
       "is_holding": false,
       "signals": [
-        "MACD 黃金交叉",
-        "均線剛形成多頭排列 (MA5>MA20>MA60)"
+        "KD 黃金交叉 (K=2.6)",
+        "布林通道下軌反彈"
       ]
     }
   ],
   "sell_signals": [
     {
-      "name": "輝達",
-      "ticker": "NVDA",
-      "score": -3,
-      "price": 217.5500030517578,
-      "change_pct": -2.86,
-      "vol_ratio": 0.87,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=79.3)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-20.7)"
-      ]
-    },
-    {
-      "name": "華南金",
-      "ticker": "2880.TW",
+      "name": "台積電",
+      "ticker": "2330.TW",
       "score": -1,
-      "price": 43.79999923706055,
-      "change_pct": -0.45,
-      "vol_ratio": 0.31,
+      "price": 2405.0,
+      "change_pct": 0.42,
+      "vol_ratio": 0.41,
       "is_holding": true,
       "signals": [
-        "MACD 死亡交叉"
+        "KD 死亡交叉 (K=82.6)"
       ]
     },
     {
-      "name": "博通",
-      "ticker": "AVGO",
+      "name": "中信金",
+      "ticker": "2891.TW",
       "score": -2,
-      "price": 422.3999938964844,
-      "change_pct": -1.25,
-      "vol_ratio": 0.77,
+      "price": 65.5999984741211,
+      "change_pct": -1.8,
+      "vol_ratio": 0.55,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=83.7)",
-        "布林通道上軌回落"
+        "KD 死亡交叉 (K=54.1)",
+        "威廉%R 超買回落 (-26.2)"
       ]
     },
     {
-      "name": "英業達",
-      "ticker": "2356.TW",
+      "name": "台新金",
+      "ticker": "2887.TW",
       "score": -2,
-      "price": 64.9000015258789,
-      "change_pct": -1.67,
-      "vol_ratio": 0.25,
+      "price": 35.349998474121094,
+      "change_pct": -0.56,
+      "vol_ratio": 0.32,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=75.7)",
-        "威廉%R 超買回落 (-24.3)"
+        "KD 死亡交叉 (K=62.7)",
+        "威廉%R 超買回落 (-21.3)"
       ]
     },
     {
-      "name": "和碩",
-      "ticker": "4938.TW",
+      "name": "長榮",
+      "ticker": "2603.TW",
       "score": -2,
-      "price": 86.80000305175781,
-      "change_pct": -3.02,
-      "vol_ratio": 0.67,
+      "price": 215.0,
+      "change_pct": -1.38,
+      "vol_ratio": 0.53,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=63.6)",
-        "威廉%R 超買回落 (-36.4)"
-      ]
-    },
-    {
-      "name": "大成鋼",
-      "ticker": "2027.TW",
-      "score": -2,
-      "price": 46.54999923706055,
-      "change_pct": -1.59,
-      "vol_ratio": 0.39,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=77.5)",
-        "威廉%R 超買回落 (-21.6)"
-      ]
-    },
-    {
-      "name": "聯茂",
-      "ticker": "6213.TW",
-      "score": -4,
-      "price": 395.5,
-      "change_pct": -7.49,
-      "vol_ratio": 0.35,
-      "is_holding": false,
-      "signals": [
-        "RSI 從超買區回落 (62.9)",
-        "KD 死亡交叉 (K=77.1)",
         "布林通道上軌回落",
-        "威廉%R 超買回落 (-22.9)"
+        "威廉%R 超買回落 (-22.7)"
       ]
     },
     {
-      "name": "華通",
-      "ticker": "2313.TW",
-      "score": -2,
-      "price": 209.0,
-      "change_pct": -2.79,
-      "vol_ratio": 0.52,
+      "name": "陽明",
+      "ticker": "2609.TW",
+      "score": -3,
+      "price": 51.400001525878906,
+      "change_pct": -1.15,
+      "vol_ratio": 0.34,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=79.7)",
-        "威廉%R 超買回落 (-20.3)"
+        "KD 死亡交叉 (K=66.7)",
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-29.6)"
       ]
     },
     {
-      "name": "合勤控",
-      "ticker": "3704.TW",
+      "name": "亞馬遜",
+      "ticker": "AMZN",
       "score": -2,
-      "price": 45.400001525878906,
-      "change_pct": -9.92,
-      "vol_ratio": 1.31,
+      "price": 272.2699890136719,
+      "change_pct": -2.09,
+      "vol_ratio": 0.84,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=53.1)",
-        "威廉%R 超買回落 (-44.8)"
+        "KD 死亡交叉 (K=73.4)",
+        "威廉%R 超買回落 (-24.5)"
       ]
     },
     {
-      "name": "中磊",
-      "ticker": "5388.TW",
+      "name": "Palantir",
+      "ticker": "PLTR",
       "score": -2,
-      "price": 91.5,
-      "change_pct": -2.24,
-      "vol_ratio": 0.41,
+      "price": 174.94000244140625,
+      "change_pct": -0.17,
+      "vol_ratio": 0.74,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=78.4)",
-        "威廉%R 超買回落 (-21.6)"
-      ]
-    },
-    {
-      "name": "光寶科",
-      "ticker": "2301.TW",
-      "score": -2,
-      "price": 265.5,
-      "change_pct": -2.21,
-      "vol_ratio": 0.78,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=87.8)",
+        "KD 死亡交叉 (K=92.2)",
         "布林通道上軌回落"
+      ]
+    },
+    {
+      "name": "東和鋼鐵",
+      "ticker": "2006.TW",
+      "score": -2,
+      "price": 83.69999694824219,
+      "change_pct": -2.11,
+      "vol_ratio": 0.33,
+      "is_holding": false,
+      "signals": [
+        "RSI 從超買區回落 (65.2)",
+        "威廉%R 超買回落 (-27.2)"
+      ]
+    },
+    {
+      "name": "創意",
+      "ticker": "3443.TW",
+      "score": -2,
+      "price": 4960.0,
+      "change_pct": 0.1,
+      "vol_ratio": 0.64,
+      "is_holding": false,
+      "signals": [
+        "KD 死亡交叉 (K=85.9)",
+        "布林通道上軌回落"
+      ]
+    },
+    {
+      "name": "啟碁",
+      "ticker": "6285.TW",
+      "score": -2,
+      "price": 250.5,
+      "change_pct": -1.38,
+      "vol_ratio": 0.31,
+      "is_holding": false,
+      "signals": [
+        "KD 死亡交叉 (K=71.9)",
+        "威廉%R 超買回落 (-20.9)"
       ]
     },
     {
       "name": "南茂",
       "ticker": "8150.TW",
       "score": -1,
-      "price": 91.4000015258789,
-      "change_pct": -1.61,
-      "vol_ratio": 1.25,
+      "price": 93.9000015258789,
+      "change_pct": -5.15,
+      "vol_ratio": 1.12,
       "is_holding": true,
       "signals": [
-        "KD 死亡交叉 (K=77.2)"
-      ]
-    },
-    {
-      "name": "研華",
-      "ticker": "2395.TW",
-      "score": -3,
-      "price": 654.0,
-      "change_pct": -1.95,
-      "vol_ratio": 0.34,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=74.4)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-24.7)"
-      ]
-    },
-    {
-      "name": "鴻準",
-      "ticker": "2354.TW",
-      "score": -2,
-      "price": 62.29999923706055,
-      "change_pct": -1.27,
-      "vol_ratio": 0.32,
-      "is_holding": false,
-      "signals": [
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-20.7)"
+        "KD 死亡交叉 (K=79.6)"
       ]
     },
     {
       "name": "昆盈",
       "ticker": "2365.TW",
-      "score": -2,
-      "price": 30.450000762939453,
-      "change_pct": -2.56,
-      "vol_ratio": 0.33,
+      "score": -1,
+      "price": 31.200000762939453,
+      "change_pct": 0.48,
+      "vol_ratio": 0.41,
       "is_holding": true,
       "signals": [
-        "KD 死亡交叉 (K=84.0)",
+        "KD 死亡交叉 (K=96.4)"
+      ]
+    },
+    {
+      "name": "亞光",
+      "ticker": "3019.TW",
+      "score": -2,
+      "price": 136.0,
+      "change_pct": -1.45,
+      "vol_ratio": 0.64,
+      "is_holding": false,
+      "signals": [
+        "KD 死亡交叉 (K=66.7)",
         "威廉%R 超買回落 (-21.7)"
-      ]
-    },
-    {
-      "name": "揚智",
-      "ticker": "3041.TW",
-      "score": -2,
-      "price": 23.0,
-      "change_pct": -6.31,
-      "vol_ratio": 1.21,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=64.6)",
-        "威廉%R 超買回落 (-35.4)"
-      ]
-    },
-    {
-      "name": "嘉晶",
-      "ticker": "3016.TW",
-      "score": -2,
-      "price": 101.5,
-      "change_pct": -5.14,
-      "vol_ratio": 0.36,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=82.8)",
-        "威廉%R 超買回落 (-25.8)"
-      ]
-    },
-    {
-      "name": "宏致",
-      "ticker": "3605.TW",
-      "score": -2,
-      "price": 111.0,
-      "change_pct": 1.83,
-      "vol_ratio": 0.69,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=79.8)",
-        "威廉%R 超買回落 (-20.2)"
-      ]
-    },
-    {
-      "name": "彩晶",
-      "ticker": "6116.TW",
-      "score": -2,
-      "price": 14.199999809265137,
-      "change_pct": -4.7,
-      "vol_ratio": 0.6,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=79.1)",
-        "威廉%R 超買回落 (-23.2)"
       ]
     }
   ],
   "daytrade": [
     {
-      "name": "玉山金",
-      "ticker": "2884.TW",
-      "score": 88,
-      "price": 36.95,
-      "change_pct": -2.25,
-      "entry_mid": 36.76,
-      "stop": 36.44,
-      "tp1": 37.24,
-      "tp2": 37.4,
-      "vol_ratio": 0.68
+      "name": "萬海",
+      "ticker": "2615.TW",
+      "score": 81,
+      "price": 86.8,
+      "change_pct": -0.34,
+      "entry_mid": 86.46,
+      "stop": 85.29,
+      "tp1": 88.21,
+      "tp2": 88.8,
+      "vol_ratio": 0.46
     },
     {
-      "name": "兆豐金",
-      "ticker": "2886.TW",
-      "score": 74,
-      "price": 49.9,
-      "change_pct": -2.16,
-      "entry_mid": 49.68,
-      "stop": 49.18,
-      "tp1": 50.43,
-      "tp2": 50.68,
-      "vol_ratio": 0.44
+      "name": "群光",
+      "ticker": "2385.TW",
+      "score": 72,
+      "price": 105.0,
+      "change_pct": 0.48,
+      "entry_mid": 104.71,
+      "stop": 102.62,
+      "tp1": 107.84,
+      "tp2": 108.89,
+      "vol_ratio": 0.43
     },
     {
-      "name": "台新金",
-      "ticker": "2887.TW",
-      "score": 74,
-      "price": 35.8,
-      "change_pct": -0.28,
-      "entry_mid": 35.6,
-      "stop": 35.0,
-      "tp1": 36.5,
-      "tp2": 36.8,
-      "vol_ratio": 0.36
+      "name": "永豐金",
+      "ticker": "2890.TW",
+      "score": 78,
+      "price": 39.25,
+      "change_pct": 0.51,
+      "entry_mid": 39.12,
+      "stop": 38.69,
+      "tp1": 39.77,
+      "tp2": 39.98,
+      "vol_ratio": 0.49
     },
     {
-      "name": "開發金",
-      "ticker": "2883.TW",
-      "score": 74,
-      "price": 30.85,
-      "change_pct": -0.64,
-      "entry_mid": 30.62,
-      "stop": 30.4,
-      "tp1": 30.95,
-      "tp2": 31.06,
-      "vol_ratio": 0.2
-    },
-    {
-      "name": "元大金",
-      "ticker": "2885.TW",
+      "name": "華南金",
+      "ticker": "2880.TW",
       "score": 71,
-      "price": 68.3,
-      "change_pct": 0.15,
-      "entry_mid": 68.22,
-      "stop": 66.86,
-      "tp1": 70.26,
-      "tp2": 70.94,
-      "vol_ratio": 0.35
+      "price": 43.4,
+      "change_pct": -0.57,
+      "entry_mid": 43.08,
+      "stop": 42.43,
+      "tp1": 44.05,
+      "tp2": 44.38,
+      "vol_ratio": 0.53
+    },
+    {
+      "name": "彰銀",
+      "ticker": "2801.TW",
+      "score": 63,
+      "price": 23.3,
+      "change_pct": 0.87,
+      "entry_mid": 23.24,
+      "stop": 22.95,
+      "tp1": 23.67,
+      "tp2": 23.82,
+      "vol_ratio": 0.29
     }
   ]
 }
