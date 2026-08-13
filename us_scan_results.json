@@ -1,29 +1,17 @@
 {
-  "date": "2026-08-12",
-  "timestamp": "2026-08-12 06:10",
+  "date": "2026-08-14",
+  "timestamp": "2026-08-14 06:09",
   "signals": [
     {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
+      "name": "應用材料",
+      "ticker": "AMAT",
       "score": -2,
-      "price": 272.27,
-      "change_pct": -2.09,
-      "vol_ratio": 0.84,
+      "price": 534.54,
+      "change_pct": -2.48,
+      "vol_ratio": 1.56,
       "signals": [
-        "KD 死亡交叉 (K=73.4)",
-        "威廉%R 超買回落 (-24.5)"
-      ]
-    },
-    {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": -2,
-      "price": 174.94,
-      "change_pct": -0.17,
-      "vol_ratio": 0.74,
-      "signals": [
-        "KD 死亡交叉 (K=92.2)",
-        "布林通道上軌回落"
+        "KD 死亡交叉 (K=59.5)",
+        "威廉%R 超買回落 (-22.9)"
       ]
     }
   ]
