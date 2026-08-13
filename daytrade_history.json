@@ -3915,9 +3915,9 @@
     "stop": 125.64,
     "tp1": 132.04,
     "tp2": 133.32,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 128.0,
+    "return_pct": -0.16
   },
   {
     "push_date": "2026-08-10",
@@ -3929,9 +3929,9 @@
     "stop": 34.31,
     "tp1": 36.06,
     "tp2": 36.41,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 35.55,
+    "return_pct": 1.54
   },
   {
     "push_date": "2026-08-10",
@@ -3943,9 +3943,9 @@
     "stop": 30.04,
     "tp1": 31.24,
     "tp2": 31.38,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 31.05,
+    "return_pct": 1.74
   },
   {
     "push_date": "2026-08-10",
@@ -3957,9 +3957,9 @@
     "stop": 67.11,
     "tp1": 70.54,
     "tp2": 70.95,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 68.4,
+    "return_pct": -0.12
   },
   {
     "push_date": "2026-08-10",
@@ -4055,9 +4055,9 @@
     "stop": 85.29,
     "tp1": 88.21,
     "tp2": 88.8,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 88.8,
+    "return_pct": 2.71
   },
   {
     "push_date": "2026-08-12",
@@ -4069,9 +4069,9 @@
     "stop": 102.62,
     "tp1": 107.84,
     "tp2": 108.89,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 107.84,
+    "return_pct": 2.99
   },
   {
     "push_date": "2026-08-12",
@@ -4083,9 +4083,9 @@
     "stop": 38.69,
     "tp1": 39.77,
     "tp2": 39.98,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 39.98,
+    "return_pct": 2.2
   },
   {
     "push_date": "2026-08-12",
@@ -4097,9 +4097,9 @@
     "stop": 42.43,
     "tp1": 44.05,
     "tp2": 44.38,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 42.43,
+    "return_pct": -1.51
   },
   {
     "push_date": "2026-08-12",
@@ -4111,6 +4111,76 @@
     "stop": 22.95,
     "tp1": 23.67,
     "tp2": 23.82,
+    "result": "停利①",
+    "exit_price": 23.67,
+    "return_pct": 1.85
+  },
+  {
+    "push_date": "2026-08-13",
+    "name": "群光",
+    "ticker": "2385.TW",
+    "score": 82,
+    "price": 106.0,
+    "entry_mid": 105.23,
+    "stop": 104.54,
+    "tp1": 106.27,
+    "tp2": 106.61,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-13",
+    "name": "開發金",
+    "ticker": "2883.TW",
+    "score": 78,
+    "price": 30.899999618530273,
+    "entry_mid": 30.67,
+    "stop": 30.57,
+    "tp1": 30.82,
+    "tp2": 30.87,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-13",
+    "name": "台新金",
+    "ticker": "2887.TW",
+    "score": 77,
+    "price": 35.400001525878906,
+    "entry_mid": 35.14,
+    "stop": 34.91,
+    "tp1": 35.49,
+    "tp2": 35.6,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-13",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 72,
+    "price": 69.30000305175781,
+    "entry_mid": 68.87,
+    "stop": 67.76,
+    "tp1": 70.53,
+    "tp2": 71.09,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-13",
+    "name": "聯詠",
+    "ticker": "3034.TW",
+    "score": 70,
+    "price": 537.0,
+    "entry_mid": 532.97,
+    "stop": 528.64,
+    "tp1": 539.47,
+    "tp2": 541.63,
     "result": null,
     "exit_price": null,
     "return_pct": null
