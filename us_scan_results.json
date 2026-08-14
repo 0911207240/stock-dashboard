@@ -1,17 +1,17 @@
 {
-  "date": "2026-08-14",
-  "timestamp": "2026-08-14 06:09",
+  "date": "2026-08-15",
+  "timestamp": "2026-08-15 05:47",
   "signals": [
     {
-      "name": "應用材料",
-      "ticker": "AMAT",
+      "name": "Palantir",
+      "ticker": "PLTR",
       "score": -2,
-      "price": 534.54,
-      "change_pct": -2.48,
-      "vol_ratio": 1.56,
+      "price": 174.04,
+      "change_pct": -2.78,
+      "vol_ratio": 0.61,
       "signals": [
-        "KD 死亡交叉 (K=59.5)",
-        "威廉%R 超買回落 (-22.9)"
+        "RSI 從超買區回落 (68.1)",
+        "KD 死亡交叉 (K=83.4)"
       ]
     }
   ]
