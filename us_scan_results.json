@@ -1,17 +1,30 @@
 {
-  "date": "2026-08-15",
-  "timestamp": "2026-08-15 05:47",
+  "date": "2026-08-18",
+  "timestamp": "2026-08-18 05:48",
   "signals": [
     {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": -2,
-      "price": 174.04,
-      "change_pct": -2.78,
-      "vol_ratio": 0.61,
+      "name": "超微電腦",
+      "ticker": "SMCI",
+      "score": -3,
+      "price": 38.28,
+      "change_pct": -3.92,
+      "vol_ratio": 0.55,
       "signals": [
-        "RSI 從超買區回落 (68.1)",
-        "KD 死亡交叉 (K=83.4)"
+        "RSI 從超買區回落 (65.6)",
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-24.2)"
+      ]
+    },
+    {
+      "name": "微軟",
+      "ticker": "MSFT",
+      "score": -2,
+      "price": 480.35,
+      "change_pct": -3.04,
+      "vol_ratio": 1.18,
+      "signals": [
+        "RSI 從超買區回落 (62.2)",
+        "威廉%R 超買回落 (-26.7)"
       ]
     }
   ]
