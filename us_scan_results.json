@@ -1,29 +1,17 @@
 {
-  "date": "2026-08-19",
-  "timestamp": "2026-08-19 05:45",
+  "date": "2026-08-20",
+  "timestamp": "2026-08-20 05:48",
   "signals": [
     {
-      "name": "ASML",
-      "ticker": "ASML",
-      "score": -2,
-      "price": 1802.98,
-      "change_pct": -4.26,
-      "vol_ratio": 1.16,
+      "name": "Meta",
+      "ticker": "META",
+      "score": 2,
+      "price": 546.03,
+      "change_pct": 0.43,
+      "vol_ratio": 1.01,
       "signals": [
-        "KD 死亡交叉 (K=58.4)",
-        "威廉%R 超買回落 (-29.7)"
-      ]
-    },
-    {
-      "name": "科林研發",
-      "ticker": "LRCX",
-      "score": -2,
-      "price": 327.92,
-      "change_pct": -4.63,
-      "vol_ratio": 1.18,
-      "signals": [
-        "KD 死亡交叉 (K=66.4)",
-        "威廉%R 超買回落 (-25.4)"
+        "KD 黃金交叉 (K=11.6)",
+        "布林通道下軌反彈"
       ]
     }
   ]
