@@ -1,17 +1,17 @@
 {
-  "date": "2026-08-20",
-  "timestamp": "2026-08-20 05:48",
+  "date": "2026-08-21",
+  "timestamp": "2026-08-21 05:52",
   "signals": [
     {
-      "name": "Meta",
-      "ticker": "META",
-      "score": 2,
-      "price": 546.03,
-      "change_pct": 0.43,
-      "vol_ratio": 1.01,
+      "name": "蘋果",
+      "ticker": "AAPL",
+      "score": -2,
+      "price": 311.3,
+      "change_pct": -1.75,
+      "vol_ratio": 0.92,
       "signals": [
-        "KD 黃金交叉 (K=11.6)",
-        "布林通道下軌反彈"
+        "KD 死亡交叉 (K=54.4)",
+        "威廉%R 超買回落 (-45.6)"
       ]
     }
   ]
