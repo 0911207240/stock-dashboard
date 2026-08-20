@@ -731,5 +731,20 @@
     ],
     "portfolio_value": 1163292.0,
     "portfolio_pnl": 282972.0
+  },
+  {
+    "date": "2026-08-20",
+    "taiex_close": 44685.91,
+    "taiex_chg_pct": -0.07,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 40,
+    "top_sectors": [
+      "航運",
+      "光電",
+      "PCB/基板績優"
+    ],
+    "portfolio_value": 1169313.0,
+    "portfolio_pnl": 288993.0
   }
 ]
