@@ -4405,9 +4405,9 @@
     "stop": 105.54,
     "tp1": 107.69,
     "tp2": 108.12,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 105.54,
+    "return_pct": -0.81
   },
   {
     "push_date": "2026-08-20",
@@ -4419,9 +4419,9 @@
     "stop": 32.93,
     "tp1": 33.48,
     "tp2": 33.59,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 33.48,
+    "return_pct": 1.0
   },
   {
     "push_date": "2026-08-20",
@@ -4433,9 +4433,9 @@
     "stop": 36.78,
     "tp1": 37.38,
     "tp2": 37.5,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 37.5,
+    "return_pct": 1.3
   },
   {
     "push_date": "2026-08-20",
@@ -4461,6 +4461,76 @@
     "stop": 24.52,
     "tp1": 25.37,
     "tp2": 25.54,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-21",
+    "name": "永豐金",
+    "ticker": "2890.TW",
+    "score": 90,
+    "price": 39.400001525878906,
+    "entry_mid": 39.18,
+    "stop": 38.86,
+    "tp1": 39.66,
+    "tp2": 39.82,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-21",
+    "name": "兆豐金",
+    "ticker": "2886.TW",
+    "score": 72,
+    "price": 46.400001525878906,
+    "entry_mid": 46.05,
+    "stop": 45.76,
+    "tp1": 46.48,
+    "tp2": 46.63,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-21",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 79,
+    "price": 39.0,
+    "entry_mid": 38.7,
+    "stop": 38.13,
+    "tp1": 39.56,
+    "tp2": 39.84,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-21",
+    "name": "開發金",
+    "ticker": "2883.TW",
+    "score": 72,
+    "price": 31.0,
+    "entry_mid": 30.91,
+    "stop": 30.29,
+    "tp1": 31.84,
+    "tp2": 32.15,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-08-21",
+    "name": "美律",
+    "ticker": "2439.TW",
+    "score": 61,
+    "price": 81.80000305175781,
+    "entry_mid": 81.53,
+    "stop": 80.85,
+    "tp1": 82.55,
+    "tp2": 82.89,
     "result": null,
     "exit_price": null,
     "return_pct": null
