@@ -1,17 +1,17 @@
 {
-  "date": "2026-08-21",
-  "timestamp": "2026-08-21 05:52",
+  "date": "2026-08-25",
+  "timestamp": "2026-08-25 05:52",
   "signals": [
     {
-      "name": "蘋果",
-      "ticker": "AAPL",
+      "name": "Palantir",
+      "ticker": "PLTR",
       "score": -2,
-      "price": 311.3,
-      "change_pct": -1.75,
-      "vol_ratio": 0.92,
+      "price": 175.89,
+      "change_pct": -2.25,
+      "vol_ratio": 1.05,
       "signals": [
-        "KD 死亡交叉 (K=54.4)",
-        "威廉%R 超買回落 (-45.6)"
+        "KD 死亡交叉 (K=53.5)",
+        "威廉%R 超買回落 (-22.0)"
       ]
     }
   ]
