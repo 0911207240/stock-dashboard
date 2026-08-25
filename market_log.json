@@ -776,5 +776,20 @@
     ],
     "portfolio_value": 1183263.0,
     "portfolio_pnl": 302943.0
+  },
+  {
+    "date": "2026-08-25",
+    "taiex_close": 44412.14,
+    "taiex_chg_pct": -0.78,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 45,
+    "top_sectors": [
+      "航運",
+      "連接器/精密零件",
+      "銀行/金控"
+    ],
+    "portfolio_value": 1157096.0,
+    "portfolio_pnl": 276775.0
   }
 ]
