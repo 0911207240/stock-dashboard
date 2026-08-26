@@ -791,5 +791,20 @@
     ],
     "portfolio_value": 1157096.0,
     "portfolio_pnl": 276775.0
+  },
+  {
+    "date": "2026-08-26",
+    "taiex_close": 45275.3,
+    "taiex_chg_pct": 0.23,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 36,
+    "top_sectors": [
+      "光電",
+      "IC設計績優",
+      "石化"
+    ],
+    "portfolio_value": 1182911.0,
+    "portfolio_pnl": 302591.0
   }
 ]
