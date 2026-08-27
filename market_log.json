@@ -806,5 +806,20 @@
     ],
     "portfolio_value": 1182911.0,
     "portfolio_pnl": 302591.0
+  },
+  {
+    "date": "2026-08-27",
+    "taiex_close": 45975.22,
+    "taiex_chg_pct": 0.31,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 35,
+    "top_sectors": [
+      "光電",
+      "石化",
+      "連接器/精密零件"
+    ],
+    "portfolio_value": 1185987.0,
+    "portfolio_pnl": 305667.0
   }
 ]
