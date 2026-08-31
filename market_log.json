@@ -836,5 +836,20 @@
     ],
     "portfolio_value": 1190997.0,
     "portfolio_pnl": 310677.0
+  },
+  {
+    "date": "2026-08-31",
+    "taiex_close": 45979.67,
+    "taiex_chg_pct": -0.76,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 45,
+    "top_sectors": [
+      "光電",
+      "石化",
+      "電源/散熱績優"
+    ],
+    "portfolio_value": 1189503.0,
+    "portfolio_pnl": 309183.0
   }
 ]
