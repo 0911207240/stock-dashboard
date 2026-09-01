@@ -1,29 +1,31 @@
 {
-  "date": "2026-08-26",
-  "timestamp": "2026-08-26 05:51",
+  "date": "2026-09-01",
+  "timestamp": "2026-09-01 08:42",
   "signals": [
     {
-      "name": "超微半導體",
-      "ticker": "AMD",
-      "score": 2,
-      "price": 479.18,
-      "change_pct": 4.91,
-      "vol_ratio": 1.12,
+      "name": "蘋果",
+      "ticker": "AAPL",
+      "score": -3,
+      "price": 316.85,
+      "change_pct": -0.89,
+      "vol_ratio": 1.19,
       "signals": [
-        "KD 黃金交叉 (K=42.5)",
-        "威廉%R 超賣反彈 (-57.5)"
+        "KD 死亡交叉 (K=64.1)",
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-25.3)"
       ]
     },
     {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": 2,
-      "price": 451.5,
-      "change_pct": 4.23,
-      "vol_ratio": 0.86,
+      "name": "微軟",
+      "ticker": "MSFT",
+      "score": -3,
+      "price": 507.29,
+      "change_pct": -1.22,
+      "vol_ratio": 1.07,
       "signals": [
-        "KD 黃金交叉 (K=30.6)",
-        "威廉%R 超賣反彈 (-64.0)"
+        "RSI 從超買區回落 (68.4)",
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-25.3)"
       ]
     }
   ]
