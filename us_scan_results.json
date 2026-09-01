@@ -1,31 +1,30 @@
 {
-  "date": "2026-09-01",
-  "timestamp": "2026-09-01 08:42",
+  "date": "2026-09-02",
+  "timestamp": "2026-09-02 07:27",
   "signals": [
     {
-      "name": "蘋果",
-      "ticker": "AAPL",
+      "name": "高通",
+      "ticker": "QCOM",
       "score": -3,
-      "price": 316.85,
-      "change_pct": -0.89,
-      "vol_ratio": 1.19,
+      "price": 166.61,
+      "change_pct": -2.27,
+      "vol_ratio": 0.81,
       "signals": [
-        "KD 死亡交叉 (K=64.1)",
+        "KD 死亡交叉 (K=68.5)",
         "布林通道上軌回落",
-        "威廉%R 超買回落 (-25.3)"
+        "威廉%R 超買回落 (-31.5)"
       ]
     },
     {
-      "name": "微軟",
-      "ticker": "MSFT",
-      "score": -3,
-      "price": 507.29,
-      "change_pct": -1.22,
-      "vol_ratio": 1.07,
+      "name": "Palantir",
+      "ticker": "PLTR",
+      "score": -2,
+      "price": 179.92,
+      "change_pct": -3.47,
+      "vol_ratio": 0.85,
       "signals": [
-        "RSI 從超買區回落 (68.4)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-25.3)"
+        "MACD 死亡交叉",
+        "威廉%R 超買回落 (-43.4)"
       ]
     }
   ]
