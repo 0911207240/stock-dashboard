@@ -1,30 +1,42 @@
 {
-  "date": "2026-09-02",
-  "timestamp": "2026-09-02 07:27",
+  "date": "2026-09-03",
+  "timestamp": "2026-09-03 07:27",
   "signals": [
     {
-      "name": "高通",
-      "ticker": "QCOM",
-      "score": -3,
-      "price": 166.61,
-      "change_pct": -2.27,
-      "vol_ratio": 0.81,
+      "name": "應用材料",
+      "ticker": "AMAT",
+      "score": 2,
+      "price": 438.46,
+      "change_pct": -0.77,
+      "vol_ratio": 1.0,
       "signals": [
-        "KD 死亡交叉 (K=68.5)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-31.5)"
+        "KD 黃金交叉 (K=7.0)",
+        "布林通道下軌反彈"
       ]
     },
     {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": -2,
-      "price": 179.92,
-      "change_pct": -3.47,
-      "vol_ratio": 0.85,
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "score": 2,
+      "price": 337.12,
+      "change_pct": 0.63,
+      "vol_ratio": 0.88,
       "signals": [
-        "MACD 死亡交叉",
-        "威廉%R 超買回落 (-43.4)"
+        "KD 黃金交叉 (K=22.9)",
+        "威廉%R 超賣反彈 (-77.1)"
+      ]
+    },
+    {
+      "name": "戴爾",
+      "ticker": "DELL",
+      "score": 2,
+      "price": 492.2,
+      "change_pct": 15.81,
+      "vol_ratio": 2.65,
+      "signals": [
+        "均線剛形成多頭排列 (MA5>MA20>MA60)",
+        "成交量爆量 (2.7x 均量)",
+        "威廉%R 超賣反彈 (-10.9)"
       ]
     }
   ]
