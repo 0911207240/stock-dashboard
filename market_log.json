@@ -866,5 +866,20 @@
     ],
     "portfolio_value": 1214494.0,
     "portfolio_pnl": 334173.0
+  },
+  {
+    "date": "2026-09-02",
+    "taiex_close": 46288.82,
+    "taiex_chg_pct": -1.41,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 40,
+    "top_sectors": [
+      "光電",
+      "石化",
+      "Apple供應鏈"
+    ],
+    "portfolio_value": 1206113.0,
+    "portfolio_pnl": 325793.0
   }
 ]
