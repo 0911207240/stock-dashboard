@@ -4979,9 +4979,9 @@
     "stop": 230.12,
     "tp1": 241.87,
     "tp2": 244.22,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 234.5,
+    "return_pct": -0.14
   },
   {
     "push_date": "2026-09-01",
@@ -5105,9 +5105,9 @@
     "stop": 16.9,
     "tp1": 17.4,
     "tp2": 17.5,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 16.9,
+    "return_pct": -1.17
   },
   {
     "push_date": "2026-09-03",
@@ -5147,9 +5147,9 @@
     "stop": 107.2,
     "tp1": 109.7,
     "tp2": 110.0,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 110.0,
+    "return_pct": 1.66
   },
   {
     "push_date": "2026-09-03",
@@ -5161,6 +5161,76 @@
     "stop": 296.51,
     "tp1": 308.31,
     "tp2": 309.73,
+    "result": "停利②",
+    "exit_price": 309.73,
+    "return_pct": 2.82
+  },
+  {
+    "push_date": "2026-09-04",
+    "name": "兆豐金",
+    "ticker": "2886.TW",
+    "score": 91,
+    "price": 49.45000076293945,
+    "entry_mid": 49.32,
+    "stop": 48.99,
+    "tp1": 49.81,
+    "tp2": 49.98,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-04",
+    "name": "大成鋼",
+    "ticker": "2027.TW",
+    "score": 74,
+    "price": 49.400001525878906,
+    "entry_mid": 49.03,
+    "stop": 48.55,
+    "tp1": 49.75,
+    "tp2": 49.99,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-04",
+    "name": "萬海",
+    "ticker": "2615.TW",
+    "score": 66,
+    "price": 114.0,
+    "entry_mid": 113.15,
+    "stop": 110.89,
+    "tp1": 116.54,
+    "tp2": 117.67,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-04",
+    "name": "宏致",
+    "ticker": "3605.TW",
+    "score": 58,
+    "price": 118.0,
+    "entry_mid": 117.41,
+    "stop": 115.06,
+    "tp1": 120.93,
+    "tp2": 122.11,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-04",
+    "name": "陽明",
+    "ticker": "2609.TW",
+    "score": 55,
+    "price": 58.20000076293945,
+    "entry_mid": 58.16,
+    "stop": 57.0,
+    "tp1": 59.9,
+    "tp2": 60.25,
     "result": null,
     "exit_price": null,
     "return_pct": null
