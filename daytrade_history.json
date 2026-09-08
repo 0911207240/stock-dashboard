@@ -5119,9 +5119,9 @@
     "stop": 42.23,
     "tp1": 44.36,
     "tp2": 44.78,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 44.0,
+    "return_pct": 2.14
   },
   {
     "push_date": "2026-09-03",
@@ -5133,9 +5133,9 @@
     "stop": 49.12,
     "tp1": 51.62,
     "tp2": 52.12,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 49.55,
+    "return_pct": -1.14
   },
   {
     "push_date": "2026-09-03",
@@ -5175,9 +5175,9 @@
     "stop": 48.99,
     "tp1": 49.81,
     "tp2": 49.98,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 49.98,
+    "return_pct": 1.34
   },
   {
     "push_date": "2026-09-04",
@@ -5189,9 +5189,9 @@
     "stop": 48.55,
     "tp1": 49.75,
     "tp2": 49.99,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 48.55,
+    "return_pct": -0.98
   },
   {
     "push_date": "2026-09-04",
@@ -5217,9 +5217,9 @@
     "stop": 115.06,
     "tp1": 120.93,
     "tp2": 122.11,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 122.11,
+    "return_pct": 4.0
   },
   {
     "push_date": "2026-09-04",
@@ -5231,6 +5231,76 @@
     "stop": 57.0,
     "tp1": 59.9,
     "tp2": 60.25,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-08",
+    "name": "大成鋼",
+    "ticker": "2027.TW",
+    "score": 64,
+    "price": 49.20000076293945,
+    "entry_mid": 48.83,
+    "stop": 48.24,
+    "tp1": 49.71,
+    "tp2": 49.89,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-08",
+    "name": "兆豐金",
+    "ticker": "2886.TW",
+    "score": 62,
+    "price": 50.400001525878906,
+    "entry_mid": 50.16,
+    "stop": 49.34,
+    "tp1": 51.39,
+    "tp2": 51.64,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-08",
+    "name": "台塑",
+    "ticker": "1301.TW",
+    "score": 55,
+    "price": 65.0,
+    "entry_mid": 64.52,
+    "stop": 63.83,
+    "tp1": 65.55,
+    "tp2": 65.76,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-08",
+    "name": "合庫金",
+    "ticker": "5880.TW",
+    "score": 57,
+    "price": 26.600000381469727,
+    "entry_mid": 26.58,
+    "stop": 26.18,
+    "tp1": 27.18,
+    "tp2": 27.3,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-08",
+    "name": "鴻準",
+    "ticker": "2354.TW",
+    "score": 51,
+    "price": 64.69999694824219,
+    "entry_mid": 64.21,
+    "stop": 63.7,
+    "tp1": 64.97,
+    "tp2": 65.13,
     "result": null,
     "exit_price": null,
     "return_pct": null

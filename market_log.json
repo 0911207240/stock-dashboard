@@ -911,5 +911,20 @@
     ],
     "portfolio_value": 1198220.0,
     "portfolio_pnl": 317900.0
+  },
+  {
+    "date": "2026-09-08",
+    "taiex_close": 47197.27,
+    "taiex_chg_pct": -0.27,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 27,
+    "top_sectors": [
+      "銀行/金控",
+      "科技/ETF",
+      "台積電合作廠商"
+    ],
+    "portfolio_value": 1195606.0,
+    "portfolio_pnl": 315286.0
   }
 ]
