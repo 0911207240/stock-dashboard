@@ -119,7 +119,8 @@ def _build_flex(name: str, ticker: str) -> dict:
     elif not is_tw:
         try:
             import yfinance as yf
-            info = yf.Ticker(ticker).info
+            from net_timeout import call_with_timeout
+            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=15, default=None) or {}
             w52h = info.get("fiftyTwoWeekHigh")
             w52l = info.get("fiftyTwoWeekLow")
             pe   = info.get("trailingPE") or info.get("forwardPE")

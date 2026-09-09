@@ -3,6 +3,7 @@ from datetime import date as _date
 from pathlib import Path
 import yfinance as yf
 import pandas as pd
+from net_timeout import call_with_timeout
 
 CACHE_DIR = Path(__file__).parent / "data_cache"
 
@@ -351,7 +352,10 @@ def _fetch_raw(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.Dat
     last_err = None
     for attempt in range(_FETCH_RETRIES):
         try:
-            df = yf.download(ticker, period=period, interval=interval, progress=False)
+            df = call_with_timeout(
+                lambda: yf.download(ticker, period=period, interval=interval, progress=False),
+                timeout=20, default=pd.DataFrame(),
+            )
             if not df.empty:
                 df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
                 df.dropna(inplace=True)
@@ -404,7 +408,7 @@ def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFram
 
 def fetch_dividends(ticker: str) -> pd.Series:
     try:
-        divs = yf.Ticker(ticker).dividends
+        divs = call_with_timeout(lambda: yf.Ticker(ticker).dividends, timeout=15, default=pd.Series(dtype=float))
         if divs.empty:
             return pd.Series(dtype=float)
         divs.index = divs.index.tz_localize(None)

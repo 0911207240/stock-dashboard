@@ -1,5 +1,6 @@
 import yfinance as yf
 from datetime import date, timedelta
+from net_timeout import call_with_timeout
 
 # 個人持股設定（股數 + 成交均價 + 停損停利）
 HOLDINGS = {
@@ -27,7 +28,9 @@ def build_dividend_alert_message(watchlist: dict, days_ahead: int = 7) -> str | 
         if not ticker:
             continue
         try:
-            info       = yf.Ticker(ticker).info
+            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=15, default=None)
+            if not info:
+                continue
             ex_div_ts  = info.get("exDividendDate")
             if not ex_div_ts:
                 continue

@@ -8,6 +8,7 @@ import os
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import yfinance as yf
+from net_timeout import call_with_timeout
 
 CACHE_FILE    = os.path.join(os.path.dirname(__file__), "fundamental_cache.json")
 CACHE_TTL_DAYS = 7
@@ -64,7 +65,9 @@ def fetch_fundamentals(ticker: str) -> dict:
 
     today = datetime.now().strftime("%Y-%m-%d")
     try:
-        info = yf.Ticker(ticker).info
+        info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=15, default=None)
+        if not info:
+            raise ValueError("逾時或無資料")
         data = {
             "fetched_date":       today,
             # 原有欄位
@@ -192,7 +195,9 @@ def prefetch_all(watchlist: dict, max_workers: int = 8):
 
     def _fetch(ticker):
         try:
-            info = yf.Ticker(ticker).info
+            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=15, default=None)
+            if not info:
+                raise ValueError("逾時或無資料")
             return ticker, {
                 "fetched_date":    today,
                 "trailing_eps":    info.get("trailingEps"),

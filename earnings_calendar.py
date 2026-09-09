@@ -1,12 +1,13 @@
 """財報與法說會日期警示 — 避免在高不確定性時期進行當沖"""
 import yfinance as yf
 from datetime import date, timedelta
+from net_timeout import call_with_timeout
 
 
 def get_earnings_date(ticker: str) -> date | None:
     """用 yfinance 取得最近一次財報公布日（台股效果有限，美股較準）"""
     try:
-        cal = yf.Ticker(ticker).calendar
+        cal = call_with_timeout(lambda: yf.Ticker(ticker).calendar, timeout=15, default=None)
         if cal is None or cal.empty:
             return None
         col = cal.columns[0] if hasattr(cal, "columns") else None
