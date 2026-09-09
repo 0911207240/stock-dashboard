@@ -1,29 +1,30 @@
 {
-  "date": "2026-09-09",
-  "timestamp": "2026-09-09 07:30",
+  "date": "2026-09-10",
+  "timestamp": "2026-09-10 07:24",
   "signals": [
     {
-      "name": "輝達",
-      "ticker": "NVDA",
-      "score": -2,
-      "price": 225.73,
-      "change_pct": -2.01,
-      "vol_ratio": 0.91,
+      "name": "超微電腦",
+      "ticker": "SMCI",
+      "score": -3,
+      "price": 38.93,
+      "change_pct": -3.3,
+      "vol_ratio": 0.79,
       "signals": [
-        "KD 死亡交叉 (K=64.6)",
-        "威廉%R 超買回落 (-32.8)"
+        "MACD 死亡交叉",
+        "KD 死亡交叉 (K=55.9)",
+        "威廉%R 超買回落 (-34.9)"
       ]
     },
     {
-      "name": "美光",
-      "ticker": "MU",
+      "name": "戴爾",
+      "ticker": "DELL",
       "score": -2,
-      "price": 1000.26,
-      "change_pct": -1.61,
-      "vol_ratio": 0.98,
+      "price": 535.25,
+      "change_pct": 0.26,
+      "vol_ratio": 0.44,
       "signals": [
-        "KD 死亡交叉 (K=69.6)",
-        "威廉%R 超買回落 (-26.6)"
+        "KD 死亡交叉 (K=80.3)",
+        "布林通道上軌回落"
       ]
     }
   ]
