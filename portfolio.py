@@ -28,7 +28,7 @@ def build_dividend_alert_message(watchlist: dict, days_ahead: int = 7) -> str | 
         if not ticker:
             continue
         try:
-            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=15, default=None)
+            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=45, default=None)
             if not info:
                 continue
             ex_div_ts  = info.get("exDividendDate")

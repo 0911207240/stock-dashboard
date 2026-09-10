@@ -65,7 +65,7 @@ def fetch_fundamentals(ticker: str) -> dict:
 
     today = datetime.now().strftime("%Y-%m-%d")
     try:
-        info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=15, default=None)
+        info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=45, default=None)
         if not info:
             raise ValueError("逾時或無資料")
         data = {
@@ -195,7 +195,7 @@ def prefetch_all(watchlist: dict, max_workers: int = 8):
 
     def _fetch(ticker):
         try:
-            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=15, default=None)
+            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=45, default=None)
             if not info:
                 raise ValueError("逾時或無資料")
             return ticker, {

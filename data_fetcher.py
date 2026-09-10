@@ -354,7 +354,7 @@ def _fetch_raw(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.Dat
         try:
             df = call_with_timeout(
                 lambda: yf.download(ticker, period=period, interval=interval, progress=False),
-                timeout=20, default=pd.DataFrame(),
+                timeout=45, default=pd.DataFrame(),
             )
             if not df.empty:
                 df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
@@ -408,7 +408,7 @@ def fetch(ticker: str, period: str = "6mo", interval: str = "1d") -> pd.DataFram
 
 def fetch_dividends(ticker: str) -> pd.Series:
     try:
-        divs = call_with_timeout(lambda: yf.Ticker(ticker).dividends, timeout=15, default=pd.Series(dtype=float))
+        divs = call_with_timeout(lambda: yf.Ticker(ticker).dividends, timeout=45, default=pd.Series(dtype=float))
         if divs.empty:
             return pd.Series(dtype=float)
         divs.index = divs.index.tz_localize(None)
