@@ -6,7 +6,18 @@
 daemon=True 保證它不會阻塞程式結束（不像 ThreadPoolExecutor 的 worker 會在
 atexit 被 join 住）。
 """
+import socket
 import threading
+
+# call_with_timeout() below only makes the CALLER stop waiting after `timeout`
+# seconds — it does not cancel the underlying HTTP request. If yfinance's
+# shared session/connection pool is stuck on a socket read (Yahoo silently
+# not responding, common under rate limiting), the abandoned daemon thread
+# keeps holding that connection for however long the OS takes to give up
+# (can be 15-30+ min), and every subsequent call queues up behind it on the
+# same shared pool. A real socket-level timeout is required so the stuck
+# read actually raises and frees the connection.
+socket.setdefaulttimeout(15)
 
 
 def call_with_timeout(fn, *args, timeout=10, default=None, **kwargs):
