@@ -5514,5 +5514,61 @@
     "result": null,
     "exit_price": null,
     "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "美律",
+    "ticker": "2439.TW",
+    "score": 61,
+    "price": 77.19999694824219,
+    "entry_mid": 76.9,
+    "stop": 75.49,
+    "tp1": 79.02,
+    "tp2": 79.72,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "正崴",
+    "ticker": "2392.TW",
+    "score": 52,
+    "price": 43.400001525878906,
+    "entry_mid": 43.08,
+    "stop": 42.22,
+    "tp1": 44.37,
+    "tp2": 44.63,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "國泰金",
+    "ticker": "2882.TW",
+    "score": 50,
+    "price": 110.5,
+    "entry_mid": 109.67,
+    "stop": 107.97,
+    "tp1": 112.22,
+    "tp2": 112.73,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "建準",
+    "ticker": "2421.TW",
+    "score": 49,
+    "price": 165.0,
+    "entry_mid": 163.76,
+    "stop": 161.47,
+    "tp1": 167.19,
+    "tp2": 167.88,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
