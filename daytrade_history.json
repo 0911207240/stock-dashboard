@@ -5315,9 +5315,9 @@
     "stop": 49.19,
     "tp1": 50.27,
     "tp2": 50.48,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 50.27,
+    "return_pct": 1.31
   },
   {
     "push_date": "2026-09-09",
@@ -5329,9 +5329,9 @@
     "stop": 26.29,
     "tp1": 26.56,
     "tp2": 26.62,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 26.62,
+    "return_pct": 0.83
   },
   {
     "push_date": "2026-09-09",
@@ -5343,9 +5343,9 @@
     "stop": 47.93,
     "tp1": 49.58,
     "tp2": 49.91,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 47.93,
+    "return_pct": -1.36
   },
   {
     "push_date": "2026-09-09",
@@ -5371,9 +5371,9 @@
     "stop": 43.64,
     "tp1": 44.09,
     "tp2": 44.14,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 44.14,
+    "return_pct": 0.73
   },
   {
     "push_date": "2026-09-10",
@@ -5441,6 +5441,76 @@
     "stop": 109.31,
     "tp1": 113.93,
     "tp2": 114.49,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "鴻準",
+    "ticker": "2354.TW",
+    "score": 72,
+    "price": 64.5,
+    "entry_mid": 64.02,
+    "stop": 63.04,
+    "tp1": 65.49,
+    "tp2": 65.98,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "光寶科",
+    "ticker": "2301.TW",
+    "score": 68,
+    "price": 287.0,
+    "entry_mid": 284.9,
+    "stop": 279.98,
+    "tp1": 292.28,
+    "tp2": 294.74,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "陽明",
+    "ticker": "2609.TW",
+    "score": 61,
+    "price": 57.70000076293945,
+    "entry_mid": 57.27,
+    "stop": 56.71,
+    "tp1": 58.11,
+    "tp2": 58.39,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "台泥",
+    "ticker": "1101.TW",
+    "score": 54,
+    "price": 24.700000762939453,
+    "entry_mid": 24.62,
+    "stop": 24.45,
+    "tp1": 24.88,
+    "tp2": 24.93,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-10",
+    "name": "台塑",
+    "ticker": "1301.TW",
+    "score": 50,
+    "price": 65.0999984741211,
+    "entry_mid": 64.61,
+    "stop": 63.79,
+    "tp1": 65.84,
+    "tp2": 66.09,
     "result": null,
     "exit_price": null,
     "return_pct": null
