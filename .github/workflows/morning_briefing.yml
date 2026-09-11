@@ -37,12 +37,16 @@ jobs:
           LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: |
+          payload=$(jq -n --arg to "$LINE_USER_ID" \
+            --arg text $'⚠️ 早安日報推播失敗\nhttps://github.com/0911207240/stock-dashboard/actions' \
+            '{to: $to, messages: [{type: "text", text: $text}]}')
           curl -s -X POST https://api.line.me/v2/bot/message/push \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer $LINE_TOKEN" \
-            -d "{\"to\":\"$LINE_USER_ID\",\"messages\":[{\"type\":\"text\",\"text\":\"⚠️ 早安日報推播失敗\nhttps://github.com/0911207240/stock-dashboard/actions\"}]}"
+            -d "$payload"
 
       - name: Save state files
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
