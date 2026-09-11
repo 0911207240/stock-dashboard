@@ -1,20 +1,18 @@
 {
   "2330": {
-    "fetched_at": "2026-06-16T08:31:38.338974",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+buy"
-    ],
+    "fetched_at": "2026-09-11T23:10:16.503600",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Best ETF Ideas for the Rest of 2026",
-      "Intel Draws Cramer Support",
-      "Google's Samsung Talks Highlight TSMC Capacity Crunch"
+      "Intel Climbs 3% on Chip Price Hike Report a Day After Piper Sandler Went Neutral; AMD Rises 2%, Taiwan Semiconductor Drifts",
+      "TSM’s Record Sales Say AI Chips Are Booming. The Nvidia-AMD Fight Is Now About Who Keeps the Margin",
+      "Dow Jones Futures Rise, Oil Prices Fall, Oracle Jumps; CPI Inflation Data To Inform Fed"
     ]
   },
   "0056": {
-    "fetched_at": "2026-06-16T08:31:52.939552",
+    "fetched_at": "2026-09-11T23:06:42.246089",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,25 +22,603 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-06-16T08:32:04.252548",
+    "fetched_at": "2026-09-11T23:09:28.539213",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Schneider Electric Taps Foxconn And Torngat To Target AI Growth",
-      "SoftBank Surges as Geopolitical Risk Cools",
-      "Schneider Electric and Hon Hai Technology Group (Foxconn) announce strategic collaboration to accelerate next-generation AI data centers"
+      "Foxconn expects Q3 to beat market expectations as AI demand stays strong",
+      "Foxconn Stock Rises 2.7% Before Profit Jumps 35%",
+      "Foxconn's AI Business Just Overtook iPhones"
     ]
   },
   "0050": {
-    "fetched_at": "2026-06-16T08:32:23.865549",
+    "fetched_at": "2026-09-11T23:19:54.754683",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 1,
     "sample_headlines": [
       "Yahoo! Finance: 0050.TW News"
+    ]
+  },
+  "2454": {
+    "fetched_at": "2026-09-11T23:07:52.718359",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Nvidia-Backed MediaTek's Sales Soar 44% With AI Chip Momentum",
+      "Why Nvidia Is Making a $3.5 Billion Bet on Taiwan-Based MediaTek",
+      "Jensen Huang Says the $3.5 Billion MediaTek Deal Is Not Circular. The Decade Long Roadmap Is the Real Tell."
+    ]
+  },
+  "2882": {
+    "fetched_at": "2026-09-11T23:08:40.702798",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 5,
+    "sample_headlines": [
+      "Cathay Financial Holding Co Ltd (TPE:2882) (Q2 2026) Earnings Call Highlights: Record Net ...",
+      "Cathay Financial Holding Co Ltd (TPE:2882) Q1 2026 Earnings Call Highlights: Strong Start with ...",
+      "Cathay Financial Ramps Up Regional Asset Management Ambitions Through Full Product Shelf, Talent and One-Stop Service Platform"
+    ]
+  },
+  "2881": {
+    "fetched_at": "2026-09-11T23:11:30.721749",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2881.TW News"
+    ]
+  },
+  "2884": {
+    "fetched_at": "2026-09-11T23:12:16.009517",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "E. Sun Financial Holding Co Ltd (TPE:2884) (Q2 2026) Earnings Call Highlights: Record Profit ...",
+      "Yoshimura Food Holdings (TSE:2884) Margin Improvement Reinforces Bullish Narrative on Earnings Quality",
+      "Yahoo! Finance: 2884.TW News"
+    ]
+  },
+  "2880": {
+    "fetched_at": "2026-09-11T23:13:08.191676",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2880.TW News"
+    ]
+  },
+  "2886": {
+    "fetched_at": "2026-09-11T23:13:55.110755",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2886.TW News"
+    ]
+  },
+  "2887": {
+    "fetched_at": "2026-09-11T23:14:45.798516",
+    "sentiment_score": -1,
+    "signal": "bearish",
+    "keywords": [
+      "-downgrade"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Coinbase is not slowing down if CLARITY Act fails",
+      "Ethereum’s Price Surges Past $2,600 For First Time In 8 Months: Outruns Bitcoin, XRP, Solana",
+      "Chewy Slides 6% on Second Downgrade in Two Days as JPMorgan Cuts Target to $24; Petco Stays Put, Freshpet Nudges Higher"
+    ]
+  },
+  "2892": {
+    "fetched_at": "2026-09-11T23:15:30.230200",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Nihon Shokuhin Kako (TSE:2892) Margin Decline Challenges Narrative of Sustained Profitability",
+      "Yahoo! Finance: 2892.TW News"
+    ]
+  },
+  "1102": {
+    "fetched_at": "2026-09-11T23:16:18.916037",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Asia Cement Wins 2026 AREA Social Empowerment Award and Silver Emblem of Sustainability",
+      "Yahoo! Finance: 1102.TW News"
+    ]
+  },
+  "2885": {
+    "fetched_at": "2026-09-11T23:17:16.330527",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2885.TW News"
+    ]
+  },
+  "5880": {
+    "fetched_at": "2026-09-11T23:18:07.178533",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 5880.TW News"
+    ]
+  },
+  "2891": {
+    "fetched_at": "2026-09-11T23:19:00.039092",
+    "sentiment_score": -1,
+    "signal": "bearish",
+    "keywords": [
+      "-downgrade"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "RSM UK appoints new partner to support financial services risk practice",
+      "Coinbase is not slowing down if CLARITY Act fails",
+      "Deals &amp; Moves: RFG Advisory Oversees RIA Merger to Form $750M WFA Volare"
+    ]
+  },
+  "1101": {
+    "fetched_at": "2026-09-11T23:20:43.008318",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1101.TW News"
+    ]
+  },
+  "1103": {
+    "fetched_at": "2026-09-11T23:21:35.880869",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1103.TW News"
+    ]
+  },
+  "1109": {
+    "fetched_at": "2026-09-11T23:22:27.033696",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1109.TW News"
+    ]
+  },
+  "1104": {
+    "fetched_at": "2026-09-11T23:23:16.702074",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1104.TW News"
+    ]
+  },
+  "1110": {
+    "fetched_at": "2026-09-11T23:24:02.593916",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1110.TW News"
+    ]
+  },
+  "2603": {
+    "fetched_at": "2026-09-11T23:24:47.351725",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2603.TW News"
+    ]
+  },
+  "2615": {
+    "fetched_at": "2026-09-11T23:25:32.678278",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Freight Rates Spike Double Digits as China Scrutinizes Ocean Carriers",
+      "Yahoo! Finance: 2615.TW News"
+    ]
+  },
+  "2609": {
+    "fetched_at": "2026-09-11T23:26:15.356888",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Yang Ming’s first-half rebound sets up a volatile second half",
+      "Hanwha Ocean wins Yang Ming contract for dual-fuel LNG containers",
+      "Yahoo! Finance: 2609.TW News"
+    ]
+  },
+  "1301": {
+    "fetched_at": "2026-09-11T23:27:00.271953",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "South Pacific Metals Corp. Provides Clarifying Disclosure Regarding Marketing Agreement with i2i Marketing Group, LLC",
+      "Newmont Stock Jumps 34.5% in August, and Gold's Rally Could Take It Higher",
+      "Why Is Cabot (CBT) Down 1.6% Since Last Earnings Report?"
+    ]
+  },
+  "6505": {
+    "fetched_at": "2026-09-11T23:27:42.694799",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [
+      "+buy",
+      "-sell"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Shell's Tri Star Deal Deepens Its U.S. Fuel Retail Strategy",
+      "5 Undervalued Stocks Based on Price-to-Sales Worth a Closer Look",
+      "Form 8.3 - DCC plc"
+    ]
+  },
+  "1326": {
+    "fetched_at": "2026-09-11T23:28:25.285300",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1326.TW News"
+    ]
+  },
+  "1303": {
+    "fetched_at": "2026-09-11T23:29:06.600101",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Global PTFE-Based Copper Clad Laminates Market to Surpass $0.65 Billion by 2031.",
+      "Cooling Fabrics Company Evaluation Report 2025: Coolcore, Ahlstrom and Nan Ya Plastics Strengthen Positions Through Sustainable Fiber Innovation and High-Performance Material Technologies",
+      "Yahoo! Finance: 1303.TW News"
+    ]
+  },
+  "2002": {
+    "fetched_at": "2026-09-11T23:29:48.663476",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2002.TW News"
+    ]
+  },
+  "2015": {
+    "fetched_at": "2026-09-11T23:30:46.633577",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2015.TW News"
+    ]
+  },
+  "2303": {
+    "fetched_at": "2026-09-11T23:31:31.182182",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading",
+      "Asian Equities Traded in the US as American Depositary Receipts Advance in Thursday Trading",
+      "AI Demand Explodes Over 300-Fold. Zettabyte Makes the Case for Quality Compute and Taiwan's Sovereign AI Future"
+    ]
+  },
+  "3711": {
+    "fetched_at": "2026-09-11T23:32:15.951327",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading",
+      "Can Strong LEAP Momentum Boost ASE Technology's Long-Term Growth?",
+      "Asian Equities Traded in the US as American Depositary Receipts Track Lower in Wednesday Trading"
+    ]
+  },
+  "2449": {
+    "fetched_at": "2026-09-11T23:32:59.536050",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 5,
+    "sample_headlines": [
+      "Nvidia Supplier Plans U.S. Facility",
+      "Asian Market's November 2025 Stocks Possibly Priced Below Estimated Value",
+      "3 Asian Stocks Estimated To Be Trading At Discounts Of Up To 48.2%"
+    ]
+  },
+  "00881": {
+    "fetched_at": "2026-09-11T23:33:49.763495",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00881.TW News"
+    ]
+  },
+  "00878": {
+    "fetched_at": "2026-09-11T23:34:31.892171",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00878.TW News"
+    ]
+  },
+  "00919": {
+    "fetched_at": "2026-09-11T23:35:17.092948",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00919.TW News"
+    ]
+  },
+  "00929": {
+    "fetched_at": "2026-09-11T23:35:59.316127",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00929.TW News"
+    ]
+  },
+  "00713": {
+    "fetched_at": "2026-09-11T23:36:43.588929",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00713.TW News"
+    ]
+  },
+  "00900": {
+    "fetched_at": "2026-09-11T23:37:27.639233",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00900.TW News"
+    ]
+  },
+  "2382": {
+    "fetched_at": "2026-09-11T23:38:10.104673",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Lumus and Quanta Expand Manufacturing Partnership with Licensing Agreement for Next-Generation Thinner, Lower-Cost Waveguides for AI Glasses",
+      "Quantinuum Stock Could Get a Boost From Apple Partner Quanta Computer",
+      "Quanta Computer and Quantinuum Partner to Build an Industrial Foundation for Large-Scale Quantum Computing"
+    ]
+  },
+  "3231": {
+    "fetched_at": "2026-09-11T23:38:53.014562",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Wistron Raises $1.47 Billion as AI Server Demand Tests Its Balance Sheet",
+      "Wistron stock falls after $1.47 billion global share sale",
+      "How Wistron’s early Nvidia bet made it an unsung winner of the AI boom—and one of the biggest risers on this year’s Global 500"
+    ]
+  },
+  "2376": {
+    "fetched_at": "2026-09-11T23:39:35.234057",
+    "sentiment_score": -1,
+    "signal": "bearish",
+    "keywords": [
+      "-sell"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "GIGABYTE Collaborates with NVIDIA to Enhance Gaming with GeForce RTX™ 50 Series and CONTROL Resonant Bundle",
+      "GIGABYTE Partners with AMD to Bring Onimusha: Way of the Sword Game Bundle to Gamers",
+      "Motherboard sales 'collapse' by more than 25% as chipmakers strangle enthusiast PC market to build more AI chips — Asus projected to sell 5 million fewer boards in 2025, Gigabyte, MSI, and ASRock also expected to see reduced sales numbers"
+    ]
+  },
+  "2377": {
+    "fetched_at": "2026-09-11T23:40:16.738140",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "MSI XpertStation WS300 Based on NVIDIA DGX Station Now Available",
+      "MSI Expands Drone Portfolio With D-Fend Deal: Will it Drive Growth?",
+      "MSI Q2 Earnings Top Estimates on Strong Demand, Record Backlog"
+    ]
+  },
+  "2308": {
+    "fetched_at": "2026-09-11T23:41:00.702875",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Delta Electronics Expands Malaysia Footprint with New Johor Bahru Office and AI Infrastructure Forum in Kuala Lumpur",
+      "Delta Electronics (Americas) and X LABS Sign Technology Partnership MOU to Power Next-Gen AI Data Centers",
+      "Delta Electronics Spotlights AI and Integrated Solutions to Advance Semiconductor Packaging at SEMICON Southeast Asia 2026"
+    ]
+  },
+  "6669": {
+    "fetched_at": "2026-09-11T23:41:44.020741",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Ayar Labs Expands 2026 Funding to $650 Million to Scale Manufacturing-Ready CPO for AI Scale-Up Beyond the Rack",
+      "OCP Rack Market Report 2026–2030: Evaluating $4.32 Billion Forecast, AI &amp; HPC Applications, and Strategies of Dell, Vertiv, Rittal, Wiwynn, and Sanmina",
+      "Wiwynn Advances Datacenter Design at Computex 2026 with High-Power and Optical Interconnect"
+    ]
+  },
+  "3532": {
+    "fetched_at": "2026-09-11T23:42:28.079355",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3532.TW News"
+    ]
+  },
+  "2404": {
+    "fetched_at": "2026-09-11T23:43:14.083955",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2404.TW News"
+    ]
+  },
+  "6139": {
+    "fetched_at": "2026-09-11T23:44:01.813943",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6139.TW News"
+    ]
+  },
+  "3008": {
+    "fetched_at": "2026-09-11T23:44:46.234782",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3008.TW News"
+    ]
+  },
+  "2393": {
+    "fetched_at": "2026-09-11T23:45:28.193309",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 6,
+    "sample_headlines": [
+      "Taiwan manufacturer settles case over falsified customs entries for $5.2M",
+      "Edison Innovations Renews License Agreement With Everlight Electronics Co., Ltd. For KSF Technology",
+      "Nippon Care Supply (TSE:2393) Earnings Growth Surges 23.3%, Reinforcing Bullish Narrative"
+    ]
+  },
+  "2353": {
+    "fetched_at": "2026-09-11T23:46:12.586876",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Acer Reports Revenues for August at NT$30.18 Billion and Year-to-August at NT$214.81 Billion; Both Marking 13-Year Highs for the Same Period",
+      "Parade and Acer Deliver Advanced USB4® Connectivity in Flagship Display",
+      "Who Owns Acer?"
+    ]
+  },
+  "3406": {
+    "fetched_at": "2026-09-11T23:46:56.577971",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3406.TW News"
+    ]
+  },
+  "2357": {
+    "fetched_at": "2026-09-11T23:47:38.234773",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "ASUS Advances AI Factories with Integrated Infrastructure and Operational Governance",
+      "ASUS Expands AI Infrastructure Ecosystem from Cloud to Edge",
+      "Global Body Area Network Market Report 2026-2035, Featuring Strategic Profiles of Apple, Asus, Fitbit, Fossil, Garmin, Huawei, LG Electronics, Samsung, Sony, Xiaomi"
+    ]
+  },
+  "2324": {
+    "fetched_at": "2026-09-11T23:48:22.144980",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "TSMC Price Prediction: One Number Could Define the Stock’s Next Move",
+      "Senate Republicans Introduce Clarity Act Changes Ahead Of Key Vote",
+      "3 of Wall Street’s Favorite Stocks We Steer Clear Of"
+    ]
+  },
+  "2356": {
+    "fetched_at": "2026-09-11T23:49:07.411377",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "DapuStor Strengthens AI Infrastructure Ecosystem Collaboration at Computex 2026",
+      "UBS Raises its Price Target on Astera Labs, Inc. (ALAB)",
+      "How Astera Labs (ALAB) Is Using Taiwan Expansion to Speed Rack-Scale AI Deployment"
     ]
   }
 }

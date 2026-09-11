@@ -5245,9 +5245,9 @@
     "stop": 48.24,
     "tp1": 49.71,
     "tp2": 49.89,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 48.6,
+    "return_pct": -0.47
   },
   {
     "push_date": "2026-09-08",
@@ -5259,9 +5259,9 @@
     "stop": 49.34,
     "tp1": 51.39,
     "tp2": 51.64,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 50.3,
+    "return_pct": 0.28
   },
   {
     "push_date": "2026-09-08",
@@ -5287,9 +5287,9 @@
     "stop": 26.18,
     "tp1": 27.18,
     "tp2": 27.3,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 26.85,
+    "return_pct": 1.02
   },
   {
     "push_date": "2026-09-08",
@@ -5385,9 +5385,9 @@
     "stop": 476.37,
     "tp1": 486.37,
     "tp2": 487.57,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 487.57,
+    "return_pct": 1.5
   },
   {
     "push_date": "2026-09-10",
@@ -5399,9 +5399,9 @@
     "stop": 104.1,
     "tp1": 105.62,
     "tp2": 105.81,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 104.1,
+    "return_pct": -0.58
   },
   {
     "push_date": "2026-09-10",
@@ -5413,9 +5413,9 @@
     "stop": 283.67,
     "tp1": 296.52,
     "tp2": 298.06,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 283.67,
+    "return_pct": -1.78
   },
   {
     "push_date": "2026-09-10",
@@ -5427,9 +5427,9 @@
     "stop": 41.31,
     "tp1": 42.61,
     "tp2": 42.77,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 41.31,
+    "return_pct": -1.24
   },
   {
     "push_date": "2026-09-10",
@@ -5441,9 +5441,9 @@
     "stop": 109.31,
     "tp1": 113.93,
     "tp2": 114.49,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 109.31,
+    "return_pct": -1.66
   },
   {
     "push_date": "2026-09-10",
@@ -5455,9 +5455,9 @@
     "stop": 63.04,
     "tp1": 65.49,
     "tp2": 65.98,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 65.98,
+    "return_pct": 3.06
   },
   {
     "push_date": "2026-09-10",
@@ -5469,9 +5469,9 @@
     "stop": 279.98,
     "tp1": 292.28,
     "tp2": 294.74,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 279.98,
+    "return_pct": -1.73
   },
   {
     "push_date": "2026-09-10",
@@ -5483,9 +5483,9 @@
     "stop": 56.71,
     "tp1": 58.11,
     "tp2": 58.39,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 58.39,
+    "return_pct": 1.96
   },
   {
     "push_date": "2026-09-10",
@@ -5539,9 +5539,9 @@
     "stop": 42.22,
     "tp1": 44.37,
     "tp2": 44.63,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 42.22,
+    "return_pct": -2.0
   },
   {
     "push_date": "2026-09-10",
@@ -5567,8 +5567,8 @@
     "stop": 161.47,
     "tp1": 167.19,
     "tp2": 167.88,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 161.47,
+    "return_pct": -1.4
   }
 ]

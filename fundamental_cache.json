@@ -1,1044 +1,1044 @@
 {
   "2330.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 73.63,
-    "revenue_growth": 0.351,
-    "earnings_growth": 0.584
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 85.51,
+    "revenue_growth": 0.36,
+    "earnings_growth": 0.774
   },
   "AAPL": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 8.27,
-    "revenue_growth": 0.166,
-    "earnings_growth": 0.218
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 8.72,
+    "revenue_growth": 0.164,
+    "earnings_growth": 0.287
   },
   "2454.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 66.16,
-    "revenue_growth": -0.027,
-    "earnings_growth": -0.177
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 60.42,
+    "revenue_growth": 0.012,
+    "earnings_growth": -0.127
   },
   "5880.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.36,
-    "revenue_growth": 0.089,
-    "earnings_growth": 0.202
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.33,
+    "revenue_growth": 0.271,
+    "earnings_growth": 0.419
   },
   "2317.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 13.4,
-    "revenue_growth": 0.289,
-    "earnings_growth": 0.181
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 15.11,
+    "revenue_growth": 0.408,
+    "earnings_growth": 0.342
   },
   "MSFT": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 16.8,
-    "revenue_growth": 0.183,
-    "earnings_growth": 0.234
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 17.97,
+    "revenue_growth": 0.177,
+    "earnings_growth": 0.317
   },
   "NVDA": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.76,
-    "revenue_growth": 0.852,
-    "earnings_growth": 2.145
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 7.73,
+    "revenue_growth": 1.059,
+    "earnings_growth": 1.278
   },
   "1101.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -1.6,
-    "revenue_growth": -0.051,
-    "earnings_growth": 0.369
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -1.23,
+    "revenue_growth": 0.078,
+    "earnings_growth": 72.022
   },
   "1102.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.99,
-    "revenue_growth": -0.106,
-    "earnings_growth": 0.371
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 3.79,
+    "revenue_growth": -0.045,
+    "earnings_growth": 0.79
   },
   "1103.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.84,
-    "revenue_growth": -0.085,
-    "earnings_growth": -0.376
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.41,
+    "revenue_growth": -0.132,
+    "earnings_growth": null
   },
   "1104.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.55,
-    "revenue_growth": -0.088,
-    "earnings_growth": 0.0
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.7,
+    "revenue_growth": -0.086,
+    "earnings_growth": 0.25
   },
   "1109.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.03,
-    "revenue_growth": -0.134,
-    "earnings_growth": -0.96
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.69,
+    "revenue_growth": -0.207,
+    "earnings_growth": -0.435
   },
   "1110.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.36,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.62,
     "revenue_growth": -0.213,
     "earnings_growth": -0.437
   },
   "2615.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 11.01,
-    "revenue_growth": -0.093,
-    "earnings_growth": -0.122
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 14.55,
+    "revenue_growth": 0.231,
+    "earnings_growth": 9.816
   },
   "2603.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 31.63,
-    "revenue_growth": -0.213,
-    "earnings_growth": -0.697
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 25.2,
+    "revenue_growth": 0.216,
+    "earnings_growth": 0.462
   },
   "1301.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -1.58,
-    "revenue_growth": -0.111,
-    "earnings_growth": 63.361
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.64,
+    "revenue_growth": 0.041,
+    "earnings_growth": null
   },
   "2609.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.89,
-    "revenue_growth": -0.151,
-    "earnings_growth": -0.815
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.44,
+    "revenue_growth": 0.188,
+    "earnings_growth": 4.857
   },
   "1326.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.99,
-    "revenue_growth": 0.036,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.36,
+    "revenue_growth": 0.185,
     "earnings_growth": null
   },
   "6505.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.04,
-    "revenue_growth": -0.065,
-    "earnings_growth": 4.532
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.77,
+    "revenue_growth": 0.257,
+    "earnings_growth": null
   },
   "1303.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.57,
-    "revenue_growth": 0.046,
-    "earnings_growth": 30.46
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 6.2,
+    "revenue_growth": 0.273,
+    "earnings_growth": null
   },
   "2002.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.29,
-    "revenue_growth": -0.048,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -0.21,
+    "revenue_growth": 0.044,
     "earnings_growth": null
   },
   "2015.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 3.85,
-    "revenue_growth": -0.141,
-    "earnings_growth": 0.118
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.25,
+    "revenue_growth": -0.092,
+    "earnings_growth": 0.261
   },
   "2449.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.52,
-    "revenue_growth": 0.393,
-    "earnings_growth": -0.466
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 7.28,
+    "revenue_growth": 0.332,
+    "earnings_growth": 0.151
   },
   "3711.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 10.21,
-    "revenue_growth": 0.172,
-    "earnings_growth": 0.876
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 13.07,
+    "revenue_growth": 0.267,
+    "earnings_growth": 1.712
   },
   "2303.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 3.93,
-    "revenue_growth": 0.055,
-    "earnings_growth": 1.081
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 6.58,
+    "revenue_growth": 0.17,
+    "earnings_growth": 3.746
   },
   "3231.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 8.4,
-    "revenue_growth": 1.443,
-    "earnings_growth": 0.597
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 12.32,
+    "revenue_growth": 0.624,
+    "earnings_growth": 0.99
   },
   "2377.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.75,
-    "revenue_growth": 0.051,
-    "earnings_growth": 2.157
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 11.44,
+    "revenue_growth": -0.186,
+    "earnings_growth": 1.221
   },
   "2382.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 18.91,
-    "revenue_growth": 0.666,
-    "earnings_growth": 0.059
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 22.61,
+    "revenue_growth": 1.056,
+    "earnings_growth": 0.669
   },
   "6669.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 268.52,
-    "revenue_growth": 0.62,
-    "earnings_growth": 0.435
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 98.02,
+    "revenue_growth": 0.26,
+    "earnings_growth": 0.154
   },
   "2376.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 17.54,
-    "revenue_growth": 0.598,
-    "earnings_growth": 0.663
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 26.19,
+    "revenue_growth": 0.41,
+    "earnings_growth": 1.006
   },
   "AVGO": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.0,
-    "revenue_growth": 0.479,
-    "earnings_growth": 0.854
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 7.83,
+    "revenue_growth": 0.855,
+    "earnings_growth": 2.153
   },
   "2308.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 22.98,
-    "revenue_growth": 0.34,
-    "earnings_growth": 1.01
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 31.32,
+    "revenue_growth": 0.477,
+    "earnings_growth": 0.804
   },
   "MU": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 23.5,
-    "revenue_growth": 1.963,
-    "earnings_growth": 7.56
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 44.28,
+    "revenue_growth": 3.457,
+    "earnings_growth": 13.685
   },
   "AMD": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 3.02,
-    "revenue_growth": 0.378,
-    "earnings_growth": 0.912
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 3.93,
+    "revenue_growth": 0.501,
+    "earnings_growth": 1.595
   },
   "ARM": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.84,
-    "revenue_growth": 0.201,
-    "earnings_growth": 0.479
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.99,
+    "revenue_growth": 0.224,
+    "earnings_growth": 1.083
   },
   "SMCI": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.9,
-    "revenue_growth": 1.227,
-    "earnings_growth": 3.26
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 3.26,
+    "revenue_growth": 0.932,
+    "earnings_growth": 4.347
   },
   "3532.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.57,
-    "revenue_growth": 0.109,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.27,
+    "revenue_growth": 0.206,
     "earnings_growth": null
   },
   "3680.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2404.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 47.75,
-    "revenue_growth": 0.762,
-    "earnings_growth": 0.543
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 66.14,
+    "revenue_growth": 0.764,
+    "earnings_growth": 1.688
   },
   "6488.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "6139.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 30.44,
-    "revenue_growth": 0.685,
-    "earnings_growth": 1.516
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 49.77,
+    "revenue_growth": 0.705,
+    "earnings_growth": 4.755
   },
   "AMAT": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 10.95,
-    "revenue_growth": 0.114,
-    "earnings_growth": 0.335
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 11.58,
+    "revenue_growth": 0.248,
+    "earnings_growth": 0.428
   },
   "ASML": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 29.82,
-    "revenue_growth": 0.132,
-    "earnings_growth": 0.192
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 29.53,
+    "revenue_growth": 0.213,
+    "earnings_growth": 0.285
   },
   "5483.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "LRCX": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 5.28,
-    "revenue_growth": 0.238,
-    "earnings_growth": 0.408
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.75,
+    "revenue_growth": 0.3,
+    "earnings_growth": 0.348
   },
   "3008.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 157.35,
-    "revenue_growth": 0.066,
-    "earnings_growth": -0.034
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 188.16,
+    "revenue_growth": 0.171,
+    "earnings_growth": 3.625
   },
   "QCOM": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 9.69,
-    "revenue_growth": -0.035,
-    "earnings_growth": 1.73
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 8.76,
+    "revenue_growth": -0.04,
+    "earnings_growth": -0.23
   },
   "INTC": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.6,
-    "revenue_growth": 0.072,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -2.09,
+    "revenue_growth": 0.254,
     "earnings_growth": null
   },
   "3406.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 32.76,
-    "revenue_growth": 0.154,
-    "earnings_growth": 0.021
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 36.92,
+    "revenue_growth": 0.19,
+    "earnings_growth": 1.856
   },
   "2448.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2393.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.53,
-    "revenue_growth": 0.003,
-    "earnings_growth": -0.308
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.63,
+    "revenue_growth": 0.058,
+    "earnings_growth": 0.687
   },
   "KLAC": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 3.56,
-    "revenue_growth": 0.115,
-    "earnings_growth": 0.118
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 3.67,
+    "revenue_growth": 0.152,
+    "earnings_growth": 0.138
   },
   "2353.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.25,
-    "revenue_growth": 0.181,
-    "earnings_growth": 0.353
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.67,
+    "revenue_growth": 0.282,
+    "earnings_growth": 1.0
   },
   "2357.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 59.48,
-    "revenue_growth": 0.411,
-    "earnings_growth": -0.235
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 67.94,
+    "revenue_growth": 0.371,
+    "earnings_growth": 0.941
   },
   "2324.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.37,
-    "revenue_growth": 0.011,
-    "earnings_growth": -0.1
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.93,
+    "revenue_growth": 0.321,
+    "earnings_growth": 5.545
   },
   "2356.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.41,
-    "revenue_growth": 0.276,
-    "earnings_growth": 0.426
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 3.09,
+    "revenue_growth": 0.446,
+    "earnings_growth": 0.77
   },
   "2412.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 5.02,
-    "revenue_growth": 0.075,
-    "earnings_growth": 0.032
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.08,
+    "revenue_growth": 0.082,
+    "earnings_growth": 0.046
   },
   "AMZN": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 7.54,
-    "revenue_growth": 0.166,
-    "earnings_growth": 0.748
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 12.39,
+    "revenue_growth": 0.196,
+    "earnings_growth": 2.423
   },
   "META": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 27.5,
-    "revenue_growth": 0.331,
-    "earnings_growth": 0.624
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 26.55,
+    "revenue_growth": 0.28,
+    "earnings_growth": -0.134
   },
   "GOOGL": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 13.44,
-    "revenue_growth": 0.218,
-    "earnings_growth": 0.82
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 19.92,
+    "revenue_growth": 0.242,
+    "earnings_growth": 2.94
   },
   "3045.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.7,
-    "revenue_growth": 0.033,
-    "earnings_growth": 0.123
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.23,
+    "revenue_growth": 0.041,
+    "earnings_growth": 0.359
   },
   "6770.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -1.86,
-    "revenue_growth": 0.221,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.92,
+    "revenue_growth": 0.533,
     "earnings_growth": null
   },
   "2327.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 12.69,
-    "revenue_growth": 0.227,
-    "earnings_growth": 0.446
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 14.81,
+    "revenue_growth": 0.357,
+    "earnings_growth": 0.887
   },
   "4938.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 5.34,
-    "revenue_growth": -0.104,
-    "earnings_growth": -0.638
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.88,
+    "revenue_growth": 0.027,
+    "earnings_growth": 14.47
   },
   "2474.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 11.32,
-    "revenue_growth": -0.132,
-    "earnings_growth": -0.407
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 13.63,
+    "revenue_growth": -0.473,
+    "earnings_growth": null
   },
   "2492.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.72,
-    "revenue_growth": 0.091,
-    "earnings_growth": -0.172
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 8.88,
+    "revenue_growth": 0.184,
+    "earnings_growth": null
   },
   "3105.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "5347.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "6176.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 9.3,
-    "revenue_growth": 0.001,
-    "earnings_growth": 0.041
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 10.9,
+    "revenue_growth": -0.118,
+    "earnings_growth": -0.694
   },
   "3037.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.32,
-    "revenue_growth": 0.245,
-    "earnings_growth": 4.457
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 15.11,
+    "revenue_growth": 0.321,
+    "earnings_growth": 429.826
   },
   "PLTR": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.9,
-    "revenue_growth": 0.847,
-    "earnings_growth": 3.25
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.14,
+    "revenue_growth": 0.928,
+    "earnings_growth": 2.154
   },
   "2439.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.94,
-    "revenue_growth": 0.238,
-    "earnings_growth": -0.265
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.15,
+    "revenue_growth": 0.011,
+    "earnings_growth": 48.922
   },
   "3481.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.03,
-    "revenue_growth": 0.192,
-    "earnings_growth": 0.667
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.77,
+    "revenue_growth": 0.133,
+    "earnings_growth": null
   },
   "DELL": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 12.54,
-    "revenue_growth": 0.875,
-    "earnings_growth": 2.825
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 17.17,
+    "revenue_growth": 0.577,
+    "earnings_growth": 2.729
   },
   "2344.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.89,
-    "revenue_growth": 0.913,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 9.06,
+    "revenue_growth": 1.847,
     "earnings_growth": null
   },
   "2409.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.9,
-    "revenue_growth": -0.043,
-    "earnings_growth": null
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.24,
+    "revenue_growth": 0.024,
+    "earnings_growth": -0.31
   },
   "2408.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.1,
-    "revenue_growth": 5.829,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 28.63,
+    "revenue_growth": 6.842,
     "earnings_growth": null
   },
   "2023.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -1.85,
-    "revenue_growth": -0.12,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -1.5,
+    "revenue_growth": -0.04,
     "earnings_growth": null
   },
   "2027.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.87,
-    "revenue_growth": 0.195,
-    "earnings_growth": 0.746
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.98,
+    "revenue_growth": 0.416,
+    "earnings_growth": 3.611
   },
   "2337.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -1.76,
-    "revenue_growth": 0.706,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.17,
+    "revenue_growth": 1.813,
     "earnings_growth": null
   },
   "2006.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.44,
-    "revenue_growth": -0.062,
-    "earnings_growth": 0.114
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 7.5,
+    "revenue_growth": 0.038,
+    "earnings_growth": 0.596
   },
   "2010.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.32,
-    "revenue_growth": 0.15,
-    "earnings_growth": 0.018
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.51,
+    "revenue_growth": 0.013,
+    "earnings_growth": 0.3
   },
   "3707.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "6257.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.08,
-    "revenue_growth": 0.13,
-    "earnings_growth": 0.29
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 8.44,
+    "revenue_growth": 0.231,
+    "earnings_growth": 2.681
   },
   "3264.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "1308.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -1.76,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -1.01,
     "revenue_growth": -0.152,
     "earnings_growth": null
   },
   "2379.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 28.09,
-    "revenue_growth": 0.04,
-    "earnings_growth": -0.092
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 27.0,
+    "revenue_growth": 0.177,
+    "earnings_growth": -0.028
   },
   "5522.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 7.44,
-    "revenue_growth": 7.982,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 10.02,
+    "revenue_growth": 7.821,
     "earnings_growth": null
   },
   "3034.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 26.83,
-    "revenue_growth": -0.147,
-    "earnings_growth": -0.284
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 28.61,
+    "revenue_growth": 0.096,
+    "earnings_growth": 0.692
   },
   "3443.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 27.93,
-    "revenue_growth": 0.63,
-    "earnings_growth": 0.716
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 38.6,
+    "revenue_growth": 1.276,
+    "earnings_growth": 0.995
   },
   "3661.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 67.58,
-    "revenue_growth": -0.601,
-    "earnings_growth": -0.026
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 69.34,
+    "revenue_growth": -0.165,
+    "earnings_growth": 0.169
   },
   "3545.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -4.64,
-    "revenue_growth": -0.173,
-    "earnings_growth": -0.975
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -5.15,
+    "revenue_growth": -0.097,
+    "earnings_growth": 0.694
   },
   "4958.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.79,
-    "revenue_growth": 0.016,
-    "earnings_growth": 1.015
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 8.9,
+    "revenue_growth": 0.268,
+    "earnings_growth": 2.456
   },
   "2383.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 45.77,
-    "revenue_growth": 0.525,
-    "earnings_growth": 0.532
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 63.43,
+    "revenue_growth": 1.1,
+    "earnings_growth": 1.865
   },
   "1314.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.72,
-    "revenue_growth": -0.371,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -0.78,
+    "revenue_growth": -0.207,
     "earnings_growth": null
   },
   "3044.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 19.34,
-    "revenue_growth": 0.224,
-    "earnings_growth": 0.253
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 23.24,
+    "revenue_growth": 0.388,
+    "earnings_growth": 0.595
   },
   "2345.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 46.9,
-    "revenue_growth": 0.64,
-    "earnings_growth": 0.629
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 63.27,
+    "revenue_growth": 0.576,
+    "earnings_growth": 1.201
   },
   "3704.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.56,
-    "revenue_growth": -0.103,
-    "earnings_growth": -0.582
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 3.36,
+    "revenue_growth": 0.414,
+    "earnings_growth": null
   },
   "2313.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 5.48,
-    "revenue_growth": 0.168,
-    "earnings_growth": -0.091
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 6.16,
+    "revenue_growth": 0.098,
+    "earnings_growth": 0.778
   },
   "6213.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.08,
-    "revenue_growth": 0.206,
-    "earnings_growth": -0.073
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 6.44,
+    "revenue_growth": 0.299,
+    "earnings_growth": 2.038
   },
   "2301.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.6,
-    "revenue_growth": 0.192,
-    "earnings_growth": 0.107
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 8.47,
+    "revenue_growth": 0.304,
+    "earnings_growth": 1.268
   },
   "2385.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 8.93,
-    "revenue_growth": -0.018,
-    "earnings_growth": -0.539
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 8.83,
+    "revenue_growth": -0.086,
+    "earnings_growth": 0.034
   },
   "5388.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 3.95,
-    "revenue_growth": 0.466,
-    "earnings_growth": -0.01
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.37,
+    "revenue_growth": 0.688,
+    "earnings_growth": 0.414
   },
   "3017.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 60.01,
-    "revenue_growth": 1.102,
-    "earnings_growth": 1.458
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 74.04,
+    "revenue_growth": 0.66,
+    "earnings_growth": 1.387
   },
   "6285.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.26,
-    "revenue_growth": 0.028,
-    "earnings_growth": 0.233
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 9.03,
+    "revenue_growth": 0.435,
+    "earnings_growth": 2.294
   },
   "2421.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 7.89,
-    "revenue_growth": 0.206,
-    "earnings_growth": 0.372
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 9.47,
+    "revenue_growth": 0.162,
+    "earnings_growth": 0.759
   },
   "3324.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2392.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -6.62,
-    "revenue_growth": -0.051,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 7.77,
+    "revenue_growth": -0.175,
     "earnings_growth": null
   },
   "8150.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.25,
-    "revenue_growth": 0.254,
-    "earnings_growth": 2.0
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 3.26,
+    "revenue_growth": 0.287,
+    "earnings_growth": null
   },
   "6148.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "8114.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 18.2,
-    "revenue_growth": -0.402,
-    "earnings_growth": -0.581
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 13.16,
+    "revenue_growth": -0.112,
+    "earnings_growth": -0.231
   },
   "2395.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 12.13,
-    "revenue_growth": 0.175,
-    "earnings_growth": 0.22
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 15.68,
+    "revenue_growth": 0.465,
+    "earnings_growth": 1.263
   },
   "2354.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.31,
-    "revenue_growth": -0.158,
-    "earnings_growth": -0.3
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.35,
+    "revenue_growth": -0.264,
+    "earnings_growth": 0.656
   },
   "2365.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.32,
-    "revenue_growth": 0.031,
-    "earnings_growth": 0.981
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.55,
+    "revenue_growth": 0.06,
+    "earnings_growth": null
   },
   "2312.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.04,
-    "revenue_growth": -0.15,
-    "earnings_growth": 0.0
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.19,
+    "revenue_growth": 0.054,
+    "earnings_growth": 0.767
   },
   "6202.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.76,
-    "revenue_growth": 0.085,
-    "earnings_growth": -0.257
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.2,
+    "revenue_growth": 0.143,
+    "earnings_growth": 5.5
   },
   "2352.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.64,
-    "revenue_growth": 0.036,
-    "earnings_growth": -0.341
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.78,
+    "revenue_growth": -0.014,
+    "earnings_growth": 1.088
   },
   "5426.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2388.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.12,
-    "revenue_growth": 0.043,
-    "earnings_growth": 3.0
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.59,
+    "revenue_growth": 0.632,
+    "earnings_growth": null
   },
   "2401.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.37,
-    "revenue_growth": 0.128,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.1,
+    "revenue_growth": 0.256,
     "earnings_growth": null
   },
   "2436.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.79,
-    "revenue_growth": 0.317,
-    "earnings_growth": 3.672
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.46,
+    "revenue_growth": 0.249,
+    "earnings_growth": 13.306
   },
   "2363.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.53,
-    "revenue_growth": 1.236,
-    "earnings_growth": null
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.53,
+    "revenue_growth": 0.825,
+    "earnings_growth": -0.975
   },
   "8183.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2458.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 8.4,
-    "revenue_growth": 0.034,
-    "earnings_growth": 0.053
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 10.74,
+    "revenue_growth": 0.057,
+    "earnings_growth": 1.48
   },
   "3006.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.87,
-    "revenue_growth": 1.503,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 31.82,
+    "revenue_growth": 3.241,
     "earnings_growth": null
   },
   "3014.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 9.26,
-    "revenue_growth": 0.007,
-    "earnings_growth": -0.0
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 9.93,
+    "revenue_growth": -0.046,
+    "earnings_growth": 0.27
   },
   "3041.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -3.43,
-    "revenue_growth": 0.097,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -3.11,
+    "revenue_growth": 0.873,
     "earnings_growth": null
   },
   "3035.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.81,
-    "revenue_growth": -0.652,
-    "earnings_growth": -0.699
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.52,
+    "revenue_growth": -0.266,
+    "earnings_growth": 6.664
   },
   "3094.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.24,
-    "revenue_growth": -0.085,
-    "earnings_growth": 0.245
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.62,
+    "revenue_growth": 0.355,
+    "earnings_growth": null
   },
   "3122.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3150.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.22,
-    "revenue_growth": -0.056,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -0.3,
+    "revenue_growth": 0.063,
     "earnings_growth": null
   },
   "3073.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3141.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3169.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2355.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.59,
-    "revenue_growth": 0.056,
-    "earnings_growth": 0.192
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.9,
+    "revenue_growth": 0.037,
+    "earnings_growth": 0.875
   },
   "2316.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 13.38,
-    "revenue_growth": 0.174,
-    "earnings_growth": 1.411
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 14.3,
+    "revenue_growth": 0.462,
+    "earnings_growth": -0.273
   },
   "1815.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2402.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.32,
-    "revenue_growth": 0.152,
-    "earnings_growth": -0.884
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.53,
+    "revenue_growth": 0.168,
+    "earnings_growth": -0.452
   },
   "2367.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.68,
-    "revenue_growth": -0.101,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -0.65,
+    "revenue_growth": -0.046,
     "earnings_growth": null
   },
   "2368.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 19.01,
-    "revenue_growth": 0.601,
-    "earnings_growth": 0.907
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 28.11,
+    "revenue_growth": 0.753,
+    "earnings_growth": 1.739
   },
   "2429.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -1.41,
-    "revenue_growth": -0.076,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -1.45,
+    "revenue_growth": 0.096,
     "earnings_growth": null
   },
   "6121.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3323.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3211.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "1503.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.27,
-    "revenue_growth": 0.123,
-    "earnings_growth": -0.145
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 7.24,
+    "revenue_growth": 0.079,
+    "earnings_growth": 0.317
   },
   "1504.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 2.5,
-    "revenue_growth": 0.045,
-    "earnings_growth": -0.062
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.82,
+    "revenue_growth": 0.064,
+    "earnings_growth": 0.629
   },
   "3016.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 0.08,
-    "revenue_growth": 0.181,
-    "earnings_growth": 34.52
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.2,
+    "revenue_growth": 0.371,
+    "earnings_growth": null
   },
   "8086.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3376.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 1.62,
-    "revenue_growth": -0.161,
-    "earnings_growth": -0.867
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 1.44,
+    "revenue_growth": -0.105,
+    "earnings_growth": null
   },
   "2338.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -4.82,
-    "revenue_growth": -0.055,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -1.16,
+    "revenue_growth": -0.048,
     "earnings_growth": null
   },
   "3374.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "5309.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2340.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -3.05,
-    "revenue_growth": -0.013,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -2.17,
+    "revenue_growth": 0.051,
     "earnings_growth": null
   },
   "6230.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -2.43,
-    "revenue_growth": 0.081,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -5.06,
+    "revenue_growth": 0.099,
     "earnings_growth": null
   },
   "3042.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 5.67,
-    "revenue_growth": 0.055,
-    "earnings_growth": -0.27
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.74,
+    "revenue_growth": 0.099,
+    "earnings_growth": 0.51
   },
   "3019.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.49,
-    "revenue_growth": 0.148,
-    "earnings_growth": 0.333
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.82,
+    "revenue_growth": 0.162,
+    "earnings_growth": -0.328
   },
   "3548.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3362.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "2349.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.36,
-    "revenue_growth": -0.043,
-    "earnings_growth": 1.241
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -0.09,
+    "revenue_growth": -0.049,
+    "earnings_growth": null
   },
   "2498.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 7.15,
-    "revenue_growth": -0.079,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 2.56,
+    "revenue_growth": -0.116,
     "earnings_growth": null
   },
   "3189.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 3.37,
-    "revenue_growth": 0.288,
-    "earnings_growth": 0.928
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 5.79,
+    "revenue_growth": 0.307,
+    "earnings_growth": 2.459
   },
   "8069.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "4904.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 3.8,
-    "revenue_growth": 0.04,
-    "earnings_growth": 0.144
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.11,
+    "revenue_growth": 0.098,
+    "earnings_growth": 0.186
   },
   "2332.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.9,
-    "revenue_growth": 0.031,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -0.46,
+    "revenue_growth": 0.17,
     "earnings_growth": null
   },
   "6354.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "4906.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.25,
-    "revenue_growth": -0.396,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 0.15,
+    "revenue_growth": -0.139,
     "earnings_growth": null
   },
   "3533.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 70.15,
-    "revenue_growth": 0.201,
-    "earnings_growth": 0.056
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 82.06,
+    "revenue_growth": 0.148,
+    "earnings_growth": 1.645
   },
   "3682.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3605.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 4.0,
-    "revenue_growth": 0.095,
-    "earnings_growth": -0.458
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 4.01,
+    "revenue_growth": 0.202,
+    "earnings_growth": 0.912
   },
   "2456.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "3026.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": 6.55,
-    "revenue_growth": 0.064,
-    "earnings_growth": 0.711
+    "fetched_date": "2026-09-11",
+    "trailing_eps": 10.2,
+    "revenue_growth": 0.252,
+    "earnings_growth": 1.797
   },
   "6116.TW": {
-    "fetched_date": "2026-06-16",
-    "trailing_eps": -0.75,
-    "revenue_growth": 0.04,
+    "fetched_date": "2026-09-11",
+    "trailing_eps": -0.2,
+    "revenue_growth": 0.023,
     "earnings_growth": null
   },
   "2384.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
   },
   "6173.TW": {
-    "fetched_date": "2026-06-16",
+    "fetched_date": "2026-09-11",
     "trailing_eps": null,
     "revenue_growth": null,
     "earnings_growth": null
