@@ -1,69 +1,17 @@
 {
-  "date": "2026-09-11",
-  "timestamp": "2026-09-11 07:18",
+  "date": "2026-09-12",
+  "timestamp": "2026-09-12 07:25",
   "signals": [
     {
-      "name": "超微半導體",
-      "ticker": "AMD",
-      "score": -3,
-      "price": 503.6,
-      "change_pct": -3.36,
-      "vol_ratio": 0.79,
-      "signals": [
-        "KD 死亡交叉 (K=73.1)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-26.9)"
-      ]
-    },
-    {
-      "name": "Meta",
-      "ticker": "META",
-      "score": -3,
-      "price": 644.38,
-      "change_pct": -1.42,
-      "vol_ratio": 0.92,
-      "signals": [
-        "RSI 從超買區回落 (66.4)",
-        "KD 死亡交叉 (K=82.2)",
-        "布林通道上軌回落"
-      ]
-    },
-    {
-      "name": "美光",
-      "ticker": "MU",
-      "score": -2,
-      "price": 977.41,
-      "change_pct": -4.9,
-      "vol_ratio": 0.94,
-      "signals": [
-        "KD 死亡交叉 (K=51.2)",
-        "均線剛形成多頭排列 (MA5>MA20>MA60)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-42.0)"
-      ]
-    },
-    {
-      "name": "英特爾",
-      "ticker": "INTC",
-      "score": -2,
-      "price": 100.32,
-      "change_pct": -5.57,
-      "vol_ratio": 0.94,
-      "signals": [
-        "KD 死亡交叉 (K=69.6)",
-        "威廉%R 超買回落 (-29.6)"
-      ]
-    },
-    {
-      "name": "Alphabet",
-      "ticker": "GOOGL",
+      "name": "亞馬遜",
+      "ticker": "AMZN",
       "score": 2,
-      "price": 332.6,
-      "change_pct": 0.59,
-      "vol_ratio": 0.93,
+      "price": 256.78,
+      "change_pct": 1.94,
+      "vol_ratio": 0.91,
       "signals": [
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-79.7)"
+        "KD 黃金交叉 (K=48.7)",
+        "威廉%R 超賣反彈 (-60.0)"
       ]
     }
   ]
