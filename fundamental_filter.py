@@ -209,9 +209,11 @@ def prefetch_all(watchlist: dict, max_workers: int = 8):
 
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
         futures = {ex.submit(_fetch, ticker): ticker for _, ticker in stale}
-        for fut in as_completed(futures):
+        for i, fut in enumerate(as_completed(futures), start=1):
             ticker, data = fut.result()
             cache[ticker] = data
+            if i % 20 == 0:
+                _save_cache(cache)
 
     _save_cache(cache)
 

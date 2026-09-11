@@ -49,6 +49,7 @@ jobs:
         run: python scanner.py
 
       - name: Send daily email
+        if: always()
         continue-on-error: true
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
@@ -62,16 +63,20 @@ jobs:
           LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: |
+          payload=$(jq -n --arg to "$LINE_USER_ID" \
+            --arg text $'⚠️ 今日股票掃描失敗\n請至 GitHub Actions 查看錯誤：\nhttps://github.com/0911207240/stock-dashboard/actions' \
+            '{to: $to, messages: [{type: "text", text: $text}]}')
           curl -s -X POST https://api.line.me/v2/bot/message/push \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer $LINE_TOKEN" \
-            -d "{\"to\":\"$LINE_USER_ID\",\"messages\":[{\"type\":\"text\",\"text\":\"⚠️ 今日股票掃描失敗\n請至 GitHub Actions 查看錯誤：\nhttps://github.com/0911207240/stock-dashboard/actions\"}]}"
+            -d "$payload"
 
       - name: Save state files
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json tdcc_cache.json morning_lock.json market_log.json scan_results.json; do
+          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json tdcc_cache.json morning_lock.json market_log.json scan_results.json fundamental_cache.json news_sentiment_cache.json; do
             [ -f "$f" ] && git add "$f"
           done
           git diff --cached --quiet || git commit -m "chore: update state [skip ci]"
