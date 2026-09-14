@@ -1,0 +1,20 @@
+name: Debug LINE Notify Payload
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and validate payload JSON (no secrets involved, no send)
+        run: |
+          fake_id="Uabcdef1234567890abcdef1234567890"
+          payload=$(jq -n --arg to "$fake_id" \
+            --arg text $'⚠️ 今日股票掃描失敗\n請至 GitHub Actions 查看錯誤：\nhttps://github.com/0911207240/stock-dashboard/actions' \
+            '{to: $to, messages: [{type: "text", text: $text}]}')
+          echo "payload byte length: $(printf '%s' "$payload" | wc -c)"
+          echo "--- validating with jq empty ---"
+          printf '%s' "$payload" | jq empty && echo "VALID JSON per jq" || echo "INVALID JSON per jq"
+          echo "--- full payload (fake id only, safe to print) ---"
+          printf '%s\n' "$payload"
+          echo "jq version: $(jq --version)"
