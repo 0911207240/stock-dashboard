@@ -1,0 +1,21 @@
+name: Test LINE Notify
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test LINE message
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          payload=$(jq -n --arg to "$LINE_USER_ID" \
+            --arg text $'✅ 測試訊息：LINE通知修復驗證' \
+            '{to: $to, messages: [{type: "text", text: $text}]}')
+          resp=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST https://api.line.me/v2/bot/message/push \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $LINE_TOKEN" \
+            -d "$payload")
+          echo "$resp"
