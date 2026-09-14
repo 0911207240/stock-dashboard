@@ -1,0 +1,31 @@
+name: Test Gmail App Password
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test email via smtplib
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          python3 - <<'EOF'
+          import os, smtplib
+          from email.mime.text import MIMEText
+
+          gmail_addr = os.environ["GMAIL_ADDRESS"]
+          gmail_pass = os.environ["GMAIL_APP_PASSWORD"]
+
+          msg = MIMEText("Gmail App Password 修復驗證成功")
+          msg["Subject"] = "測試：股票儀表板 Gmail 驗證"
+          msg["From"] = gmail_addr
+          msg["To"] = gmail_addr
+
+          with smtplib.SMTP("smtp.gmail.com", 587, timeout=15) as server:
+              server.starttls()
+              server.login(gmail_addr, gmail_pass)
+              server.sendmail(gmail_addr, [gmail_addr], msg.as_string())
+          print("SENT_OK")
+          EOF
