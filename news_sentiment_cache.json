@@ -1,18 +1,20 @@
 {
   "2330": {
-    "fetched_at": "2026-09-11T23:10:16.503600",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-09-14T13:15:41.822296",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "Intel Climbs 3% on Chip Price Hike Report a Day After Piper Sandler Went Neutral; AMD Rises 2%, Taiwan Semiconductor Drifts",
-      "TSM’s Record Sales Say AI Chips Are Booming. The Nvidia-AMD Fight Is Now About Who Keeps the Margin",
-      "Dow Jones Futures Rise, Oil Prices Fall, Oracle Jumps; CPI Inflation Data To Inform Fed"
+      "Amazon and 2 Other AI Stocks to Buy With $5,000",
+      "Robots Everywhere: Goldman Sachs Now Sees 6.5 Million Humanoid Robots by 2035",
+      "Prediction: Taiwan Semiconductor Manufacturing Stock Will Hit $600 by the End of 2027"
     ]
   },
   "0056": {
-    "fetched_at": "2026-09-11T23:06:42.246089",
+    "fetched_at": "2026-09-14T13:20:48.979814",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -22,19 +24,19 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-09-11T23:09:28.539213",
+    "fetched_at": "2026-09-14T13:16:28.180662",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Foxconn Just Delivered a Major Bullish Signal for Nvidia Stock",
       "Foxconn expects Q3 to beat market expectations as AI demand stays strong",
-      "Foxconn Stock Rises 2.7% Before Profit Jumps 35%",
-      "Foxconn's AI Business Just Overtook iPhones"
+      "Foxconn Stock Rises 2.7% Before Profit Jumps 35%"
     ]
   },
   "0050": {
-    "fetched_at": "2026-09-11T23:19:54.754683",
+    "fetched_at": "2026-09-14T13:19:21.979768",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -44,7 +46,7 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-09-11T23:07:52.718359",
+    "fetched_at": "2026-09-14T13:14:40.526693",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -56,7 +58,7 @@
     ]
   },
   "2882": {
-    "fetched_at": "2026-09-11T23:08:40.702798",
+    "fetched_at": "2026-09-14T13:17:33.498832",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -68,7 +70,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-09-11T23:11:30.721749",
+    "fetched_at": "2026-09-14T13:18:22.144639",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -78,7 +80,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-09-11T23:12:16.009517",
+    "fetched_at": "2026-09-14T13:24:01.290926",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -90,7 +92,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-09-11T23:13:08.191676",
+    "fetched_at": "2026-09-14T13:27:51.807769",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -100,7 +102,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-09-11T23:13:55.110755",
+    "fetched_at": "2026-09-14T13:20:03.320080",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -110,21 +112,21 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-09-11T23:14:45.798516",
-    "sentiment_score": -1,
-    "signal": "bearish",
+    "fetched_at": "2026-09-14T13:24:42.853292",
+    "sentiment_score": 1,
+    "signal": "bullish",
     "keywords": [
-      "-downgrade"
+      "+buy"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Coinbase is not slowing down if CLARITY Act fails",
-      "Ethereum’s Price Surges Past $2,600 For First Time In 8 Months: Outruns Bitcoin, XRP, Solana",
-      "Chewy Slides 6% on Second Downgrade in Two Days as JPMorgan Cuts Target to $24; Petco Stays Put, Freshpet Nudges Higher"
+      "Aktsiaselts Infortar own share acquisition transactions",
+      "Tom Lee Explains Ethereum's Killer Application as ETH Bucks Market Downturn",
+      "Prospect Capital’s (PSEC) Payout Shrinks Even As Its Deals Pay Off"
     ]
   },
   "2892": {
-    "fetched_at": "2026-09-11T23:15:30.230200",
+    "fetched_at": "2026-09-14T13:26:59.582882",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -135,7 +137,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-09-11T23:16:18.916037",
+    "fetched_at": "2026-09-14T13:23:19.574539",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -146,7 +148,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-09-11T23:17:16.330527",
+    "fetched_at": "2026-09-14T13:26:13.036724",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -156,7 +158,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-09-11T23:18:07.178533",
+    "fetched_at": "2026-09-14T13:21:33.997314",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -166,21 +168,21 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-09-11T23:19:00.039092",
-    "sentiment_score": -1,
-    "signal": "bearish",
+    "fetched_at": "2026-09-14T13:22:28.700765",
+    "sentiment_score": 1,
+    "signal": "bullish",
     "keywords": [
-      "-downgrade"
+      "+buy"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "RSM UK appoints new partner to support financial services risk practice",
-      "Coinbase is not slowing down if CLARITY Act fails",
-      "Deals &amp; Moves: RFG Advisory Oversees RIA Merger to Form $750M WFA Volare"
+      "Aktsiaselts Infortar own share acquisition transactions",
+      "Tom Lee Explains Ethereum's Killer Application as ETH Bucks Market Downturn",
+      "Prospect Capital’s (PSEC) Payout Shrinks Even As Its Deals Pay Off"
     ]
   },
   "1101": {
-    "fetched_at": "2026-09-11T23:20:43.008318",
+    "fetched_at": "2026-09-14T13:25:22.919625",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -190,7 +192,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-09-11T23:21:35.880869",
+    "fetched_at": "2026-09-14T13:28:44.437877",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -200,7 +202,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-09-11T23:22:27.033696",
+    "fetched_at": "2026-09-14T13:30:27.743910",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -210,7 +212,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-09-11T23:23:16.702074",
+    "fetched_at": "2026-09-14T13:29:27.476332",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -220,7 +222,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-09-11T23:24:02.593916",
+    "fetched_at": "2026-09-14T13:31:15.615018",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -230,7 +232,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-09-11T23:24:47.351725",
+    "fetched_at": "2026-09-14T13:32:00.937362",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -240,7 +242,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-09-11T23:25:32.678278",
+    "fetched_at": "2026-09-14T13:32:44.202990",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -251,7 +253,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-09-11T23:26:15.356888",
+    "fetched_at": "2026-09-14T13:33:29.159855",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -263,7 +265,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-09-11T23:27:00.271953",
+    "fetched_at": "2026-09-14T13:34:23.264083",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -275,7 +277,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-09-11T23:27:42.694799",
+    "fetched_at": "2026-09-14T13:38:08.416916",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -290,7 +292,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-09-11T23:28:25.285300",
+    "fetched_at": "2026-09-14T13:37:18.347085",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -300,7 +302,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-09-11T23:29:06.600101",
+    "fetched_at": "2026-09-14T13:35:09.960110",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -312,7 +314,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-09-11T23:29:48.663476",
+    "fetched_at": "2026-09-14T13:36:14.267223",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -322,7 +324,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-09-11T23:30:46.633577",
+    "fetched_at": "2026-09-14T13:39:22.590187",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -332,7 +334,7 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-09-11T23:31:31.182182",
+    "fetched_at": "2026-09-14T13:40:03.213278",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -346,7 +348,7 @@
     ]
   },
   "3711": {
-    "fetched_at": "2026-09-11T23:32:15.951327",
+    "fetched_at": "2026-09-14T13:40:45.177563",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -358,7 +360,7 @@
     ]
   },
   "2449": {
-    "fetched_at": "2026-09-11T23:32:59.536050",
+    "fetched_at": "2026-09-14T13:41:25.673275",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -370,7 +372,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-09-11T23:33:49.763495",
+    "fetched_at": "2026-09-14T13:42:28.506354",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -380,7 +382,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-09-11T23:34:31.892171",
+    "fetched_at": "2026-09-14T13:44:35.322978",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -390,7 +392,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-09-11T23:35:17.092948",
+    "fetched_at": "2026-09-14T13:43:09.600123",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -400,7 +402,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-09-11T23:35:59.316127",
+    "fetched_at": "2026-09-14T13:43:52.303713",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -410,7 +412,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-09-11T23:36:43.588929",
+    "fetched_at": "2026-09-14T13:45:37.142878",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -420,7 +422,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-09-11T23:37:27.639233",
+    "fetched_at": "2026-09-14T13:46:32.571682",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -430,7 +432,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-09-11T23:38:10.104673",
+    "fetched_at": "2026-09-14T13:47:13.790655",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -444,7 +446,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-09-11T23:38:53.014562",
+    "fetched_at": "2026-09-14T13:48:54.306398",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -456,7 +458,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-09-11T23:39:35.234057",
+    "fetched_at": "2026-09-14T13:48:10.565018",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -470,7 +472,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-09-11T23:40:16.738140",
+    "fetched_at": "2026-09-14T13:49:42.860437",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -484,7 +486,7 @@
     ]
   },
   "2308": {
-    "fetched_at": "2026-09-11T23:41:00.702875",
+    "fetched_at": "2026-09-14T13:50:52.912515",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -496,7 +498,7 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-09-11T23:41:44.020741",
+    "fetched_at": "2026-09-14T13:51:49.712735",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -508,7 +510,7 @@
     ]
   },
   "3532": {
-    "fetched_at": "2026-09-11T23:42:28.079355",
+    "fetched_at": "2026-09-14T13:53:01.919557",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -518,7 +520,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-09-11T23:43:14.083955",
+    "fetched_at": "2026-09-14T13:54:01.556392",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -528,7 +530,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-09-11T23:44:01.813943",
+    "fetched_at": "2026-09-14T13:54:55.010164",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -538,7 +540,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-09-11T23:44:46.234782",
+    "fetched_at": "2026-09-14T13:55:38.535971",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -548,7 +550,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-09-11T23:45:28.193309",
+    "fetched_at": "2026-09-14T13:57:25.287656",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -572,7 +574,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-09-11T23:46:56.577971",
+    "fetched_at": "2026-09-14T13:56:27.618510",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -619,6 +621,41 @@
       "DapuStor Strengthens AI Infrastructure Ecosystem Collaboration at Computex 2026",
       "UBS Raises its Price Target on Astera Labs, Inc. (ALAB)",
       "How Astera Labs (ALAB) Is Using Taiwan Expansion to Speed Rack-Scale AI Deployment"
+    ]
+  },
+  "6488O": {
+    "fetched_at": "2026-09-14T13:52:11.479384",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 6,
+    "sample_headlines": [
+      "Micron Unveils $250 Billion Spending Plan. BofA Says Buy.",
+      "GlobalFoundries Shares Rise After Micron Expands U.S. Semiconductor Supply Chain Investment (GFS)",
+      "Micron Announces Up to $3 Billion Strategic Investment to Strengthen U.S. Semiconductor Ecosystem"
+    ]
+  },
+  "3680O": {
+    "fetched_at": "2026-09-14T13:53:20.675969",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3680.TWO News"
+    ]
+  },
+  "5483O": {
+    "fetched_at": "2026-09-14T13:53:21.003493",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Semicon Network Summit 2026 Advances Global Chip Collaboration in the AI Era",
+      "Yahoo! Finance: 5483.TWO News"
     ]
   }
 }

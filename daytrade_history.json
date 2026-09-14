@@ -5357,9 +5357,9 @@
     "stop": 34.72,
     "tp1": 35.92,
     "tp2": 36.06,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 35.45,
+    "return_pct": 0.71
   },
   {
     "push_date": "2026-09-09",
