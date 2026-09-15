@@ -1,42 +1,17 @@
 {
-  "date": "2026-09-15",
-  "timestamp": "2026-09-15 07:55",
+  "date": "2026-09-16",
+  "timestamp": "2026-09-16 07:34",
   "signals": [
     {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": -3,
-      "price": 534.28,
-      "change_pct": -5.82,
-      "vol_ratio": 1.05,
-      "signals": [
-        "KD 死亡交叉 (K=77.1)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-22.9)"
-      ]
-    },
-    {
-      "name": "超微半導體",
-      "ticker": "AMD",
+      "name": "Alphabet",
+      "ticker": "GOOGL",
       "score": -2,
-      "price": 493.41,
-      "change_pct": -4.4,
-      "vol_ratio": 1.12,
+      "price": 344.98,
+      "change_pct": -1.26,
+      "vol_ratio": 0.77,
       "signals": [
-        "KD 死亡交叉 (K=61.3)",
-        "威廉%R 超買回落 (-38.7)"
-      ]
-    },
-    {
-      "name": "高通",
-      "ticker": "QCOM",
-      "score": -2,
-      "price": 180.15,
-      "change_pct": -1.0,
-      "vol_ratio": 0.84,
-      "signals": [
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-20.1)"
+        "KD 死亡交叉 (K=77.8)",
+        "威廉%R 超買回落 (-22.2)"
       ]
     }
   ]
