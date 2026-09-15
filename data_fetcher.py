@@ -7,6 +7,25 @@ from net_timeout import call_with_timeout
 
 CACHE_DIR = Path(__file__).parent / "data_cache"
 
+_yf_warmed_up = False
+
+
+def ensure_yf_warmup():
+    """在任何平行抓取開始前，序列化地讓 yfinance 抓好一次 cookie/crumb。
+
+    yfinance 的 YfData 是 process 內單例，抓 cookie/crumb 時會拿同一把
+    threading.Lock。若第一次抓取剛好發生在 20 條執行緒同時打進來的時候，
+    其中一個持鎖的請求只要被 Yahoo 卡住不回應，其餘所有執行緒的 yfinance
+    呼叫都會卡在同一把鎖後面，call_with_timeout 只能讓呼叫端放棄等待，
+    無法真的解鎖，於是整個 scan 卡住 20~60 分鐘（2026-09-14、09-15 兩天的
+    daily_scan 逾時皆是此因）。這裡先在單一執行緒、還沒有鎖競爭時把
+    crumb 抓好快取起來，之後平行呼叫就不需要再搶鎖發 request。"""
+    global _yf_warmed_up
+    if _yf_warmed_up:
+        return
+    call_with_timeout(lambda: yf.download("2330.TW", period="5d", progress=False), timeout=45, default=None)
+    _yf_warmed_up = True
+
 
 def _cache_path(ticker: str) -> Path:
     return CACHE_DIR / f"{ticker.replace('/', '_').replace('^', '_')}.parquet"
@@ -717,6 +736,7 @@ def fetch_taifex_pcr() -> dict:
 
 def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 20) -> dict[str, pd.DataFrame]:
     from concurrent.futures import ThreadPoolExecutor, as_completed
+    ensure_yf_warmup()
     names = SECTORS.get(sector, list(WATCHLIST.keys()))
     pairs = [(name, WATCHLIST[name]) for name in names if name in WATCHLIST]
 

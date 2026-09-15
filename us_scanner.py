@@ -3,7 +3,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from pathlib import Path
-from data_fetcher import fetch, WATCHLIST
+from data_fetcher import fetch, WATCHLIST, ensure_yf_warmup
 from analyzer import add_indicators, detect_signals, score
 
 US_WATCHLIST = {k: v for k, v in WATCHLIST.items() if not v.endswith(".TW") and not v.endswith(".TWO")}
@@ -12,6 +12,8 @@ _US_RESULTS = Path("us_scan_results.json")
 
 def run_us_scan(min_score: int = 2, notify: bool = True):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] 美股掃描開始（{len(US_WATCHLIST)} 檔）...")
+
+    ensure_yf_warmup()
 
     def _fetch_one(item):
         name, ticker = item

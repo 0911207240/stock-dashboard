@@ -45,7 +45,7 @@ jobs:
         run: pip install --upgrade setuptools && pip install -r requirements.txt
 
       - name: Run scan
-        timeout-minutes: 45
+        timeout-minutes: 75
         run: python scanner.py
 
       - name: Send daily email
