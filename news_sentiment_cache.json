@@ -1,6 +1,6 @@
 {
   "2330": {
-    "fetched_at": "2026-09-15T13:11:37.130622",
+    "fetched_at": "2026-09-16T13:04:03.304815",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -8,13 +8,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "5 Top AI Stocks to Buy on the Dip as Slowdown Fears Hit Markets",
-      "ASML Drops 5.4% as Customers Prepare for $400 Million Machines",
-      "TSMC Falls 3.3% as Its 2028 Chip Roadmap Precedes High-NA Adoption"
+      "TSMC’s 2nm Era Is Accelerating With MediaTek. Nvidia and Alphabet Already Have Money on the Table",
+      "Taiwan Semi Revenue Keeps Surging. How to Play TSM Stock in September 2026.",
+      "META Stock Alert: What to Know as Meta Platforms Plans Expanded Use of Proprietary Chips"
     ]
   },
   "0056": {
-    "fetched_at": "2026-09-15T13:12:34.293642",
+    "fetched_at": "2026-09-16T13:04:55.705263",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,7 +24,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-09-15T13:14:36.304505",
+    "fetched_at": "2026-09-16T13:06:05.010940",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -36,7 +36,7 @@
     ]
   },
   "0050": {
-    "fetched_at": "2026-09-15T13:08:56.695086",
+    "fetched_at": "2026-09-16T13:06:57.446171",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -46,19 +46,19 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-09-15T13:13:34.762558",
+    "fetched_at": "2026-09-16T13:08:20.905871",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Nvidia-Backed MediaTek's Sales Soar 44% With AI Chip Momentum",
-      "Why Nvidia Is Making a $3.5 Billion Bet on Taiwan-Based MediaTek",
-      "Jensen Huang Says the $3.5 Billion MediaTek Deal Is Not Circular. The Decade Long Roadmap Is the Real Tell."
+      "TSMC’s 2nm Era Is Accelerating With MediaTek. Nvidia and Alphabet Already Have Money on the Table",
+      "Qualcomm Jumps Over 3% as MediaTek Fires a 2nm Warning Shot",
+      "TSMC Slips as 2-Nanometer Chip Powers a 51% AI Leap"
     ]
   },
   "2882": {
-    "fetched_at": "2026-09-15T13:10:28.226660",
+    "fetched_at": "2026-09-16T13:10:36.899569",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -70,7 +70,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-09-15T13:24:36.331801",
+    "fetched_at": "2026-09-16T13:15:09.480179",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -80,7 +80,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-09-15T13:18:49.264570",
+    "fetched_at": "2026-09-16T13:09:04.284500",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -92,7 +92,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-09-15T13:25:33.163925",
+    "fetched_at": "2026-09-16T13:16:52.766895",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -102,7 +102,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-09-15T13:16:46.248235",
+    "fetched_at": "2026-09-16T13:12:05.642574",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -112,19 +112,22 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-09-15T13:28:11.607053",
+    "fetched_at": "2026-09-16T13:14:17.781935",
     "sentiment_score": 0,
     "signal": "neutral",
-    "keywords": [],
+    "keywords": [
+      "+buy",
+      "-sell"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "LHV Group results in August 2026",
-      "Verdant Rock Secures 30% Quota Share Reinsurance Treaty with A+ Rated Panel, Expanding Emerging Market Guarantee Capacity",
-      "Germany seeks guarantees from Italy's UniCredit over Commerzbank takeover"
+      "Star Health FY26 Data Highlights How Young India is Driving the Digital Health Insurance Revolution",
+      "Banner (BANR) Looks Modestly Undervalued, Is The Recent Pullback A Buying Chance?",
+      "Energy Transfer’s (ET) Strong 2026 Run Gets a Fresh Vote from Stifel"
     ]
   },
   "2892": {
-    "fetched_at": "2026-09-15T13:15:46.607581",
+    "fetched_at": "2026-09-16T13:09:48.505917",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -135,7 +138,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-09-15T13:21:19.965341",
+    "fetched_at": "2026-09-16T13:11:16.438932",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -146,7 +149,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-09-15T13:17:43.783607",
+    "fetched_at": "2026-09-16T13:13:31.996403",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -156,7 +159,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-09-15T13:22:21.531579",
+    "fetched_at": "2026-09-16T13:16:06.799114",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -166,19 +169,22 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-09-15T13:19:54.382292",
+    "fetched_at": "2026-09-16T13:07:39.964382",
     "sentiment_score": 0,
     "signal": "neutral",
-    "keywords": [],
+    "keywords": [
+      "+buy",
+      "-sell"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "LHV Group results in August 2026",
-      "Verdant Rock Secures 30% Quota Share Reinsurance Treaty with A+ Rated Panel, Expanding Emerging Market Guarantee Capacity",
-      "Germany seeks guarantees from Italy's UniCredit over Commerzbank takeover"
+      "Star Health FY26 Data Highlights How Young India is Driving the Digital Health Insurance Revolution",
+      "Banner (BANR) Looks Modestly Undervalued, Is The Recent Pullback A Buying Chance?",
+      "Energy Transfer’s (ET) Strong 2026 Run Gets a Fresh Vote from Stifel"
     ]
   },
   "1101": {
-    "fetched_at": "2026-09-15T13:23:30.606801",
+    "fetched_at": "2026-09-16T13:12:50.324950",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -188,7 +194,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-09-15T13:26:55.245663",
+    "fetched_at": "2026-09-16T13:17:43.294566",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -198,7 +204,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-09-15T13:33:55.990274",
+    "fetched_at": "2026-09-16T13:20:01.527158",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -208,7 +214,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-09-15T13:29:24.091643",
+    "fetched_at": "2026-09-16T13:18:30.534448",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -218,7 +224,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-09-15T13:30:59.218768",
+    "fetched_at": "2026-09-16T13:19:16.553555",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -228,7 +234,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-09-15T13:32:25.883620",
+    "fetched_at": "2026-09-16T13:21:01.176851",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -238,7 +244,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-09-15T13:36:47.016415",
+    "fetched_at": "2026-09-16T13:22:32.550286",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -249,7 +255,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-09-15T13:35:35.256039",
+    "fetched_at": "2026-09-16T13:21:44.914398",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -261,7 +267,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-09-15T13:37:48.801558",
+    "fetched_at": "2026-09-16T13:23:23.584178",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -273,7 +279,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-09-15T13:41:24.155293",
+    "fetched_at": "2026-09-16T13:25:33.616966",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -288,7 +294,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-09-15T13:39:06.219184",
+    "fetched_at": "2026-09-16T13:24:50.122683",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -298,7 +304,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-09-15T13:40:14.497568",
+    "fetched_at": "2026-09-16T13:24:08.911034",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -310,7 +316,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-09-15T13:42:30.067012",
+    "fetched_at": "2026-09-16T13:26:23.916436",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -320,7 +326,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-09-15T13:45:02.738257",
+    "fetched_at": "2026-09-16T13:27:13.886042",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -330,7 +336,7 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-09-15T13:46:10.742147",
+    "fetched_at": "2026-09-16T13:28:42.247065",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -344,19 +350,19 @@
     ]
   },
   "3711": {
-    "fetched_at": "2026-09-15T13:43:46.826683",
+    "fetched_at": "2026-09-16T13:27:59.100066",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Asian Equities Traded in the US as American Depositary Receipts Fall in Tuesday Trading",
       "Asian Equities Traded in the US as American Depositary Receipts Fall Sharply in Monday Trading",
-      "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading",
-      "Can Strong LEAP Momentum Boost ASE Technology's Long-Term Growth?"
+      "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading"
     ]
   },
   "2449": {
-    "fetched_at": "2026-09-14T13:41:25.673275",
+    "fetched_at": "2026-09-16T13:29:26.891360",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -368,7 +374,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-09-15T13:47:13.575479",
+    "fetched_at": "2026-09-16T13:30:24.245091",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -378,7 +384,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-09-15T13:48:24.535598",
+    "fetched_at": "2026-09-16T13:32:09.671965",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -388,7 +394,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-09-15T13:49:27.793983",
+    "fetched_at": "2026-09-16T13:31:22.445557",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -398,7 +404,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-09-15T13:50:54.755989",
+    "fetched_at": "2026-09-16T13:33:50.046177",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -408,7 +414,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-09-14T13:45:37.142878",
+    "fetched_at": "2026-09-16T13:32:53.121855",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -418,7 +424,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-09-14T13:46:32.571682",
+    "fetched_at": "2026-09-16T13:34:51.952966",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -428,7 +434,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-09-14T13:47:13.790655",
+    "fetched_at": "2026-09-16T13:37:12.929314",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -442,7 +448,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-09-14T13:48:54.306398",
+    "fetched_at": "2026-09-16T13:35:41.898041",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -454,7 +460,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-09-14T13:48:10.565018",
+    "fetched_at": "2026-09-16T13:36:30.255430",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -468,7 +474,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-09-14T13:49:42.860437",
+    "fetched_at": "2026-09-16T13:37:59.380697",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -476,13 +482,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
+      "MSI Secures Public Safety Contract in Louisiana: Will it Fuel Revenues?",
       "MSI XpertStation WS300 Based on NVIDIA DGX Station Now Available",
-      "MSI Expands Drone Portfolio With D-Fend Deal: Will it Drive Growth?",
-      "MSI Q2 Earnings Top Estimates on Strong Demand, Record Backlog"
+      "MSI Expands Drone Portfolio With D-Fend Deal: Will it Drive Growth?"
     ]
   },
   "2308": {
-    "fetched_at": "2026-09-14T13:50:52.912515",
+    "fetched_at": "2026-09-16T13:39:37.087677",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -494,19 +500,19 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-09-14T13:51:49.712735",
+    "fetched_at": "2026-09-16T13:38:50.031345",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Amazon Partners with Wiwynn to Expand U.S. AI Infrastructure Capacity",
       "Ayar Labs Expands 2026 Funding to $650 Million to Scale Manufacturing-Ready CPO for AI Scale-Up Beyond the Rack",
-      "OCP Rack Market Report 2026–2030: Evaluating $4.32 Billion Forecast, AI &amp; HPC Applications, and Strategies of Dell, Vertiv, Rittal, Wiwynn, and Sanmina",
-      "Wiwynn Advances Datacenter Design at Computex 2026 with High-Power and Optical Interconnect"
+      "OCP Rack Market Report 2026–2030: Evaluating $4.32 Billion Forecast, AI &amp; HPC Applications, and Strategies of Dell, Vertiv, Rittal, Wiwynn, and Sanmina"
     ]
   },
   "3532": {
-    "fetched_at": "2026-09-14T13:53:01.919557",
+    "fetched_at": "2026-09-16T13:40:38.351890",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -516,7 +522,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-09-14T13:54:01.556392",
+    "fetched_at": "2026-09-16T13:41:21.039820",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -526,7 +532,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-09-14T13:54:55.010164",
+    "fetched_at": "2026-09-16T13:42:10.082194",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -536,7 +542,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-09-14T13:55:38.535971",
+    "fetched_at": "2026-09-16T13:43:02.307929",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -546,7 +552,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-09-14T13:57:25.287656",
+    "fetched_at": "2026-09-16T13:44:31.422299",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -558,7 +564,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-09-11T23:46:12.586876",
+    "fetched_at": "2026-09-16T13:46:06.058894",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -570,7 +576,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-09-14T13:56:27.618510",
+    "fetched_at": "2026-09-16T13:43:47.437996",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -580,7 +586,7 @@
     ]
   },
   "2357": {
-    "fetched_at": "2026-09-11T23:47:38.234773",
+    "fetched_at": "2026-09-16T13:45:16.807565",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -592,7 +598,7 @@
     ]
   },
   "2324": {
-    "fetched_at": "2026-09-11T23:48:22.144980",
+    "fetched_at": "2026-09-16T13:46:50.219200",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -600,13 +606,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "TSMC Price Prediction: One Number Could Define the Stock’s Next Move",
-      "Senate Republicans Introduce Clarity Act Changes Ahead Of Key Vote",
-      "3 of Wall Street’s Favorite Stocks We Steer Clear Of"
+      "Dow Jones Futures Rise As ServiceNow, Twilio Lead 8 New Buys; How Will Bonds React To Fed Hike?",
+      "Want to Invest in Anthropic Before Its IPO? Here's How.",
+      "Himax Technologies (HIMX) Launches New Auto Display Chips, Is The Upside Already Priced In?"
     ]
   },
   "2356": {
-    "fetched_at": "2026-09-11T23:49:07.411377",
+    "fetched_at": "2026-09-16T13:47:31.503394",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -620,7 +626,7 @@
     ]
   },
   "6488O": {
-    "fetched_at": "2026-09-14T13:52:11.479384",
+    "fetched_at": "2026-09-16T13:39:54.059548",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -634,7 +640,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-09-14T13:53:20.675969",
+    "fetched_at": "2026-09-16T13:40:54.815905",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -644,7 +650,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-09-14T13:53:21.003493",
+    "fetched_at": "2026-09-16T13:39:54.523239",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -652,6 +658,465 @@
     "sample_headlines": [
       "Semicon Network Summit 2026 Advances Global Chip Collaboration in the AI Era",
       "Yahoo! Finance: 5483.TWO News"
+    ]
+  },
+  "4938": {
+    "fetched_at": "2026-09-16T13:48:12.822290",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Together AI raises $800 million Series C at $8.3 billion valuation",
+      "There may not be an iPhone 18 this year, reports suggest",
+      "Open-source AI firm Together AI secures $800m in Series C"
+    ]
+  },
+  "2412": {
+    "fetched_at": "2026-09-16T13:48:59.911301",
+    "sentiment_score": -1,
+    "signal": "bearish",
+    "keywords": [
+      "-sell"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Chunghwa Telecom Q1 Earnings Call Highlights",
+      "Chunghwa Telecom Co Ltd (CHT) Q1 2026 Earnings Call Highlights: Record Revenue and Strategic AI ...",
+      "Chunghwa Telecom 2025 Form 20-F filed with the U.S. SEC"
+    ]
+  },
+  "3045": {
+    "fetched_at": "2026-09-16T13:49:58.707425",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Taiwan Mobile Co Ltd (TPE:3045) (Q2 2026) Earnings Call Highlights: Record Profit and Strategic ...",
+      "Taiwan Mobile Co Ltd (TPE:3045) Q1 2026 Earnings Call Highlights: Strong Financial Performance ...",
+      "Liminal Custody Partners with Taiwan Mobile &amp; SYSTEX to Build Taiwan's Institutional Digital Asset Infra"
+    ]
+  },
+  "6770": {
+    "fetched_at": "2026-09-16T13:50:55.372998",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Micron Technology (MU) Well-Positioned With New P5 Site Acquisition",
+      "Alps Alpine (TSE:6770) Valuation Check After Recent Share Price Gain And Mixed Fundamental Signals",
+      "ASML to equip India’s first commercial chip fab — $11 billion Dholera project targets 50,000 wafers a month"
+    ]
+  },
+  "5347O": {
+    "fetched_at": "2026-09-16T13:51:13.383643",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 4,
+    "sample_headlines": [
+      "TSMC Shares Plunge After Surprise Stake Sale Plan Revealed",
+      "Is Taiwan Semiconductor Manufacturing (TSM) One of the Best Semiconductor Stocks With the Highest Upside Potential Right Now?",
+      "TSMC Trims Vanguard Stake To Refocus Capital And Valuation Story"
+    ]
+  },
+  "3105O": {
+    "fetched_at": "2026-09-16T13:51:13.986272",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 5,
+    "sample_headlines": [
+      "Keysight (KEYS) And WIN Launch Automated GaN MMIC Workflow For 5G Hardware",
+      "Keysight and WIN Semiconductors Collaborate to Cut Design Risk for High Frequency RF Components",
+      "Keysight Technologies Inc (KEYS) Picks Up a Partner to Address Industry Headache"
+    ]
+  },
+  "2327": {
+    "fetched_at": "2026-09-16T13:51:41.096559",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Taiwan’s Electronics Components Billionaire Gets Massive Wealth Boost From Buying Spree",
+      "Yahoo! Finance: 2327.TW News"
+    ]
+  },
+  "2492": {
+    "fetched_at": "2026-09-16T13:52:25.924442",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Infomart (TSE:2492) Net Profit Margin Jumps, Reinforcing Bullish Operational Efficiency Narratives",
+      "Yahoo! Finance: 2492.TW News"
+    ]
+  },
+  "2474": {
+    "fetched_at": "2026-09-16T13:53:09.055405",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Reasons Why You Should Retain Cabot Stock in Your Portfolio Now",
+      "Strength in Specialty: Carpenter Technology’s (CRS) Drive in Aerospace Materials",
+      "Methanex to Idle New Zealand Production Facilities Amid Gas Shortage"
+    ]
+  },
+  "6176": {
+    "fetched_at": "2026-09-16T13:53:59.117869",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Porsche-Backed Princeton Spinout Cephia AI Scores $4M To Create Tiny Superhuman Sensors Like Mantis Shrimp Eyes",
+      "Cephia Secures $4M Seed Funding to Revolutionize Multimodal Sensing with Metasurface Technology",
+      "Yahoo! Finance: 6176.TW News"
+    ]
+  },
+  "3037": {
+    "fetched_at": "2026-09-16T13:54:41.682306",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "High Growth Tech Stocks in Asia to Watch in June 2026",
+      "High Growth Tech Stocks to Watch in Asia June 2026",
+      "High Growth Tech Stocks in Asia with Promising Potential"
+    ]
+  },
+  "2409": {
+    "fetched_at": "2026-09-16T13:55:34.814034",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 9,
+    "sample_headlines": [
+      "AUO Corp (AUOTY) Q1 2026 Earnings Call Highlights: Navigating Challenges and Advancing in Micro ...",
+      "AUO Showcases Micro LED Optical Communication and Glass Core Substrates Technologies at SEMICON Taiwan 2026",
+      "AUO Leads a New Micro LED Interaction Paradigm at SID 2026"
+    ]
+  },
+  "2439": {
+    "fetched_at": "2026-09-16T13:56:23.850330",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "o9 Solutions Partners with Merry Electronics to Transform its Supply Chain and Scenario Planning Capabilities",
+      "Yahoo! Finance: 2439.TW News"
+    ]
+  },
+  "3481": {
+    "fetched_at": "2026-09-16T13:57:06.746608",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Taiwan's ASE says it is expanding capacity to support AI demand",
+      "Mitsubishi Estate Logistics REIT (TSE:3481) Earnings Growth Slows Sharply, Challenging Bullish Narratives",
+      "Yahoo! Finance: 3481.TW News"
+    ]
+  },
+  "2344": {
+    "fetched_at": "2026-09-16T13:57:49.363076",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 4,
+    "sample_headlines": [
+      "Winbond Launches 8Gb DDR4 DRAM Built on Advanced 16nm Process Technology for Industrial and Embedded Applications",
+      "Winbond Taps Clarivate's IPfolio To Supercharge Its Intellectual Property Operations",
+      "Winbond Selects IPfolio from Clarivate"
+    ]
+  },
+  "2408": {
+    "fetched_at": "2026-09-16T13:58:38.581892",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Nanya Technology Corp (TPE:2408) Q2 2026 Earnings Call Highlights: Revenue Surges Amidst Supply ...",
+      "Nanya to quadruple capital spending to $6.2 billion in 2027 as DRAM prices push gross margin to 79.5% — Q2...",
+      "Taiwanese chipmaker Nanya plans $6 billion in spending in 2027, riding AI boom"
+    ]
+  },
+  "2337": {
+    "fetched_at": "2026-09-16T13:59:19.246169",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Macronix International Co Ltd (TPE:2337) Q2 2026 Earnings Call Highlights: Navigating Market ...",
+      "`Macronix Secure NOR Flash Memory Family Certified for Vehicle Safety, Cybersecurity",
+      "Ichigo (TSE:2337) Following June Output Miss Is The Stock Still Modestly Undervalued"
+    ]
+  },
+  "2023": {
+    "fetched_at": "2026-09-16T14:00:01.643296",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2023.TW News"
+    ]
+  },
+  "2006": {
+    "fetched_at": "2026-09-16T14:00:49.940118",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2006.TW News"
+    ]
+  },
+  "2027": {
+    "fetched_at": "2026-09-16T14:02:07.318323",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2027.TW News"
+    ]
+  },
+  "2010": {
+    "fetched_at": "2026-09-16T14:03:14.258430",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2010.TW News"
+    ]
+  },
+  "2890": {
+    "fetched_at": "2026-09-16T14:04:02.609127",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2890.TW News"
+    ]
+  },
+  "3264O": {
+    "fetched_at": "2026-09-16T14:04:19.350937",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3264.TWO News"
+    ]
+  },
+  "2801": {
+    "fetched_at": "2026-09-16T14:04:51.258075",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Kikkoman (TSE:2801): Evaluating the Stock’s True Value After Recent Share Price Fluctuations",
+      "Yahoo! Finance: 2801.TW News"
+    ]
+  },
+  "2834": {
+    "fetched_at": "2026-09-16T14:05:51.852358",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2834.TW News"
+    ]
+  },
+  "3707O": {
+    "fetched_at": "2026-09-16T14:06:09.870608",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3707.TWO News"
+    ]
+  },
+  "2883": {
+    "fetched_at": "2026-09-16T14:06:46.920230",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Abaxx Exchange Completes First Physical Delivery Under Gold Singapore Futures Contract",
+      "Yahoo! Finance: 2883.TW News"
+    ]
+  },
+  "6257": {
+    "fetched_at": "2026-09-16T14:07:38.135693",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6257.TW News"
+    ]
+  },
+  "1308": {
+    "fetched_at": "2026-09-16T14:08:23.394489",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1308.TW News"
+    ]
+  },
+  "00631L": {
+    "fetched_at": "2026-09-16T14:08:40.917422",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00631L.TW News"
+    ]
+  },
+  "00632R": {
+    "fetched_at": "2026-09-16T14:08:41.514266",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 00632R.TW News"
+    ]
+  },
+  "3034": {
+    "fetched_at": "2026-09-16T14:09:09.242198",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3034.TW News"
+    ]
+  },
+  "3443": {
+    "fetched_at": "2026-09-16T14:09:52.580731",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 4,
+    "sample_headlines": [
+      "GUC showcase VSORA’s Jotunn8 AI inference processor at the TSMC Europe Technology Symposium",
+      "Marvell Stock Rises With Broadcom on Hopes for Microsoft's AI Chip",
+      "3 Asian Dividend Stocks Yielding Up To 4.4%"
+    ]
+  },
+  "3661": {
+    "fetched_at": "2026-09-16T14:10:42.519556",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Alchip Technologies Showcases Advanced ASIC Design and Packaging at AI Infra Summit 2026",
+      "Alchip Technologies Reports 2026 Second Quarter Financial Results",
+      "Alchip Technologies Ltd (TPE:3661) (Q2 2026) Earnings Call Highlights: N3 AI Accelerator Drives ..."
+    ]
+  },
+  "2379": {
+    "fetched_at": "2026-09-16T14:11:34.178774",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 4,
+    "sample_headlines": [
+      "RealTek sees mixed demand trends as second-half visibility remains limited (RLTQY)",
+      "GMI Cloud Seeks $635 Million GPU-Backed AI Infrastructure Loan",
+      "DIP (TSE:2379) Margin Decline Reinforces Concerns Over Profitability and Dividend Stability"
+    ]
+  },
+  "3545": {
+    "fetched_at": "2026-09-16T14:12:35.665246",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3545.TW News"
+    ]
+  },
+  "2383": {
+    "fetched_at": "2026-09-16T14:13:23.188225",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Nvidia Kyber Delay Hits Asian AI Suppliers",
+      "Ignoring AI bubble fears, investors bet Nvidia and Google will fuel Taiwan stocks to record",
+      "Yahoo! Finance: 2383.TW News"
+    ]
+  },
+  "5522": {
+    "fetched_at": "2026-09-16T14:14:13.001294",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 5522.TW News"
+    ]
+  },
+  "3044": {
+    "fetched_at": "2026-09-16T14:15:06.384929",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3044.TW News"
+    ]
+  },
+  "4958": {
+    "fetched_at": "2026-09-16T14:15:47.379447",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "MKS Inc. Earns 2026 Zhen Ding Technology Group Distinguished Contribution Awards for Service Excellence and Technology Innovation",
+      "Qnity Receives Zhen Ding 2026 Distinguished Contribution Award",
+      "Yahoo! Finance: 4958.TW News"
+    ]
+  },
+  "6213": {
+    "fetched_at": "2026-09-16T14:16:35.706341",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6213.TW News"
     ]
   }
 }
