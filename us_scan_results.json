@@ -1,17 +1,43 @@
 {
-  "date": "2026-09-16",
-  "timestamp": "2026-09-16 07:34",
+  "date": "2026-09-17",
+  "timestamp": "2026-09-17 07:42",
   "signals": [
     {
-      "name": "Alphabet",
-      "ticker": "GOOGL",
-      "score": -2,
-      "price": 344.98,
-      "change_pct": -1.26,
-      "vol_ratio": 0.77,
+      "name": "高通",
+      "ticker": "QCOM",
+      "score": -4,
+      "price": 184.84,
+      "change_pct": -1.58,
+      "vol_ratio": 0.75,
       "signals": [
-        "KD 死亡交叉 (K=77.8)",
-        "威廉%R 超買回落 (-22.2)"
+        "RSI 從超買區回落 (65.4)",
+        "KD 死亡交叉 (K=75.6)",
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-21.5)"
+      ]
+    },
+    {
+      "name": "超微電腦",
+      "ticker": "SMCI",
+      "score": 2,
+      "price": 36.85,
+      "change_pct": 3.4,
+      "vol_ratio": 0.91,
+      "signals": [
+        "KD 黃金交叉 (K=24.1)",
+        "威廉%R 超賣反彈 (-75.9)"
+      ]
+    },
+    {
+      "name": "ASML",
+      "ticker": "ASML",
+      "score": 2,
+      "price": 1602.22,
+      "change_pct": 0.67,
+      "vol_ratio": 0.98,
+      "signals": [
+        "KD 黃金交叉 (K=13.5)",
+        "布林通道下軌反彈"
       ]
     }
   ]
