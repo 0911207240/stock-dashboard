@@ -1,6 +1,6 @@
 {
   "2330": {
-    "fetched_at": "2026-09-16T13:04:03.304815",
+    "fetched_at": "2026-09-17T13:15:53.886097",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -8,13 +8,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "TSMC’s 2nm Era Is Accelerating With MediaTek. Nvidia and Alphabet Already Have Money on the Table",
-      "Taiwan Semi Revenue Keeps Surging. How to Play TSM Stock in September 2026.",
-      "META Stock Alert: What to Know as Meta Platforms Plans Expanded Use of Proprietary Chips"
+      "Stock Market Today, Sept. 16: Intel Jumps on SK Hynix Memory-Chip Manufacturing Talks",
+      "TSMC Gains as 2-Nanometer Chips Enter the Smartphone Race",
+      "Qualcomm now faces rival with bigger market cap"
     ]
   },
   "0056": {
-    "fetched_at": "2026-09-16T13:04:55.705263",
+    "fetched_at": "2026-09-17T13:19:48.119490",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,7 +24,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-09-16T13:06:05.010940",
+    "fetched_at": "2026-09-17T13:11:22.681976",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -36,7 +36,7 @@
     ]
   },
   "0050": {
-    "fetched_at": "2026-09-16T13:06:57.446171",
+    "fetched_at": "2026-09-17T13:22:40.451161",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -46,19 +46,19 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-09-16T13:08:20.905871",
+    "fetched_at": "2026-09-17T13:12:36.466443",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Qualcomm now faces rival with bigger market cap",
       "TSMC’s 2nm Era Is Accelerating With MediaTek. Nvidia and Alphabet Already Have Money on the Table",
-      "Qualcomm Jumps Over 3% as MediaTek Fires a 2nm Warning Shot",
-      "TSMC Slips as 2-Nanometer Chip Powers a 51% AI Leap"
+      "Qualcomm Jumps Over 3% as MediaTek Fires a 2nm Warning Shot"
     ]
   },
   "2882": {
-    "fetched_at": "2026-09-16T13:10:36.899569",
+    "fetched_at": "2026-09-17T13:07:00.962868",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -70,7 +70,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-09-16T13:15:09.480179",
+    "fetched_at": "2026-09-17T13:13:39.190817",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -80,7 +80,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-09-16T13:09:04.284500",
+    "fetched_at": "2026-09-17T13:08:31.607376",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -92,7 +92,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-09-16T13:16:52.766895",
+    "fetched_at": "2026-09-17T13:14:45.789987",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -102,7 +102,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-09-16T13:12:05.642574",
+    "fetched_at": "2026-09-17T13:16:56.756139",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -112,22 +112,19 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-09-16T13:14:17.781935",
+    "fetched_at": "2026-09-17T13:24:48.761489",
     "sentiment_score": 0,
     "signal": "neutral",
-    "keywords": [
-      "+buy",
-      "-sell"
-    ],
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Star Health FY26 Data Highlights How Young India is Driving the Digital Health Insurance Revolution",
-      "Banner (BANR) Looks Modestly Undervalued, Is The Recent Pullback A Buying Chance?",
-      "Energy Transfer’s (ET) Strong 2026 Run Gets a Fresh Vote from Stifel"
+      "CCL Stock Traders Stare At Sixth Red Week: Analysts Predict Weak Outlook On High Fuel Prices Ahead Of Q3 Earnings",
+      "Bank of England expected to keep interest rates unchanged despite rising inflation",
+      "Humanoid Global Portfolio Company HowToRobot Powers AutomationFinder, Launched by Robotics Australia Group"
     ]
   },
   "2892": {
-    "fetched_at": "2026-09-16T13:09:48.505917",
+    "fetched_at": "2026-09-17T13:18:31.297826",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -138,7 +135,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-09-16T13:11:16.438932",
+    "fetched_at": "2026-09-17T13:27:15.260155",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -149,7 +146,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-09-16T13:13:31.996403",
+    "fetched_at": "2026-09-17T13:21:26.212134",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -159,7 +156,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-09-16T13:16:06.799114",
+    "fetched_at": "2026-09-17T13:25:47.900558",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -169,22 +166,19 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-09-16T13:07:39.964382",
+    "fetched_at": "2026-09-17T13:09:46.933065",
     "sentiment_score": 0,
     "signal": "neutral",
-    "keywords": [
-      "+buy",
-      "-sell"
-    ],
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Star Health FY26 Data Highlights How Young India is Driving the Digital Health Insurance Revolution",
-      "Banner (BANR) Looks Modestly Undervalued, Is The Recent Pullback A Buying Chance?",
-      "Energy Transfer’s (ET) Strong 2026 Run Gets a Fresh Vote from Stifel"
+      "Humanoid Global Portfolio Company HowToRobot Powers AutomationFinder, Launched by Robotics Australia Group",
+      "3 Regional Bank Stocks to Watch If Fed Rates Stay Higher for Longer",
+      "Tiger Brokers Singapore Named Best Personal Investment Platform at the Euromoney Awards for Excellence 2026"
     ]
   },
   "1101": {
-    "fetched_at": "2026-09-16T13:12:50.324950",
+    "fetched_at": "2026-09-17T13:23:48.694827",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -194,7 +188,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-09-16T13:17:43.294566",
+    "fetched_at": "2026-09-17T13:34:44.948419",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -204,7 +198,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-09-16T13:20:01.527158",
+    "fetched_at": "2026-09-17T13:30:20.206310",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -214,7 +208,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-09-16T13:18:30.534448",
+    "fetched_at": "2026-09-17T13:28:30.156461",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -224,7 +218,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-09-16T13:19:16.553555",
+    "fetched_at": "2026-09-17T13:32:03.649424",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -234,7 +228,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-09-16T13:21:01.176851",
+    "fetched_at": "2026-09-17T13:33:20.879362",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -244,7 +238,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-09-16T13:22:32.550286",
+    "fetched_at": "2026-09-17T13:37:04.599493",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -255,7 +249,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-09-16T13:21:44.914398",
+    "fetched_at": "2026-09-17T13:35:58.304276",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -267,7 +261,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-09-16T13:23:23.584178",
+    "fetched_at": "2026-09-17T13:39:25.050890",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -279,7 +273,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-09-16T13:25:33.616966",
+    "fetched_at": "2026-09-17T13:40:34.845829",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -294,7 +288,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-09-16T13:24:50.122683",
+    "fetched_at": "2026-09-17T13:41:58.671350",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -304,7 +298,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-09-16T13:24:08.911034",
+    "fetched_at": "2026-09-17T13:38:17.062381",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -316,7 +310,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-09-16T13:26:23.916436",
+    "fetched_at": "2026-09-17T13:43:00.791577",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -326,7 +320,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-09-16T13:27:13.886042",
+    "fetched_at": "2026-09-17T13:45:53.525169",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -336,7 +330,7 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-09-16T13:28:42.247065",
+    "fetched_at": "2026-09-17T13:47:06.869324",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -346,23 +340,25 @@
     "sample_headlines": [
       "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading",
       "Asian Equities Traded in the US as American Depositary Receipts Advance in Thursday Trading",
-      "AI Demand Explodes Over 300-Fold. Zettabyte Makes the Case for Quality Compute and Taiwan's Sovereign AI Future"
+      "GFS Gains From Expanding Partner base: Will it Boost Growth Prospects?"
     ]
   },
   "3711": {
-    "fetched_at": "2026-09-16T13:27:59.100066",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-09-17T13:44:26.633564",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "Asian Equities Traded in the US as American Depositary Receipts Fall in Tuesday Trading",
-      "Asian Equities Traded in the US as American Depositary Receipts Fall Sharply in Monday Trading",
-      "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading"
+      "Asian Equities Traded in the US as American Depositary Receipts Edge Up in Wednesday Trading",
+      "ASX vs. TER: Which AI Semiconductor Stock Should You Buy Right Now?",
+      "Asian Equities Traded in the US as American Depositary Receipts Fall in Tuesday Trading"
     ]
   },
   "2449": {
-    "fetched_at": "2026-09-16T13:29:26.891360",
+    "fetched_at": "2026-09-17T13:49:41.186482",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -374,7 +370,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-09-16T13:30:24.245091",
+    "fetched_at": "2026-09-17T13:48:21.052347",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -384,7 +380,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-09-16T13:32:09.671965",
+    "fetched_at": "2026-09-17T13:51:14.691513",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -394,7 +390,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-09-16T13:31:22.445557",
+    "fetched_at": "2026-09-17T13:52:54.131343",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -404,7 +400,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-09-16T13:33:50.046177",
+    "fetched_at": "2026-09-17T13:54:13.276989",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -414,7 +410,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-09-16T13:32:53.121855",
+    "fetched_at": "2026-09-17T13:55:50.389332",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -424,7 +420,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-09-16T13:34:51.952966",
+    "fetched_at": "2026-09-17T13:57:09.202044",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -434,7 +430,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-09-16T13:37:12.929314",
+    "fetched_at": "2026-09-17T13:58:28.917560",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -448,7 +444,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-09-16T13:35:41.898041",
+    "fetched_at": "2026-09-17T13:59:41.668372",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -460,7 +456,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-09-16T13:36:30.255430",
+    "fetched_at": "2026-09-17T14:01:09.399315",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -474,7 +470,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-09-16T13:37:59.380697",
+    "fetched_at": "2026-09-17T14:02:39.085755",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -488,7 +484,7 @@
     ]
   },
   "2308": {
-    "fetched_at": "2026-09-16T13:39:37.087677",
+    "fetched_at": "2026-09-17T14:03:52.425997",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -500,7 +496,7 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-09-16T13:38:50.031345",
+    "fetched_at": "2026-09-17T14:05:14.337631",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -512,7 +508,7 @@
     ]
   },
   "3532": {
-    "fetched_at": "2026-09-16T13:40:38.351890",
+    "fetched_at": "2026-09-17T14:06:24.565407",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -522,7 +518,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-09-16T13:41:21.039820",
+    "fetched_at": "2026-09-17T14:08:36.337959",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -532,7 +528,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-09-16T13:42:10.082194",
+    "fetched_at": "2026-09-17T14:07:30.451112",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -542,7 +538,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-09-16T13:43:02.307929",
+    "fetched_at": "2026-09-17T14:09:39.548310",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -552,7 +548,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-09-16T13:44:31.422299",
+    "fetched_at": "2026-09-17T14:12:05.680406",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -564,7 +560,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-09-16T13:46:06.058894",
+    "fetched_at": "2026-09-17T14:14:22.870429",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -576,7 +572,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-09-16T13:43:47.437996",
+    "fetched_at": "2026-09-17T14:10:47.994919",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -586,47 +582,38 @@
     ]
   },
   "2357": {
-    "fetched_at": "2026-09-16T13:45:16.807565",
+    "fetched_at": "2026-09-17T14:13:19.267435",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "ASUS Recognized Among Newsweek’s World’s Most Trustworthy Companies for the Third Consecutive Year",
       "ASUS Advances AI Factories with Integrated Infrastructure and Operational Governance",
-      "ASUS Expands AI Infrastructure Ecosystem from Cloud to Edge",
-      "Global Body Area Network Market Report 2026-2035, Featuring Strategic Profiles of Apple, Asus, Fitbit, Fossil, Garmin, Huawei, LG Electronics, Samsung, Sony, Xiaomi"
+      "ASUS Expands AI Infrastructure Ecosystem from Cloud to Edge"
     ]
   },
   "2324": {
-    "fetched_at": "2026-09-16T13:46:50.219200",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+buy"
-    ],
+    "fetched_at": "2026-09-17T14:15:24.625762",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Dow Jones Futures Rise As ServiceNow, Twilio Lead 8 New Buys; How Will Bonds React To Fed Hike?",
-      "Want to Invest in Anthropic Before Its IPO? Here's How.",
-      "Himax Technologies (HIMX) Launches New Auto Display Chips, Is The Upside Already Priced In?"
+      "Major Shareholder Announcement",
+      "NCR Atleos Selected by Bank Pekao S.A. to Modernize Card Payment Processing Infrastructure with Authentic Switch",
+      "SpaceX's First Orbital Starship Flight Is Targeted for Sept. 22. Here's What's Riding on It for the Stock."
     ]
   },
   "2356": {
-    "fetched_at": "2026-09-16T13:47:31.503394",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+buy"
-    ],
-    "headline_count": 10,
-    "sample_headlines": [
-      "DapuStor Strengthens AI Infrastructure Ecosystem Collaboration at Computex 2026",
-      "UBS Raises its Price Target on Astera Labs, Inc. (ALAB)",
-      "How Astera Labs (ALAB) Is Using Taiwan Expansion to Speed Rack-Scale AI Deployment"
-    ]
+    "fetched_at": "2026-09-17T14:16:43.883433",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 0
   },
   "6488O": {
-    "fetched_at": "2026-09-16T13:39:54.059548",
+    "fetched_at": "2026-09-17T14:05:38.561099",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -640,7 +627,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-09-16T13:40:54.815905",
+    "fetched_at": "2026-09-17T14:06:52.205330",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -650,7 +637,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-09-16T13:39:54.523239",
+    "fetched_at": "2026-09-17T14:06:51.922312",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -661,24 +648,22 @@
     ]
   },
   "4938": {
-    "fetched_at": "2026-09-16T13:48:12.822290",
+    "fetched_at": "2026-09-17T14:17:56.259977",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
       "Together AI raises $800 million Series C at $8.3 billion valuation",
-      "There may not be an iPhone 18 this year, reports suggest",
-      "Open-source AI firm Together AI secures $800m in Series C"
+      "Open-source AI firm Together AI secures $800m in Series C",
+      "Neocloud Together AI raises $800M, leaps to $8.3B valuation"
     ]
   },
   "2412": {
-    "fetched_at": "2026-09-16T13:48:59.911301",
-    "sentiment_score": -1,
-    "signal": "bearish",
-    "keywords": [
-      "-sell"
-    ],
+    "fetched_at": "2026-09-17T14:18:55.698001",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
       "Chunghwa Telecom Q1 Earnings Call Highlights",
