@@ -1,6 +1,40 @@
+import json
+import os
 import yfinance as yf
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from net_timeout import call_with_timeout
+
+# 快取 — 避免每天對 11 檔持股（含多檔 ETF）重新即時查 yfinance .info，
+# ETF 常對「無財務資料」的 module 回 404，yfinance 內部重試/共用鎖有時會
+# 拖很久（見 net_timeout.py 註解），快取後同一檔一段時間內不用重查。
+_DIV_CACHE_FILE = os.path.join(os.path.dirname(__file__), "dividend_cache.json")
+_DIV_CACHE_TTL_DAYS = 3
+
+
+def _load_div_cache() -> dict:
+    if not os.path.exists(_DIV_CACHE_FILE):
+        return {}
+    try:
+        with open(_DIV_CACHE_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _save_div_cache(data: dict):
+    try:
+        with open(_DIV_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
+
+
+def _div_is_fresh(fetched_date: str) -> bool:
+    try:
+        delta = (datetime.now() - datetime.strptime(fetched_date, "%Y-%m-%d")).days
+        return delta < _DIV_CACHE_TTL_DAYS
+    except Exception:
+        return False
 
 # 個人持股設定（股數 + 成交均價 + 停損停利）
 HOLDINGS = {
@@ -23,27 +57,44 @@ def build_dividend_alert_message(watchlist: dict, days_ahead: int = 7) -> str | 
     today    = date.today()
     deadline = today + timedelta(days=days_ahead)
     alerts   = []
+    cache    = _load_div_cache()
+    today_str = today.strftime("%Y-%m-%d")
+    cache_dirty = False
+
     for name in HOLDINGS:
         ticker = watchlist.get(name)
         if not ticker:
             continue
-        try:
-            info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=45, default=None)
-            if not info:
-                continue
-            ex_div_ts  = info.get("exDividendDate")
-            if not ex_div_ts:
-                continue
-            ex_date   = date.fromtimestamp(int(ex_div_ts))
-            if today <= ex_date <= deadline:
-                div_amt   = info.get("dividendRate") or info.get("lastDividendValue") or 0
-                days_left = (ex_date - today).days
-                line = f"• {name}｜除息日 {ex_date.strftime('%m/%d')}（{days_left}天後）"
-                if div_amt:
-                    line += f"｜股利 ${div_amt:.2f}"
-                alerts.append(line)
-        except Exception:
+
+        cached = cache.get(ticker, {})
+        if cached and _div_is_fresh(cached.get("fetched_date", "")):
+            ex_div_ts = cached.get("ex_div_ts")
+            div_amt   = cached.get("div_amt")
+        else:
+            ex_div_ts = None
+            div_amt   = None
+            try:
+                info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=45, default=None)
+                if info:
+                    ex_div_ts = info.get("exDividendDate")
+                    div_amt   = info.get("dividendRate") or info.get("lastDividendValue") or 0
+            except Exception:
+                pass
+            cache[ticker] = {"fetched_date": today_str, "ex_div_ts": ex_div_ts, "div_amt": div_amt}
+            cache_dirty = True
+
+        if not ex_div_ts:
             continue
+        ex_date = date.fromtimestamp(int(ex_div_ts))
+        if today <= ex_date <= deadline:
+            days_left = (ex_date - today).days
+            line = f"• {name}｜除息日 {ex_date.strftime('%m/%d')}（{days_left}天後）"
+            if div_amt:
+                line += f"｜股利 ${div_amt:.2f}"
+            alerts.append(line)
+
+    if cache_dirty:
+        _save_div_cache(cache)
     if not alerts:
         return None
     return "📅 【除息提醒】以下持股即將除息，請確認是否繼續持有\n" + "\n".join(alerts)
