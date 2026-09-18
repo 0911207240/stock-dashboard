@@ -1,18 +1,18 @@
 {
   "2330": {
-    "fetched_at": "2026-09-18T13:03:48.460601",
+    "fetched_at": "2026-09-18T19:57:53.934374",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Taiwan Semiconductor Manufacturing (TSM) Could Be 14% Overvalued As 2nm MediaTek Win Lands",
-      "TSMC Gains 1.65% as 2-Nanometer Phones Leave the Lab",
-      "There’s a Good Reason to Choose GLOBALFOUNDRIES Over Taiwan Semiconductor Manufacturing"
+      "Why Is Taiwan Semiconductor Manufacturing (TSM) Ramping 2nm Production And Spending More?",
+      "AMD Stock Rises Premarket: Report Flags Chip Price Hike Linked To TSMC Costs",
+      "Taiwan Semiconductor Manufacturing (TSM) Could Be 14% Overvalued As 2nm MediaTek Win Lands"
     ]
   },
   "0056": {
-    "fetched_at": "2026-09-18T13:01:11.142209",
+    "fetched_at": "2026-09-18T20:05:12.159992",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -22,7 +22,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-09-18T13:16:40.293879",
+    "fetched_at": "2026-09-18T20:02:22.457857",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -34,7 +34,7 @@
     ]
   },
   "0050": {
-    "fetched_at": "2026-09-18T13:11:12.969767",
+    "fetched_at": "2026-09-18T20:00:41.326088",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -44,7 +44,7 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-09-18T13:07:24.225522",
+    "fetched_at": "2026-09-18T19:59:35.956949",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -56,7 +56,7 @@
     ]
   },
   "2882": {
-    "fetched_at": "2026-09-18T13:20:08.804682",
+    "fetched_at": "2026-09-18T20:01:40.294443",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -68,7 +68,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-09-18T13:12:31.210915",
+    "fetched_at": "2026-09-18T20:04:13.672350",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -78,7 +78,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-09-18T13:15:07.077800",
+    "fetched_at": "2026-09-18T19:58:54.019644",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -90,7 +90,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-09-18T13:09:46.439750",
+    "fetched_at": "2026-09-18T20:07:03.318034",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -100,7 +100,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-09-18T13:17:51.569747",
+    "fetched_at": "2026-09-18T20:08:12.892988",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -110,21 +110,22 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-09-18T13:02:17.457647",
-    "sentiment_score": -1,
-    "signal": "bearish",
+    "fetched_at": "2026-09-18T20:09:23.708889",
+    "sentiment_score": 0,
+    "signal": "neutral",
     "keywords": [
+      "+buy",
       "-sell"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Robinhood Ventures Fund I Invests $25M In Crusoe: CEO Says 'Infrastructure Behind AI Matters'",
-      "Ameriprise Financial (AMP) Draws Fresh Interest, But Is The Valuation Opportunity Already Priced In",
-      "PennyMac Financial Services (PFSI) Stock Fair Value Falls After Analysts Cut Targets On Q2 Miss"
+      "JPMorgan AWM operations head Julie Harris to retire in 2027 – report",
+      "M&amp;T Bank Sees Broad 2026 Loan Growth as AI and Fee Businesses Gain Traction",
+      "2 Russell 2000 Stocks with Competitive Advantages and 1 That Underwhelm"
     ]
   },
   "2892": {
-    "fetched_at": "2026-09-18T13:18:57.766149",
+    "fetched_at": "2026-09-18T20:12:07.753624",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -135,7 +136,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-09-18T13:05:50.032845",
+    "fetched_at": "2026-09-18T20:11:20.168367",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -146,7 +147,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-09-18T13:08:39.140841",
+    "fetched_at": "2026-09-18T20:10:27.044146",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -156,7 +157,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-09-18T13:14:04.025249",
+    "fetched_at": "2026-09-18T20:06:13.269922",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -166,21 +167,22 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-09-18T13:21:33.768714",
-    "sentiment_score": -1,
-    "signal": "bearish",
+    "fetched_at": "2026-09-18T20:03:28.385672",
+    "sentiment_score": 0,
+    "signal": "neutral",
     "keywords": [
+      "+buy",
       "-sell"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Robinhood Ventures Fund I Invests $25M In Crusoe: CEO Says 'Infrastructure Behind AI Matters'",
-      "Ameriprise Financial (AMP) Draws Fresh Interest, But Is The Valuation Opportunity Already Priced In",
-      "PennyMac Financial Services (PFSI) Stock Fair Value Falls After Analysts Cut Targets On Q2 Miss"
+      "Nearly Half of Homebuyers Get Concessions From Sellers as Most Markets Tip in Buyers' Favor",
+      "ai Corporation and Visa partner on European fleet payments",
+      "JPMorgan drops Iran war oil forecast as redlines are crossed"
     ]
   },
   "1101": {
-    "fetched_at": "2026-09-18T12:59:15.901140",
+    "fetched_at": "2026-09-18T20:12:51.853114",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -190,7 +192,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-09-18T13:26:10.434228",
+    "fetched_at": "2026-09-18T20:13:31.209131",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -200,7 +202,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-09-18T13:24:23.003647",
+    "fetched_at": "2026-09-18T20:14:12.970758",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -210,7 +212,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-09-18T13:22:46.839395",
+    "fetched_at": "2026-09-18T20:14:53.769203",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -220,7 +222,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-09-18T13:27:33.034457",
+    "fetched_at": "2026-09-18T20:15:44.181741",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -230,7 +232,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-09-18T13:29:01.292794",
+    "fetched_at": "2026-09-18T20:16:31.215954",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -240,7 +242,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-09-18T13:30:14.681119",
+    "fetched_at": "2026-09-18T20:18:31.491714",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -251,7 +253,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-09-18T13:31:44.969050",
+    "fetched_at": "2026-09-18T20:17:11.288726",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -263,7 +265,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-09-18T13:32:59.032534",
+    "fetched_at": "2026-09-18T20:17:52.197486",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -271,11 +273,11 @@
     "sample_headlines": [
       "South Pacific Metals Corp. Provides Clarifying Disclosure Regarding Marketing Agreement with i2i Marketing Group, LLC",
       "Newmont Stock Jumps 34.5% in August, and Gold's Rally Could Take It Higher",
-      "Why Is Boise Cascade (BCC) Down 12.3% Since Last Earnings Report?"
+      "Why Is Cabot (CBT) Down 1.6% Since Last Earnings Report?"
     ]
   },
   "6505": {
-    "fetched_at": "2026-09-18T13:34:01.919935",
+    "fetched_at": "2026-09-18T20:19:56.891342",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -290,7 +292,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-09-18T13:36:57.524958",
+    "fetched_at": "2026-09-18T20:20:42.061498",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -300,7 +302,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-09-18T13:35:33.868490",
+    "fetched_at": "2026-09-18T20:19:11.098341",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -312,7 +314,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-09-18T13:42:29.503172",
+    "fetched_at": "2026-09-18T20:21:26.322127",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -322,7 +324,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-09-18T13:38:07.164426",
+    "fetched_at": "2026-09-18T20:22:10.702098",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -332,7 +334,7 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-09-18T13:41:24.920029",
+    "fetched_at": "2026-09-18T20:22:54.462412",
     "sentiment_score": 4,
     "signal": "strong_bullish",
     "keywords": [
@@ -348,7 +350,7 @@
     ]
   },
   "3711": {
-    "fetched_at": "2026-09-18T13:39:42.405737",
+    "fetched_at": "2026-09-18T20:24:24.298867",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -362,7 +364,7 @@
     ]
   },
   "2449": {
-    "fetched_at": "2026-09-18T13:43:43.667616",
+    "fetched_at": "2026-09-18T20:23:41.730892",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -374,7 +376,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-09-18T13:45:06.084137",
+    "fetched_at": "2026-09-18T20:25:09.032078",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -384,7 +386,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-09-18T13:46:10.114500",
+    "fetched_at": "2026-09-18T20:25:55.660033",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -394,7 +396,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-09-18T13:48:18.780511",
+    "fetched_at": "2026-09-18T20:27:20.845201",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -404,7 +406,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-09-18T13:49:20.562488",
+    "fetched_at": "2026-09-18T20:26:39.404453",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -414,7 +416,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-09-18T13:50:52.658898",
+    "fetched_at": "2026-09-18T20:28:07.931421",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -424,7 +426,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-09-18T13:52:03.760249",
+    "fetched_at": "2026-09-18T20:28:49.732046",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -434,7 +436,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-09-18T13:53:23.795831",
+    "fetched_at": "2026-09-18T20:29:28.274383",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -448,7 +450,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-09-18T13:54:45.034989",
+    "fetched_at": "2026-09-18T20:30:19.453577",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -460,7 +462,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-09-18T13:56:37.716245",
+    "fetched_at": "2026-09-18T20:31:06.495184",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -474,7 +476,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-09-18T13:57:58.133051",
+    "fetched_at": "2026-09-18T20:31:50.254437",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -488,7 +490,7 @@
     ]
   },
   "2308": {
-    "fetched_at": "2026-09-18T14:01:32.166522",
+    "fetched_at": "2026-09-18T20:33:23.180625",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -500,7 +502,7 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-09-18T13:59:14.441781",
+    "fetched_at": "2026-09-18T20:32:38.150656",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -512,7 +514,7 @@
     ]
   },
   "3532": {
-    "fetched_at": "2026-09-18T14:02:47.353670",
+    "fetched_at": "2026-09-18T20:34:03.774152",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -522,7 +524,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-09-18T14:04:26.745192",
+    "fetched_at": "2026-09-18T20:35:38.412161",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -532,7 +534,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-09-18T14:05:46.465047",
+    "fetched_at": "2026-09-18T20:34:49.344326",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -542,7 +544,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-09-18T14:06:51.052840",
+    "fetched_at": "2026-09-18T20:36:23.500871",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -552,7 +554,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-09-18T14:10:33.363780",
+    "fetched_at": "2026-09-18T20:37:46.400726",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -564,7 +566,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-09-18T14:09:19.360118",
+    "fetched_at": "2026-09-18T20:38:27.804366",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -576,7 +578,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-09-18T14:07:59.974474",
+    "fetched_at": "2026-09-18T20:37:05.724542",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -586,7 +588,7 @@
     ]
   },
   "2357": {
-    "fetched_at": "2026-09-17T14:13:19.267435",
+    "fetched_at": "2026-09-18T20:39:08.995751",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -598,26 +600,35 @@
     ]
   },
   "2324": {
-    "fetched_at": "2026-09-17T14:15:24.625762",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-09-18T20:39:52.481403",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "Major Shareholder Announcement",
-      "NCR Atleos Selected by Bank Pekao S.A. to Modernize Card Payment Processing Infrastructure with Authentic Switch",
-      "SpaceX's First Orbital Starship Flight Is Targeted for Sept. 22. Here's What's Riding on It for the Stock."
+      "Prediction: This Is Where Nvidia Stock Could Be by the End of Next Year",
+      "AMC Robotics Enters into Standby Equity Purchase Agreement to Provide up to $50 Million of Funding to Accelerate Commissioning of Its Robotic Manufacturing Facility",
+      "Quantum Computing Inc. to Showcase Quantum Secure Communications Beyond Quantum Key Distribution at ECOC 2026"
     ]
   },
   "2356": {
-    "fetched_at": "2026-09-17T14:16:43.883433",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
-    "headline_count": 0
+    "fetched_at": "2026-09-18T20:40:37.074005",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "DapuStor Strengthens AI Infrastructure Ecosystem Collaboration at Computex 2026",
+      "UBS Raises its Price Target on Astera Labs, Inc. (ALAB)",
+      "How Astera Labs (ALAB) Is Using Taiwan Expansion to Speed Rack-Scale AI Deployment"
+    ]
   },
   "6488O": {
-    "fetched_at": "2026-09-18T14:02:01.641038",
+    "fetched_at": "2026-09-18T20:34:22.117263",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -631,7 +642,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-09-18T14:03:17.062685",
+    "fetched_at": "2026-09-18T20:34:22.354420",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -641,7 +652,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-09-18T14:03:16.779827",
+    "fetched_at": "2026-09-18T20:34:22.699466",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -652,19 +663,19 @@
     ]
   },
   "4938": {
-    "fetched_at": "2026-09-17T14:17:56.259977",
+    "fetched_at": "2026-09-18T20:41:19.202087",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
       "Together AI raises $800 million Series C at $8.3 billion valuation",
-      "Open-source AI firm Together AI secures $800m in Series C",
-      "Neocloud Together AI raises $800M, leaps to $8.3B valuation"
+      "There may not be an iPhone 18 this year, reports suggest",
+      "Open-source AI firm Together AI secures $800m in Series C"
     ]
   },
   "2412": {
-    "fetched_at": "2026-09-17T14:18:55.698001",
+    "fetched_at": "2026-09-18T20:42:39.357418",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -676,7 +687,7 @@
     ]
   },
   "3045": {
-    "fetched_at": "2026-09-16T13:49:58.707425",
+    "fetched_at": "2026-09-18T20:41:59.054414",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -688,7 +699,7 @@
     ]
   },
   "6770": {
-    "fetched_at": "2026-09-16T13:50:55.372998",
+    "fetched_at": "2026-09-18T20:43:22.558715",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -700,7 +711,7 @@
     ]
   },
   "5347O": {
-    "fetched_at": "2026-09-16T13:51:13.383643",
+    "fetched_at": "2026-09-18T20:42:56.074870",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -712,7 +723,7 @@
     ]
   },
   "3105O": {
-    "fetched_at": "2026-09-16T13:51:13.986272",
+    "fetched_at": "2026-09-18T20:43:38.810478",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -724,7 +735,7 @@
     ]
   },
   "2327": {
-    "fetched_at": "2026-09-16T13:51:41.096559",
+    "fetched_at": "2026-09-18T20:44:11.025041",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -737,7 +748,7 @@
     ]
   },
   "2492": {
-    "fetched_at": "2026-09-16T13:52:25.924442",
+    "fetched_at": "2026-09-18T20:44:55.409699",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -748,7 +759,7 @@
     ]
   },
   "2474": {
-    "fetched_at": "2026-09-16T13:53:09.055405",
+    "fetched_at": "2026-09-18T20:46:13.714173",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -760,7 +771,7 @@
     ]
   },
   "6176": {
-    "fetched_at": "2026-09-16T13:53:59.117869",
+    "fetched_at": "2026-09-18T20:46:56.235873",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -772,7 +783,7 @@
     ]
   },
   "3037": {
-    "fetched_at": "2026-09-16T13:54:41.682306",
+    "fetched_at": "2026-09-18T20:47:40.820063",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -784,7 +795,7 @@
     ]
   },
   "2409": {
-    "fetched_at": "2026-09-16T13:55:34.814034",
+    "fetched_at": "2026-09-18T20:48:30.940493",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -796,7 +807,7 @@
     ]
   },
   "2439": {
-    "fetched_at": "2026-09-16T13:56:23.850330",
+    "fetched_at": "2026-09-18T20:45:34.094075",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -807,7 +818,7 @@
     ]
   },
   "3481": {
-    "fetched_at": "2026-09-16T13:57:06.746608",
+    "fetched_at": "2026-09-18T20:49:11.970309",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -819,7 +830,7 @@
     ]
   },
   "2344": {
-    "fetched_at": "2026-09-16T13:57:49.363076",
+    "fetched_at": "2026-09-18T20:49:55.050583",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -831,7 +842,7 @@
     ]
   },
   "2408": {
-    "fetched_at": "2026-09-16T13:58:38.581892",
+    "fetched_at": "2026-09-18T20:50:41.113323",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -843,7 +854,7 @@
     ]
   },
   "2337": {
-    "fetched_at": "2026-09-16T13:59:19.246169",
+    "fetched_at": "2026-09-18T20:51:25.971489",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -857,7 +868,7 @@
     ]
   },
   "2023": {
-    "fetched_at": "2026-09-16T14:00:01.643296",
+    "fetched_at": "2026-09-18T20:52:13.856515",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -867,7 +878,7 @@
     ]
   },
   "2006": {
-    "fetched_at": "2026-09-16T14:00:49.940118",
+    "fetched_at": "2026-09-18T20:52:57.594125",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -877,7 +888,7 @@
     ]
   },
   "2027": {
-    "fetched_at": "2026-09-16T14:02:07.318323",
+    "fetched_at": "2026-09-18T20:53:39.949484",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -887,7 +898,7 @@
     ]
   },
   "2010": {
-    "fetched_at": "2026-09-16T14:03:14.258430",
+    "fetched_at": "2026-09-18T20:54:20.668125",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -897,7 +908,7 @@
     ]
   },
   "2890": {
-    "fetched_at": "2026-09-16T14:04:02.609127",
+    "fetched_at": "2026-09-18T20:55:10.908886",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -907,7 +918,7 @@
     ]
   },
   "3264O": {
-    "fetched_at": "2026-09-16T14:04:19.350937",
+    "fetched_at": "2026-09-18T20:57:44.358953",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -917,7 +928,7 @@
     ]
   },
   "2801": {
-    "fetched_at": "2026-09-16T14:04:51.258075",
+    "fetched_at": "2026-09-18T20:55:56.768363",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -928,7 +939,7 @@
     ]
   },
   "2834": {
-    "fetched_at": "2026-09-16T14:05:51.852358",
+    "fetched_at": "2026-09-18T20:56:43.517514",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -938,7 +949,7 @@
     ]
   },
   "3707O": {
-    "fetched_at": "2026-09-16T14:06:09.870608",
+    "fetched_at": "2026-09-18T20:57:44.667939",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -948,7 +959,7 @@
     ]
   },
   "2883": {
-    "fetched_at": "2026-09-16T14:06:46.920230",
+    "fetched_at": "2026-09-18T20:57:28.138159",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -959,7 +970,7 @@
     ]
   },
   "6257": {
-    "fetched_at": "2026-09-16T14:07:38.135693",
+    "fetched_at": "2026-09-18T20:58:08.583185",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -969,7 +980,7 @@
     ]
   },
   "1308": {
-    "fetched_at": "2026-09-16T14:08:23.394489",
+    "fetched_at": "2026-09-18T20:59:32.943424",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -979,7 +990,7 @@
     ]
   },
   "00631L": {
-    "fetched_at": "2026-09-16T14:08:40.917422",
+    "fetched_at": "2026-09-18T20:59:49.401687",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -989,7 +1000,7 @@
     ]
   },
   "00632R": {
-    "fetched_at": "2026-09-16T14:08:41.514266",
+    "fetched_at": "2026-09-18T20:59:49.641797",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -999,7 +1010,7 @@
     ]
   },
   "3034": {
-    "fetched_at": "2026-09-16T14:09:09.242198",
+    "fetched_at": "2026-09-18T21:02:20.274002",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1009,7 +1020,7 @@
     ]
   },
   "3443": {
-    "fetched_at": "2026-09-16T14:09:52.580731",
+    "fetched_at": "2026-09-18T21:01:37.283538",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1021,7 +1032,7 @@
     ]
   },
   "3661": {
-    "fetched_at": "2026-09-16T14:10:42.519556",
+    "fetched_at": "2026-09-18T21:03:09.905160",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1033,7 +1044,7 @@
     ]
   },
   "2379": {
-    "fetched_at": "2026-09-16T14:11:34.178774",
+    "fetched_at": "2026-09-18T21:00:49.206225",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1045,7 +1056,7 @@
     ]
   },
   "3545": {
-    "fetched_at": "2026-09-16T14:12:35.665246",
+    "fetched_at": "2026-09-18T21:04:46.486008",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1055,7 +1066,7 @@
     ]
   },
   "2383": {
-    "fetched_at": "2026-09-16T14:13:23.188225",
+    "fetched_at": "2026-09-18T21:05:34.255036",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1067,7 +1078,7 @@
     ]
   },
   "5522": {
-    "fetched_at": "2026-09-16T14:14:13.001294",
+    "fetched_at": "2026-09-18T20:58:51.240755",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1077,7 +1088,7 @@
     ]
   },
   "3044": {
-    "fetched_at": "2026-09-16T14:15:06.384929",
+    "fetched_at": "2026-09-18T21:06:20.481396",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1087,7 +1098,7 @@
     ]
   },
   "4958": {
-    "fetched_at": "2026-09-16T14:15:47.379447",
+    "fetched_at": "2026-09-18T21:03:54.283705",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1099,13 +1110,80 @@
     ]
   },
   "6213": {
-    "fetched_at": "2026-09-16T14:16:35.706341",
+    "fetched_at": "2026-09-18T21:07:01.135816",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 1,
     "sample_headlines": [
       "Yahoo! Finance: 6213.TW News"
+    ]
+  },
+  "2345": {
+    "fetched_at": "2026-09-18T21:07:46.248778",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "High Growth Tech Stocks To Watch In May 2026",
+      "Edgecore Networks to Showcase Full-Stack Solutions at Network X 2026",
+      "Exploring 3 High Growth Tech Stocks in Asia"
+    ]
+  },
+  "2313": {
+    "fetched_at": "2026-09-18T21:08:28.174231",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Asian Market Value Stocks Trading At An Estimated Discount In June 2026",
+      "High Growth Tech Stocks in Asia for May 2026",
+      "Yahoo! Finance: 2313.TW News"
+    ]
+  },
+  "3704": {
+    "fetched_at": "2026-09-18T21:09:21.774342",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3704.TW News"
+    ]
+  },
+  "5388": {
+    "fetched_at": "2026-09-18T21:10:06.726323",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Ubicquia Secures $106 Million in Series D Funding to Accelerate Intelligent Infrastructure Growth",
+      "Yahoo! Finance: 5388.TW News"
+    ]
+  },
+  "6285": {
+    "fetched_at": "2026-09-18T21:10:48.606833",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6285.TW News"
+    ]
+  },
+  "2301": {
+    "fetched_at": "2026-09-18T21:11:31.189490",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 5,
+    "sample_headlines": [
+      "Lite-On Technology to establish $919M manufacturing campus in Texas",
+      "$300M McKinney facility, Irving lands new HQ and more D-FW real estate news",
+      "High Growth Tech Stocks In Asia To Watch April 2026"
     ]
   }
 }
