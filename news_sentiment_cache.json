@@ -1,20 +1,18 @@
 {
   "2330": {
-    "fetched_at": "2026-09-17T13:15:53.886097",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+buy"
-    ],
+    "fetched_at": "2026-09-18T13:03:48.460601",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Stock Market Today, Sept. 16: Intel Jumps on SK Hynix Memory-Chip Manufacturing Talks",
-      "TSMC Gains as 2-Nanometer Chips Enter the Smartphone Race",
-      "Qualcomm now faces rival with bigger market cap"
+      "Taiwan Semiconductor Manufacturing (TSM) Could Be 14% Overvalued As 2nm MediaTek Win Lands",
+      "TSMC Gains 1.65% as 2-Nanometer Phones Leave the Lab",
+      "There’s a Good Reason to Choose GLOBALFOUNDRIES Over Taiwan Semiconductor Manufacturing"
     ]
   },
   "0056": {
-    "fetched_at": "2026-09-17T13:19:48.119490",
+    "fetched_at": "2026-09-18T13:01:11.142209",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,19 +22,19 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-09-17T13:11:22.681976",
+    "fetched_at": "2026-09-18T13:16:40.293879",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Modi pitches India as global chipmaking hub",
       "Foxconn Just Delivered a Major Bullish Signal for Nvidia Stock",
-      "Foxconn expects Q3 to beat market expectations as AI demand stays strong",
-      "Foxconn Stock Rises 2.7% Before Profit Jumps 35%"
+      "Foxconn expects Q3 to beat market expectations as AI demand stays strong"
     ]
   },
   "0050": {
-    "fetched_at": "2026-09-17T13:22:40.451161",
+    "fetched_at": "2026-09-18T13:11:12.969767",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -46,19 +44,19 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-09-17T13:12:36.466443",
+    "fetched_at": "2026-09-18T13:07:24.225522",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Taiwan Semiconductor Manufacturing (TSM) Could Be 14% Overvalued As 2nm MediaTek Win Lands",
       "Qualcomm now faces rival with bigger market cap",
-      "TSMC’s 2nm Era Is Accelerating With MediaTek. Nvidia and Alphabet Already Have Money on the Table",
-      "Qualcomm Jumps Over 3% as MediaTek Fires a 2nm Warning Shot"
+      "TSMC’s 2nm Era Is Accelerating With MediaTek. Nvidia and Alphabet Already Have Money on the Table"
     ]
   },
   "2882": {
-    "fetched_at": "2026-09-17T13:07:00.962868",
+    "fetched_at": "2026-09-18T13:20:08.804682",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -70,7 +68,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-09-17T13:13:39.190817",
+    "fetched_at": "2026-09-18T13:12:31.210915",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -80,7 +78,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-09-17T13:08:31.607376",
+    "fetched_at": "2026-09-18T13:15:07.077800",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -92,7 +90,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-09-17T13:14:45.789987",
+    "fetched_at": "2026-09-18T13:09:46.439750",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -102,7 +100,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-09-17T13:16:56.756139",
+    "fetched_at": "2026-09-18T13:17:51.569747",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -112,19 +110,21 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-09-17T13:24:48.761489",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-09-18T13:02:17.457647",
+    "sentiment_score": -1,
+    "signal": "bearish",
+    "keywords": [
+      "-sell"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "CCL Stock Traders Stare At Sixth Red Week: Analysts Predict Weak Outlook On High Fuel Prices Ahead Of Q3 Earnings",
-      "Bank of England expected to keep interest rates unchanged despite rising inflation",
-      "Humanoid Global Portfolio Company HowToRobot Powers AutomationFinder, Launched by Robotics Australia Group"
+      "Robinhood Ventures Fund I Invests $25M In Crusoe: CEO Says 'Infrastructure Behind AI Matters'",
+      "Ameriprise Financial (AMP) Draws Fresh Interest, But Is The Valuation Opportunity Already Priced In",
+      "PennyMac Financial Services (PFSI) Stock Fair Value Falls After Analysts Cut Targets On Q2 Miss"
     ]
   },
   "2892": {
-    "fetched_at": "2026-09-17T13:18:31.297826",
+    "fetched_at": "2026-09-18T13:18:57.766149",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -135,7 +135,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-09-17T13:27:15.260155",
+    "fetched_at": "2026-09-18T13:05:50.032845",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -146,7 +146,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-09-17T13:21:26.212134",
+    "fetched_at": "2026-09-18T13:08:39.140841",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -156,7 +156,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-09-17T13:25:47.900558",
+    "fetched_at": "2026-09-18T13:14:04.025249",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -166,19 +166,21 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-09-17T13:09:46.933065",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-09-18T13:21:33.768714",
+    "sentiment_score": -1,
+    "signal": "bearish",
+    "keywords": [
+      "-sell"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "Humanoid Global Portfolio Company HowToRobot Powers AutomationFinder, Launched by Robotics Australia Group",
-      "3 Regional Bank Stocks to Watch If Fed Rates Stay Higher for Longer",
-      "Tiger Brokers Singapore Named Best Personal Investment Platform at the Euromoney Awards for Excellence 2026"
+      "Robinhood Ventures Fund I Invests $25M In Crusoe: CEO Says 'Infrastructure Behind AI Matters'",
+      "Ameriprise Financial (AMP) Draws Fresh Interest, But Is The Valuation Opportunity Already Priced In",
+      "PennyMac Financial Services (PFSI) Stock Fair Value Falls After Analysts Cut Targets On Q2 Miss"
     ]
   },
   "1101": {
-    "fetched_at": "2026-09-17T13:23:48.694827",
+    "fetched_at": "2026-09-18T12:59:15.901140",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -188,7 +190,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-09-17T13:34:44.948419",
+    "fetched_at": "2026-09-18T13:26:10.434228",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -198,7 +200,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-09-17T13:30:20.206310",
+    "fetched_at": "2026-09-18T13:24:23.003647",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -208,7 +210,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-09-17T13:28:30.156461",
+    "fetched_at": "2026-09-18T13:22:46.839395",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -218,7 +220,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-09-17T13:32:03.649424",
+    "fetched_at": "2026-09-18T13:27:33.034457",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -228,7 +230,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-09-17T13:33:20.879362",
+    "fetched_at": "2026-09-18T13:29:01.292794",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -238,7 +240,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-09-17T13:37:04.599493",
+    "fetched_at": "2026-09-18T13:30:14.681119",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -249,7 +251,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-09-17T13:35:58.304276",
+    "fetched_at": "2026-09-18T13:31:44.969050",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -261,7 +263,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-09-17T13:39:25.050890",
+    "fetched_at": "2026-09-18T13:32:59.032534",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -273,7 +275,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-09-17T13:40:34.845829",
+    "fetched_at": "2026-09-18T13:34:01.919935",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -288,7 +290,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-09-17T13:41:58.671350",
+    "fetched_at": "2026-09-18T13:36:57.524958",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -298,7 +300,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-09-17T13:38:17.062381",
+    "fetched_at": "2026-09-18T13:35:33.868490",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -310,7 +312,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-09-17T13:43:00.791577",
+    "fetched_at": "2026-09-18T13:42:29.503172",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -320,7 +322,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-09-17T13:45:53.525169",
+    "fetched_at": "2026-09-18T13:38:07.164426",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -330,21 +332,23 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-09-17T13:47:06.869324",
-    "sentiment_score": 1,
-    "signal": "bullish",
+    "fetched_at": "2026-09-18T13:41:24.920029",
+    "sentiment_score": 4,
+    "signal": "strong_bullish",
     "keywords": [
+      "+strong buy",
+      "+upgrade",
       "+buy"
     ],
     "headline_count": 10,
     "sample_headlines": [
       "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading",
-      "Asian Equities Traded in the US as American Depositary Receipts Advance in Thursday Trading",
+      "United Microelectronics (UMC) Upgraded to Strong Buy: Here's What You Should Know",
       "GFS Gains From Expanding Partner base: Will it Boost Growth Prospects?"
     ]
   },
   "3711": {
-    "fetched_at": "2026-09-17T13:44:26.633564",
+    "fetched_at": "2026-09-18T13:39:42.405737",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -352,13 +356,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Asian Equities Traded in the US as American Depositary Receipts Edge Up in Wednesday Trading",
-      "ASX vs. TER: Which AI Semiconductor Stock Should You Buy Right Now?",
-      "Asian Equities Traded in the US as American Depositary Receipts Fall in Tuesday Trading"
+      "ASX Up 230.9% in the Past Year: Should You Capitalize on the Euphoria?",
+      "Are Computer and Technology Stocks Lagging  Hewlett Packard (HPE) This Year?",
+      "Asian Equities Traded in the US as American Depositary Receipts Edge Up in Wednesday Trading"
     ]
   },
   "2449": {
-    "fetched_at": "2026-09-17T13:49:41.186482",
+    "fetched_at": "2026-09-18T13:43:43.667616",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -370,7 +374,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-09-17T13:48:21.052347",
+    "fetched_at": "2026-09-18T13:45:06.084137",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -380,7 +384,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-09-17T13:51:14.691513",
+    "fetched_at": "2026-09-18T13:46:10.114500",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -390,7 +394,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-09-17T13:52:54.131343",
+    "fetched_at": "2026-09-18T13:48:18.780511",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -400,7 +404,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-09-17T13:54:13.276989",
+    "fetched_at": "2026-09-18T13:49:20.562488",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -410,7 +414,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-09-17T13:55:50.389332",
+    "fetched_at": "2026-09-18T13:50:52.658898",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -420,7 +424,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-09-17T13:57:09.202044",
+    "fetched_at": "2026-09-18T13:52:03.760249",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -430,7 +434,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-09-17T13:58:28.917560",
+    "fetched_at": "2026-09-18T13:53:23.795831",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -444,7 +448,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-09-17T13:59:41.668372",
+    "fetched_at": "2026-09-18T13:54:45.034989",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -456,7 +460,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-09-17T14:01:09.399315",
+    "fetched_at": "2026-09-18T13:56:37.716245",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -470,7 +474,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-09-17T14:02:39.085755",
+    "fetched_at": "2026-09-18T13:57:58.133051",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -484,19 +488,19 @@
     ]
   },
   "2308": {
-    "fetched_at": "2026-09-17T14:03:52.425997",
+    "fetched_at": "2026-09-18T14:01:32.166522",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Delta Bridges Energy and Compute for AI Factories Based on NVIDIA DSX™",
       "Delta Electronics Expands Malaysia Footprint with New Johor Bahru Office and AI Infrastructure Forum in Kuala Lumpur",
-      "Delta Electronics (Americas) and X LABS Sign Technology Partnership MOU to Power Next-Gen AI Data Centers",
-      "Delta Electronics Spotlights AI and Integrated Solutions to Advance Semiconductor Packaging at SEMICON Southeast Asia 2026"
+      "Delta Electronics (Americas) and X LABS Sign Technology Partnership MOU to Power Next-Gen AI Data Centers"
     ]
   },
   "6669": {
-    "fetched_at": "2026-09-17T14:05:14.337631",
+    "fetched_at": "2026-09-18T13:59:14.441781",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -508,7 +512,7 @@
     ]
   },
   "3532": {
-    "fetched_at": "2026-09-17T14:06:24.565407",
+    "fetched_at": "2026-09-18T14:02:47.353670",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -518,7 +522,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-09-17T14:08:36.337959",
+    "fetched_at": "2026-09-18T14:04:26.745192",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -528,7 +532,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-09-17T14:07:30.451112",
+    "fetched_at": "2026-09-18T14:05:46.465047",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -538,7 +542,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-09-17T14:09:39.548310",
+    "fetched_at": "2026-09-18T14:06:51.052840",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -548,7 +552,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-09-17T14:12:05.680406",
+    "fetched_at": "2026-09-18T14:10:33.363780",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -560,7 +564,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-09-17T14:14:22.870429",
+    "fetched_at": "2026-09-18T14:09:19.360118",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -572,7 +576,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-09-17T14:10:47.994919",
+    "fetched_at": "2026-09-18T14:07:59.974474",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -613,7 +617,7 @@
     "headline_count": 0
   },
   "6488O": {
-    "fetched_at": "2026-09-17T14:05:38.561099",
+    "fetched_at": "2026-09-18T14:02:01.641038",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -627,7 +631,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-09-17T14:06:52.205330",
+    "fetched_at": "2026-09-18T14:03:17.062685",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -637,7 +641,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-09-17T14:06:51.922312",
+    "fetched_at": "2026-09-18T14:03:16.779827",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
