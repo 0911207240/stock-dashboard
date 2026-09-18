@@ -39,8 +39,17 @@ def _is_fresh(fetched_date: str) -> bool:
         return False
 
 
+def _is_etf(ticker: str) -> bool:
+    """ETF 結構上不會有財報/calendar 資料，查了必定落空但常卡到 45 秒逾時，直接跳過"""
+    code = ticker.replace(".TW", "").replace(".TWO", "")
+    return code.startswith("00") or (len(code) == 5 and code.startswith("0"))
+
+
 def get_earnings_date(ticker: str) -> date | None:
     """用 yfinance 取得最近一次財報公布日（台股效果有限，美股較準），7天快取"""
+    if _is_etf(ticker):
+        return None
+
     cache  = _load_cache()
     cached = cache.get(ticker, {})
     if cached and _is_fresh(cached.get("fetched_date", "")):
