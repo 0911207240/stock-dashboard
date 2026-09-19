@@ -1,6 +1,6 @@
 {
   "date": "2026-09-19",
-  "timestamp": "2026-09-19 07:25",
+  "timestamp": "2026-09-19 19:10",
   "signals": [
     {
       "name": "科林研發",
@@ -15,12 +15,24 @@
       ]
     },
     {
+      "name": "KLA",
+      "ticker": "KLAC",
+      "score": 2,
+      "price": 176.99,
+      "change_pct": 4.74,
+      "vol_ratio": 1.77,
+      "signals": [
+        "MACD 黃金交叉",
+        "威廉%R 超賣反彈 (-55.6)"
+      ]
+    },
+    {
       "name": "Alphabet",
       "ticker": "GOOGL",
       "score": -2,
       "price": 349.54,
       "change_pct": 0.64,
-      "vol_ratio": 1.65,
+      "vol_ratio": 1.66,
       "signals": [
         "KD 死亡交叉 (K=68.8)",
         "威廉%R 超買回落 (-31.2)"
