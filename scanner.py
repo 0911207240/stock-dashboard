@@ -29,6 +29,7 @@ from fundamental_filter import prefetch_all
 from market_regime import detect_regime
 
 _SCAN_RESULTS  = Path("scan_results.json")
+_COVERAGE: dict = {}   # 資料完整度（抓到幾檔 / 應抓幾檔），供健康檢查讀取
 
 
 def _patch_scan_results(patch: dict):
@@ -61,6 +62,7 @@ def _save_scan_results(found: list, regime: dict, daytrade: list):
              "signals": [s["msg"] for s in x["signals"] if s["type"] == "sell"]}
             for x in found if x["score"] < 0
         ],
+        "coverage": _COVERAGE,
         "daytrade": [
             {"name": c["name"], "ticker": c["ticker"], "score": c["score"],
              "price": round(c["price"], 2), "change_pct": round(c["change_pct"], 2),
@@ -107,6 +109,10 @@ def run_scan(min_score: int = 2, notify: bool = True):
     from us_market import fetch_us_overnight
 
     all_data = fetch_all(period="1y")
+    from data_fetcher import WATCHLIST as _WL
+    _COVERAGE.update({"fetched": len(all_data), "total": len(_WL)})
+    if len(all_data) < len(_WL):
+        print(f"  [資料完整度] 價格資料 {len(all_data)}/{len(_WL)} 檔")
 
     # 並發計算技術指標（避免重複呼叫）
     with ThreadPoolExecutor(max_workers=8) as _ex:
