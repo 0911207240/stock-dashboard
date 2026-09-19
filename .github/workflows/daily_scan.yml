@@ -46,7 +46,8 @@ jobs:
 
       - name: Run scan
         timeout-minutes: 75
-        run: python scanner.py
+        run: |
+          python -u -c "import faulthandler,runpy; faulthandler.dump_traceback_later(600, repeat=True); runpy.run_path('scanner.py', run_name='__main__')"
 
       - name: Send daily email
         if: always()
