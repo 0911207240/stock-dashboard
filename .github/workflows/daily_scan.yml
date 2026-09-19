@@ -23,12 +23,12 @@ jobs:
         run: echo "TODAY=$(date +%Y-%m-%d)" >> $GITHUB_ENV
 
       - name: Restore price data cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: data_cache/
-          key: price-cache-${{ env.TODAY }}
+          key: tw-price-cache-${{ env.TODAY }}-${{ github.run_id }}
           restore-keys: |
-            price-cache-
+            tw-price-cache-
 
       - name: Setup Python 3.12
         uses: actions/setup-python@v5
@@ -45,9 +45,16 @@ jobs:
         run: pip install --upgrade setuptools && pip install -r requirements.txt
 
       - name: Run scan
-        timeout-minutes: 75
+        timeout-minutes: 30
         run: |
           python -u -c "import faulthandler,runpy; faulthandler.dump_traceback_later(600, repeat=True); runpy.run_path('scanner.py', run_name='__main__')"
+
+      - name: Save price data cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data_cache/
+          key: tw-price-cache-${{ env.TODAY }}-${{ github.run_id }}
 
       - name: Send daily email
         if: always()

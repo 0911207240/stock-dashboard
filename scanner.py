@@ -444,4 +444,8 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
 
 if __name__ == "__main__":
+    import os, sys
     run_scan()
+    sys.stdout.flush()
+    sys.stderr.flush()
+    os._exit(0)   # 卡住的 yfinance 背景執行緒不能阻擋程式結束

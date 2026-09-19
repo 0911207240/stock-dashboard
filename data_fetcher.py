@@ -734,8 +734,10 @@ def fetch_taifex_pcr() -> dict:
     return {}
 
 
-def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 20) -> dict[str, pd.DataFrame]:
-    from concurrent.futures import ThreadPoolExecutor, as_completed
+def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 8,
+              deadline_sec: int = 900) -> dict[str, pd.DataFrame]:
+    """並發抓取所有標的。超過 deadline_sec 就放棄未完成的標的（已抓到的已即時寫入快取，下次增量補上）。"""
+    from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError as _FTimeout
     ensure_yf_warmup()
     names = SECTORS.get(sector, list(WATCHLIST.keys()))
     pairs = [(name, WATCHLIST[name]) for name in names if name in WATCHLIST]
@@ -745,10 +747,16 @@ def fetch_all(period: str = "6mo", sector: str = "全部", max_workers: int = 20
         df = fetch(ticker, period=period)
         return name, df
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(_fetch_one, name, ticker): name for name, ticker in pairs}
-        for future in as_completed(futures):
+    executor = ThreadPoolExecutor(max_workers=max_workers)
+    futures = {executor.submit(_fetch_one, name, ticker): name for name, ticker in pairs}
+    try:
+        for future in as_completed(futures, timeout=deadline_sec):
             name, df = future.result()
             if not df.empty:
                 result[name] = df
+    except _FTimeout:
+        missing = [n for f, n in futures.items() if not f.done()]
+        print(f"[fetch_all] 逾時 {deadline_sec}s，略過 {len(missing)} 檔未完成標的")
+    finally:
+        executor.shutdown(wait=False, cancel_futures=True)
     return result
