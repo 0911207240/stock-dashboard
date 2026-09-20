@@ -117,6 +117,11 @@ def build_email_html() -> tuple[str, str]:
 
 
 def send_daily_email() -> bool:
+    from tw_calendar import is_trading_day
+    if not is_trading_day():
+        print("[Email] 今日非台灣交易日，掃描已跳過，不寄彙整信")
+        return False
+
     subject, html = build_email_html()
     if not html:
         print("[Email] 無內容可寄送，跳過")
