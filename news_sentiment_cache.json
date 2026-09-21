@@ -1,6 +1,6 @@
 {
   "2330": {
-    "fetched_at": "2026-09-21T16:11:18.520706",
+    "fetched_at": "2026-09-21T21:53:32.299651",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -8,13 +8,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Stocks advance after Bessent says talks with China were successful before Trump-Xi meeting",
-      "ASML (ASML) and Chip Giants like TSMC Plot a Bigger Canvas for Building AI Chips",
-      "Billionaire David Tepper Has 40% of His Fund in Just 3 AI Stocks. Are They Still Buys?"
+      "AMD Rises 5% as Report Flags 10% Chip Price Increase; NVIDIA and Taiwan Semiconductor Tick Up",
+      "Amkor's AI and HPC Packaging Demand Grows: Can Growth Continue?",
+      "MediaTek Dimensity CX C10 Max Offers Flagship Performance to a New Era of AI-First Laptops"
     ]
   },
   "0056": {
-    "fetched_at": "2026-09-21T16:14:35.891031",
+    "fetched_at": "2026-09-21T21:50:57.922794",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,7 +24,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-09-21T16:15:46.775074",
+    "fetched_at": "2026-09-21T21:52:22.115059",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -36,7 +36,7 @@
     ]
   },
   "0050": {
-    "fetched_at": "2026-09-21T16:17:12.745482",
+    "fetched_at": "2026-09-21T21:52:54.824030",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -46,19 +46,19 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-09-21T16:09:47.465124",
+    "fetched_at": "2026-09-21T21:51:48.453629",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "MediaTek Dimensity CX C10 Max Offers Flagship Performance to a New Era of AI-First Laptops",
       "MediaTek Is Stepping Up Competition Against Qualcomm With a New 2-Nanometer Chip. What This Means for QCOM Stock.",
-      "Taiwan Semiconductor Manufacturing (TSM) Could Be 14% Overvalued As 2nm MediaTek Win Lands",
-      "Qualcomm now faces rival with bigger market cap"
+      "Taiwan Semiconductor Manufacturing (TSM) Could Be 14% Overvalued As 2nm MediaTek Win Lands"
     ]
   },
   "2882": {
-    "fetched_at": "2026-09-21T16:18:28.677950",
+    "fetched_at": "2026-09-21T21:54:03.784020",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -70,7 +70,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-09-21T16:12:32.918272",
+    "fetched_at": "2026-09-21T21:55:12.277063",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -80,7 +80,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-09-21T16:21:39.199756",
+    "fetched_at": "2026-09-21T21:55:42.859151",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -92,7 +92,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-09-21T16:24:35.467858",
+    "fetched_at": "2026-09-21T21:57:16.300252",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -102,7 +102,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-09-21T16:19:58.079682",
+    "fetched_at": "2026-09-21T21:54:35.622318",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -112,21 +112,23 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-09-21T16:31:25.438572",
+    "fetched_at": "2026-09-21T21:58:23.223851",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
-      "+buy"
+      "+upgrade",
+      "+buy",
+      "-downgrade"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Warren Buffett Just Gave Investors a Four-Word Farewell That Explains Both His Exit — and the Secret Behind His 6,099,294% Return",
-      "Supporting PM Modi's call, IIFL Finance's Mayank Sharma believes recycling household gold is the fastest way to cut import bill",
-      "Morgan Stanley Investment Management's 1GT Leads €49 Million Series E Funding for Amber Electric"
+      "WTW expands Zurich deal to deploy Radar software globally",
+      "Tech stocks rise, Bitcoin rallied as Treasury yields ease: AlphaCheck",
+      "Qnetic Begins Testing Full-Scale “Pulsar” Flywheel Energy Storage System"
     ]
   },
   "2892": {
-    "fetched_at": "2026-09-21T16:23:20.581187",
+    "fetched_at": "2026-09-21T21:57:48.727256",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -137,7 +139,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-09-21T16:34:36.370497",
+    "fetched_at": "2026-09-21T22:00:36.979409",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -148,7 +150,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-09-21T16:28:12.862953",
+    "fetched_at": "2026-09-21T21:56:13.944790",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -158,7 +160,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-09-21T16:29:30.137915",
+    "fetched_at": "2026-09-21T21:59:27.453584",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -168,21 +170,23 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-09-21T16:26:42.277298",
-    "sentiment_score": 1,
-    "signal": "bullish",
+    "fetched_at": "2026-09-21T21:56:45.381081",
+    "sentiment_score": -1,
+    "signal": "bearish",
     "keywords": [
-      "+buy"
+      "+upgrade",
+      "-downgrade",
+      "-sell"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Warren Buffett Just Gave Investors a Four-Word Farewell That Explains Both His Exit — and the Secret Behind His 6,099,294% Return",
-      "Supporting PM Modi's call, IIFL Finance's Mayank Sharma believes recycling household gold is the fastest way to cut import bill",
-      "Morgan Stanley Investment Management's 1GT Leads €49 Million Series E Funding for Amber Electric"
+      "Tech stocks rise, Bitcoin rallied as Treasury yields ease: AlphaCheck",
+      "Ciena upgraded, Flutter downgraded: Wall Street's top analyst calls",
+      "Franklin Resources (BEN) Surged 47.3% in Q2: Why Investors Took Notice"
     ]
   },
   "1101": {
-    "fetched_at": "2026-09-21T16:33:07.607537",
+    "fetched_at": "2026-09-21T21:58:55.953532",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -192,7 +196,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-09-21T16:35:43.159436",
+    "fetched_at": "2026-09-21T22:02:03.707351",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -202,7 +206,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-09-21T08:45:30.607651",
+    "fetched_at": "2026-09-21T22:01:22.778737",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -212,7 +216,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-09-21T16:36:53.701574",
+    "fetched_at": "2026-09-21T22:03:03.201534",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -222,7 +226,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-09-21T08:48:38.884560",
+    "fetched_at": "2026-09-21T22:00:05.590128",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -232,7 +236,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-09-21T08:51:39.690347",
+    "fetched_at": "2026-09-21T22:05:19.819933",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -242,7 +246,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-09-21T08:52:36.740811",
+    "fetched_at": "2026-09-21T22:06:52.767340",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -253,7 +257,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-09-21T08:50:40.539138",
+    "fetched_at": "2026-09-21T22:03:46.619735",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -264,7 +268,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-09-21T08:54:44.550778",
+    "fetched_at": "2026-09-21T22:06:05.225548",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -276,7 +280,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-09-18T20:19:56.891342",
+    "fetched_at": "2026-09-21T22:07:32.932273",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -291,7 +295,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-09-21T08:55:54.753767",
+    "fetched_at": "2026-09-21T22:08:50.113662",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -301,7 +305,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-09-21T08:53:36.740189",
+    "fetched_at": "2026-09-21T22:04:30.840276",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -313,7 +317,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-09-18T20:21:26.322127",
+    "fetched_at": "2026-09-21T22:09:20.375651",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -323,7 +327,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-09-18T20:22:10.702098",
+    "fetched_at": "2026-09-21T22:09:50.100992",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -333,7 +337,7 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-09-18T20:22:54.462412",
+    "fetched_at": "2026-09-21T22:11:08.152597",
     "sentiment_score": 4,
     "signal": "strong_bullish",
     "keywords": [
@@ -343,13 +347,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Asian Equities Traded in the US as American Depositary Receipts Rise in Friday Trading",
-      "United Microelectronics (UMC) Upgraded to Strong Buy: Here's What You Should Know",
-      "GFS Gains From Expanding Partner base: Will it Boost Growth Prospects?"
+      "Can GFS' Marvell Deal for SiGe Capacity Expansion Accelerate Growth?",
+      "UMC Up 250% in the Past Year: Should Investors Bet on the Stock Now?",
+      "United Microelectronics (UMC) Upgraded to Strong Buy: Here's What You Should Know"
     ]
   },
   "3711": {
-    "fetched_at": "2026-09-18T20:24:24.298867",
+    "fetched_at": "2026-09-21T22:08:18.908824",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -357,13 +361,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "ASX Up 230.9% in the Past Year: Should You Capitalize on the Euphoria?",
-      "Are Computer and Technology Stocks Lagging  Hewlett Packard (HPE) This Year?",
-      "Asian Equities Traded in the US as American Depositary Receipts Edge Up in Wednesday Trading"
+      "Intel Stock And 2 AI Infrastructure Leaders Tied To Chip Policy",
+      "UMC Up 250% in the Past Year: Should Investors Bet on the Stock Now?",
+      "ASX Up 230.9% in the Past Year: Should You Capitalize on the Euphoria?"
     ]
   },
   "2449": {
-    "fetched_at": "2026-09-18T20:23:41.730892",
+    "fetched_at": "2026-09-21T22:10:31.950499",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -375,7 +379,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-09-18T20:25:09.032078",
+    "fetched_at": "2026-09-21T22:11:40.174217",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -385,7 +389,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-09-18T20:25:55.660033",
+    "fetched_at": "2026-09-21T22:12:11.844236",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -395,7 +399,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-09-18T20:27:20.845201",
+    "fetched_at": "2026-09-21T22:12:47.752466",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -405,7 +409,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-09-18T20:26:39.404453",
+    "fetched_at": "2026-09-21T22:13:20.121168",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -415,7 +419,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-09-18T20:28:07.931421",
+    "fetched_at": "2026-09-21T22:13:52.093204",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -425,7 +429,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-09-18T20:28:49.732046",
+    "fetched_at": "2026-09-21T22:15:41.861002",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -435,7 +439,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-09-18T20:29:28.274383",
+    "fetched_at": "2026-09-21T22:14:25.879347",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -449,7 +453,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-09-18T20:30:19.453577",
+    "fetched_at": "2026-09-21T22:16:18.820769",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -461,7 +465,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-09-18T20:31:06.495184",
+    "fetched_at": "2026-09-21T22:15:00.950993",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -475,7 +479,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-09-18T20:31:50.254437",
+    "fetched_at": "2026-09-21T22:16:51.253616",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -489,7 +493,7 @@
     ]
   },
   "2308": {
-    "fetched_at": "2026-09-18T20:33:23.180625",
+    "fetched_at": "2026-09-21T22:17:26.201734",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -501,7 +505,7 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-09-18T20:32:38.150656",
+    "fetched_at": "2026-09-21T22:18:00.191355",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -513,7 +517,7 @@
     ]
   },
   "3532": {
-    "fetched_at": "2026-09-18T20:34:03.774152",
+    "fetched_at": "2026-09-21T22:18:35.159030",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -523,7 +527,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-09-18T20:35:38.412161",
+    "fetched_at": "2026-09-21T22:19:44.757964",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -533,7 +537,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-09-18T20:34:49.344326",
+    "fetched_at": "2026-09-21T22:19:13.529763",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -543,7 +547,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-09-18T20:36:23.500871",
+    "fetched_at": "2026-09-21T22:20:17.779904",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -627,7 +631,7 @@
     ]
   },
   "6488O": {
-    "fetched_at": "2026-09-18T20:34:22.117263",
+    "fetched_at": "2026-09-21T22:18:23.771745",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -641,7 +645,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-09-18T20:34:22.354420",
+    "fetched_at": "2026-09-21T22:19:03.427077",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -651,7 +655,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-09-18T20:34:22.699466",
+    "fetched_at": "2026-09-21T22:19:03.160450",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
