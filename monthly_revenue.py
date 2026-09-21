@@ -10,12 +10,20 @@
 """
 import json
 import re
+import time
 import urllib.request
 from datetime import datetime
 from pathlib import Path
 
 CACHE_FILE     = Path(__file__).parent / "revenue_cache.json"
 CACHE_TTL_DAYS = 28   # 月營收每月更新一次，快取稍長
+
+# 斷路器：MOPS 對雲端 IP 可能慢速無回應，避免每檔股票 × 每月重複卡住整個掃描
+_FETCH_BUDGET_SEC = 120        # 單次執行最多花在 MOPS 抓取的總秒數
+_MAX_CONSEC_FAIL  = 4          # 連續失敗達此數即停用本次執行的 MOPS 抓取
+_fetch_spent      = 0.0
+_consec_fail      = 0
+_failed_months: set = set()    # 本次執行已失敗的 (年, 月)，不重試
 
 
 # ── 快取 ──────────────────────────────────────────────────
@@ -73,7 +81,12 @@ def _fetch_month_all(tw_year: int, month: int) -> dict[str, int]:
     回傳 {股票代號: 當月營收千元}
     先試上市(sii)，找不到資料再試上櫃(otc)。
     """
+    global _fetch_spent, _consec_fail
     result = {}
+    if (tw_year, month) in _failed_months:
+        return result
+    if _fetch_spent >= _FETCH_BUDGET_SEC or _consec_fail >= _MAX_CONSEC_FAIL:
+        return result
     for market in ("sii", "otc"):
         url = (
             f"https://mops.twse.com.tw/nas/t21/{market}/"
@@ -84,9 +97,15 @@ def _fetch_month_all(tw_year: int, month: int) -> dict[str, int]:
                 "User-Agent": "Mozilla/5.0",
                 "Accept-Encoding": "identity",
             })
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                html = resp.read().decode("big5", errors="replace")
+            t0 = time.monotonic()
+            try:
+                with urllib.request.urlopen(req, timeout=8) as resp:
+                    html = resp.read().decode("big5", errors="replace")
+            finally:
+                _fetch_spent += time.monotonic() - t0
+            _consec_fail = 0
         except Exception:
+            _consec_fail += 1
             continue
 
         rows = re.findall(r'<tr[^>]*>(.*?)</tr>', html, re.DOTALL | re.IGNORECASE)
@@ -105,6 +124,8 @@ def _fetch_month_all(tw_year: int, month: int) -> dict[str, int]:
             except (ValueError, IndexError):
                 continue
 
+    if not result:
+        _failed_months.add((tw_year, month))
     return result
 
 

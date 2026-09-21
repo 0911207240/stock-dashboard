@@ -69,7 +69,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json us_scan_results.json; do
+          for f in revenue_cache.json push_cooldown.json daytrade_history.json signal_history.json scoring_weights.json us_scan_results.json; do
             [ -f "$f" ] && git add "$f"
           done
           git diff --cached --quiet || git commit -m "chore: update state [skip ci]"
