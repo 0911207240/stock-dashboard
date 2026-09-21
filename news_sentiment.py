@@ -13,6 +13,7 @@
 import json
 import urllib.request
 import re
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -64,10 +65,18 @@ def _is_fresh(fetched_at: str) -> bool:
         return False
 
 
+from net_budget import Budget
+_YAHOO_BUDGET = Budget(total_sec=90, max_consec_fail=5)
+_TWSE_BUDGET  = Budget(total_sec=90, max_consec_fail=10**9)   # 查無公告屬常態，只以累計時間為限
+
+
 def _fetch_yahoo_headlines(ticker: str, max_items: int = 10) -> list[str]:
     """透過 Yahoo Finance RSS 抓新聞標題"""
     # Yahoo Finance RSS: https://finance.yahoo.com/rss/headline?s=TICKER
     url = f"https://finance.yahoo.com/rss/headline?s={ticker}"
+    if not _YAHOO_BUDGET.ok():
+        return []
+    t0 = time.monotonic()
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=8) as resp:
@@ -75,15 +84,19 @@ def _fetch_yahoo_headlines(ticker: str, max_items: int = 10) -> list[str]:
         titles = re.findall(r'<title><!\[CDATA\[(.*?)\]\]></title>', xml)
         if not titles:
             titles = re.findall(r'<title>(.*?)</title>', xml)
+        _YAHOO_BUDGET.fails = 0
         return [t.strip() for t in titles[1:max_items+1]]  # 第0個是 feed 標題
     except Exception:
+        _YAHOO_BUDGET.fails += 1
         return []
+    finally:
+        _YAHOO_BUDGET.spent += time.monotonic() - t0
 
 
 def _fetch_twse_news(stock_code: str, max_items: int = 5) -> list[str]:
     """從 TWSE 重大訊息抓最新公告標題"""
     from twse_announcements import fetch_announcements
-    rows = fetch_announcements(stock_code, days_back=3)
+    rows = _TWSE_BUDGET.call(lambda: fetch_announcements(stock_code, days_back=3), [])
     return [r["title"] for r in rows[:max_items]]
 
 

@@ -1,4 +1,5 @@
 """隔日當沖評分引擎（含 Fix 1-3, 5-6, 8）"""
+import time
 import pandas as pd
 from scoring_config import load_multipliers
 
@@ -371,6 +372,9 @@ def calc_entry_exit(df: pd.DataFrame, score: int) -> dict:
     }
 
 
+_ENRICH_BUDGET_SEC = 420   # 單次掃描花在外部資料補強的總秒數上限
+
+
 def get_daytrade_candidates(
     all_data: dict,
     watchlist: dict,
@@ -392,6 +396,7 @@ def get_daytrade_candidates(
     regime_state = (regime or {}).get("state", "盤整")
 
     candidates = []
+    _enrich_t0 = time.monotonic()
     for name, df in all_data.items():
         ticker = watchlist.get(name, "")
         if not is_tw_stock(ticker) or df is None or df.empty:
@@ -399,9 +404,15 @@ def get_daytrade_candidates(
         if is_fundamentally_weak(ticker):
             continue
         earnings_risk  = has_earnings_risk(name, ticker, days_ahead=3)
-        rev_signal     = get_revenue_signal(ticker)
-        sent_signal    = get_sentiment_score_delta(ticker)
-        own_signal     = get_ownership_score_delta(ticker) if is_tw_stock(ticker) else {}
+        # 外部資料補強有總時間上限：超過就略過（訊號視為中性），避免雲端環境拖到逾時
+        if time.monotonic() - _enrich_t0 < _ENRICH_BUDGET_SEC:
+            rev_signal  = get_revenue_signal(ticker)
+            sent_signal = get_sentiment_score_delta(ticker)
+            own_signal  = get_ownership_score_delta(ticker) if is_tw_stock(ticker) else {}
+        else:
+            rev_signal  = {"score_delta": 0, "label": "", "trend": "unknown", "yoy": None}
+            sent_signal = {}
+            own_signal  = {}
 
         if not pre_analyzed:
             df = add_indicators(df)

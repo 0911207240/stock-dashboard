@@ -62,13 +62,17 @@ def _fetch_qfiis_day(date_str: str) -> dict[str, float]:
         return {}
 
 
+from net_budget import Budget
+_BUDGET = Budget(total_sec=90, max_consec_fail=8)   # 假日/週末本就無資料，容忍較多連續空值
+
+
 def _get_day_data(date_str: str, cache: dict) -> dict[str, float]:
     """從快取取當日資料，快取過期才重新抓"""
     key   = f"day_{date_str}"
     entry = cache.get(key, {})
     if entry.get("fetched") and entry.get("data"):
         return entry["data"]
-    data = _fetch_qfiis_day(date_str)
+    data = _BUDGET.call(lambda: _fetch_qfiis_day(date_str), {})
     if data:
         cache[key] = {"fetched": datetime.now().isoformat(), "data": data}
         _save_cache(cache)
