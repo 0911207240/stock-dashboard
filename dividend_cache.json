@@ -1,56 +1,56 @@
 {
   "1101.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": 1782864000,
     "div_amt": 0.8
   },
   "2880.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": 1786579200,
     "div_amt": 1.35
   },
   "8150.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": 1782691200,
     "div_amt": 1.23
   },
   "00929.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": null,
     "div_amt": 0
   },
   "2330.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": 1796860800,
     "div_amt": 28.0
   },
   "0050.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": null,
     "div_amt": 0
   },
   "0056.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": null,
     "div_amt": 0
   },
   "00878.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": null,
     "div_amt": 0
   },
   "2892.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": 1786406400,
     "div_amt": 1.3
   },
   "5426.TWO": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": 1789430400,
     "div_amt": 0.3
   },
   "2365.TW": {
-    "fetched_date": "2026-09-18",
+    "fetched_date": "2026-09-21",
     "ex_div_ts": 1784160000,
     "div_amt": 0.3
   }
