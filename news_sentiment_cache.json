@@ -557,7 +557,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-09-18T20:37:46.400726",
+    "fetched_at": "2026-09-21T22:23:57.850141",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -569,7 +569,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-09-18T20:38:27.804366",
+    "fetched_at": "2026-09-21T22:23:40.349330",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -581,7 +581,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-09-18T20:37:05.724542",
+    "fetched_at": "2026-09-21T22:23:48.682425",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -591,7 +591,7 @@
     ]
   },
   "2357": {
-    "fetched_at": "2026-09-18T20:39:08.995751",
+    "fetched_at": "2026-09-21T22:24:14.768953",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -603,21 +603,19 @@
     ]
   },
   "2324": {
-    "fetched_at": "2026-09-18T20:39:52.481403",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+buy"
-    ],
+    "fetched_at": "2026-09-21T22:24:06.204985",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Prediction: This Is Where Nvidia Stock Could Be by the End of Next Year",
-      "AMC Robotics Enters into Standby Equity Purchase Agreement to Provide up to $50 Million of Funding to Accelerate Commissioning of Its Robotic Manufacturing Facility",
-      "Quantum Computing Inc. to Showcase Quantum Secure Communications Beyond Quantum Key Distribution at ECOC 2026"
+      "Stock Market Today: Dow Rallies As Nvidia Nears Entry; Oil Dips On Iran Hopes (Live Coverage)",
+      "SiTime Corporation (SITM) Surged on Strong AI data center demand",
+      "The OCC Just Approved Three Digital-Asset Bank Charters in One Day. That’s the Real Story."
     ]
   },
   "2356": {
-    "fetched_at": "2026-09-18T20:40:37.074005",
+    "fetched_at": "2026-09-21T22:24:24.435559",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -666,19 +664,19 @@
     ]
   },
   "4938": {
-    "fetched_at": "2026-09-18T20:41:19.202087",
+    "fetched_at": "2026-09-21T22:24:48.438577",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
       "Together AI raises $800 million Series C at $8.3 billion valuation",
-      "There may not be an iPhone 18 this year, reports suggest",
-      "Open-source AI firm Together AI secures $800m in Series C"
+      "Open-source AI firm Together AI secures $800m in Series C",
+      "Neocloud Together AI raises $800M, leaps to $8.3B valuation"
     ]
   },
   "2412": {
-    "fetched_at": "2026-09-18T20:42:39.357418",
+    "fetched_at": "2026-09-21T22:24:32.325007",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -690,7 +688,7 @@
     ]
   },
   "3045": {
-    "fetched_at": "2026-09-18T20:41:59.054414",
+    "fetched_at": "2026-09-21T22:24:40.851450",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -702,7 +700,7 @@
     ]
   },
   "6770": {
-    "fetched_at": "2026-09-18T20:43:22.558715",
+    "fetched_at": "2026-09-21T22:25:06.327624",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -714,7 +712,7 @@
     ]
   },
   "5347O": {
-    "fetched_at": "2026-09-18T20:42:56.074870",
+    "fetched_at": "2026-09-21T22:24:48.835100",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -726,7 +724,7 @@
     ]
   },
   "3105O": {
-    "fetched_at": "2026-09-18T20:43:38.810478",
+    "fetched_at": "2026-09-21T22:25:06.008379",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -738,20 +736,21 @@
     ]
   },
   "2327": {
-    "fetched_at": "2026-09-18T20:44:11.025041",
+    "fetched_at": "2026-09-21T22:25:05.525611",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
       "+buy"
     ],
-    "headline_count": 2,
+    "headline_count": 3,
     "sample_headlines": [
       "Taiwan’s Electronics Components Billionaire Gets Massive Wealth Boost From Buying Spree",
+      "NS Solutions (TSE:2327) Stock Dropped, So What Is Driving Attention Now?",
       "Yahoo! Finance: 2327.TW News"
     ]
   },
   "2492": {
-    "fetched_at": "2026-09-18T20:44:55.409699",
+    "fetched_at": "2026-09-21T22:24:57.992982",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -762,7 +761,7 @@
     ]
   },
   "2474": {
-    "fetched_at": "2026-09-18T20:46:13.714173",
+    "fetched_at": "2026-09-21T22:25:06.900793",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -774,7 +773,7 @@
     ]
   },
   "6176": {
-    "fetched_at": "2026-09-18T20:46:56.235873",
+    "fetched_at": "2026-09-21T22:25:07.358160",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -786,7 +785,7 @@
     ]
   },
   "3037": {
-    "fetched_at": "2026-09-18T20:47:40.820063",
+    "fetched_at": "2026-09-21T22:25:07.655213",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -798,7 +797,7 @@
     ]
   },
   "2409": {
-    "fetched_at": "2026-09-18T20:48:30.940493",
+    "fetched_at": "2026-09-21T22:25:07.866326",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -810,7 +809,7 @@
     ]
   },
   "2439": {
-    "fetched_at": "2026-09-18T20:45:34.094075",
+    "fetched_at": "2026-09-21T22:25:06.670733",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -821,7 +820,7 @@
     ]
   },
   "3481": {
-    "fetched_at": "2026-09-18T20:49:11.970309",
+    "fetched_at": "2026-09-21T22:25:08.189012",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -833,7 +832,7 @@
     ]
   },
   "2344": {
-    "fetched_at": "2026-09-18T20:49:55.050583",
+    "fetched_at": "2026-09-21T22:25:08.527690",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -845,7 +844,7 @@
     ]
   },
   "2408": {
-    "fetched_at": "2026-09-18T20:50:41.113323",
+    "fetched_at": "2026-09-21T22:25:09.234554",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -857,7 +856,7 @@
     ]
   },
   "2337": {
-    "fetched_at": "2026-09-18T20:51:25.971489",
+    "fetched_at": "2026-09-21T22:25:08.992555",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -871,7 +870,7 @@
     ]
   },
   "2023": {
-    "fetched_at": "2026-09-18T20:52:13.856515",
+    "fetched_at": "2026-09-21T22:25:10.477580",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -881,7 +880,7 @@
     ]
   },
   "2006": {
-    "fetched_at": "2026-09-18T20:52:57.594125",
+    "fetched_at": "2026-09-21T22:25:10.132730",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -891,7 +890,7 @@
     ]
   },
   "2027": {
-    "fetched_at": "2026-09-18T20:53:39.949484",
+    "fetched_at": "2026-09-21T22:25:09.828620",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -901,7 +900,7 @@
     ]
   },
   "2010": {
-    "fetched_at": "2026-09-18T20:54:20.668125",
+    "fetched_at": "2026-09-21T22:25:09.442950",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -911,7 +910,7 @@
     ]
   },
   "2890": {
-    "fetched_at": "2026-09-18T20:55:10.908886",
+    "fetched_at": "2026-09-21T22:25:10.678254",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -921,7 +920,7 @@
     ]
   },
   "3264O": {
-    "fetched_at": "2026-09-18T20:57:44.358953",
+    "fetched_at": "2026-09-21T22:25:11.922671",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -931,7 +930,7 @@
     ]
   },
   "2801": {
-    "fetched_at": "2026-09-18T20:55:56.768363",
+    "fetched_at": "2026-09-21T22:25:11.022216",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -942,7 +941,7 @@
     ]
   },
   "2834": {
-    "fetched_at": "2026-09-18T20:56:43.517514",
+    "fetched_at": "2026-09-21T22:25:11.566018",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -952,7 +951,7 @@
     ]
   },
   "3707O": {
-    "fetched_at": "2026-09-18T20:57:44.667939",
+    "fetched_at": "2026-09-21T22:25:12.274753",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -962,7 +961,7 @@
     ]
   },
   "2883": {
-    "fetched_at": "2026-09-18T20:57:28.138159",
+    "fetched_at": "2026-09-21T22:25:11.234032",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -973,7 +972,7 @@
     ]
   },
   "6257": {
-    "fetched_at": "2026-09-18T20:58:08.583185",
+    "fetched_at": "2026-09-21T22:25:12.650254",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -983,7 +982,7 @@
     ]
   },
   "1308": {
-    "fetched_at": "2026-09-18T20:59:32.943424",
+    "fetched_at": "2026-09-21T22:25:14.085653",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -993,7 +992,7 @@
     ]
   },
   "00631L": {
-    "fetched_at": "2026-09-18T20:59:49.401687",
+    "fetched_at": "2026-09-21T22:25:13.789184",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1003,7 +1002,7 @@
     ]
   },
   "00632R": {
-    "fetched_at": "2026-09-18T20:59:49.641797",
+    "fetched_at": "2026-09-21T22:25:14.404555",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1013,7 +1012,7 @@
     ]
   },
   "3034": {
-    "fetched_at": "2026-09-18T21:02:20.274002",
+    "fetched_at": "2026-09-21T22:25:14.598522",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1023,7 +1022,7 @@
     ]
   },
   "3443": {
-    "fetched_at": "2026-09-18T21:01:37.283538",
+    "fetched_at": "2026-09-21T22:25:14.970946",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1035,7 +1034,7 @@
     ]
   },
   "3661": {
-    "fetched_at": "2026-09-18T21:03:09.905160",
+    "fetched_at": "2026-09-21T22:25:15.284313",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1047,7 +1046,7 @@
     ]
   },
   "2379": {
-    "fetched_at": "2026-09-18T21:00:49.206225",
+    "fetched_at": "2026-09-21T22:25:13.459848",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1059,7 +1058,7 @@
     ]
   },
   "3545": {
-    "fetched_at": "2026-09-18T21:04:46.486008",
+    "fetched_at": "2026-09-21T22:25:16.477713",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1069,7 +1068,7 @@
     ]
   },
   "2383": {
-    "fetched_at": "2026-09-18T21:05:34.255036",
+    "fetched_at": "2026-09-21T22:25:15.808954",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1081,7 +1080,7 @@
     ]
   },
   "5522": {
-    "fetched_at": "2026-09-18T20:58:51.240755",
+    "fetched_at": "2026-09-21T22:25:12.984992",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1091,7 +1090,7 @@
     ]
   },
   "3044": {
-    "fetched_at": "2026-09-18T21:06:20.481396",
+    "fetched_at": "2026-09-21T22:25:17.600945",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1101,7 +1100,7 @@
     ]
   },
   "4958": {
-    "fetched_at": "2026-09-18T21:03:54.283705",
+    "fetched_at": "2026-09-21T22:25:15.585287",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1113,7 +1112,7 @@
     ]
   },
   "6213": {
-    "fetched_at": "2026-09-18T21:07:01.135816",
+    "fetched_at": "2026-09-21T22:25:16.155105",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1123,7 +1122,7 @@
     ]
   },
   "2345": {
-    "fetched_at": "2026-09-18T21:07:46.248778",
+    "fetched_at": "2026-09-21T22:25:18.194369",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1135,7 +1134,7 @@
     ]
   },
   "2313": {
-    "fetched_at": "2026-09-18T21:08:28.174231",
+    "fetched_at": "2026-09-21T22:25:19.207036",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1147,7 +1146,7 @@
     ]
   },
   "3704": {
-    "fetched_at": "2026-09-18T21:09:21.774342",
+    "fetched_at": "2026-09-21T22:25:17.228073",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1157,7 +1156,7 @@
     ]
   },
   "5388": {
-    "fetched_at": "2026-09-18T21:10:06.726323",
+    "fetched_at": "2026-09-21T22:25:18.838994",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1168,7 +1167,7 @@
     ]
   },
   "6285": {
-    "fetched_at": "2026-09-18T21:10:48.606833",
+    "fetched_at": "2026-09-21T22:25:16.867208",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1178,7 +1177,7 @@
     ]
   },
   "2301": {
-    "fetched_at": "2026-09-18T21:11:31.189490",
+    "fetched_at": "2026-09-21T22:25:18.632736",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1187,6 +1186,721 @@
       "Lite-On Technology to establish $919M manufacturing campus in Texas",
       "$300M McKinney facility, Irving lands new HQ and more D-FW real estate news",
       "High Growth Tech Stocks In Asia To Watch April 2026"
+    ]
+  },
+  "8150": {
+    "fetched_at": "2026-09-21T22:25:19.508932",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "ChipMOS REPORTS 17.7% YoY INCREASE IN MAY 2026 REVENUE",
+      "ChipMOS (IMOS) Unveils Dividends, Shares Soar 38% in 1 Week",
+      "ChipMOS SHAREHOLDERS APPROVE CASH DIVIDEND DISTRIBUTION OF NT$1.23 PER COMMON SHARE OR APPROXIMATELY US$0.78 PER ADS"
+    ]
+  },
+  "3017": {
+    "fetched_at": "2026-09-21T22:25:20.161339",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "TWSE Returns to COMPUTEX: The World's Fifth‑Largest Capital Market Powering a Full‑Stack AI Ecosystem",
+      "Yahoo! Finance: 3017.TW News"
+    ]
+  },
+  "2385": {
+    "fetched_at": "2026-09-21T22:25:20.437284",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2385.TW News"
+    ]
+  },
+  "2421": {
+    "fetched_at": "2026-09-21T22:25:20.811239",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2421.TW News"
+    ]
+  },
+  "6148O": {
+    "fetched_at": "2026-09-21T22:25:21.254089",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6148.TWO News"
+    ]
+  },
+  "3324O": {
+    "fetched_at": "2026-09-21T22:25:21.694391",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "3 Asian Stocks Estimated To Be Trading Below Intrinsic Value By Up To 48.3%",
+      "Asian Value Stock Picks For May 2026",
+      "Yahoo! Finance: 3324.TWO News"
+    ]
+  },
+  "2392": {
+    "fetched_at": "2026-09-21T22:25:22.099339",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2392.TW News"
+    ]
+  },
+  "2365": {
+    "fetched_at": "2026-09-21T22:25:22.429867",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2365.TW News"
+    ]
+  },
+  "2395": {
+    "fetched_at": "2026-09-21T22:25:22.785344",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Advantech Expands WEDA-Powered Edge AI Ecosystem with Intel, Qualcomm, and AMD",
+      "KLN Signs MOU with Advantech and YDCare to Support Digital Transformation of Hong Kong's Healthcare System",
+      "Baylin Technologies Announces New Purchase Orders From Leading US Public Space, Rocket Launch, LEO Satellite, and Aerospace Technology Company"
+    ]
+  },
+  "2312": {
+    "fetched_at": "2026-09-21T22:25:23.255130",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 6,
+    "sample_headlines": [
+      "Undiscovered Gems in Asia Promising Stocks for February 2026",
+      "Undiscovered Gems in Asia to Explore This February 2026",
+      "Undiscovered Gems in Global Markets for December 2025"
+    ]
+  },
+  "2354": {
+    "fetched_at": "2026-09-21T22:25:23.559718",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Foxconn Q1 revenue jumps 30% on AI tailwinds; cautions on Middle East \"volatility\"",
+      "Foxconn expects Q3 to beat market expectations as AI demand stays strong",
+      "Trump Clears Nvidia H200 Sales To Alibaba, Tencent And 8 Others, But Beijing Halts Deliveries"
+    ]
+  },
+  "5426O": {
+    "fetched_at": "2026-09-21T22:25:23.899376",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 5426.TWO News"
+    ]
+  },
+  "8114": {
+    "fetched_at": "2026-09-21T22:25:24.460479",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 8114.TW News"
+    ]
+  },
+  "8183O": {
+    "fetched_at": "2026-09-21T22:25:24.964118",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 8183.TWO News"
+    ]
+  },
+  "6202": {
+    "fetched_at": "2026-09-21T22:25:25.412061",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6202.TW News"
+    ]
+  },
+  "2458": {
+    "fetched_at": "2026-09-21T22:25:26.004024",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2458.TW News"
+    ]
+  },
+  "2388": {
+    "fetched_at": "2026-09-21T22:25:26.532885",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2388.TW News"
+    ]
+  },
+  "2352": {
+    "fetched_at": "2026-09-21T22:25:27.052283",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Stan Shih Introduces the Wangdao Business Philosophy as a Modern Framework for Value Stewardship; Launches A-Dan - a Free GPT Business Advisor for Leaders Worldwide",
+      "Yahoo! Finance: 2352.TW News"
+    ]
+  },
+  "2363": {
+    "fetched_at": "2026-09-21T22:25:27.541124",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2363.TW News"
+    ]
+  },
+  "3041": {
+    "fetched_at": "2026-09-21T22:25:28.066418",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3041.TW News"
+    ]
+  },
+  "2436": {
+    "fetched_at": "2026-09-21T22:25:28.542136",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2436.TW News"
+    ]
+  },
+  "3014": {
+    "fetched_at": "2026-09-21T22:25:29.140648",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Exploring Undiscovered Gems in Asia for November 2025",
+      "Ningbo Shimao EnergyLtd And 3 Undiscovered Gems in Asia",
+      "Yahoo! Finance: 3014.TW News"
+    ]
+  },
+  "2401": {
+    "fetched_at": "2026-09-21T22:25:29.644992",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2401.TW News"
+    ]
+  },
+  "3035": {
+    "fetched_at": "2026-09-21T22:25:30.240383",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "ARTERY-KY (6907) Officially Lists on TPEx, Strengthening High-Performance MCU Technologies for Global Smart Applications",
+      "Emerging MCU Force ARTERY-KY to Be Listed on TPEx in January 2026, Driving High-Performance Growth Through MCU, Customization, and Edge AI",
+      "Yahoo! Finance: 3035.TW News"
+    ]
+  },
+  "3073O": {
+    "fetched_at": "2026-09-21T22:25:30.839279",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3073.TWO News"
+    ]
+  },
+  "3094": {
+    "fetched_at": "2026-09-21T22:25:31.329094",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3094.TW News"
+    ]
+  },
+  "3006": {
+    "fetched_at": "2026-09-21T22:25:31.795209",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Undiscovered Gems In Asia To Explore This May 2026",
+      "Yahoo! Finance: 3006.TW News"
+    ]
+  },
+  "3150": {
+    "fetched_at": "2026-09-21T22:25:32.305304",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3150.TW News"
+    ]
+  },
+  "3122O": {
+    "fetched_at": "2026-09-21T22:25:32.951623",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3122.TWO News"
+    ]
+  },
+  "3141O": {
+    "fetched_at": "2026-09-21T22:25:33.441684",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3141.TWO News"
+    ]
+  },
+  "2316": {
+    "fetched_at": "2026-09-21T22:25:34.046460",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 6,
+    "sample_headlines": [
+      "Palliser Capital Increases Stake in WUS Taiwan to Over 5% Following Constructive Engagement with Management",
+      "Metrica Partners Publishes Open Letter to the Board of WUS Printed Circuit Co., Ltd. (TWSE: 2316) After Company Fails to Respond to Shareholder Engagement",
+      "Palliser Capital Publishes Presentation Highlighting Value Opportunity at WUS Taiwan"
+    ]
+  },
+  "1815O": {
+    "fetched_at": "2026-09-21T22:25:34.528089",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1815.TWO News"
+    ]
+  },
+  "2355": {
+    "fetched_at": "2026-09-21T22:25:34.994998",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2355.TW News"
+    ]
+  },
+  "3169O": {
+    "fetched_at": "2026-09-21T22:25:35.696050",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 5,
+    "sample_headlines": [
+      "Undiscovered Gems In Asia Top Stock Picks For April 2026",
+      "Discovering Undiscovered Gems in Asia This April 2026",
+      "Undiscovered Gems In Asia Featuring 3 Promising Small Caps"
+    ]
+  },
+  "2367": {
+    "fetched_at": "2026-09-21T22:25:36.205563",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2367.TW News"
+    ]
+  },
+  "2402": {
+    "fetched_at": "2026-09-21T22:25:36.752723",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2402.TW News"
+    ]
+  },
+  "3323O": {
+    "fetched_at": "2026-09-21T22:25:37.402881",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3323.TWO News"
+    ]
+  },
+  "6121O": {
+    "fetched_at": "2026-09-21T22:25:37.905389",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6121.TWO News"
+    ]
+  },
+  "3211O": {
+    "fetched_at": "2026-09-21T22:25:38.387183",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3211.TWO News"
+    ]
+  },
+  "2368": {
+    "fetched_at": "2026-09-21T22:25:39.142127",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Asian Growth Companies With High Insider Ownership And 23% Revenue Growth",
+      "3 Asian Growth Companies With High Insider Ownership And 26 Percent Revenue Growth",
+      "Founder Of Printed Circuit Boards Maker Debuts On Taiwan’s 50 Richest List"
+    ]
+  },
+  "1503": {
+    "fetched_at": "2026-09-21T22:25:39.547469",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 1503.TW News"
+    ]
+  },
+  "2429": {
+    "fetched_at": "2026-09-21T22:25:39.836882",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2429.TW News"
+    ]
+  },
+  "1504": {
+    "fetched_at": "2026-09-21T22:25:40.333237",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 8,
+    "sample_headlines": [
+      "TECO Showcases Powertrain and Motion Solutions at Taiwan Expo in Japan",
+      "TECO Signs Acquisition Agreement with Malaysia's Dynaciate, Targeting Exponential AIDC Revenue Growth Next Year",
+      "TECO Debuts High-Payload Commercial UAV Powertrain Systems and Robotic Joint Modules in North America Expanding into North America's UAV and Robotics Markets"
+    ]
+  },
+  "8086O": {
+    "fetched_at": "2026-09-21T22:25:40.795341",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 8086.TWO News"
+    ]
+  },
+  "5309O": {
+    "fetched_at": "2026-09-21T22:25:41.234885",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 5309.TWO News"
+    ]
+  },
+  "2340": {
+    "fetched_at": "2026-09-21T22:25:41.688707",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2340.TW News"
+    ]
+  },
+  "2338": {
+    "fetched_at": "2026-09-21T22:25:42.071257",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2338.TW News"
+    ]
+  },
+  "3016": {
+    "fetched_at": "2026-09-21T22:25:42.523650",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3016.TW News"
+    ]
+  },
+  "3374O": {
+    "fetched_at": "2026-09-21T22:25:42.898731",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3374.TWO News"
+    ]
+  },
+  "3376": {
+    "fetched_at": "2026-09-21T22:25:43.360330",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3376.TW News"
+    ]
+  },
+  "3042": {
+    "fetched_at": "2026-09-21T22:25:43.808108",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Stathera Announces US$55 Million Series B to Scale Silicon Timing and Accelerate Next-Generation AI Data Center Solutions",
+      "Yahoo! Finance: 3042.TW News"
+    ]
+  },
+  "3548O": {
+    "fetched_at": "2026-09-21T22:25:44.214683",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3548.TWO News"
+    ]
+  },
+  "3019": {
+    "fetched_at": "2026-09-21T22:25:44.756271",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Myrias Optics Announces $2.1 Million Seed 1 Financing to Accelerate Commercialization of Wafer-Level Metaoptics",
+      "\"MemorAiLink® Show Up\" at CES 2026：Etron Tech Advances Edge AI and Robotics through On-Device Innovation",
+      "Yahoo! Finance: 3019.TW News"
+    ]
+  },
+  "3362O": {
+    "fetched_at": "2026-09-21T22:25:45.829001",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3362.TWO News"
+    ]
+  },
+  "6230": {
+    "fetched_at": "2026-09-21T22:25:46.177153",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 2,
+    "sample_headlines": [
+      "Nidec Announces the Second Report on Ransomware-caused Damage to and Possibility of Information Leak at an Overseas Subsidiary of Nidec Corporation",
+      "Yahoo! Finance: 6230.TW News"
+    ]
+  },
+  "2349": {
+    "fetched_at": "2026-09-21T22:25:46.570736",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 2349.TW News"
+    ]
+  },
+  "2498": {
+    "fetched_at": "2026-09-21T22:25:46.889947",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Innovative Eyewear, Inc. Announces Q3 Business Update",
+      "Innovative Eyewear, Inc. Announces Strategic Alliance with HTC Corporation",
+      "Yahoo! Finance: 2498.TW News"
+    ]
+  },
+  "8069O": {
+    "fetched_at": "2026-09-21T22:25:47.541259",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "E Ink Holdings Inc (ROCO:8069) (Q2 2026) Earnings Call Highlights: Record H1 Profits Amidst ...",
+      "E Ink Announces Strategic Investment in NewCopper to Advance Conductive Copper Ink Technology",
+      "E Ink Showcases the Future of Sustainable Large-Format Color Signage at InfoComm 2026"
+    ]
+  },
+  "4906": {
+    "fetched_at": "2026-09-21T22:25:48.053288",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Gemtek and Dixon Advance Strategic Collaboration to Expand Optical Connectivity Business in India",
+      "Gemtek Announces OMDN-107 800Gbps LPO Next Gen Transceiver",
+      "Yahoo! Finance: 4906.TW News"
+    ]
+  },
+  "3189": {
+    "fetched_at": "2026-09-21T22:25:48.625504",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 10,
+    "sample_headlines": [
+      "Intel vs. TSMC: Intel Is Winning an AI Battle Against TSMC That Few Investors Are Watching",
+      "TSMC Is Reportedly Developing Advanced Chip Packaging Tech to Challenge Intel's Dominance",
+      "TSMC's next AI chip move sends Intel stock soaring"
+    ]
+  },
+  "2332": {
+    "fetched_at": "2026-09-21T22:25:49.143738",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 5,
+    "sample_headlines": [
+      "D-Link Expands DAP-E3620 Series BE3600 Wi-Fi 7 Enterprise Access Point",
+      "Nuclias Unity Powers Scalable, Unified Cloud Control for Enterprise Networks",
+      "D-Link Makes Wi-Fi 7 Practical for Modern Homes and Flexible Broadband Access"
+    ]
+  },
+  "3533": {
+    "fetched_at": "2026-09-21T22:25:49.503074",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3533.TW News"
+    ]
+  },
+  "4904": {
+    "fetched_at": "2026-09-21T22:25:49.819987",
+    "sentiment_score": 2,
+    "signal": "bullish",
+    "keywords": [
+      "+record high"
+    ],
+    "headline_count": 3,
+    "sample_headlines": [
+      "Far EasTone Telecommunications Co Ltd (TPE:4904) Q4 2025 Earnings Call Highlights: Record ...",
+      "Far EasTone Telecommunications Co Ltd (TPE:4904) Q3 2025 Earnings Call Highlights: Record Highs ...",
+      "Yahoo! Finance: 4904.TW News"
+    ]
+  },
+  "3605": {
+    "fetched_at": "2026-09-21T22:25:50.335319",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3605.TW News"
+    ]
+  },
+  "3026": {
+    "fetched_at": "2026-09-21T22:25:50.712113",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 3026.TW News"
+    ]
+  },
+  "6173O": {
+    "fetched_at": "2026-09-21T22:25:51.190403",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6173.TWO News"
+    ]
+  },
+  "6116": {
+    "fetched_at": "2026-09-21T22:25:51.688032",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
+    "headline_count": 1,
+    "sample_headlines": [
+      "Yahoo! Finance: 6116.TW News"
     ]
   }
 }
