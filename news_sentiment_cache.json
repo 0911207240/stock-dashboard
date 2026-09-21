@@ -1,6 +1,6 @@
 {
   "2330": {
-    "fetched_at": "2026-09-21T08:32:11.011972",
+    "fetched_at": "2026-09-21T16:11:18.520706",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -8,13 +8,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
+      "Stocks advance after Bessent says talks with China were successful before Trump-Xi meeting",
       "ASML (ASML) and Chip Giants like TSMC Plot a Bigger Canvas for Building AI Chips",
-      "Billionaire David Tepper Has 40% of His Fund in Just 3 AI Stocks. Are They Still Buys?",
-      "Taiwan Semiconductor Manufacturing's Foundry Market Share Is a Massive Moat Nobody Talks About"
+      "Billionaire David Tepper Has 40% of His Fund in Just 3 AI Stocks. Are They Still Buys?"
     ]
   },
   "0056": {
-    "fetched_at": "2026-09-21T08:33:07.279844",
+    "fetched_at": "2026-09-21T16:14:35.891031",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,7 +24,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-09-21T08:31:07.975857",
+    "fetched_at": "2026-09-21T16:15:46.775074",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -36,7 +36,7 @@
     ]
   },
   "0050": {
-    "fetched_at": "2026-09-21T08:29:49.375056",
+    "fetched_at": "2026-09-21T16:17:12.745482",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -46,7 +46,7 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-09-21T08:28:38.891956",
+    "fetched_at": "2026-09-21T16:09:47.465124",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -58,7 +58,7 @@
     ]
   },
   "2882": {
-    "fetched_at": "2026-09-21T08:34:12.909782",
+    "fetched_at": "2026-09-21T16:18:28.677950",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -70,7 +70,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-09-21T08:35:12.710579",
+    "fetched_at": "2026-09-21T16:12:32.918272",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -80,7 +80,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-09-21T08:37:06.382512",
+    "fetched_at": "2026-09-21T16:21:39.199756",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -92,7 +92,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-09-21T08:40:15.017626",
+    "fetched_at": "2026-09-21T16:24:35.467858",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -102,7 +102,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-09-21T08:36:09.358689",
+    "fetched_at": "2026-09-21T16:19:58.079682",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -112,22 +112,21 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-09-21T08:42:24.015506",
-    "sentiment_score": 0,
-    "signal": "neutral",
+    "fetched_at": "2026-09-21T16:31:25.438572",
+    "sentiment_score": 1,
+    "signal": "bullish",
     "keywords": [
-      "+buy",
-      "-sell"
+      "+buy"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Dow Jones Futures Rise; Can The Market Take Flight? Robinhood, Sandisk, AMD, Moderna Surge Into Buy Areas",
-      "Mechanics (MCHB) Sells Most of its Runoff Auto Portfolio. Can Redeployment Improve Earnings?",
-      "Plaza Premium Group Wins the World's Best Airport Lounge Group, Marking a Decade of Skytrax Wins"
+      "Warren Buffett Just Gave Investors a Four-Word Farewell That Explains Both His Exit — and the Secret Behind His 6,099,294% Return",
+      "Supporting PM Modi's call, IIFL Finance's Mayank Sharma believes recycling household gold is the fastest way to cut import bill",
+      "Morgan Stanley Investment Management's 1GT Leads €49 Million Series E Funding for Amber Electric"
     ]
   },
   "2892": {
-    "fetched_at": "2026-09-21T08:39:13.249466",
+    "fetched_at": "2026-09-21T16:23:20.581187",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -138,7 +137,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-09-21T08:49:35.890214",
+    "fetched_at": "2026-09-21T16:34:36.370497",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -149,7 +148,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-09-21T08:41:17.328013",
+    "fetched_at": "2026-09-21T16:28:12.862953",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -159,7 +158,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-09-21T08:43:25.306542",
+    "fetched_at": "2026-09-21T16:29:30.137915",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -169,22 +168,21 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-09-21T08:38:09.560836",
-    "sentiment_score": 0,
-    "signal": "neutral",
+    "fetched_at": "2026-09-21T16:26:42.277298",
+    "sentiment_score": 1,
+    "signal": "bullish",
     "keywords": [
-      "+buy",
-      "-sell"
+      "+buy"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Dow Jones Futures Rise; Can The Market Take Flight? Robinhood, Sandisk, AMD, Moderna Surge Into Buy Areas",
-      "Mechanics (MCHB) Sells Most of its Runoff Auto Portfolio. Can Redeployment Improve Earnings?",
-      "Plaza Premium Group Wins the World's Best Airport Lounge Group, Marking a Decade of Skytrax Wins"
+      "Warren Buffett Just Gave Investors a Four-Word Farewell That Explains Both His Exit — and the Secret Behind His 6,099,294% Return",
+      "Supporting PM Modi's call, IIFL Finance's Mayank Sharma believes recycling household gold is the fastest way to cut import bill",
+      "Morgan Stanley Investment Management's 1GT Leads €49 Million Series E Funding for Amber Electric"
     ]
   },
   "1101": {
-    "fetched_at": "2026-09-21T08:46:37.631310",
+    "fetched_at": "2026-09-21T16:33:07.607537",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -194,7 +192,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-09-21T08:44:27.282499",
+    "fetched_at": "2026-09-21T16:35:43.159436",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -214,7 +212,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-09-21T08:47:34.677171",
+    "fetched_at": "2026-09-21T16:36:53.701574",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
