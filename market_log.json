@@ -969,5 +969,20 @@
       "半導體供應鏈",
       "IC設計績優"
     ]
+  },
+  {
+    "date": "2026-09-22",
+    "taiex_close": 47718.84,
+    "taiex_chg_pct": 0.74,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 22,
+    "top_sectors": [
+      "封裝測試績優",
+      "半導體供應鏈",
+      "IC設計績優"
+    ],
+    "portfolio_value": 1293983.0,
+    "portfolio_pnl": 337643.0
   }
 ]
