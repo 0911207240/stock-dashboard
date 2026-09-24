@@ -1,41 +1,18 @@
 {
-  "date": "2026-09-24",
-  "timestamp": "2026-09-24 07:49",
+  "date": "2026-09-25",
+  "timestamp": "2026-09-25 07:56",
   "signals": [
     {
-      "name": "美光",
-      "ticker": "MU",
-      "score": -2,
-      "price": 1071.88,
-      "change_pct": -2.22,
-      "vol_ratio": 0.78,
+      "name": "安謀控股",
+      "ticker": "ARM",
+      "score": -3,
+      "price": 306.34,
+      "change_pct": -7.88,
+      "vol_ratio": 1.08,
       "signals": [
-        "KD 死亡交叉 (K=83.4)",
-        "布林通道上軌回落"
-      ]
-    },
-    {
-      "name": "高通",
-      "ticker": "QCOM",
-      "score": -2,
-      "price": 197.24,
-      "change_pct": -0.52,
-      "vol_ratio": 0.45,
-      "signals": [
-        "KD 死亡交叉 (K=91.8)",
-        "布林通道上軌回落"
-      ]
-    },
-    {
-      "name": "英特爾",
-      "ticker": "INTC",
-      "score": -2,
-      "price": 122.6,
-      "change_pct": -1.02,
-      "vol_ratio": 0.6,
-      "signals": [
-        "KD 死亡交叉 (K=92.9)",
-        "布林通道上軌回落"
+        "RSI 從超買區回落 (60.2)",
+        "布林通道上軌回落",
+        "威廉%R 超買回落 (-31.0)"
       ]
     }
   ]
