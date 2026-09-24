@@ -5651,9 +5651,9 @@
     "stop": 539.67,
     "tp1": 557.05,
     "tp2": 560.52,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 560.52,
+    "return_pct": 2.54
   },
   {
     "push_date": "2026-09-22",
@@ -5665,9 +5665,9 @@
     "stop": 23.81,
     "tp1": 24.21,
     "tp2": 24.29,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 24.29,
+    "return_pct": 1.34
   },
   {
     "push_date": "2026-09-22",
@@ -5693,9 +5693,9 @@
     "stop": 92.65,
     "tp1": 95.12,
     "tp2": 95.62,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 92.65,
+    "return_pct": -1.06
   },
   {
     "push_date": "2026-09-22",
@@ -5707,9 +5707,9 @@
     "stop": 34.75,
     "tp1": 35.98,
     "tp2": 36.22,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利①",
+    "exit_price": 35.98,
+    "return_pct": 2.1
   },
   {
     "push_date": "2026-09-23",
@@ -5777,6 +5777,76 @@
     "stop": 26.85,
     "tp1": 26.86,
     "tp2": 26.86,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-24",
+    "name": "研華",
+    "ticker": "2395.TW",
+    "score": 90,
+    "price": 701.0,
+    "entry_mid": 700.5,
+    "stop": 686.92,
+    "tp1": 720.87,
+    "tp2": 727.66,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-24",
+    "name": "台新金",
+    "ticker": "2887.TW",
+    "score": 95,
+    "price": 42.95000076293945,
+    "entry_mid": 42.63,
+    "stop": 41.89,
+    "tp1": 43.74,
+    "tp2": 44.11,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-24",
+    "name": "佳世達",
+    "ticker": "2352.TW",
+    "score": 87,
+    "price": 29.0,
+    "entry_mid": 28.98,
+    "stop": 28.74,
+    "tp1": 29.34,
+    "tp2": 29.46,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-24",
+    "name": "中信金",
+    "ticker": "2891.TW",
+    "score": 84,
+    "price": 68.9000015258789,
+    "entry_mid": 68.52,
+    "stop": 68.34,
+    "tp1": 68.79,
+    "tp2": 68.88,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-24",
+    "name": "元大金",
+    "ticker": "2885.TW",
+    "score": 84,
+    "price": 69.5999984741211,
+    "entry_mid": 69.08,
+    "stop": 68.57,
+    "tp1": 69.84,
+    "tp2": 70.1,
     "result": null,
     "exit_price": null,
     "return_pct": null

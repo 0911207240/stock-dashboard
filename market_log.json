@@ -999,5 +999,20 @@
     ],
     "portfolio_value": 1296679.0,
     "portfolio_pnl": 340339.0
+  },
+  {
+    "date": "2026-09-24",
+    "taiex_close": 47718.84,
+    "taiex_chg_pct": 0.74,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 35,
+    "top_sectors": [
+      "半導體供應鏈",
+      "美股",
+      "輝達生態圈"
+    ],
+    "portfolio_value": 1305367.0,
+    "portfolio_pnl": 349027.0
   }
 ]
