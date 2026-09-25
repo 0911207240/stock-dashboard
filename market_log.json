@@ -1014,5 +1014,20 @@
     ],
     "portfolio_value": 1305367.0,
     "portfolio_pnl": 349027.0
+  },
+  {
+    "date": "2026-09-25",
+    "taiex_close": 48157.29,
+    "taiex_chg_pct": 0.92,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 35,
+    "top_sectors": [
+      "美股",
+      "台積電合作廠商",
+      "PCB/基板績優"
+    ],
+    "portfolio_value": 1309963.0,
+    "portfolio_pnl": 353623.0
   }
 ]

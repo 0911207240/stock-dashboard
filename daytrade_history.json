@@ -5623,9 +5623,9 @@
     "stop": 110.35,
     "tp1": 115.97,
     "tp2": 116.65,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 112.0,
+    "return_pct": -0.53
   },
   {
     "push_date": "2026-09-21",
@@ -5721,9 +5721,9 @@
     "stop": 24.02,
     "tp1": 25.25,
     "tp2": 25.49,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停利②",
+    "exit_price": 25.49,
+    "return_pct": 4.0
   },
   {
     "push_date": "2026-09-23",
@@ -5763,9 +5763,9 @@
     "stop": 49.74,
     "tp1": 50.81,
     "tp2": 51.03,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 49.74,
+    "return_pct": -0.86
   },
   {
     "push_date": "2026-09-23",
@@ -5777,9 +5777,9 @@
     "stop": 26.85,
     "tp1": 26.86,
     "tp2": 26.86,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 26.85,
+    "return_pct": 0.04
   },
   {
     "push_date": "2026-09-24",
@@ -5847,6 +5847,48 @@
     "stop": 68.57,
     "tp1": 69.84,
     "tp2": 70.1,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-25",
+    "name": "華南金",
+    "ticker": "2880.TW",
+    "score": 95,
+    "price": 45.75,
+    "entry_mid": 45.41,
+    "stop": 44.88,
+    "tp1": 46.2,
+    "tp2": 46.47,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-25",
+    "name": "彰銀",
+    "ticker": "2801.TW",
+    "score": 84,
+    "price": 27.75,
+    "entry_mid": 27.63,
+    "stop": 27.35,
+    "tp1": 28.05,
+    "tp2": 28.19,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-09-25",
+    "name": "國泰金",
+    "ticker": "2882.TW",
+    "score": 83,
+    "price": 110.5,
+    "entry_mid": 109.67,
+    "stop": 108.86,
+    "tp1": 110.89,
+    "tp2": 111.29,
     "result": null,
     "exit_price": null,
     "return_pct": null
