@@ -67,7 +67,7 @@ def calc_beta_rs(stock_df: pd.DataFrame, market_df: pd.DataFrame, window: int = 
     """
     計算個股 Beta 係數（vs 大盤）與相對強弱 RS（5日/20日）
     Beta > 1: 大盤強時漲更多; < 1: 防禦性
-    RS > 1: 近期強於大盤; < 1: 弱於大盤
+    RS > 1: 近期強於大盤; < 1: 弱於大盤（1.02 = 贏大盤 2%）
     """
     default = {"beta": 1.0, "rs5": 1.0, "rs20": 1.0}
     if stock_df is None or market_df is None:
@@ -88,13 +88,14 @@ def calc_beta_rs(stock_df: pd.DataFrame, market_df: pd.DataFrame, window: int = 
         beta  = round(float(s_ret.cov(m_ret)) / var_m, 2) if var_m > 0 else 1.0
         beta  = max(-2.0, min(5.0, beta))
 
-        # RS5：近5日個股漲跌 / 大盤漲跌
+        # RS：近 N 日個股淨值比 / 大盤淨值比，(1+個股漲跌)/(1+大盤漲跌)
+        # 不用「漲跌幅相除」：大盤下跌時正負號會顛倒（兩者都跌、個股跌更多反而 >1）
         def _rs(n):
             if len(s_close) <= n or len(m_close) <= n:
                 return 1.0
-            s_chg = float(s_close.iloc[-1]) / float(s_close.iloc[-n - 1]) - 1
-            m_chg = float(m_close.iloc[-1]) / float(m_close.iloc[-n - 1]) - 1
-            return round(s_chg / m_chg, 2) if abs(m_chg) > 0.001 else 1.0
+            s_rel = float(s_close.iloc[-1]) / float(s_close.iloc[-n - 1])
+            m_rel = float(m_close.iloc[-1]) / float(m_close.iloc[-n - 1])
+            return round(s_rel / m_rel, 3) if m_rel > 0 else 1.0
 
         return {
             "beta": beta,

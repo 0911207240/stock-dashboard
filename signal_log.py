@@ -121,12 +121,13 @@ def save_daytrade_signal(candidates: list[dict]):
 
 def update_daytrade_results(all_data: dict) -> list:
     """
-    用最新 OHLC 回查未結案的當沖推播，判斷結果：
-    - 停利② (High >= tp2)
-    - 停利① (High >= tp1 but < tp2)
-    - 停損   (Low <= stop)
-    - 同日停損+停利 → 保守計停損
-    - 3 個交易日內未觸及任何目標 → 未觸發（以收盤價結算）
+    用推播隔日 OHLC 回查未結案的當沖推播，判斷結果：
+    - 隔日最低價沒跌到 entry_mid → 未成交（實際買不到，不計入績效）
+    - 成交價 = min(開盤, entry_mid)（開低直接以開盤價成交）
+    - 同日停損+停利 → 保守計停損（日K無法判斷先後）
+    - 停利② (High >= tp2) / 停利① (High >= tp1) / 停損 (Low <= stop)
+    - 都沒觸及 → 未觸發（當沖收盤出場，以收盤價結算，計入績效）
+    return_pct 為未扣手續費與稅的毛報酬
     """
     log = _load_dt_log()
     changed = False
@@ -145,6 +146,7 @@ def update_daytrade_results(all_data: dict) -> list:
             continue
 
         nxt       = after.iloc[0]
+        open_nxt  = float(nxt["Open"])
         high      = float(nxt["High"])
         low       = float(nxt["Low"])
         close_nxt = float(nxt["Close"])
@@ -153,27 +155,40 @@ def update_daytrade_results(all_data: dict) -> list:
         tp2       = entry["tp2"]
         entry_mid = entry["entry_mid"]
 
+        if low > entry_mid:
+            entry["result"]      = "未成交"
+            entry["fill_price"]  = None
+            entry["exit_price"]  = None
+            entry["return_pct"]  = None
+            changed = True
+            continue
+
+        fill = min(open_nxt, entry_mid)
         if low <= stop and high >= tp1:
             result, exit_price = "停損", stop          # 同日保守計停損
+        elif low <= stop:
+            result, exit_price = "停損", stop
         elif high >= tp2:
             result, exit_price = "停利②", tp2
         elif high >= tp1:
             result, exit_price = "停利①", tp1
-        elif low <= stop:
-            result, exit_price = "停損", stop
-        elif len(after) >= 3:
-            result, exit_price = "未觸發", close_nxt   # 3日內未觸發以收盤結算
         else:
-            continue                                    # 仍在等待中
+            result, exit_price = "未觸發", close_nxt   # 當沖收盤出場
 
         entry["result"]     = result
+        entry["fill_price"] = round(fill, 2)
         entry["exit_price"] = round(exit_price, 2)
-        entry["return_pct"] = round((exit_price - entry_mid) / entry_mid * 100, 2)
+        entry["return_pct"] = round((exit_price - fill) / fill * 100, 2)
         changed = True
 
     if changed:
         _save_dt_log(log)
     return log
+
+
+def _is_traded(e: dict) -> bool:
+    """已結案且實際成交（排除等待中與未成交）"""
+    return bool(e.get("result")) and e["result"] != "未成交"
 
 
 def calc_weekly_performance(taiex_df=None, weeks: int = 1) -> dict:
@@ -195,7 +210,7 @@ def calc_weekly_performance(taiex_df=None, weeks: int = 1) -> dict:
 
     recent = [
         e for e in log
-        if e.get("push_date", "") >= cutoff and e.get("result") and e["result"] != "未觸發"
+        if e.get("push_date", "") >= cutoff and _is_traded(e)
     ]
 
     if not recent:
@@ -244,7 +259,7 @@ def calc_monthly_performance(taiex_df=None) -> dict:
 
     recent = [
         e for e in log
-        if e.get("push_date", "") >= cutoff and e.get("result") and e["result"] != "未觸發"
+        if e.get("push_date", "") >= cutoff and _is_traded(e)
     ]
 
     month_str = f"{now.month}月"
@@ -290,22 +305,23 @@ def calc_monthly_performance(taiex_df=None) -> dict:
 
 
 def daytrade_win_rate(log: list = None) -> dict:
-    """計算當沖推播勝率（排除未觸發）"""
+    """計算當沖推播勝率（只算實際成交，勝 = 報酬 > 0）"""
     if log is None:
         log = _load_dt_log()
-    decided = [e for e in log if e.get("result") and e["result"] != "未觸發"]
+    decided = [e for e in log if _is_traded(e)]
     if not decided:
         return {"total": 0, "tp1": 0, "tp2": 0, "stop": 0, "win_rate": 0.0, "avg_return": 0.0}
     tp1_n  = sum(1 for e in decided if e["result"] == "停利①")
     tp2_n  = sum(1 for e in decided if e["result"] == "停利②")
     stop_n = sum(1 for e in decided if e["result"] == "停損")
+    wins   = sum(1 for e in decided if e.get("return_pct", 0) > 0)
     avg_r  = sum(e.get("return_pct", 0) for e in decided) / len(decided)
     return {
         "total":      len(decided),
         "tp1":        tp1_n,
         "tp2":        tp2_n,
         "stop":       stop_n,
-        "win_rate":   round((tp1_n + tp2_n) / len(decided) * 100, 1),
+        "win_rate":   round(wins / len(decided) * 100, 1),
         "avg_return": round(avg_r, 2),
     }
 
@@ -317,10 +333,10 @@ def get_stock_win_rate(name: str) -> dict:
     """
     log     = _load_dt_log()
     decided = [e for e in log
-               if e.get("name") == name and e.get("result") and e["result"] != "未觸發"]
+               if e.get("name") == name and _is_traded(e)]
     if len(decided) < 5:
         return {"name": name, "total": len(decided), "win_rate": None, "avg_return": None}
-    wins    = sum(1 for e in decided if e["result"] in ("停利①", "停利②"))
+    wins    = sum(1 for e in decided if e.get("return_pct", 0) > 0)
     avg_r   = sum(e.get("return_pct", 0) for e in decided) / len(decided)
     return {
         "name":       name,

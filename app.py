@@ -1226,7 +1226,7 @@ with tab7:
     else:
         # ── 整體統計 ──────────────────────────────
         stats = daytrade_win_rate(dt_log)
-        decided = [e for e in dt_log if e.get("result") and e["result"] != "未觸發"]
+        decided = [e for e in dt_log if e.get("result") and e["result"] != "未成交"]
         pending = [e for e in dt_log if not e.get("result")]
 
         col_a, col_b, col_c, col_d, col_e = st.columns(5)
@@ -1273,8 +1273,8 @@ with tab7:
         st.markdown("---")
         st.subheader("推播明細")
         result_filter = st.multiselect(
-            "篩選結果", ["停利②", "停利①", "停損", "未觸發", "等待中"],
-            default=["停利②", "停利①", "停損"],
+            "篩選結果", ["停利②", "停利①", "停損", "未觸發", "未成交", "等待中"],
+            default=["停利②", "停利①", "停損", "未觸發"],
         )
         rows_all = []
         for e in reversed(dt_log):
@@ -1286,6 +1286,7 @@ with tab7:
                 "名稱":    e.get("name", "-"),
                 "分數":    e.get("score", "-"),
                 "進場參考": e.get("entry_mid", "-"),
+                "成交價":  e.get("fill_price", "-"),
                 "停損":    e.get("stop", "-"),
                 "停利①":  e.get("tp1", "-"),
                 "停利②":  e.get("tp2", "-"),

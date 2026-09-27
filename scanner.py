@@ -20,7 +20,7 @@ from earnings_calendar import build_earnings_alert, has_earnings_risk
 from data_fetcher import fetch_all, WATCHLIST
 from analyzer import add_indicators, detect_signals, score
 from portfolio import HOLDINGS, calc_summary, build_portfolio_message, build_alert_message, build_dividend_alert_message, build_rebalance_alert, build_correlation_alert
-from daytrade_scorer import get_daytrade_candidates
+from daytrade_scorer import get_daytrade_candidates, DAYTRADE_MIN_SCORE
 from push_cooldown import is_cooled_down, mark_pushed
 from tdcc_holders import get_holder_signal
 from signal_log import save_daytrade_signal, update_daytrade_results, daytrade_win_rate, calc_weekly_performance, calc_monthly_performance, get_stock_win_rate
@@ -163,7 +163,8 @@ def run_scan(min_score: int = 2, notify: bool = True):
     taiex_df = fetch_taiex(period="3mo")
     taiex_df = add_indicators(taiex_df) if not taiex_df.empty else taiex_df
     regime   = detect_regime(taiex_df, futures_data=futures_data, pcr_data=pcr_data, us_data=us_data)
-    base_min_score = 40 + regime["min_score_adj"]
+    # 門檻 70：2026-09 實測 410 筆，70 分以上是唯一前後兩段都成立的優勢；大盤狀態只能再往上加，不能往下放寬
+    base_min_score = max(DAYTRADE_MIN_SCORE, DAYTRADE_MIN_SCORE + regime["min_score_adj"])
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
     if regime.get("pcr_desc"):
         print(f"  選擇權情緒：{regime['pcr_desc']}")

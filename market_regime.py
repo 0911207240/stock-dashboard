@@ -78,7 +78,7 @@ def detect_regime(df: pd.DataFrame, futures_data: dict = None, pcr_data: dict = 
       state          : "多頭" | "盤整" | "空頭"
       emoji          : 圖示
       description    : 一行說明
-      min_score_adj  : 當沖評分門檻調整值（加上基準 40 後使用）
+      min_score_adj  : 當沖評分門檻調整值（加上基準 DAYTRADE_MIN_SCORE=70，只取往上調的部分）
       close          : 最新指數
       dev_ma20_pct   : 距 MA20 偏離 %
       momentum_5d    : 近 5 日漲跌 %

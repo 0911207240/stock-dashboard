@@ -3,6 +3,8 @@ import time
 import pandas as pd
 from scoring_config import load_multipliers
 
+DAYTRADE_MIN_SCORE = 70   # 當沖推播基準門檻（大盤狀態只會再往上調）
+
 
 def is_tw_stock(ticker: str) -> bool:
     return ticker.endswith(".TW") or ticker.endswith(".TWO")
@@ -460,15 +462,16 @@ def get_daytrade_candidates(
                 beta_bonus = -5
                 beta_sigs.append(f"⚠️ 高β {beta:.1f}，空頭跌幅放大")
 
+        # RS 為淨值比：1.02 = 贏大盤 2%（5日），1.05 = 贏大盤 5%（20日）
         rs_bonus = 0
-        if rs5 > 1.2 and rs20 > 1.2:
+        if rs5 > 1.02 and rs20 > 1.05:
             rs_bonus = 5
-            beta_sigs.append(f"✅ 持續強於大盤（RS5={rs5:.1f}x RS20={rs20:.1f}x）")
-        elif rs5 < 0.8 and rs20 < 0.8:
+            beta_sigs.append(f"✅ 持續強於大盤（5日{(rs5-1)*100:+.1f}%、20日{(rs20-1)*100:+.1f}%）")
+        elif rs5 < 0.98 and rs20 < 0.95:
             rs_bonus = -3
-            beta_sigs.append(f"⚠️ 持續弱於大盤（RS5={rs5:.1f}x）")
-        elif rs5 > 1.2:
-            beta_sigs.append(f"近期強於大盤（RS5={rs5:.1f}x）")
+            beta_sigs.append(f"⚠️ 持續弱於大盤（5日{(rs5-1)*100:+.1f}%、20日{(rs20-1)*100:+.1f}%）")
+        elif rs5 > 1.02:
+            beta_sigs.append(f"近期強於大盤（5日{(rs5-1)*100:+.1f}%）")
 
         # MDD 最大回撤風控
         mdd_data  = calc_mdd(df, window=20)

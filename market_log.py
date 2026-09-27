@@ -3,6 +3,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from daytrade_scorer import DAYTRADE_MIN_SCORE
+
 MARKET_LOG_FILE = Path("market_log.json")
 _MAX_ENTRIES = 365
 
@@ -31,7 +33,7 @@ def save_market_snapshot(
         "taiex_chg_pct": round(taiex_chg_pct, 2),
         "regime":        regime.get("state", ""),
         "regime_emoji":  regime.get("emoji", ""),
-        "min_score":     40 + regime.get("min_score_adj", 0),
+        "min_score":     max(DAYTRADE_MIN_SCORE, DAYTRADE_MIN_SCORE + regime.get("min_score_adj", 0)),
     })
 
     if futures_data:
