@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-25",
-  "timestamp": "2026-09-25 08:48",
+  "date": "2026-09-28",
+  "timestamp": "2026-09-28 09:10",
   "regime": {
     "state": "多頭",
     "emoji": "🟢"
@@ -46,19 +46,6 @@
       ]
     },
     {
-      "name": "台灣50反1",
-      "ticker": "00632R.TW",
-      "score": 2,
-      "price": 9.489999771118164,
-      "change_pct": -0.32,
-      "vol_ratio": 0.71,
-      "is_holding": false,
-      "signals": [
-        "KD 黃金交叉 (K=9.4)",
-        "布林通道下軌反彈"
-      ]
-    },
-    {
       "name": "晶豪科技",
       "ticker": "3006.TW",
       "score": 2,
@@ -86,18 +73,6 @@
     }
   ],
   "sell_signals": [
-    {
-      "name": "元大高股息",
-      "ticker": "0056.TW",
-      "score": -1,
-      "price": 56.599998474121094,
-      "change_pct": -0.44,
-      "vol_ratio": 1.18,
-      "is_holding": true,
-      "signals": [
-        "MACD 死亡交叉"
-      ]
-    },
     {
       "name": "台積電",
       "ticker": "2330.TW",
@@ -138,41 +113,28 @@
       ]
     },
     {
-      "name": "美光",
-      "ticker": "MU",
-      "score": -2,
-      "price": 1071.8800048828125,
-      "change_pct": -2.22,
-      "vol_ratio": 0.79,
-      "is_holding": false,
+      "name": "國泰永續高股息",
+      "ticker": "00878.TW",
+      "score": -1,
+      "price": 34.880001068115234,
+      "change_pct": -0.6,
+      "vol_ratio": 1.46,
+      "is_holding": true,
       "signals": [
-        "KD 死亡交叉 (K=83.4)",
-        "布林通道上軌回落"
-      ]
-    },
-    {
-      "name": "高通",
-      "ticker": "QCOM",
-      "score": -2,
-      "price": 197.24000549316406,
-      "change_pct": -0.52,
-      "vol_ratio": 0.46,
-      "is_holding": false,
-      "signals": [
-        "KD 死亡交叉 (K=91.9)",
-        "布林通道上軌回落"
+        "RSI 從超買區回落 (67.2)"
       ]
     },
     {
       "name": "英特爾",
       "ticker": "INTC",
-      "score": -2,
-      "price": 122.5999984741211,
-      "change_pct": -1.02,
-      "vol_ratio": 0.6,
+      "score": -3,
+      "price": 123.0,
+      "change_pct": -3.45,
+      "vol_ratio": 0.81,
       "is_holding": false,
       "signals": [
-        "KD 死亡交叉 (K=92.9)",
+        "RSI 從超買區回落 (66.9)",
+        "KD 死亡交叉 (K=85.6)",
         "布林通道上軌回落"
       ]
     },
@@ -190,6 +152,19 @@
       ]
     },
     {
+      "name": "Meta",
+      "ticker": "META",
+      "score": -2,
+      "price": 751.6599731445312,
+      "change_pct": -3.33,
+      "vol_ratio": 0.77,
+      "is_holding": false,
+      "signals": [
+        "KD 死亡交叉 (K=77.2)",
+        "布林通道上軌回落"
+      ]
+    },
+    {
       "name": "健鼎",
       "ticker": "3044.TW",
       "score": -2,
@@ -203,6 +178,18 @@
       ]
     },
     {
+      "name": "振發",
+      "ticker": "5426.TWO",
+      "score": -1,
+      "price": 27.899999618530273,
+      "change_pct": -0.71,
+      "vol_ratio": 0.64,
+      "is_holding": true,
+      "signals": [
+        "MACD 死亡交叉"
+      ]
+    },
+    {
       "name": "盛群半導體",
       "ticker": "6202.TW",
       "score": -2,
@@ -213,18 +200,6 @@
       "signals": [
         "KD 死亡交叉 (K=75.8)",
         "威廉%R 超買回落 (-24.2)"
-      ]
-    },
-    {
-      "name": "振發",
-      "ticker": "5426.TWO",
-      "score": -1,
-      "price": 27.899999618530273,
-      "change_pct": -0.71,
-      "vol_ratio": 0.64,
-      "is_holding": true,
-      "signals": [
-        "MACD 死亡交叉"
       ]
     },
     {
@@ -262,6 +237,42 @@
   },
   "daytrade": [
     {
+      "name": "鴻準",
+      "ticker": "2354.TW",
+      "score": 95,
+      "price": 65.9,
+      "change_pct": 0.0,
+      "entry_mid": 65.72,
+      "stop": 64.72,
+      "tp1": 67.22,
+      "tp2": 67.72,
+      "vol_ratio": 1.0
+    },
+    {
+      "name": "台新金",
+      "ticker": "2887.TW",
+      "score": 96,
+      "price": 42.5,
+      "change_pct": -1.05,
+      "entry_mid": 42.2,
+      "stop": 41.85,
+      "tp1": 42.73,
+      "tp2": 42.9,
+      "vol_ratio": 0.65
+    },
+    {
+      "name": "亞泥",
+      "ticker": "1102.TW",
+      "score": 88,
+      "price": 35.7,
+      "change_pct": -0.7,
+      "entry_mid": 35.64,
+      "stop": 35.26,
+      "tp1": 36.21,
+      "tp2": 36.4,
+      "vol_ratio": 1.23
+    },
+    {
       "name": "華南金",
       "ticker": "2880.TW",
       "score": 95,
@@ -274,28 +285,18 @@
       "vol_ratio": 0.83
     },
     {
-      "name": "彰銀",
-      "ticker": "2801.TW",
-      "score": 84,
-      "price": 27.75,
-      "change_pct": -0.36,
-      "entry_mid": 27.63,
-      "stop": 27.35,
-      "tp1": 28.05,
-      "tp2": 28.19,
-      "vol_ratio": 0.71
-    },
-    {
-      "name": "國泰金",
-      "ticker": "2882.TW",
-      "score": 83,
-      "price": 110.5,
-      "change_pct": -0.9,
-      "entry_mid": 109.67,
-      "stop": 108.86,
-      "tp1": 110.89,
-      "tp2": 111.29,
-      "vol_ratio": 0.93
+      "name": "佳世達",
+      "ticker": "2352.TW",
+      "score": 87,
+      "price": 29.0,
+      "change_pct": 0.0,
+      "entry_mid": 28.98,
+      "stop": 28.6,
+      "tp1": 29.55,
+      "tp2": 29.74,
+      "vol_ratio": 0.6
     }
-  ]
+  ],
+  "weekly_report": "📊 當沖推播週報\n\n【近7日績效】9 筆已結案\n勝率 44.4%　每筆均報酬 -0.09%\n大盤同期 +0.64%　超額 -0.18%\n\n【累計】273 筆已結案\n停利② 27 筆　停利① 19 筆　停損 127 筆\n勝率 46.9%　平均報酬 +0.27%\n\n🔧 評分權重已更新（153 檔 / 4183 筆回測）\n  技術 2.0→1.07",
+  "weekly_report_date": "2026-09-28"
 }
