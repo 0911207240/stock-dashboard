@@ -6204,7 +6204,7 @@
     "stop": 686.92,
     "tp1": 720.87,
     "tp2": 727.66,
-    "result": null,
+    "result": "未成交",
     "exit_price": null,
     "return_pct": null,
     "fill_price": null
@@ -6219,10 +6219,10 @@
     "stop": 41.89,
     "tp1": 43.74,
     "tp2": 44.11,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null,
-    "fill_price": null
+    "result": "未觸發",
+    "exit_price": 42.55,
+    "return_pct": -0.19,
+    "fill_price": 42.63
   },
   {
     "push_date": "2026-09-24",
@@ -6234,7 +6234,7 @@
     "stop": 28.74,
     "tp1": 29.34,
     "tp2": 29.46,
-    "result": null,
+    "result": "未成交",
     "exit_price": null,
     "return_pct": null,
     "fill_price": null
@@ -6249,10 +6249,10 @@
     "stop": 68.34,
     "tp1": 68.79,
     "tp2": 68.88,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null,
-    "fill_price": null
+    "result": "停損",
+    "exit_price": 68.34,
+    "return_pct": 1.55,
+    "fill_price": 67.3
   },
   {
     "push_date": "2026-09-24",
@@ -6264,9 +6264,9 @@
     "stop": 68.57,
     "tp1": 69.84,
     "tp2": 70.1,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null,
-    "fill_price": null
+    "result": "停利①",
+    "exit_price": 69.84,
+    "return_pct": 1.1,
+    "fill_price": 69.08
   }
 ]

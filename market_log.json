@@ -1044,5 +1044,20 @@
     ],
     "portfolio_value": 1310344.0,
     "portfolio_pnl": 354004.0
+  },
+  {
+    "date": "2026-09-29",
+    "taiex_close": 48006.86,
+    "taiex_chg_pct": -0.04,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 70,
+    "top_sectors": [
+      "PCB/基板績優",
+      "IC設計績優",
+      "石化"
+    ],
+    "portfolio_value": 1306640.0,
+    "portfolio_pnl": 350299.0
   }
 ]
