@@ -1,18 +1,30 @@
 {
-  "date": "2026-09-26",
-  "timestamp": "2026-09-26 08:00",
+  "date": "2026-09-29",
+  "timestamp": "2026-09-29 09:07",
   "signals": [
     {
-      "name": "安謀控股",
-      "ticker": "ARM",
+      "name": "英特爾",
+      "ticker": "INTC",
       "score": -3,
-      "price": 306.34,
-      "change_pct": -7.88,
-      "vol_ratio": 1.09,
+      "price": 123.0,
+      "change_pct": -3.45,
+      "vol_ratio": 0.81,
       "signals": [
-        "RSI 從超買區回落 (60.2)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-31.0)"
+        "RSI 從超買區回落 (66.9)",
+        "KD 死亡交叉 (K=85.6)",
+        "布林通道上軌回落"
+      ]
+    },
+    {
+      "name": "Meta",
+      "ticker": "META",
+      "score": -2,
+      "price": 751.66,
+      "change_pct": -3.33,
+      "vol_ratio": 0.77,
+      "signals": [
+        "KD 死亡交叉 (K=77.2)",
+        "布林通道上軌回落"
       ]
     }
   ]
