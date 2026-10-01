@@ -1,55 +1,29 @@
 {
-  "date": "2026-09-30",
-  "timestamp": "2026-09-30 08:38",
+  "date": "2026-10-01",
+  "timestamp": "2026-10-01 08:39",
   "signals": [
     {
-      "name": "微軟",
-      "ticker": "MSFT",
-      "score": -3,
-      "price": 509.22,
-      "change_pct": -1.35,
-      "vol_ratio": 0.85,
-      "signals": [
-        "KD 死亡交叉 (K=68.4)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-30.5)"
-      ]
-    },
-    {
-      "name": "超微電腦",
-      "ticker": "SMCI",
-      "score": -3,
-      "price": 41.78,
-      "change_pct": -3.42,
-      "vol_ratio": 0.8,
-      "signals": [
-        "KD 死亡交叉 (K=76.4)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-23.6)"
-      ]
-    },
-    {
-      "name": "美光",
-      "ticker": "MU",
+      "name": "蘋果",
+      "ticker": "AAPL",
       "score": -2,
-      "price": 1053.98,
-      "change_pct": -2.61,
-      "vol_ratio": 0.96,
+      "price": 329.4,
+      "change_pct": -2.66,
+      "vol_ratio": 1.22,
       "signals": [
-        "KD 死亡交叉 (K=71.4)",
-        "威廉%R 超買回落 (-26.6)"
+        "MACD 死亡交叉",
+        "威廉%R 超買回落 (-55.3)"
       ]
     },
     {
-      "name": "Meta",
-      "ticker": "META",
+      "name": "輝達",
+      "ticker": "NVDA",
       "score": -2,
-      "price": 715.62,
-      "change_pct": -4.79,
-      "vol_ratio": 0.95,
+      "price": 227.21,
+      "change_pct": -0.72,
+      "vol_ratio": 1.01,
       "signals": [
-        "RSI 從超買區回落 (60.9)",
-        "威廉%R 超買回落 (-45.4)"
+        "KD 死亡交叉 (K=62.6)",
+        "威廉%R 超買回落 (-24.7)"
       ]
     }
   ]
