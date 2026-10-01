@@ -6268,5 +6268,33 @@
     "exit_price": 69.84,
     "return_pct": 1.1,
     "fill_price": 69.08
+  },
+  {
+    "push_date": "2026-10-01",
+    "name": "鴻準",
+    "ticker": "2354.TW",
+    "score": 71,
+    "price": 67.0999984741211,
+    "entry_mid": 66.59,
+    "stop": 66.21,
+    "tp1": 67.16,
+    "tp2": 67.35,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-10-01",
+    "name": "台新金",
+    "ticker": "2887.TW",
+    "score": 70,
+    "price": 41.29999923706055,
+    "entry_mid": 40.99,
+    "stop": 40.89,
+    "tp1": 41.14,
+    "tp2": 41.19,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
