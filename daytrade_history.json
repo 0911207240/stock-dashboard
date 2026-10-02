@@ -6279,9 +6279,10 @@
     "stop": 66.21,
     "tp1": 67.16,
     "tp2": 67.35,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 66.21,
+    "return_pct": 0.32,
+    "fill_price": 66.0
   },
   {
     "push_date": "2026-10-01",
@@ -6293,8 +6294,9 @@
     "stop": 40.89,
     "tp1": 41.14,
     "tp2": 41.19,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "停損",
+    "exit_price": 40.89,
+    "return_pct": -0.24,
+    "fill_price": 40.99
   }
 ]
