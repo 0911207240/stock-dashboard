@@ -6298,5 +6298,61 @@
     "exit_price": 40.89,
     "return_pct": -0.24,
     "fill_price": 40.99
+  },
+  {
+    "push_date": "2026-10-05",
+    "name": "東和鋼鐵",
+    "ticker": "2006.TW",
+    "score": 72,
+    "price": 86.5999984741211,
+    "entry_mid": 86.28,
+    "stop": 84.55,
+    "tp1": 88.88,
+    "tp2": 89.74,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-10-05",
+    "name": "佳世達",
+    "ticker": "2352.TW",
+    "score": 72,
+    "price": 29.200000762939453,
+    "entry_mid": 29.2,
+    "stop": 28.66,
+    "tp1": 30.01,
+    "tp2": 30.28,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-10-05",
+    "name": "兆豐金",
+    "ticker": "2886.TW",
+    "score": 71,
+    "price": 48.849998474121094,
+    "entry_mid": 48.48,
+    "stop": 47.91,
+    "tp1": 49.33,
+    "tp2": 49.62,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
+  },
+  {
+    "push_date": "2026-10-05",
+    "name": "台灣大",
+    "ticker": "3045.TW",
+    "score": 71,
+    "price": 122.0,
+    "entry_mid": 121.9,
+    "stop": 120.4,
+    "tp1": 124.15,
+    "tp2": 124.9,
+    "result": null,
+    "exit_price": null,
+    "return_pct": null
   }
 ]
