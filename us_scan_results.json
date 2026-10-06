@@ -1,41 +1,17 @@
 {
-  "date": "2026-10-02",
-  "timestamp": "2026-10-02 08:58",
+  "date": "2026-10-06",
+  "timestamp": "2026-10-06 09:49",
   "signals": [
     {
-      "name": "ASML",
-      "ticker": "ASML",
+      "name": "KLA",
+      "ticker": "KLAC",
       "score": -2,
-      "price": 1811.67,
-      "change_pct": -1.24,
-      "vol_ratio": 0.97,
+      "price": 206.85,
+      "change_pct": -0.02,
+      "vol_ratio": 1.03,
       "signals": [
-        "KD 死亡交叉 (K=85.9)",
+        "KD 死亡交叉 (K=93.2)",
         "布林通道上軌回落"
-      ]
-    },
-    {
-      "name": "應用材料",
-      "ticker": "AMAT",
-      "score": -2,
-      "price": 511.38,
-      "change_pct": -0.12,
-      "vol_ratio": 1.08,
-      "signals": [
-        "KD 死亡交叉 (K=95.8)",
-        "布林通道上軌回落"
-      ]
-    },
-    {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
-      "score": 2,
-      "price": 249.15,
-      "change_pct": 1.01,
-      "vol_ratio": 1.19,
-      "signals": [
-        "KD 黃金交叉 (K=29.9)",
-        "威廉%R 超賣反彈 (-68.1)"
       ]
     }
   ]
