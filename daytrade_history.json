@@ -6309,9 +6309,10 @@
     "stop": 84.55,
     "tp1": 88.88,
     "tp2": 89.74,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 86.8,
+    "return_pct": 1.17,
+    "fill_price": 85.8
   },
   {
     "push_date": "2026-10-05",
@@ -6323,9 +6324,10 @@
     "stop": 28.66,
     "tp1": 30.01,
     "tp2": 30.28,
-    "result": null,
-    "exit_price": null,
-    "return_pct": null
+    "result": "未觸發",
+    "exit_price": 29.1,
+    "return_pct": -0.34,
+    "fill_price": 29.2
   },
   {
     "push_date": "2026-10-05",
@@ -6337,9 +6339,10 @@
     "stop": 47.91,
     "tp1": 49.33,
     "tp2": 49.62,
-    "result": null,
+    "result": "未成交",
     "exit_price": null,
-    "return_pct": null
+    "return_pct": null,
+    "fill_price": null
   },
   {
     "push_date": "2026-10-05",
@@ -6351,8 +6354,9 @@
     "stop": 120.4,
     "tp1": 124.15,
     "tp2": 124.9,
-    "result": null,
+    "result": "未成交",
     "exit_price": null,
-    "return_pct": null
+    "return_pct": null,
+    "fill_price": null
   }
 ]
