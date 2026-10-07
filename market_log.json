@@ -1134,5 +1134,20 @@
     ],
     "portfolio_value": 1354564.0,
     "portfolio_pnl": 398224.0
+  },
+  {
+    "date": "2026-10-07",
+    "taiex_close": 49950.56,
+    "taiex_chg_pct": 0.26,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 70,
+    "top_sectors": [
+      "PCB/基板績優",
+      "晶圓代工/零組件",
+      "光電"
+    ],
+    "portfolio_value": 1361775.0,
+    "portfolio_pnl": 405435.0
   }
 ]
