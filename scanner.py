@@ -398,6 +398,16 @@ def run_scan(min_score: int = 2, notify: bool = True):
             })
             print(f"  週報已存入 scan_results.json（勝率 {stats['win_rate']}%）")
 
+        try:
+            from performance_report import write_report as _desk_report
+            _patch_scan_results({
+                "desk_report":      _desk_report(),
+                "desk_report_date": datetime.now().strftime("%Y-%m-%d"),
+            })
+            print("  績效部週報已存入 scan_results.json / performance_report.md")
+        except Exception as _e:
+            print(f"  [績效部週報] 產生失敗（不影響推播）：{_e}")
+
     # 每月 1 日：月報
     if notify and datetime.now().day == 1:
         mperf = calc_monthly_performance(taiex_df=taiex_df)
