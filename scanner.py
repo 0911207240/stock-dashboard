@@ -158,6 +158,13 @@ def run_scan(min_score: int = 2, notify: bool = True):
     # 0. 預載基本面快取 + 回查昨日當沖結果 + 偵測大盤狀態
     prefetch_all(WATCHLIST)
     update_daytrade_results(dict(all_data))
+    try:
+        from shadow_ledger import settle as _shadow_settle
+        _n = _shadow_settle(dict(all_data))
+        if _n:
+            print(f"  影子紀錄回填 {_n} 項")
+    except Exception as _e:
+        print(f"  [影子紀錄] 回填失敗（不影響推播）：{_e}")
 
     from data_fetcher import fetch_taiex
     taiex_df = fetch_taiex(period="3mo")
@@ -279,11 +286,12 @@ def run_scan(min_score: int = 2, notify: bool = True):
     print(f"掃描完成，共 {len(found)} 檔有訊號")
 
     # 3. 隔日當沖候選（依大盤狀態動態門檻，含冷卻過濾 + 個股歷史勝率調整）
-    dt_candidates = get_daytrade_candidates(
+    _shadow_pool = get_daytrade_candidates(
         analyzed_data, WATCHLIST,
         inst_cache=inst_cache, margin_cache=margin_cache,
-        top_n=10, pre_analyzed=True,
+        top_n=60, pre_analyzed=True,
     )
+    dt_candidates = _shadow_pool[:10]   # 推播邏輯仍只看前 10；其餘只進影子紀錄
     for c in dt_candidates:
         # 財報前 3 天內自動降分（高不確定性）
         if has_earnings_risk(c["name"], c["ticker"], days_ahead=3):
@@ -328,6 +336,13 @@ def run_scan(min_score: int = 2, notify: bool = True):
         print(f"  當沖候選 Top{len(push_list)}（{regime['state']}，門檻{base_min_score}）→ 存入 scan_results.json")
     else:
         print(f"  無當沖候選（{regime['state']}，門檻{base_min_score}，或全在冷卻期）")
+
+    try:
+        from shadow_ledger import record_candidates as _shadow_record
+        _n = _shadow_record(_shadow_pool, dict(all_data), {c["name"] for c in push_list}, regime)
+        print(f"  影子紀錄新增 {_n} 筆（候選池 {len(_shadow_pool)} 檔）")
+    except Exception as _e:
+        print(f"  [影子紀錄] 寫入失敗（不影響推播）：{_e}")
 
     # 存掃描結果供儀表板「今日快報」頁籤顯示
     _save_scan_results(found, regime, push_list)
