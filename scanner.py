@@ -338,6 +338,18 @@ def run_scan(min_score: int = 2, notify: bool = True):
         print(f"  無當沖候選（{regime['state']}，門檻{base_min_score}，或全在冷卻期）")
 
     try:
+        from devils_advocate import challenge as _challenge
+        for _c in _shadow_pool:
+            _c["bear"] = _challenge(_c, analyzed_data.get(_c["name"]), regime)
+    except Exception as _e:
+        print(f"  [反方分析師] 失敗（不影響推播）：{_e}")
+    try:
+        from risk_officer import log_today as _risk_log, load_history as _risk_hist
+        _r = _risk_log(_risk_hist(), regime, datetime.now().strftime("%Y-%m-%d"), len(push_list))
+        print(f"  風控長（影子）：{_r['level']} {'、'.join(_r['reasons'])}")
+    except Exception as _e:
+        print(f"  [風控長] 失敗（不影響推播）：{_e}")
+    try:
         from shadow_ledger import record_candidates as _shadow_record
         _n = _shadow_record(_shadow_pool, dict(all_data), {c["name"] for c in push_list}, regime)
         print(f"  影子紀錄新增 {_n} 筆（候選池 {len(_shadow_pool)} 檔）")

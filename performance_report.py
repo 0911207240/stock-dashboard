@@ -29,6 +29,9 @@ def _load_df() -> pd.DataFrame:
         return df
     for h in (1, 3, 5):
         df[f"r{h}"] = df["ret"].apply(lambda d, k=str(h): d.get(k) if isinstance(d, dict) else None)
+    if "bear" not in df:
+        df["bear"] = None
+    df["bear_n"] = df["bear"].apply(lambda b: len(b) if isinstance(b, list) else None)
     return df
 
 
@@ -53,6 +56,58 @@ def _spearman(x: pd.Series, y: pd.Series):
     if len(d) < MIN_N or d.iloc[:, 0].nunique() < 3:
         return None
     return d.iloc[:, 0].rank().corr(d.iloc[:, 1].rank())
+
+
+def _desk_sections(df: pd.DataFrame, s: pd.DataFrame) -> list:
+    out = []
+
+    # 反方分析師：異議越多是否報酬越差
+    out += ["", "【反方分析師】（異議越多，報酬是不是越差？）"]
+    b = s[s["bear_n"].notna()]
+    if b.empty:
+        out.append("  尚無標註資料")
+    else:
+        for label, g in (("0 項異議", b[b["bear_n"] == 0]), ("1 項異議", b[b["bear_n"] == 1]),
+                         ("2 項以上", b[b["bear_n"] >= 2])):
+            out.append(f"  {label}：{_row(g)}")
+        from collections import Counter
+        from devils_advocate import OBJECTIONS
+        cnt = Counter(code for lst in b["bear"] if isinstance(lst, list) for code in lst)
+        if cnt:
+            out.append("  最常見異議：" + "、".join(f"{OBJECTIONS.get(k, k)}×{v}" for k, v in cnt.most_common(3)))
+
+    # 風控長：規則重播
+    out += ["", "【風控長】（影子模式，未阻擋任何推播）"]
+    try:
+        import risk_officer as R
+        hist = R.load_history()
+        bt = R.backtest_rules(hist)
+        names = {"normal": "正常", "caution": "降倉", "halt": "停手"}
+        for k in ("normal", "caution", "halt"):
+            v = bt[k]
+            out.append(f"  {names[k]}日：{v['n']} 筆" + (f"｜平均 {_fmt(v['avg'])}" if v["avg"] is not None else ""))
+        d = bt["delta_if_applied"]
+        verdict = "規則有幫助" if d > 0 else "規則反而少賺，暫不啟用"
+        out.append(f"  若套用（停手日不進場、降倉日半倉）：總報酬 {d:+.1f} 個百分點 → {verdict}")
+    except Exception as e:
+        out.append(f"  重播失敗：{e}")
+
+    # 事後檢討官
+    out += ["", "【事後檢討官】（近7日停損單分類）"]
+    try:
+        import post_mortem as PM
+        from risk_officer import load_history as _lh
+        r = PM.classify(df, _lh())
+        if not r.get("n"):
+            out.append("  近7日無停損單")
+        else:
+            out.append(f"  共 {r['n']} 筆停損")
+            for k, v in r["cats"].items():
+                out.append(f"  {k}：{len(v)} 筆（{'；'.join(v[:2])}{'…' if len(v) > 2 else ''}）")
+            out.append("  最差三筆：" + "、".join(r["worst"]))
+    except Exception as e:
+        out.append(f"  分類失敗：{e}")
+    return out
 
 
 def build_report() -> str:
@@ -106,6 +161,8 @@ def build_report() -> str:
         lines += ["", "【大盤狀態分組】"]
         for reg, g in s.groupby("regime"):
             lines.append(f"  {reg}：{_row(g)}")
+
+    lines += _desk_sections(df, s)
 
     lines += ["", "解讀提醒：相關在 ±0.05 內視為沒有預測力；資料天數少於 20 個交易日時，任何差異都可能只是運氣。"]
     return "\n".join(lines)

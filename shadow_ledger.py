@@ -79,6 +79,7 @@ def record_candidates(candidates: list[dict], all_data: dict, pushed_names: set,
             "earn_risk":  bool(c.get("earnings_risk")),
             "regime":     (regime or {}).get("state"),
             "pushed":     c["name"] in pushed_names,
+            "bear":       list(c.get("bear") or []),   # 反方分析師異議代碼
             "price":      _num(c.get("price")),
             "entry_mid":  _num(c.get("entry_mid")),
             "stop":       _num(c.get("stop")),
