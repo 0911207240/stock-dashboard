@@ -71,10 +71,10 @@ def run_backtest(
 
         if hit_tp and not hit_stop:
             outcome    = "win"
-            exit_price = tp1
+            exit_price = max(tp1, actual_entry)    # 開盤已跳空高於停利價 → 掛單在開盤即成交，不計虛擬虧損
         elif hit_stop:                     # 含兩者同日 → 保守計敗
             outcome    = "loss"
-            exit_price = stop
+            exit_price = min(stop, actual_entry)   # 開盤已跳空低於停損價 → 以進場價出場，不憑空獲利
         else:                              # 收盤強制結算
             exit_price = nxt_close
             outcome    = "win" if exit_price > actual_entry else "loss"
@@ -257,6 +257,33 @@ def suggest_multipliers(corr_dict: dict) -> dict:
     return suggested
 
 
+WEIGHT_AUTO_APPLY = False   # False＝只記錄不套用
+
+
+def _log_suggested_weights(corrs: dict, suggested: dict, current: dict, agg: dict):
+    """把本週回測的相關係數與建議倍率追加到 weights_shadow_log.json（保留最近 52 週）。"""
+    import json
+    import os
+    from datetime import datetime
+    path = os.path.join(os.path.dirname(__file__), "weights_shadow_log.json")
+    try:
+        log = []
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                log = json.load(f)
+        log.append({
+            "date":      datetime.now().strftime("%Y-%m-%d"),
+            "trades":    agg.get("total_trades", 0),
+            "corr":      {k: float(v) for k, v in corrs.items()},
+            "suggested": {k: float(v) for k, v in suggested.items()},
+            "current":   {k: float(v) for k, v in current.items()},
+        })
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(log[-52:], f, ensure_ascii=False, indent=1)
+    except Exception:
+        pass
+
+
 def auto_update_weights(
     all_data: dict,
     watchlist: dict,
@@ -285,6 +312,16 @@ def auto_update_weights(
 
     new_mults = suggest_multipliers(corrs)
     old_mults = load_multipliers()
+
+    if not WEIGHT_AUTO_APPLY:
+        # 2026-10 凍結：相關係數絕對值皆 < 0.07（近乎雜訊），卻被放大成 0.5~2.0 倍權重，每週亂跳。
+        # 只記錄建議值，待影子紀錄累積 20+ 交易日驗證子分數預測力後再決定是否恢復套用。
+        _log_suggested_weights(corrs, new_mults, old_mults, agg)
+        return {
+            "updated": False,
+            "reason":  "權重自動調整已凍結（只記錄建議值，見 weights_shadow_log.json）",
+        }
+
     save_multipliers(new_mults)
 
     return {
