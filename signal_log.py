@@ -165,9 +165,9 @@ def update_daytrade_results(all_data: dict) -> list:
 
         fill = min(open_nxt, entry_mid)
         if low <= stop and high >= tp1:
-            result, exit_price = "停損", stop          # 同日保守計停損
+            result, exit_price = "停損", min(stop, fill)   # 同日保守計停損；開盤已跳空低於停損價則以成交價出場
         elif low <= stop:
-            result, exit_price = "停損", stop
+            result, exit_price = "停損", min(stop, fill)   # （2026-10 修正：舊版以停損價出場，跳空日會憑空獲利）
         elif high >= tp2:
             result, exit_price = "停利②", tp2
         elif high >= tp1:

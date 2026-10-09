@@ -132,7 +132,7 @@ def settle(all_data: dict) -> int:
             else:
                 fill = min(o, em)
                 if stop and lo <= stop:
-                    res, ex = "停損", stop
+                    res, ex = "停損", min(stop, fill)   # 開盤已跳空低於停損價 → 以成交價出場，不憑空獲利
                 elif tp2 and hi >= tp2:
                     res, ex = "停利②", tp2
                 elif tp1 and hi >= tp1:
