@@ -1294,6 +1294,83 @@ with tab7:
             fig_bar.update_layout(template="plotly_dark", showlegend=True)
             st.plotly_chart(fig_bar, use_container_width=True)
 
+        # ── 分布分析：報酬分布 / 分數區間 / 產業分布 ──────────
+        if decided:
+            st.markdown("---")
+            st.subheader("📊 分布分析")
+            _d = pd.DataFrame(decided)
+            _d["return_pct"] = pd.to_numeric(_d["return_pct"], errors="coerce")
+            _d["score"]      = pd.to_numeric(_d.get("score"), errors="coerce")
+            _d = _d.dropna(subset=["return_pct"])
+            _COST = 0.23   # 與上方扣成本假設一致
+            _MIN  = 10     # 樣本少於此數只標筆數，不下結論
+
+            if len(_d) >= _MIN:
+                # 1) 報酬分布直方圖（看是「少數大賺撐著」還是「穩定小賺」）
+                _fig_h = px.histogram(
+                    _d, x="return_pct", nbins=30,
+                    labels={"return_pct": "單筆毛報酬 %", "count": "筆數"},
+                    height=280, color_discrete_sequence=["#5dade2"],
+                )
+                _fig_h.add_vline(x=0, line_dash="dash", line_color="#aaaaaa")
+                _fig_h.add_vline(x=_d["return_pct"].mean(), line_color="#f1c40f",
+                                 annotation_text=f"均 {_d['return_pct'].mean():+.2f}%")
+                _fig_h.update_layout(template="plotly_dark", margin=dict(l=10, r=10, t=10, b=10))
+                st.plotly_chart(_fig_h, use_container_width=True)
+                _q = _d["return_pct"].quantile([0.1, 0.5, 0.9]).round(2)
+                st.caption(f"分位數：P10 {_q[0.1]:+.2f}%　中位數 {_q[0.5]:+.2f}%　P90 {_q[0.9]:+.2f}%"
+                           "　（平均被少數極端值拉動時，中位數更接近日常感受）")
+
+                # 2) 分數區間
+                st.markdown("##### 分數區間 vs 報酬")
+                _bins = [(0, 50), (50, 60), (60, 70), (70, 80), (80, 101)]
+                _rows_b = []
+                for lo, hi in _bins:
+                    g = _d[(_d["score"] >= lo) & (_d["score"] < hi)]
+                    if g.empty:
+                        continue
+                    if len(g) < _MIN:
+                        _rows_b.append({"區間": f"{lo}–{min(hi, 100)}", "筆數": len(g),
+                                        "毛均%": "樣本不足", "扣成本均%": "—", "勝率%": "—"})
+                    else:
+                        m = g["return_pct"].mean()
+                        _rows_b.append({"區間": f"{lo}–{min(hi, 100)}", "筆數": len(g),
+                                        "毛均%": round(m, 2), "扣成本均%": round(m - _COST, 2),
+                                        "勝率%": round((g["return_pct"] > 0).mean() * 100, 1)})
+                if _rows_b:
+                    st.dataframe(pd.DataFrame(_rows_b), use_container_width=True, hide_index=True)
+
+                # 3) 產業分布（以主題群組以外的產業分類，每檔取第一個命中的）
+                _IND = ["銀行/金控", "水泥", "航運", "石化", "鋼鐵", "半導體供應鏈", "IC設計績優",
+                        "PCB/基板績優", "封裝測試績優", "晶圓代工/零組件", "光電", "電腦周邊",
+                        "網通設備", "電源/散熱績優", "連接器/精密零件", "資訊服務/雲端",
+                        "高殖利率ETF", "槓桿ETF", "生技醫療", "科技/ETF", "美股"]
+                _ind_of = {}
+                for _s in _IND:
+                    for _n in SECTORS.get(_s, []):
+                        _ind_of.setdefault(_n, _s)
+                _d["產業"] = _d["name"].map(lambda n: _ind_of.get(n, "其他"))
+                _ind = (_d.groupby("產業")["return_pct"]
+                          .agg(筆數="count", 毛均="mean").reset_index()
+                          .sort_values("筆數", ascending=False))
+                st.markdown("##### 推播產業分布")
+                _c1, _c2 = st.columns(2)
+                with _c1:
+                    _fig_i = px.bar(_ind, x="筆數", y="產業", orientation="h", height=360,
+                                    color_discrete_sequence=["#48c9b0"])
+                    _fig_i.update_layout(template="plotly_dark", yaxis=dict(autorange="reversed"),
+                                         margin=dict(l=10, r=10, t=10, b=10))
+                    st.plotly_chart(_fig_i, use_container_width=True)
+                with _c2:
+                    _t = _ind.copy()
+                    _t["毛均%"] = _t.apply(lambda r: round(r["毛均"], 2) if r["筆數"] >= _MIN else "樣本不足", axis=1)
+                    st.dataframe(_t[["產業", "筆數", "毛均%"]], use_container_width=True, hide_index=True)
+                _top = _ind.iloc[0]
+                st.caption(f"集中度：{_top['產業']} 佔 {_top['筆數'] / len(_d) * 100:.0f}% 的推播。"
+                           "產業分類取每檔第一個命中的產業群組，未歸類顯示「其他」。")
+            else:
+                st.info(f"已結案樣本 {len(_d)} 筆，少於 {_MIN} 筆，暫不顯示分布分析。")
+
         # ── 歷史明細表 ──────────────────────────────
         st.markdown("---")
         st.subheader("推播明細")
