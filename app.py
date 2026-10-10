@@ -206,8 +206,8 @@ def row_color(row, col="漲跌%"):
     return [""] * len(row)
 
 # ── Tabs ──────────────────────────────────────────
-tab_today, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
-    "📡 今日快報", "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效", "💰 ETF 追蹤"
+tab_today, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+    "📡 今日快報", "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效", "💰 ETF 追蹤", "🏢 績效部"
 ])
 
 # ══════════════════════════════════════════════════
@@ -1191,7 +1191,16 @@ with tab6:
                     suggested = suggest_multipliers(corrs)
                     st.markdown("**建議倍率調整**：" +
                                 "　".join(f"{k} → {v}x" for k, v in suggested.items()))
-                    if st.button("✨ 套用建議權重", key="apply_weights"):
+                    _max_abs_r = max((abs(v) for v in corrs.values()), default=0)
+                    _noise = _max_abs_r < 0.1
+                    if _noise:
+                        st.warning(
+                            f"⚠️ 各維度與報酬的相關係數最大僅 {_max_abs_r:.2f}（< 0.1），"
+                            "接近雜訊，建議倍率可能被放大。自動調權重目前已凍結（backtest.WEIGHT_AUTO_APPLY=False），"
+                            "請在影子紀錄累積 20+ 交易日、驗證子分數有預測力後再手動套用。"
+                        )
+                    _ok = st.checkbox("我了解風險，仍要套用", key="apply_weights_ok") if _noise else True
+                    if st.button("✨ 套用建議權重", key="apply_weights", disabled=not _ok):
                         save_multipliers(suggested)
                         st.success("已套用！重新跑評分即可生效。")
                 else:
@@ -1236,6 +1245,22 @@ with tab7:
         col_c.metric("平均報酬", f"{'+' if stats['avg_return'] >= 0 else ''}{stats['avg_return']}%")
         col_d.metric("停利①", stats["tp1"])
         col_e.metric("停損", stats["stop"])
+
+        # ── 扣成本後淨報酬（毛報酬未扣手續費與稅）──────────
+        # 當沖證交稅 0.15% ＋ 手續費 0.1425%×2.8折×買賣兩次 ≈ 0.08%（最低 $1 手續費不計）
+        DT_COST_PCT = 0.23
+        n_dec   = stats["total"]
+        net_avg = round(stats["avg_return"] - DT_COST_PCT, 2)
+        net_sum = round(stats["avg_return"] * n_dec - DT_COST_PCT * n_dec, 1)
+        st.info(
+            "📝 目前為**紙上交易觀察**（暫停實單、推播照常）。上方報酬為毛報酬，未扣手續費與稅。"
+        )
+        cn1, cn2, cn3 = st.columns(3)
+        cn1.metric("毛平均報酬 / 筆", f"{stats['avg_return']:+.2f}%")
+        cn2.metric("扣成本後平均 / 筆", f"{net_avg:+.2f}%",
+                   delta="淨獲利" if net_avg > 0 else "淨虧損", delta_color="normal" if net_avg > 0 else "inverse")
+        cn3.metric(f"扣成本後累計（{n_dec} 筆）", f"{net_sum:+.1f} 點")
+        st.caption(f"成本假設：每筆來回約 {DT_COST_PCT}%（證交稅 0.15% ＋ 手續費 2.8 折）。實際依券商費率為準。")
 
         # ── 月度績效 ──────────────────────────────
         st.markdown("---")
@@ -1313,3 +1338,94 @@ with tab7:
 # ══════════════════════════════════════════════════
 with tab8:
     etf_tracker.render()
+
+# ══════════════════════════════════════════════════
+# Tab 9：績效部（影子帳本）
+# ══════════════════════════════════════════════════
+with tab9:
+    import json as _json
+    import os as _os
+
+    st.header("🏢 績效部：分數到底有沒有預測力")
+    st.caption("資料來源：shadow_ledger.json（每日候選前 60 檔記帳，含未推播者）。全部為毛報酬，未扣手續費與稅。"
+               "樣本不足的區間只標示筆數，不下結論。")
+
+    _LEDGER = _os.path.join(_os.path.dirname(__file__), "shadow_ledger.json")
+    _REPORT = _os.path.join(_os.path.dirname(__file__), "performance_report.md")
+    _MIN_N  = 10
+    _COST   = 0.23   # 當沖來回成本 %（證交稅 0.15% ＋ 手續費 2.8 折）
+
+    _rows = []
+    if _os.path.exists(_LEDGER):
+        try:
+            with open(_LEDGER, "r", encoding="utf-8") as _f:
+                _rows = _json.load(_f)
+        except Exception:
+            _rows = []
+
+    if not _rows:
+        st.info("尚無影子紀錄。排程掃描跑完並 commit shadow_ledger.json 後（需 git pull），這裡會開始累積；"
+                "約 20 個交易日後才有參考價值。")
+    else:
+        _df = pd.DataFrame(_rows)
+        _df["sim_ret"] = pd.to_numeric(_df.get("sim_ret"), errors="coerce")
+        for _h in ("1", "3", "5"):
+            _df[f"r{_h}"] = _df["ret"].apply(
+                lambda d, k=_h: d.get(k) if isinstance(d, dict) else None
+            ).astype(float)
+        _traded = _df[_df["sim"].notna() & (_df["sim"] != "未成交")]
+
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("紀錄筆數", len(_df))
+        c2.metric("涵蓋交易日", _df["date"].nunique())
+        c3.metric("已回填 T+1", int(_df["sim"].notna().sum()))
+        c4.metric("模擬成交筆數", len(_traded))
+
+        def _fmt_stats(g):
+            tr = g[g["sim"].notna() & (g["sim"] != "未成交")]
+            n  = len(tr)
+            if n < _MIN_N:
+                return {"筆數": len(g), "成交": n, "當沖毛均%": "樣本不足", "扣成本均%": "—",
+                        "勝率%": "—", "T+1收盤%": "—", "T+3收盤%": "—", "T+5收盤%": "—"}
+            avg = tr["sim_ret"].mean()
+            return {
+                "筆數": len(g), "成交": n,
+                "當沖毛均%": round(avg, 2),
+                "扣成本均%": round(avg - _COST, 2),
+                "勝率%": round((tr["sim_ret"] > 0).mean() * 100, 1),
+                "T+1收盤%": round(g["r1"].mean(), 2) if g["r1"].notna().sum() >= _MIN_N else "—",
+                "T+3收盤%": round(g["r3"].mean(), 2) if g["r3"].notna().sum() >= _MIN_N else "—",
+                "T+5收盤%": round(g["r5"].mean(), 2) if g["r5"].notna().sum() >= _MIN_N else "—",
+            }
+
+        st.subheader("分數區間")
+        _bins = [(0, 50), (50, 60), (60, 70), (70, 80), (80, 101)]
+        _tbl = []
+        for lo, hi in _bins:
+            g = _df[(_df["score"] >= lo) & (_df["score"] < hi)]
+            if len(g):
+                _tbl.append({"區間": f"{lo}–{min(hi, 100)}", **_fmt_stats(g)})
+        if _tbl:
+            st.dataframe(pd.DataFrame(_tbl), use_container_width=True, hide_index=True)
+
+        st.subheader("有推播 vs 未推播（同樣候選池）")
+        _cmp = [{"組別": "有推播", **_fmt_stats(_df[_df["pushed"] == True])},
+                {"組別": "未推播", **_fmt_stats(_df[_df["pushed"] == False])}]
+        st.dataframe(pd.DataFrame(_cmp), use_container_width=True, hide_index=True)
+
+        st.subheader("反方分析師異議")
+        _has = _df[_df["bear"].apply(lambda b: isinstance(b, list) and len(b) > 0)]
+        _non = _df[_df["bear"].apply(lambda b: not (isinstance(b, list) and len(b) > 0))]
+        st.dataframe(pd.DataFrame([
+            {"組別": "有異議", **_fmt_stats(_has)},
+            {"組別": "無異議", **_fmt_stats(_non)},
+        ]), use_container_width=True, hide_index=True)
+        st.caption("反方異議的用途是看「被提醒的候選是否真的表現較差」，目前為影子模式，不影響推播。")
+
+        if _os.path.exists(_REPORT):
+            with st.expander("📄 績效部週報（performance_report.md，每週一產出）"):
+                try:
+                    with open(_REPORT, "r", encoding="utf-8") as _f:
+                        st.markdown(_f.read())
+                except Exception:
+                    st.info("週報讀取失敗")
