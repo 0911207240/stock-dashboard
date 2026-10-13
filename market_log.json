@@ -1179,5 +1179,20 @@
     ],
     "portfolio_value": 1354530.0,
     "portfolio_pnl": 398189.0
+  },
+  {
+    "date": "2026-10-13",
+    "taiex_close": 48241.99,
+    "taiex_chg_pct": -2.15,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 75,
+    "top_sectors": [
+      "石化",
+      "航運",
+      "光電"
+    ],
+    "portfolio_value": 1328994.0,
+    "portfolio_pnl": 372654.0
   }
 ]
