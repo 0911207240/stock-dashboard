@@ -1,66 +1,30 @@
 {
-  "date": "2026-10-10",
-  "timestamp": "2026-10-10 09:04",
+  "date": "2026-10-13",
+  "timestamp": "2026-10-13 10:39",
   "signals": [
     {
       "name": "亞馬遜",
       "ticker": "AMZN",
       "score": -3,
-      "price": 254.06,
-      "change_pct": -2.25,
-      "vol_ratio": 1.06,
+      "price": 259.53,
+      "change_pct": -1.11,
+      "vol_ratio": 0.78,
       "signals": [
-        "KD 死亡交叉 (K=60.5)",
+        "KD 死亡交叉 (K=76.3)",
         "布林通道上軌回落",
-        "威廉%R 超買回落 (-39.5)"
+        "威廉%R 超買回落 (-22.0)"
       ]
     },
     {
-      "name": "微軟",
-      "ticker": "MSFT",
+      "name": "戴爾",
+      "ticker": "DELL",
       "score": -2,
-      "price": 522.61,
-      "change_pct": -1.35,
-      "vol_ratio": 0.99,
+      "price": 576.76,
+      "change_pct": -1.59,
+      "vol_ratio": 1.03,
       "signals": [
-        "KD 死亡交叉 (K=60.9)",
-        "威廉%R 超買回落 (-29.4)"
-      ]
-    },
-    {
-      "name": "超微半導體",
-      "ticker": "AMD",
-      "score": -2,
-      "price": 620.68,
-      "change_pct": -3.9,
-      "vol_ratio": 1.18,
-      "signals": [
-        "RSI 從超買區回落 (61.3)",
-        "威廉%R 超買回落 (-49.6)"
-      ]
-    },
-    {
-      "name": "博通",
-      "ticker": "AVGO",
-      "score": -2,
-      "price": 360.14,
-      "change_pct": -4.35,
-      "vol_ratio": 1.11,
-      "signals": [
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-55.1)"
-      ]
-    },
-    {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": -2,
-      "price": 198.78,
-      "change_pct": 2.4,
-      "vol_ratio": 1.89,
-      "signals": [
-        "KD 死亡交叉 (K=71.2)",
-        "威廉%R 超買回落 (-20.4)"
+        "KD 死亡交叉 (K=75.6)",
+        "威廉%R 超買回落 (-24.4)"
       ]
     }
   ]
