@@ -1,30 +1,29 @@
 {
-  "date": "2026-10-14",
-  "timestamp": "2026-10-14 08:26",
+  "date": "2026-10-15",
+  "timestamp": "2026-10-15 07:59",
   "signals": [
     {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
-      "score": -3,
-      "price": 259.53,
-      "change_pct": -1.11,
-      "vol_ratio": 0.78,
+      "name": "微軟",
+      "ticker": "MSFT",
+      "score": -2,
+      "price": 533.69,
+      "change_pct": -1.8,
+      "vol_ratio": 1.08,
       "signals": [
-        "KD 死亡交叉 (K=76.3)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-22.0)"
+        "RSI 從超買區回落 (62.5)",
+        "威廉%R 超買回落 (-32.4)"
       ]
     },
     {
-      "name": "戴爾",
-      "ticker": "DELL",
+      "name": "Palantir",
+      "ticker": "PLTR",
       "score": -2,
-      "price": 576.76,
-      "change_pct": -1.59,
-      "vol_ratio": 1.04,
+      "price": 200.97,
+      "change_pct": -3.69,
+      "vol_ratio": 0.82,
       "signals": [
-        "KD 死亡交叉 (K=75.6)",
-        "威廉%R 超買回落 (-24.4)"
+        "RSI 從超買區回落 (63.3)",
+        "威廉%R 超買回落 (-42.6)"
       ]
     }
   ]
