@@ -1194,5 +1194,20 @@
     ],
     "portfolio_value": 1328994.0,
     "portfolio_pnl": 372654.0
+  },
+  {
+    "date": "2026-10-14",
+    "taiex_close": 48641.23,
+    "taiex_chg_pct": 0.83,
+    "regime": "多頭",
+    "regime_emoji": "🟢",
+    "min_score": 70,
+    "top_sectors": [
+      "石化",
+      "航運",
+      "銀行/金控"
+    ],
+    "portfolio_value": 1339417.0,
+    "portfolio_pnl": 383077.0
   }
 ]

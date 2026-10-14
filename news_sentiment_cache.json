@@ -1,20 +1,18 @@
 {
   "2330": {
-    "fetched_at": "2026-10-13T11:15:30.567025",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+buy"
-    ],
+    "fetched_at": "2026-10-14T09:25:46.634990",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "TSMC Revenue Growth Accelerated Faster Than Expected Last Quarter. Here's Why It's My Top AI Chip Stock to Buy.",
-      "The Death of Cheap Smartphones? Taiwan Semiconductor Could Profit From Major Market Shift",
-      "Is ASML Holding NV's Stock a Buy Ahead of Its Q3 Earnings Report Wednesday?"
+      "You Bought a Semiconductor Fund. On $500,000, $87,743 of It Is NVIDIA",
+      "ASML Is About to Kick Off Tech Earnings. It’s a Big Deal for Chip Stocks.",
+      "TSMC vs. ASML: Which Stock Needs Less Growth to Deliver 10%?"
     ]
   },
   "0056": {
-    "fetched_at": "2026-10-13T11:14:25.416629",
+    "fetched_at": "2026-10-14T09:27:17.426044",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,7 +22,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-10-13T11:15:17.473377",
+    "fetched_at": "2026-10-14T09:26:37.221091",
     "sentiment_score": 2,
     "signal": "bullish",
     "keywords": [
@@ -38,7 +36,7 @@
     ]
   },
   "0050": {
-    "fetched_at": "2026-10-13T11:15:48.513533",
+    "fetched_at": "2026-10-14T09:26:44.067161",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -48,7 +46,7 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-10-13T11:15:48.970546",
+    "fetched_at": "2026-10-14T09:26:27.500497",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -62,7 +60,7 @@
     ]
   },
   "2882": {
-    "fetched_at": "2026-10-13T11:15:49.365777",
+    "fetched_at": "2026-10-14T09:27:17.157355",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -74,7 +72,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-10-13T11:15:49.753251",
+    "fetched_at": "2026-10-14T09:27:18.036524",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -84,7 +82,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-10-13T11:15:50.671665",
+    "fetched_at": "2026-10-14T09:27:18.309418",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -96,7 +94,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-10-13T11:15:51.990681",
+    "fetched_at": "2026-10-14T09:27:19.141829",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -106,7 +104,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-10-13T11:15:50.192692",
+    "fetched_at": "2026-10-14T09:27:17.804692",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -116,19 +114,21 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-10-13T11:15:52.602312",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-10-14T09:27:19.894049",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "Morgan Stanley (MS) Reports Earnings Tomorrow: What To Expect",
-      "ASST Stock Slips Overnight As $27 Warrant Deadline Nears — CEO Teases Strive’s Next Capital-Markets Move",
-      "What Could Morningstar (MORN) Headquarters Move To The Thompson Center Signal?"
+      "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+      "Mandatum Oyj (HLSE:MANTA) Expands Incentive Offering On A Valuation Gap Debate",
+      "Evercore (EVR) Stock May Be 31% Undervalued As Defense Hiring Expands Focus"
     ]
   },
   "2892": {
-    "fetched_at": "2026-10-13T11:15:51.475578",
+    "fetched_at": "2026-10-14T09:27:19.459241",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -139,7 +139,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-10-13T11:15:54.576413",
+    "fetched_at": "2026-10-14T09:27:21.839435",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -150,7 +150,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-10-13T11:15:53.004818",
+    "fetched_at": "2026-10-14T09:27:20.234543",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -160,7 +160,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-10-13T11:15:53.587660",
+    "fetched_at": "2026-10-14T09:27:20.553435",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -170,19 +170,21 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-10-13T11:15:51.079887",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-10-14T09:27:18.649991",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "Morgan Stanley (MS) Reports Earnings Tomorrow: What To Expect",
-      "ASST Stock Slips Overnight As $27 Warrant Deadline Nears — CEO Teases Strive’s Next Capital-Markets Move",
-      "What Could Morningstar (MORN) Headquarters Move To The Thompson Center Signal?"
+      "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+      "ASST Stock Rises Overnight: Strive Launches IPO Of 15% SATS Preferred Stock To Fund Bitcoin Purchases",
+      "Galderma to buy Zo Skin from Blackstone for $1.5 bln, Reuters reports"
     ]
   },
   "1101": {
-    "fetched_at": "2026-10-13T11:15:53.986204",
+    "fetched_at": "2026-10-14T09:27:21.305584",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -192,7 +194,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-10-13T11:15:54.927873",
+    "fetched_at": "2026-10-14T09:27:20.804576",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -202,7 +204,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-10-13T11:15:55.735872",
+    "fetched_at": "2026-10-14T09:27:22.439638",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -212,7 +214,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-10-13T11:15:55.381641",
+    "fetched_at": "2026-10-14T09:27:22.192280",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -222,7 +224,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-10-13T11:15:56.146156",
+    "fetched_at": "2026-10-14T09:27:22.735555",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -232,7 +234,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-10-13T11:15:57.061881",
+    "fetched_at": "2026-10-14T09:27:23.167346",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -242,7 +244,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-10-13T11:15:57.566366",
+    "fetched_at": "2026-10-14T09:27:23.981503",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -253,7 +255,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-10-13T11:15:56.691183",
+    "fetched_at": "2026-10-14T09:27:23.610350",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -264,7 +266,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-10-13T11:15:57.991664",
+    "fetched_at": "2026-10-14T09:27:24.214363",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -276,7 +278,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-10-13T11:15:59.031656",
+    "fetched_at": "2026-10-14T09:27:25.078074",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -291,7 +293,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-10-13T11:15:58.678616",
+    "fetched_at": "2026-10-14T09:27:24.692320",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -301,7 +303,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-10-13T11:15:58.346626",
+    "fetched_at": "2026-10-14T09:27:24.459674",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -313,7 +315,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-10-13T11:15:59.443198",
+    "fetched_at": "2026-10-14T09:27:25.863917",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -323,7 +325,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-10-13T11:15:59.856428",
+    "fetched_at": "2026-10-14T09:27:25.463971",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -333,7 +335,7 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-10-13T11:16:00.634081",
+    "fetched_at": "2026-10-14T09:27:26.590245",
     "sentiment_score": 4,
     "signal": "strong_bullish",
     "keywords": [
@@ -349,7 +351,7 @@
     ]
   },
   "3711": {
-    "fetched_at": "2026-10-13T11:16:00.214218",
+    "fetched_at": "2026-10-14T09:27:26.268493",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -357,13 +359,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "ASE Technology Hldg (ASX) Is a Great Choice for 'Trend' Investors, Here's Why",
-      "ASE Technology Holding Co., Ltd. Announces Monthly Net Revenues*",
-      "GE Vernova, Snowflake Lead 5 AI Stocks With Accelerating Growth"
+      "ASE Technology, IBD Stock Of The Day, Holds In Buy Zone Ahead Of Q3 Earnings Report",
+      "ASE Expands PowerSiP™ Platform for Next-Generation AI Power Delivery",
+      "ASE Technology Hldg (ASX) Is a Great Choice for 'Trend' Investors, Here's Why"
     ]
   },
   "2449": {
-    "fetched_at": "2026-10-13T11:16:01.125400",
+    "fetched_at": "2026-10-14T09:27:26.974285",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -375,7 +377,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-10-13T11:16:01.629883",
+    "fetched_at": "2026-10-14T09:27:27.323109",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -385,7 +387,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-10-13T11:16:02.348666",
+    "fetched_at": "2026-10-14T09:27:27.607217",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -395,7 +397,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-10-13T11:16:02.822365",
+    "fetched_at": "2026-10-14T09:27:28.132594",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -405,7 +407,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-10-13T11:16:03.268630",
+    "fetched_at": "2026-10-14T09:27:29.383522",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -415,7 +417,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-10-13T11:16:03.843384",
+    "fetched_at": "2026-10-14T09:27:28.551120",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -425,7 +427,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-10-13T11:16:04.647718",
+    "fetched_at": "2026-10-14T09:27:28.986726",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -435,7 +437,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-10-13T11:16:04.183350",
+    "fetched_at": "2026-10-14T09:27:29.682763",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -447,7 +449,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-10-13T11:16:05.024184",
+    "fetched_at": "2026-10-14T09:27:30.481658",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -459,7 +461,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-10-13T11:16:05.579330",
+    "fetched_at": "2026-10-14T09:27:30.152388",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -471,7 +473,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-10-13T11:16:06.158435",
+    "fetched_at": "2026-10-14T09:27:30.966039",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -480,13 +482,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
+      "MSI Showcases Open Data Center and AI Infrastructure at 2026 OCP Global Summit",
       "Kanguro Insurance Partners with MSI to Automate Insurance Compliance for Multifamily Communities",
-      "Motorola Solutions (MSI): Buy, Sell, or Hold Post Q2 Earnings?",
-      "MSI Secures Public Safety Contract in Louisiana: Will it Fuel Revenues?"
+      "Motorola Solutions (MSI): Buy, Sell, or Hold Post Q2 Earnings?"
     ]
   },
   "2308": {
-    "fetched_at": "2026-10-13T11:16:06.974564",
+    "fetched_at": "2026-10-14T09:27:31.390175",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -498,19 +500,19 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-10-13T11:16:06.563306",
+    "fetched_at": "2026-10-14T09:27:31.754200",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Wiwynn, Ayar Labs, and GUC Advance Co-Packaged Optics with Live Demonstration of Integrated Optical Compute System at OCP Global Summit 2026",
       "Wiwynn Showcases Next-Gen AI Platforms, Thermal Engineering, and Optical Interconnect Technologies at 2026 OCP Global Summit",
-      "Amazon Partners with Wiwynn to Expand U.S. AI Infrastructure Capacity",
-      "Ayar Labs Expands 2026 Funding to $650 Million to Scale Manufacturing-Ready CPO for AI Scale-Up Beyond the Rack"
+      "Amazon Partners with Wiwynn to Expand U.S. AI Infrastructure Capacity"
     ]
   },
   "3532": {
-    "fetched_at": "2026-10-13T11:16:08.861671",
+    "fetched_at": "2026-10-14T09:27:33.071352",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -520,7 +522,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-10-13T11:16:09.322648",
+    "fetched_at": "2026-10-14T09:27:33.864581",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -530,7 +532,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-10-13T11:16:09.757748",
+    "fetched_at": "2026-10-14T09:27:34.239496",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -540,7 +542,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-10-13T11:16:10.110937",
+    "fetched_at": "2026-10-14T09:27:34.887307",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -550,7 +552,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-10-13T11:16:11.056591",
+    "fetched_at": "2026-10-14T09:27:35.355347",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -562,7 +564,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-10-13T11:16:11.382817",
+    "fetched_at": "2026-10-14T09:27:36.351324",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -576,7 +578,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-10-13T11:16:10.601195",
+    "fetched_at": "2026-10-14T09:27:35.890704",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -586,7 +588,7 @@
     ]
   },
   "2357": {
-    "fetched_at": "2026-10-13T11:16:11.779755",
+    "fetched_at": "2026-10-14T09:27:36.788655",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -598,23 +600,22 @@
     ]
   },
   "2324": {
-    "fetched_at": "2026-10-13T11:16:12.166077",
-    "sentiment_score": 1,
-    "signal": "bullish",
+    "fetched_at": "2026-10-14T09:27:37.080426",
+    "sentiment_score": 0,
+    "signal": "neutral",
     "keywords": [
-      "+upgrade",
       "+buy",
       "-sell"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Dow Jones Futures: Micron, Nvidia Lead AI Trade Lower; Apple, Meta Rally Near Buy Points",
-      "AAOI, LITE, COHR Extend Sell-Off Overnight: AI Funding Fears Hit Optical Networking Trade, But Retail Bulls Eye Rebound",
-      "South Korea's Kospi index sinks more than 7% on semiconductor share sell-off over AI boom worries"
+      "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+      "Gartner (IT) Stock Could Be A Bargain On Cash Flow",
+      "His Silicon Valley Pay Will Jump Above $184,500. Social Security Won’t Credit Every Extra Dollar Toward His Future Benefit"
     ]
   },
   "2356": {
-    "fetched_at": "2026-10-13T11:16:13.048519",
+    "fetched_at": "2026-10-14T09:27:37.532843",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -628,7 +629,7 @@
     ]
   },
   "6488O": {
-    "fetched_at": "2026-10-13T11:16:07.482139",
+    "fetched_at": "2026-10-14T09:27:32.246393",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -640,7 +641,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-10-13T11:16:08.404827",
+    "fetched_at": "2026-10-14T09:27:33.427752",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -650,7 +651,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-10-13T11:16:07.933710",
+    "fetched_at": "2026-10-14T09:27:32.637205",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -661,7 +662,7 @@
     ]
   },
   "4938": {
-    "fetched_at": "2026-10-13T11:16:12.516660",
+    "fetched_at": "2026-10-14T09:27:37.798017",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -673,7 +674,7 @@
     ]
   },
   "2412": {
-    "fetched_at": "2026-10-13T11:16:13.423879",
+    "fetched_at": "2026-10-14T09:27:38.173623",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -687,7 +688,7 @@
     ]
   },
   "3045": {
-    "fetched_at": "2026-10-13T11:16:13.781301",
+    "fetched_at": "2026-10-14T09:27:38.469902",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -699,7 +700,7 @@
     ]
   },
   "6770": {
-    "fetched_at": "2026-10-13T11:16:14.782290",
+    "fetched_at": "2026-10-14T09:27:39.248340",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -711,7 +712,7 @@
     ]
   },
   "5347O": {
-    "fetched_at": "2026-10-13T11:16:14.318194",
+    "fetched_at": "2026-10-14T09:27:38.914073",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -723,7 +724,7 @@
     ]
   },
   "3105O": {
-    "fetched_at": "2026-10-13T11:16:15.250971",
+    "fetched_at": "2026-10-14T09:27:39.884158",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -735,7 +736,7 @@
     ]
   },
   "2327": {
-    "fetched_at": "2026-10-13T11:16:15.685926",
+    "fetched_at": "2026-10-14T09:27:40.397762",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -749,7 +750,7 @@
     ]
   },
   "2492": {
-    "fetched_at": "2026-10-13T11:16:16.168621",
+    "fetched_at": "2026-10-14T09:27:40.815649",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -761,7 +762,7 @@
     ]
   },
   "2474": {
-    "fetched_at": "2026-10-13T11:16:16.519924",
+    "fetched_at": "2026-10-14T09:27:41.136034",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -773,7 +774,7 @@
     ]
   },
   "6176": {
-    "fetched_at": "2026-10-13T11:16:17.544018",
+    "fetched_at": "2026-10-14T09:27:42.049179",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -785,7 +786,7 @@
     ]
   },
   "3037": {
-    "fetched_at": "2026-10-13T11:16:18.055427",
+    "fetched_at": "2026-10-14T09:27:42.699188",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -797,7 +798,7 @@
     ]
   },
   "2409": {
-    "fetched_at": "2026-10-13T11:16:18.464591",
+    "fetched_at": "2026-10-14T09:27:42.967363",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -809,7 +810,7 @@
     ]
   },
   "2439": {
-    "fetched_at": "2026-10-13T11:16:17.027321",
+    "fetched_at": "2026-10-14T09:27:41.530539",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -820,7 +821,7 @@
     ]
   },
   "3481": {
-    "fetched_at": "2026-10-13T11:16:19.030214",
+    "fetched_at": "2026-10-14T09:27:43.407119",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -832,7 +833,7 @@
     ]
   },
   "2344": {
-    "fetched_at": "2026-10-13T11:16:19.439678",
+    "fetched_at": "2026-10-14T09:27:43.800083",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -844,7 +845,7 @@
     ]
   },
   "2408": {
-    "fetched_at": "2026-10-13T11:16:19.839615",
+    "fetched_at": "2026-10-14T09:27:44.090350",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -856,7 +857,7 @@
     ]
   },
   "2337": {
-    "fetched_at": "2026-10-13T11:16:20.183967",
+    "fetched_at": "2026-10-14T09:27:44.346343",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -870,7 +871,7 @@
     ]
   },
   "2023": {
-    "fetched_at": "2026-10-13T11:16:21.186079",
+    "fetched_at": "2026-10-14T09:27:44.731199",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -880,7 +881,7 @@
     ]
   },
   "2006": {
-    "fetched_at": "2026-10-13T11:16:20.722596",
+    "fetched_at": "2026-10-14T09:27:45.146285",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -890,7 +891,7 @@
     ]
   },
   "2027": {
-    "fetched_at": "2026-10-13T11:16:21.614671",
+    "fetched_at": "2026-10-14T09:27:45.834150",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -900,7 +901,7 @@
     ]
   },
   "2010": {
-    "fetched_at": "2026-10-13T11:16:22.334245",
+    "fetched_at": "2026-10-14T09:27:45.466772",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -910,7 +911,7 @@
     ]
   },
   "2890": {
-    "fetched_at": "2026-10-13T11:16:21.956719",
+    "fetched_at": "2026-10-14T09:27:46.186997",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -920,7 +921,7 @@
     ]
   },
   "3264O": {
-    "fetched_at": "2026-10-13T11:16:24.577433",
+    "fetched_at": "2026-10-14T09:27:47.892965",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -930,7 +931,7 @@
     ]
   },
   "2801": {
-    "fetched_at": "2026-10-13T11:16:22.756081",
+    "fetched_at": "2026-10-14T09:27:46.597161",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -941,7 +942,7 @@
     ]
   },
   "2834": {
-    "fetched_at": "2026-10-13T11:16:23.236326",
+    "fetched_at": "2026-10-14T09:27:46.962421",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -951,7 +952,7 @@
     ]
   },
   "3707O": {
-    "fetched_at": "2026-10-13T11:16:24.102125",
+    "fetched_at": "2026-10-14T09:27:48.276087",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -961,7 +962,7 @@
     ]
   },
   "2883": {
-    "fetched_at": "2026-10-13T11:16:23.676140",
+    "fetched_at": "2026-10-14T09:27:47.533026",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -972,7 +973,7 @@
     ]
   },
   "6257": {
-    "fetched_at": "2026-10-13T11:16:25.133802",
+    "fetched_at": "2026-10-14T09:27:48.668709",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -982,7 +983,7 @@
     ]
   },
   "1308": {
-    "fetched_at": "2026-10-13T11:16:26.162202",
+    "fetched_at": "2026-10-14T09:27:49.331943",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -992,7 +993,7 @@
     ]
   },
   "00631L": {
-    "fetched_at": "2026-10-13T11:16:26.805259",
+    "fetched_at": "2026-10-14T09:27:49.625344",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1002,7 +1003,7 @@
     ]
   },
   "00632R": {
-    "fetched_at": "2026-10-13T11:16:27.214594",
+    "fetched_at": "2026-10-14T09:27:50.754343",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1012,7 +1013,7 @@
     ]
   },
   "3034": {
-    "fetched_at": "2026-10-13T11:16:27.902864",
+    "fetched_at": "2026-10-14T09:27:50.327949",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1022,19 +1023,19 @@
     ]
   },
   "3443": {
-    "fetched_at": "2026-10-13T11:16:27.568602",
+    "fetched_at": "2026-10-14T09:27:52.096361",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 7,
+    "headline_count": 8,
     "sample_headlines": [
       "proteanTecs and GUC Expand Collaboration to Provide Lifecycle Health and Performance Monitoring for Custom SoCs",
-      "Cadence Design Systems (CDNS) Deepens Agentic AI Push in Chip Design Workflows But What Really Changes?",
-      "Why Did Cadence Design Systems (CDNS) Stock Climb Today?"
+      "Wiwynn, Ayar Labs, and GUC Advance Co-Packaged Optics with Live Demonstration of Integrated Optical Compute System at OCP Global Summit 2026",
+      "Cadence Design Systems (CDNS) Deepens Agentic AI Push in Chip Design Workflows But What Really Changes?"
     ]
   },
   "3661": {
-    "fetched_at": "2026-10-13T11:16:28.797966",
+    "fetched_at": "2026-10-14T09:27:51.062902",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1046,7 +1047,7 @@
     ]
   },
   "2379": {
-    "fetched_at": "2026-10-13T11:16:28.363434",
+    "fetched_at": "2026-10-14T09:27:50.045965",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1058,7 +1059,7 @@
     ]
   },
   "3545": {
-    "fetched_at": "2026-10-13T11:16:29.278964",
+    "fetched_at": "2026-10-14T09:27:51.584888",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1068,7 +1069,7 @@
     ]
   },
   "2383": {
-    "fetched_at": "2026-10-13T11:16:30.131828",
+    "fetched_at": "2026-10-14T09:27:53.310988",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1080,7 +1081,7 @@
     ]
   },
   "5522": {
-    "fetched_at": "2026-10-13T11:16:25.654255",
+    "fetched_at": "2026-10-14T09:27:48.980498",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1090,7 +1091,7 @@
     ]
   },
   "3044": {
-    "fetched_at": "2026-10-13T11:16:30.585140",
+    "fetched_at": "2026-10-14T09:27:53.004621",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1100,7 +1101,7 @@
     ]
   },
   "4958": {
-    "fetched_at": "2026-10-13T11:16:29.728877",
+    "fetched_at": "2026-10-14T09:27:52.528511",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1112,7 +1113,7 @@
     ]
   },
   "6213": {
-    "fetched_at": "2026-10-13T11:16:31.070361",
+    "fetched_at": "2026-10-14T09:27:53.740802",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1122,7 +1123,7 @@
     ]
   },
   "2345": {
-    "fetched_at": "2026-10-13T11:16:32.031810",
+    "fetched_at": "2026-10-14T09:27:54.878977",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1134,7 +1135,7 @@
     ]
   },
   "2313": {
-    "fetched_at": "2026-10-13T11:16:31.619341",
+    "fetched_at": "2026-10-14T09:27:54.214025",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1146,7 +1147,7 @@
     ]
   },
   "3704": {
-    "fetched_at": "2026-10-13T11:16:32.468438",
+    "fetched_at": "2026-10-14T09:27:55.252805",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1156,7 +1157,7 @@
     ]
   },
   "5388": {
-    "fetched_at": "2026-10-13T11:16:33.226362",
+    "fetched_at": "2026-10-14T09:27:55.877275",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1168,7 +1169,7 @@
     ]
   },
   "6285": {
-    "fetched_at": "2026-10-13T11:16:32.876974",
+    "fetched_at": "2026-10-14T09:27:55.630270",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1178,7 +1179,7 @@
     ]
   },
   "2301": {
-    "fetched_at": "2026-10-13T11:16:33.566191",
+    "fetched_at": "2026-10-14T09:27:56.294239",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1190,7 +1191,7 @@
     ]
   },
   "8150": {
-    "fetched_at": "2026-10-13T11:16:35.685102",
+    "fetched_at": "2026-10-14T09:27:58.412861",
     "sentiment_score": 2,
     "signal": "bullish",
     "keywords": [
@@ -1204,7 +1205,7 @@
     ]
   },
   "3017": {
-    "fetched_at": "2026-10-13T11:16:35.303291",
+    "fetched_at": "2026-10-14T09:27:57.654117",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1215,7 +1216,7 @@
     ]
   },
   "2385": {
-    "fetched_at": "2026-10-13T11:16:34.020863",
+    "fetched_at": "2026-10-14T09:27:56.725128",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1225,7 +1226,7 @@
     ]
   },
   "2421": {
-    "fetched_at": "2026-10-13T11:16:34.891712",
+    "fetched_at": "2026-10-14T09:27:58.072227",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1235,7 +1236,7 @@
     ]
   },
   "6148O": {
-    "fetched_at": "2026-10-13T11:16:36.103891",
+    "fetched_at": "2026-10-14T09:27:58.808404",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1245,19 +1246,19 @@
     ]
   },
   "3324O": {
-    "fetched_at": "2026-10-13T11:16:34.451013",
+    "fetched_at": "2026-10-14T09:27:57.005861",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 3,
     "sample_headlines": [
-      "3 Asian Stocks Estimated To Be Trading Below Intrinsic Value By Up To 48.3%",
       "Asian Value Stock Picks For May 2026",
+      "3 Asian Stocks Estimated To Be Trading Below Intrinsic Value By Up To 48.3%",
       "Yahoo! Finance: 3324.TWO News"
     ]
   },
   "2392": {
-    "fetched_at": "2026-10-13T11:16:36.493575",
+    "fetched_at": "2026-10-14T09:27:59.154520",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1267,7 +1268,7 @@
     ]
   },
   "2365": {
-    "fetched_at": "2026-10-13T11:16:37.708860",
+    "fetched_at": "2026-10-14T09:27:59.838702",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1277,7 +1278,7 @@
     ]
   },
   "2395": {
-    "fetched_at": "2026-10-13T11:16:37.225447",
+    "fetched_at": "2026-10-14T09:28:00.585105",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1289,7 +1290,7 @@
     ]
   },
   "2312": {
-    "fetched_at": "2026-10-13T11:16:38.442622",
+    "fetched_at": "2026-10-14T09:28:00.998453",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1301,7 +1302,7 @@
     ]
   },
   "2354": {
-    "fetched_at": "2026-10-13T11:16:36.855690",
+    "fetched_at": "2026-10-14T09:27:59.419094",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -1315,7 +1316,7 @@
     ]
   },
   "5426O": {
-    "fetched_at": "2026-10-13T11:16:39.846380",
+    "fetched_at": "2026-10-14T09:28:01.445459",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1325,7 +1326,7 @@
     ]
   },
   "8114": {
-    "fetched_at": "2026-10-13T11:16:38.120267",
+    "fetched_at": "2026-10-14T09:28:00.269442",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1335,7 +1336,7 @@
     ]
   },
   "8183O": {
-    "fetched_at": "2026-10-13T11:17:00.712672",
+    "fetched_at": "2026-10-14T09:28:23.044865",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1345,7 +1346,7 @@
     ]
   },
   "6202": {
-    "fetched_at": "2026-10-13T11:16:38.919068",
+    "fetched_at": "2026-10-14T09:28:01.952528",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1355,7 +1356,7 @@
     ]
   },
   "2458": {
-    "fetched_at": "2026-10-13T11:16:42.065990",
+    "fetched_at": "2026-10-14T09:28:04.340273",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1365,7 +1366,7 @@
     ]
   },
   "2388": {
-    "fetched_at": "2026-10-13T11:16:40.671219",
+    "fetched_at": "2026-10-14T09:28:03.958463",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1375,7 +1376,7 @@
     ]
   },
   "2352": {
-    "fetched_at": "2026-10-13T11:16:39.363737",
+    "fetched_at": "2026-10-14T09:28:02.445356",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1386,7 +1387,7 @@
     ]
   },
   "2363": {
-    "fetched_at": "2026-10-13T11:16:40.250750",
+    "fetched_at": "2026-10-14T09:28:02.827368",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1396,7 +1397,7 @@
     ]
   },
   "3041": {
-    "fetched_at": "2026-10-13T11:16:44.502583",
+    "fetched_at": "2026-10-14T09:28:06.881355",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1406,7 +1407,7 @@
     ]
   },
   "2436": {
-    "fetched_at": "2026-10-13T11:16:41.607615",
+    "fetched_at": "2026-10-14T09:28:03.236754",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1416,7 +1417,7 @@
     ]
   },
   "3014": {
-    "fetched_at": "2026-10-13T11:16:43.515988",
+    "fetched_at": "2026-10-14T09:28:06.070982",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1427,7 +1428,7 @@
     ]
   },
   "2401": {
-    "fetched_at": "2026-10-13T11:16:41.150191",
+    "fetched_at": "2026-10-14T09:28:03.582669",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1437,19 +1438,19 @@
     ]
   },
   "3035": {
-    "fetched_at": "2026-10-13T11:16:43.007204",
+    "fetched_at": "2026-10-14T09:28:05.559008",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 4,
+    "headline_count": 5,
     "sample_headlines": [
+      "Faraday Powers Intelligent Sensing with New 14nm MIPI C/D Combo PHY IP",
       "U.S. ASIC Market Assessment 2026-2031 Featuring Profiles of Faraday Technology Corp., ASIX Electronics Corp., Open Silicon, Vervesemi Microelectronics, Aion Silicon and Other Key Players",
-      "ARTERY-KY (6907) Officially Lists on TPEx, Strengthening High-Performance MCU Technologies for Global Smart Applications",
-      "Emerging MCU Force ARTERY-KY to Be Listed on TPEx in January 2026, Driving High-Performance Growth Through MCU, Customization, and Edge AI"
+      "ARTERY-KY (6907) Officially Lists on TPEx, Strengthening High-Performance MCU Technologies for Global Smart Applications"
     ]
   },
   "3073O": {
-    "fetched_at": "2026-10-13T11:16:44.097258",
+    "fetched_at": "2026-10-14T09:28:07.339082",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1459,7 +1460,7 @@
     ]
   },
   "3094": {
-    "fetched_at": "2026-10-13T11:16:45.352952",
+    "fetched_at": "2026-10-14T09:28:06.416358",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1469,7 +1470,7 @@
     ]
   },
   "3006": {
-    "fetched_at": "2026-10-13T11:16:42.513906",
+    "fetched_at": "2026-10-14T09:28:04.886200",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1480,7 +1481,7 @@
     ]
   },
   "3150": {
-    "fetched_at": "2026-10-13T11:16:45.804705",
+    "fetched_at": "2026-10-14T09:28:09.206727",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1490,7 +1491,7 @@
     ]
   },
   "3122O": {
-    "fetched_at": "2026-10-13T11:16:44.943361",
+    "fetched_at": "2026-10-14T09:28:07.825699",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1500,7 +1501,7 @@
     ]
   },
   "3141O": {
-    "fetched_at": "2026-10-13T11:16:46.245239",
+    "fetched_at": "2026-10-14T09:28:08.264420",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1510,7 +1511,7 @@
     ]
   },
   "2316": {
-    "fetched_at": "2026-10-13T11:16:47.685257",
+    "fetched_at": "2026-10-14T09:28:09.946484",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1522,7 +1523,7 @@
     ]
   },
   "1815O": {
-    "fetched_at": "2026-10-13T11:16:47.153423",
+    "fetched_at": "2026-10-14T09:28:08.734174",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1532,7 +1533,7 @@
     ]
   },
   "2355": {
-    "fetched_at": "2026-10-13T11:16:48.543331",
+    "fetched_at": "2026-10-14T09:28:10.356672",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1542,7 +1543,7 @@
     ]
   },
   "3169O": {
-    "fetched_at": "2026-10-13T11:16:46.723127",
+    "fetched_at": "2026-10-14T09:28:09.572359",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1554,7 +1555,7 @@
     ]
   },
   "2367": {
-    "fetched_at": "2026-10-13T11:16:48.125078",
+    "fetched_at": "2026-10-14T09:28:10.762170",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1564,7 +1565,7 @@
     ]
   },
   "2402": {
-    "fetched_at": "2026-10-13T11:16:49.513989",
+    "fetched_at": "2026-10-14T09:28:11.704098",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1574,7 +1575,7 @@
     ]
   },
   "3323O": {
-    "fetched_at": "2026-10-13T11:16:50.717107",
+    "fetched_at": "2026-10-14T09:28:12.831982",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1584,7 +1585,7 @@
     ]
   },
   "6121O": {
-    "fetched_at": "2026-10-13T11:16:50.267729",
+    "fetched_at": "2026-10-14T09:28:12.363267",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1594,7 +1595,7 @@
     ]
   },
   "3211O": {
-    "fetched_at": "2026-10-13T11:16:51.163872",
+    "fetched_at": "2026-10-14T09:28:13.682574",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1604,7 +1605,7 @@
     ]
   },
   "2368": {
-    "fetched_at": "2026-10-13T11:16:49.092593",
+    "fetched_at": "2026-10-14T09:28:11.309214",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1616,7 +1617,7 @@
     ]
   },
   "1503": {
-    "fetched_at": "2026-10-13T11:16:52.064762",
+    "fetched_at": "2026-10-14T09:28:14.069704",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1626,7 +1627,7 @@
     ]
   },
   "2429": {
-    "fetched_at": "2026-10-13T11:16:49.852954",
+    "fetched_at": "2026-10-14T09:28:11.949873",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1636,19 +1637,19 @@
     ]
   },
   "1504": {
-    "fetched_at": "2026-10-13T11:16:51.621006",
+    "fetched_at": "2026-10-14T09:28:13.287693",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 9,
+    "headline_count": 10,
     "sample_headlines": [
+      "DCL International Partners with TECO Corporation to Advance Next-Generation Green Hydrogen Technology",
       "TECO Showcases Integrated Modular Data Center Solutions in Singapore, Targeting Southeast Asia's AI Infrastructure Opportunities",
-      "TECO Showcases Powertrain and Motion Solutions at Taiwan Expo in Japan",
-      "TECO Signs Acquisition Agreement with Malaysia's Dynaciate, Targeting Exponential AIDC Revenue Growth Next Year"
+      "TECO Showcases Powertrain and Motion Solutions at Taiwan Expo in Japan"
     ]
   },
   "8086O": {
-    "fetched_at": "2026-10-13T11:16:53.362865",
+    "fetched_at": "2026-10-14T09:28:14.996612",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1658,7 +1659,7 @@
     ]
   },
   "5309O": {
-    "fetched_at": "2026-10-13T11:16:52.948796",
+    "fetched_at": "2026-10-14T09:28:14.591755",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1668,7 +1669,7 @@
     ]
   },
   "2340": {
-    "fetched_at": "2026-10-13T11:16:54.313365",
+    "fetched_at": "2026-10-14T09:28:16.226746",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1678,7 +1679,7 @@
     ]
   },
   "2338": {
-    "fetched_at": "2026-10-13T11:16:55.089053",
+    "fetched_at": "2026-10-14T09:28:16.509879",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1688,7 +1689,7 @@
     ]
   },
   "3016": {
-    "fetched_at": "2026-10-13T11:16:52.504418",
+    "fetched_at": "2026-10-14T09:28:15.412737",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1698,7 +1699,7 @@
     ]
   },
   "3374O": {
-    "fetched_at": "2026-10-13T11:16:53.847078",
+    "fetched_at": "2026-10-14T09:28:15.861378",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1708,7 +1709,7 @@
     ]
   },
   "3376": {
-    "fetched_at": "2026-10-13T11:16:54.696775",
+    "fetched_at": "2026-10-14T09:28:16.921568",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1718,7 +1719,7 @@
     ]
   },
   "3042": {
-    "fetched_at": "2026-10-13T11:16:57.779450",
+    "fetched_at": "2026-10-14T09:28:18.959954",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1729,7 +1730,7 @@
     ]
   },
   "3548O": {
-    "fetched_at": "2026-10-13T11:16:55.888688",
+    "fetched_at": "2026-10-14T09:28:17.437116",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1739,7 +1740,7 @@
     ]
   },
   "3019": {
-    "fetched_at": "2026-10-13T11:16:56.788824",
+    "fetched_at": "2026-10-14T09:28:18.155238",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1751,7 +1752,7 @@
     ]
   },
   "3362O": {
-    "fetched_at": "2026-10-13T11:16:56.332801",
+    "fetched_at": "2026-10-14T09:28:18.538200",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1761,7 +1762,7 @@
     ]
   },
   "6230": {
-    "fetched_at": "2026-10-13T11:16:55.448072",
+    "fetched_at": "2026-10-14T09:28:17.720696",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1772,7 +1773,7 @@
     ]
   },
   "2349": {
-    "fetched_at": "2026-10-13T11:16:58.244077",
+    "fetched_at": "2026-10-14T09:28:20.132224",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1782,7 +1783,7 @@
     ]
   },
   "2498": {
-    "fetched_at": "2026-10-13T11:16:58.587084",
+    "fetched_at": "2026-10-14T09:28:20.427057",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1794,7 +1795,7 @@
     ]
   },
   "8069O": {
-    "fetched_at": "2026-10-13T11:16:57.278574",
+    "fetched_at": "2026-10-14T09:28:19.411868",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1806,19 +1807,19 @@
     ]
   },
   "4906": {
-    "fetched_at": "2026-10-13T11:16:59.928190",
+    "fetched_at": "2026-10-14T09:28:21.963089",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 3,
+    "headline_count": 4,
     "sample_headlines": [
+      "Gemtek, Qualcomm and gFiber Collaborate to Bring Edge AI to Wi-Fi 8 Broadband Gateways",
       "gFiber, Qualcomm, and Gemtek Unveil an AI-Native Wi-Fi 8 Broadband Gateway at Network X 2026",
-      "Gemtek and Dixon Advance Strategic Collaboration to Expand Optical Connectivity Business in India",
-      "Yahoo! Finance: 4906.TW News"
+      "Gemtek and Dixon Advance Strategic Collaboration to Expand Optical Connectivity Business in India"
     ]
   },
   "3189": {
-    "fetched_at": "2026-10-13T11:16:59.458053",
+    "fetched_at": "2026-10-14T09:28:20.872233",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1830,7 +1831,7 @@
     ]
   },
   "2332": {
-    "fetched_at": "2026-10-13T11:16:59.127336",
+    "fetched_at": "2026-10-14T09:28:21.301179",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1842,7 +1843,7 @@
     ]
   },
   "3533": {
-    "fetched_at": "2026-10-13T11:17:01.150431",
+    "fetched_at": "2026-10-14T09:28:23.422764",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1852,7 +1853,7 @@
     ]
   },
   "4904": {
-    "fetched_at": "2026-10-13T11:17:00.269005",
+    "fetched_at": "2026-10-14T09:28:22.244002",
     "sentiment_score": 2,
     "signal": "bullish",
     "keywords": [
@@ -1866,7 +1867,7 @@
     ]
   },
   "3605": {
-    "fetched_at": "2026-10-13T11:17:02.123991",
+    "fetched_at": "2026-10-14T09:28:22.612311",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1876,7 +1877,7 @@
     ]
   },
   "3026": {
-    "fetched_at": "2026-10-13T11:17:01.657265",
+    "fetched_at": "2026-10-14T09:28:23.804825",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1886,7 +1887,7 @@
     ]
   },
   "6173O": {
-    "fetched_at": "2026-10-13T11:17:02.568932",
+    "fetched_at": "2026-10-14T09:28:24.264107",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1896,7 +1897,7 @@
     ]
   },
   "6116": {
-    "fetched_at": "2026-10-13T11:17:03.098594",
+    "fetched_at": "2026-10-14T09:28:24.641405",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
