@@ -1,29 +1,65 @@
 {
-  "date": "2026-10-15",
-  "timestamp": "2026-10-15 07:59",
+  "date": "2026-10-16",
+  "timestamp": "2026-10-16 07:44",
   "signals": [
     {
-      "name": "微軟",
-      "ticker": "MSFT",
-      "score": -2,
-      "price": 533.69,
-      "change_pct": -1.8,
-      "vol_ratio": 1.08,
+      "name": "超微半導體",
+      "ticker": "AMD",
+      "score": 2,
+      "price": 562.23,
+      "change_pct": -1.5,
+      "vol_ratio": 1.46,
       "signals": [
-        "RSI 從超買區回落 (62.5)",
-        "威廉%R 超買回落 (-32.4)"
+        "KD 黃金交叉 (K=25.0)",
+        "威廉%R 超賣反彈 (-75.0)"
       ]
     },
     {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": -2,
-      "price": 200.97,
-      "change_pct": -3.69,
-      "vol_ratio": 0.82,
+      "name": "美光",
+      "ticker": "MU",
+      "score": 2,
+      "price": 931.24,
+      "change_pct": 1.87,
+      "vol_ratio": 1.38,
       "signals": [
-        "RSI 從超買區回落 (63.3)",
-        "威廉%R 超買回落 (-42.6)"
+        "KD 黃金交叉 (K=31.7)",
+        "威廉%R 超賣反彈 (-70.7)"
+      ]
+    },
+    {
+      "name": "超微電腦",
+      "ticker": "SMCI",
+      "score": 2,
+      "price": 35.09,
+      "change_pct": -1.93,
+      "vol_ratio": 1.24,
+      "signals": [
+        "KD 黃金交叉 (K=20.2)",
+        "威廉%R 超賣反彈 (-79.8)"
+      ]
+    },
+    {
+      "name": "安謀控股",
+      "ticker": "ARM",
+      "score": 2,
+      "price": 244.79,
+      "change_pct": 2.85,
+      "vol_ratio": 1.18,
+      "signals": [
+        "KD 黃金交叉 (K=21.6)",
+        "布林通道下軌反彈"
+      ]
+    },
+    {
+      "name": "ASML",
+      "ticker": "ASML",
+      "score": 2,
+      "price": 1657.44,
+      "change_pct": 0.45,
+      "vol_ratio": 1.12,
+      "signals": [
+        "KD 黃金交叉 (K=23.0)",
+        "威廉%R 超賣反彈 (-77.3)"
       ]
     }
   ]
