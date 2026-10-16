@@ -1224,5 +1224,20 @@
     ],
     "portfolio_value": 1344858.0,
     "portfolio_pnl": 388518.0
+  },
+  {
+    "date": "2026-10-16",
+    "taiex_close": 46969.87,
+    "taiex_chg_pct": -3.41,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 70,
+    "top_sectors": [
+      "航運",
+      "銀行/金控",
+      "資訊服務/雲端"
+    ],
+    "portfolio_value": 1320624.0,
+    "portfolio_pnl": 364283.0
   }
 ]
