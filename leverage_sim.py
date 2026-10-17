@@ -9,7 +9,7 @@ import streamlit as st
 
 import alloc_simulator as sim
 import dca_tracker
-from etf_facts import nondiv, nondiv_label
+from etf_facts import LATEST_DIV_SHARE, nondiv, nondiv_label
 
 CANDIDATES = ["00919", "00929", "0056", "00878", "0050", "00940", "00900", "00939"]
 
@@ -22,6 +22,61 @@ def _net_series(cur: dict, buy_code: str, loan: float, rate: float, infos: dict,
     interest = loan * rate / 12
     after = [x - interest for x in sim._monthly_income(after_amt, infos, spread, cut)]
     return before, after, interest
+
+
+def _stability(info: dict):
+    """近期配息相對先前平均的變動幅度。月配（≥10 筆）比較最近 3 期與先前平均；季配以下比較最近 1 期與先前平均。"""
+    amts = [a for _, a in info["payouts"]]
+    n = len(amts)
+    if n >= 10:
+        recent, prior = sum(amts[-3:]) / 3, sum(amts[:-3]) / (n - 3)
+    elif n >= 2:
+        recent, prior = amts[-1], sum(amts[:-1]) / (n - 1)
+    else:
+        return None
+    return recent / prior - 1 if prior else None
+
+
+def _gates(code, info, rate_pct, approved, loan, mv0, cur, d_used, th):
+    """五個重新考慮借款的門檻；回傳 [(名稱, 狀態, 說明)]，狀態為 pass／fail／todo"""
+    out = []
+
+    # 1. 利率與額度
+    if rate_pct > th["rate"]:
+        st1 = "fail"
+    else:
+        st1 = "pass" if approved else "todo"
+    out.append((f"① 利率 ≤ {th['rate']:.1f}% 且額度已核准", st1,
+                f"你的利率 {rate_pct:.1f}%；額度{'已核准' if approved else '尚未確認（請在上方勾選已取得書面核准）'}"))
+
+    # 2. 借款占比與追繳距離
+    ratio = loan / mv0 * 100
+    ok2 = ratio <= th["ratio"] and d_used * 100 >= th["call"]
+    out.append((f"② 借款 ≤ 市值 {th['ratio']:.0f}%，追繳需跌 ≥ {th['call']:.0f}%", "pass" if ok2 else "fail",
+                f"借款占市值 {ratio:.1f}%（上限約 ${mv0 * th['ratio'] / 100:,.0f}）；追繳需跌 {max(d_used, 0) * 100:.0f}%"))
+
+    # 3. 標的占比上限
+    share = (cur.get(code, 0) + loan) / (mv0 + loan) * 100
+    out.append((f"③ {code} 占組合 ≤ {th['share']:.0f}%", "pass" if share <= th["share"] else "fail",
+                f"借款買進後，{code} 占組合 {share:.0f}%"))
+
+    # 4. 配息穩定且股利占比沒有惡化
+    chg = _stability(info)
+    latest = LATEST_DIV_SHARE.get(code)
+    if chg is None or latest is None:
+        out.append(("④ 配息穩定、股利占比沒有惡化", "todo", f"{code} 缺少配息拆分資料，無法自動判斷"))
+    else:
+        avg_div = 1 - nondiv(code)
+        ok_a = abs(chg) <= 0.25
+        ok_b = latest >= avg_div - 0.10
+        out.append(("④ 配息穩定（±25%）且股利占比沒有惡化", "pass" if ok_a and ok_b else "fail",
+                    f"近期配息相對先前平均 {chg * 100:+.0f}%；最近一期股利占比 {latest * 100:.0f}%，近 12 月平均 {avg_div * 100:.0f}%"))
+
+    # 5. 壓力下的息差
+    y_stress = sum(a for _, a in info["payouts"]) * (1 - 0.5 * nondiv(code)) / info["price"] * 100
+    out.append((f"⑤ 壓力下殖利率 − 利率 ≥ {th['spread']:.1f} 個百分點", "pass" if y_stress - rate_pct >= th["spread"] else "fail",
+                f"非股利配息 -50% 時，{code} 殖利率 {y_stress:.1f}%，減利率 {rate_pct:.1f}% ＝ {y_stress - rate_pct:+.1f} 個百分點"))
+    return out
 
 
 def render():
@@ -54,6 +109,18 @@ def render():
                               "（例如 00929 被記成 3 月兩筆、2 月沒有），不勾選會把最低月低估；取消勾選＝照近 12 個月實際月份與金額。")
     new_pledged = st.checkbox("新買進的股票也能拿去質押（擔保品含新買部位）", value=False, key="lev_newpledge",
                               help="預設不勾：擔保品只計原有持股，比較保守。實際依借款機構規定。")
+
+    approved = st.checkbox("我已取得借款機構的書面利率與額度核准", value=False, key="lev_approved",
+                           help="門檻①需要。沒有書面核准前，利率只是預期，不算數。")
+    with st.expander("調整五個門檻的標準"):
+        g1, g2, g3, g4, g5 = st.columns(5)
+        th = {
+            "rate": g1.number_input("利率上限（%）", value=3.0, step=0.1, min_value=0.0, key="th_rate"),
+            "ratio": g2.number_input("借款占市值上限（%）", value=10.0, step=1.0, min_value=0.0, key="th_ratio"),
+            "call": g3.number_input("追繳需跌至少（%）", value=70.0, step=5.0, min_value=0.0, key="th_call"),
+            "share": g4.number_input("標的占組合上限（%）", value=40.0, step=5.0, min_value=0.0, key="th_share"),
+            "spread": g5.number_input("壓力下息差至少（百分點）", value=2.0, step=0.5, min_value=0.0, key="th_spread"),
+        }
 
     if code not in infos:
         infos[code] = dca_tracker._etf_info(code)
@@ -92,6 +159,21 @@ def render():
                    f"這個差距完全取決於 {code} 的配息能否維持（其近 12 個月配息約 {nondiv_label(code)} 不是股利）。")
     if neg_months:
         st.warning(f"有 {neg_months} 個月的入帳不夠付當月利息（淨現金流為負）。")
+
+    # ── 五個門檻 ──
+    st.markdown("##### 重新考慮借款的五個門檻")
+    gates = _gates(code, info, rate_pct, approved, loan, mv0, cur, d_used, th)
+    label = {"pass": "✅ 通過", "fail": "❌ 未通過", "todo": "⏳ 待確認"}
+    st.dataframe(pd.DataFrame([{"門檻": n, "狀態": label[s_], "你目前的數字": d_} for n, s_, d_ in gates]),
+                 use_container_width=True, hide_index=True)
+    n_pass = sum(1 for _, s_, _ in gates if s_ == "pass")
+    fails = [n.split(" ")[0] for n, s_, _ in gates if s_ != "pass"]
+    if n_pass == len(gates):
+        st.success("五項門檻全部通過，符合我先前說的重新考慮條件。這只代表風控條件過關，不代表一定要借，也不保證結果。")
+    else:
+        st.info(f"通過 {n_pass}／{len(gates)}；尚未通過：{'、'.join(fails)}。五項全部通過才符合我先前說的重新考慮條件。")
+    st.caption("門檻是風控的常見做法，標準可在上方「調整五個門檻的標準」自己改。④ 用的是 ETF 資訊網整理的配息拆分，需定期重查。"
+               "這是依數據的檢查表，不是借貸或買賣建議。")
 
     # ── 12 個月現金流 ──
     fig = go.Figure()

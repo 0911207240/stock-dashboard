@@ -20,3 +20,8 @@ def nondiv(code: str) -> float:
 def nondiv_label(code: str) -> str:
     """表格用：已查證顯示百分比，未查證加「約」並標註"""
     return f"{NONDIV[code] * 100:.0f}%" if code in NONDIV else f"約{NONDIV_DEFAULT * 100:.0f}%（未查證）"
+
+
+# 最近一期配息中「股利所得」占比（54C），來源同上；用來判斷股利占比是否在惡化
+LATEST_DIV_SHARE = {"0050": 0.26, "0056": 0.35, "00878": 0.099, "00919": 0.0, "00929": 0.0,
+                    "00940": 0.20, "00900": 0.067, "00939": 0.432}
