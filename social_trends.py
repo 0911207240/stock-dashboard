@@ -8,6 +8,9 @@ import requests
 _TIMEOUT = 10
 
 
+_FOREIGN = re.compile(r"[\u0E00-\u0E7F\u0600-\u06FF\u0400-\u04FF\u3040-\u30FF\uAC00-\uD7AF]|\bklasemen\b|\bvs\b", re.I)  # 泰文、阿拉伯文、西里爾、日韓文
+
+
 def _fetch_google_trends_tw() -> list[str]:
     url = "https://trends.google.com.tw/trending/rss?geo=TW"
     try:
@@ -23,7 +26,7 @@ def _fetch_google_trends_tw() -> list[str]:
             traffic = item.findtext("ht:approx_traffic", "", ns).strip()
             if title:
                 titles.append(f"{title}（搜尋量 {traffic}）" if traffic else title)
-        return titles[:8]
+        return [t for t in titles if not _FOREIGN.search(t)][:10]
     except Exception as e:
         print(f"[趨勢] Google Trends 抓取失敗：{e}")
         return []
@@ -138,7 +141,7 @@ def format_social_trends(data: dict) -> str:
     trends = data.get("trends", [])
     if trends:
         lines.append("📱 台灣熱搜趨勢")
-        for i, t in enumerate(trends[:5], 1):
+        for i, t in enumerate(trends[:10], 1):
             lines.append(f"  {i}. {t}")
 
     ptt = data.get("ptt", [])

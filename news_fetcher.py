@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import requests
 
 _TIMEOUT = 10
-_MAX_PER_CATEGORY = 3  # 每類只取前3條，控制總字數
+_MAX_PER_CATEGORY = 5  # 每類取前 5 條
 
 _RSS_SOURCES = {
     "台股重大訊息": [
@@ -130,6 +130,6 @@ def format_daily_news(news: dict) -> str:
             continue
         emoji = emoji_map.get(category, "📌")
         lines.append(f"\n{emoji} {category}")
-        for i, a in enumerate(articles[:3], 1):
+        for i, a in enumerate(articles[:5], 1):
             lines.append(f" {i}. {a['title']}")
     return "\n".join(lines) if len(lines) > 1 else ""

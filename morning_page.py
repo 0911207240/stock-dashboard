@@ -86,6 +86,16 @@ transform:translateX(-50%)}
 .news h3{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--acc);margin:0 0 6px}
 .news ul{list-style:none;margin:0;padding:0}
 .news li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.55}
+.subhead{font-size:12px;letter-spacing:.14em;color:var(--acc);margin:26px 0 10px}
+.masonry{columns:2;column-gap:44px;margin-bottom:8px}
+.masonry>div{break-inside:avoid;margin-bottom:26px}
+.masonry h3{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--acc);margin:0 0 6px}
+.masonry ul{list-style:none;margin:0;padding:0}
+.masonry li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.55}
+.plain{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.plain li{padding:7px 0;border-bottom:1px solid var(--line);break-inside:avoid;font-size:15px;line-height:1.55}
+.src{color:var(--mute);font-size:12px;margin-left:8px;white-space:nowrap}
+.bd{font-size:12px;color:var(--mute);margin:12px 0 2px;font-weight:600}.bd span{font-weight:400;margin-left:6px}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
 .pill{background:var(--soft);border-radius:999px;padding:6px 14px;font-size:14px}
 .pill small{color:var(--mute);margin-left:6px}
@@ -101,7 +111,7 @@ a{color:var(--acc);word-break:break-all}
 .small{font-size:13px;color:var(--mute)}
 footer{margin-top:72px;padding-top:16px;border-top:1px solid var(--line)}
 @media (max-width:720px){h1{font-size:30px}.big{grid-template-columns:1fr}.big .val{font-size:46px}
-.tiles{grid-template-columns:1fr}.others,.news{grid-template-columns:1fr}.fx{grid-template-columns:1fr}.fx .now{text-align:left}
+.tiles{grid-template-columns:1fr}.others,.news{grid-template-columns:1fr}.plain{grid-template-columns:1fr}.masonry{columns:1}.fx{grid-template-columns:1fr}.fx .now{text-align:left}
 dl{grid-template-columns:1fr}}
 """
 
@@ -337,21 +347,22 @@ def render_news(data: dict) -> str:
     return f'<section><p class="eyebrow">新聞</p><h2>今天值得看的</h2><div class="news">{cols}</div></section>' if cols else ""
 
 
-def fetch_ptt_local() -> list[str]:
-    """PTT 擋 GitHub Actions 的 IP，所以開頁面時由本機直接抓；失敗就回空，不影響其他區塊"""
+def _live() -> dict:
+    """本機即時社群資料；失敗就回空，不影響其他區塊"""
     try:
-        from social_trends import _fetch_ptt_hot
+        import social_live
 
-        return [f"{p['title']}（推 {p['label']}）" for p in _fetch_ptt_hot("Gossiping", pages=3, min_push=5)]
+        return social_live.fetch_all()
     except Exception as e:
-        print(f"[頁面] PTT 抓取失敗：{e}")
-        return []
+        print(f"[頁面] 即時社群資料抓取失敗：{e}")
+        return {}
 
 
-def render_social(data: dict, ptt: list[str] | None = None) -> str:
+def render_social(data: dict, live: dict | None = None) -> str:
+    live = live or {}
     pills, cols = "", ""
     for head, items in _blocks(data.get("trends", "")):
-        if not items or (ptt and "PTT" in head):  # 本機抓到 PTT 時，以本機結果為準
+        if not items or (live.get("ptt") and "PTT" in head):  # 本機抓到 PTT 時，以本機結果為準
             continue
         if "熱搜" in head:
             for i in items:
@@ -360,12 +371,47 @@ def render_social(data: dict, ptt: list[str] | None = None) -> str:
                           else f'<span class="pill">{esc(i)}</span>')
         else:
             cols += f'<div><h3>{esc(head)}</h3><ul>{"".join(f"<li>{esc(i)}</li>" for i in items)}</ul></div>'
-    if ptt:
-        cols += f'<div><h3>PTT 八卦板高推文</h3><ul>{"".join(f"<li>{esc(i)}</li>" for i in ptt)}</ul></div>'
-    if not (pills or cols):
+
+    sub = '<h3 class="subhead">{}</h3>'
+    out = ""
+    if pills:
+        out += sub.format("Google 台灣熱搜") + f'<div class="pills">{pills}</div>'
+
+    gn = live.get("gnews") or []
+    if gn:
+        li = "".join(f'<li>{esc(t)}<span class="src">{esc(src)}</span></li>' for t, src in gn)
+        out += sub.format("網路上正在被轉的新聞（Google 新聞台灣頭條）") + f'<ul class="plain">{li}</ul>'
+
+    ptt = live.get("ptt") or {}
+    try:
+        from social_live import PTT_GROUPS
+    except Exception:
+        PTT_GROUPS = []
+    groups = ""
+    for theme, boards in PTT_GROUPS:
+        inner = ""
+        for board, name in boards:
+            posts = ptt.get(board) or []
+            if posts:
+                inner += (f'<div class="bd">{esc(name)}<span>{esc(board)}</span></div><ul>'
+                          + "".join(f'<li>{esc(t)}<span class="src">推 {esc(n)}</span></li>' for t, n in posts) + "</ul>")
+        if inner:
+            groups += f'<div><h3>PTT｜{esc(theme)}</h3>{inner}</div>'
+    bh = live.get("bahamut") or []
+    if bh:
+        li = "".join(f'<li>{esc(t)}<span class="src">{esc(b)}</span></li>' for t, b, _ in bh)
+        groups += f'<div><h3>巴哈姆特｜遊戲動漫熱門</h3><ul>{li}</ul></div>'
+    if groups:
+        out += sub.format("論壇正在討論什麼") + f'<div class="masonry">{groups}</div>'
+
+    if cols:
+        out += f'<div class="news" style="margin-top:22px">{cols}</div>'
+    if not out:
         return ""
-    hot =f'<h3 style="font-size:12px;letter-spacing:.14em;color:var(--acc);margin:0 0 10px">Google 台灣熱搜</h3><div class="pills">{pills}</div>' if pills else ""
-    return f'<section><p class="eyebrow">社群</p><h2>大家在聊什麼</h2>{hot}<div class="news">{cols}</div></section>'
+    note = (f'<p class="small" style="margin-top:14px">即時資料於 {esc(live.get("asof", ""))} 由本機抓取。'
+            "PTT 取各看板近兩頁中推文數最高者；Dcard、Mobile01、Threads、IG、FB 沒有可用的公開資料，因此不在此列。</p>"
+            if live else "")
+    return f'<section><p class="eyebrow">社群</p><h2>大家在聊什麼</h2>{out}{note}</section>'
 
 
 def render_marketing(text: str) -> str:
@@ -434,7 +480,7 @@ def build() -> str:
         parts.append(render_markets(q, hist, data["markets"]))
     parts.append(render_fx(data, hist))
     parts.append(render_news(data))
-    parts.append(render_social(data, fetch_ptt_local()))
+    parts.append(render_social(data, _live()))
     if MARKETING.exists() and (now - datetime.fromtimestamp(MARKETING.stat().st_mtime)).days <= 8:
         parts.append(render_marketing(MARKETING.read_text(encoding="utf-8")))
 
