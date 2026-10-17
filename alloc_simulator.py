@@ -13,6 +13,14 @@ COLORS = ["#8a8f99", "#378ADD", "#1D9E75", "#BA7517", "#D85A30"]
 SELL_TAX = 0.001      # ETF 證交稅 0.1%
 FEE = 0.1425 / 100 * 0.28  # 手續費 2.8 折（單邊，未計最低 $1）
 
+# 官方資料顯示配息大致隨淨值縮放、且資本利得占淨值近半的標的（2026/10/16 查證，見頁面說明）
+CAPGAIN_ETFS = ("00929", "00919")
+STRESS = {
+    "基準": 0.0,
+    "資本利得型 -25%": 0.25,
+    "資本利得型 -50%": 0.50,
+}
+
 PRESETS = {
     "B 降低集中": {"00929": 35, "0056": 20, "00878": 20, "00919": 15, "0050": 10},
     "C 季配錯開": {"00929": 25, "0056": 25, "00878": 25, "00919": 25},
@@ -20,14 +28,25 @@ PRESETS = {
 }
 
 
-def _monthly_income(amounts: dict, infos: dict, spread: bool) -> list[float]:
+def _cut_for(scen: str, codes: set) -> dict:
+    """把選單的情境轉成 {代號: 折減比例}"""
+    if scen.startswith("資本利得型標的配息 -25"):
+        return {c: 0.25 for c in CAPGAIN_ETFS}
+    if scen.startswith("資本利得型標的配息 -50"):
+        return {c: 0.50 for c in CAPGAIN_ETFS}
+    if scen.startswith("全部"):
+        return {c: 0.25 for c in codes}
+    return {}
+
+
+def _monthly_income(amounts: dict, infos: dict, spread: bool, cut: dict | None = None) -> list[float]:
     """回傳 1~12 月的預估入帳；spread=True 時，月配標的（近 12 月 ≥10 筆）以年配息平均分攤"""
     m = [0.0] * 12
     for code, amt in amounts.items():
         info = infos.get(code)
         if not info or amt <= 0:
             continue
-        shares = amt / info["price"]
+        shares = amt / info["price"] * (1 - (cut or {}).get(code, 0))
         pays = info["payouts"]
         if spread and len(pays) >= 10:
             for i in range(12):
@@ -38,15 +57,17 @@ def _monthly_income(amounts: dict, infos: dict, spread: bool) -> list[float]:
     return m
 
 
-def _summary(name: str, amounts: dict, infos: dict, spread: bool, current: dict, total: float) -> dict:
-    inc = _monthly_income(amounts, infos, spread)
+def _summary(name: str, amounts: dict, infos: dict, spread: bool, current: dict, total: float,
+             cut: dict | None = None) -> dict:
+    inc = _monthly_income(amounts, infos, spread, cut)
     annual = sum(inc)
     avg = annual / 12
     biggest_src = 0.0
     for code, amt in amounts.items():
         info = infos.get(code)
         if info and amt > 0:
-            biggest_src = max(biggest_src, amt / info["price"] * sum(a for _, a in info["payouts"]))
+            biggest_src = max(biggest_src, amt / info["price"] * (1 - (cut or {}).get(code, 0))
+                              * sum(a for _, a in info["payouts"]))
     sells = sum(max(current.get(c, 0) - amounts.get(c, 0), 0) for c in set(current) | set(amounts))
     buys = sum(max(amounts.get(c, 0) - current.get(c, 0), 0) for c in set(current) | set(amounts))
     return {
@@ -87,6 +108,13 @@ def render():
         help="月配 ETF 近 12 個月的金額常因配息調升而前低後高，直接用會誤判成不穩定。"
              "勾選＝假設每月領一樣多；取消＝照近 12 個月實際月份與金額。季配標的一律照實際月份。")
 
+    scen = st.selectbox(
+        "配息情境", ["基準（近 12 個月實際）", "資本利得型標的配息 -25%", "資本利得型標的配息 -50%", "全部標的配息 -25%"],
+        key="alloc_scen",
+        help="資本利得型＝00929、00919：官方資料顯示它們的配息大致隨淨值縮放，且淨值近半是資本利得。"
+             "市場回落時配息會跟著縮水，所以用折減來模擬。圖表與比較表都會套用這個情境。")
+    cut = _cut_for(scen, set(infos) | set(codes))
+
     st.markdown("##### 自訂配置（權重合計不必剛好 100，會自動換算）")
     base = pd.DataFrame([{"代號": c, "配置%": w} for c, w in PRESETS["B 降低集中"].items()])
     custom = st.data_editor(base, num_rows="dynamic", hide_index=True, use_container_width=True, key="alloc_custom",
@@ -105,7 +133,9 @@ def render():
     if cs > 0:
         scenarios["E 自訂"] = {c: total * v / cs for c, v in cw.items() if infos.get(c)}
 
-    rows = [_summary(n, a, infos, spread, current, total) for n, a in scenarios.items() if a]
+    rows = [_summary(n, a, infos, spread, current, total, cut) for n, a in scenarios.items() if a]
+    if cut:
+        st.info(f"目前顯示的是壓力情境：{scen}。切回「基準」可看近 12 個月實際結果。")
 
     # ── 月現金流圖 ──
     fig = go.Figure()
@@ -142,12 +172,33 @@ def render():
             "- 殖利率與配息都是**過去 12 個月**的結果；配息會隨市況與基金操作變動，不保證延續。"
         )
 
-    # ── 配息減半壓力測試 ──
-    st.markdown("##### 壓力測試：最大配息來源的配息減半")
-    stress = pd.DataFrame([{
-        "配置": r["name"],
-        "年配息變動": f"-{r['top_income_share'] / 2:.0f}%",
-        "減半後月均": f"${r['avg'] * (1 - r['top_income_share'] / 200):,.0f}",
-    } for r in rows])
-    st.dataframe(stress, use_container_width=True, hide_index=True)
-    st.caption("這是粗略估算：假設只有單一最大來源減半、其他不變。")
+    # ── 壓力情境對照：各配置在不同配息折減下的月均與最低月 ──
+    st.markdown("##### 壓力情境對照")
+    levels = [("基準", None), ("資本利得型 -25%", 0.25), ("資本利得型 -50%", 0.50), ("全部 -25%", "all")]
+    recs = []
+    for n, a in scenarios.items():
+        if not a:
+            continue
+        rec = {"配置": n}
+        for label, lv in levels:
+            c = {} if lv is None else {k: 0.25 for k in a} if lv == "all" else {k: lv for k in CAPGAIN_ETFS}
+            r = _summary(n, a, infos, spread, current, total, c)
+            rec[label] = f"月均 ${r['avg']:,.0f}｜最低月 ${r['min']:,.0f}"
+        recs.append(rec)
+    st.dataframe(pd.DataFrame(recs), use_container_width=True, hide_index=True)
+    st.caption("資本利得型＝00929、00919。折減是對該標的所有配息等比例打折，不是預測，只是看現金流對配息縮水的敏感度。"
+               "沒有持有這兩檔的配置，在「資本利得型」兩欄不會變動。")
+
+    with st.expander("00919／00929 配息來源：官方資料查證（截至 2026/10/16）"):
+        st.markdown(
+            "**每單位淨值組成**（官網每日淨值表）\n\n"
+            "| | 淨值 | 面額 | 可分配收益 | 資本利得／平準金 | 資本利得占淨值 |\n|---|---|---|---|---|---|\n"
+            "| 00919 | 32.92 | 15.00 | 1.70 | 16.22 | 49% |\n"
+            "| 00929 | 29.75 | 15.00 | 1.16 | 13.59 | 46% |\n\n"
+            "- **00919 一年前**淨值 21.42、資本利得 5.47（26%）；一年內淨值上漲約 54%，上漲幾乎全是資本利得。\n"
+            "- **配息隨淨值縮放**：00919 每季配息從 0.54（2025）增加到 1.10（2026），當期配息率落在 2.4%～3.4%；"
+            "00929 每月配息由約 0.10 增加到 0.38。\n"
+            "- **可分配收益只夠發約 1.5 個季度（00919）／3 個月（00929）**，其餘要靠實現資本利得，因此行情轉弱時配息容易下修。\n"
+            "- 「資本利得」含未實現部分，未實現利得不能發配息；已實現與未實現的比例，公開頁面查不到。\n"
+            "- 這些是**淨值結構與配息規模的事實**，不代表動用本金；各期配息的官方拆分要看投信的收益分配公告。\n\n"
+            "資料來源：群益投信官網（NAV 組成、配息查詢）、復華投信官網（00929 淨值組成）。數字會過期，請以官網最新為準。")
