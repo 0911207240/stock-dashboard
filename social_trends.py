@@ -1,4 +1,5 @@
 """社群趨勢 + 行銷日曆模組"""
+import re
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
@@ -15,15 +16,47 @@ def _fetch_google_trends_tw() -> list[str]:
         })
         resp.encoding = "utf-8"
         root = ET.fromstring(resp.text)
+        ns = {"ht": "https://trends.google.com/trending/rss"}
         titles = []
         for item in root.iter("item"):
             title = item.findtext("title", "").strip()
+            traffic = item.findtext("ht:approx_traffic", "", ns).strip()
             if title:
-                titles.append(title)
+                titles.append(f"{title}（搜尋量 {traffic}）" if traffic else title)
         return titles[:8]
     except Exception as e:
         print(f"[趨勢] Google Trends 抓取失敗：{e}")
         return []
+
+
+def _ptt_score(nrec: str) -> int:
+    if nrec == "爆":
+        return 100
+    return int(nrec) if nrec.isdigit() else 0
+
+
+def _fetch_ptt_hot(board: str = "Gossiping", pages: int = 2, top: int = 3) -> list[dict]:
+    """抓看板最近幾頁，回傳推文數最高的幾篇（只取標題與推文數，不放連結）"""
+    url = f"https://www.ptt.cc/bbs/{board}/index.html"
+    posts = []
+    for _ in range(pages):
+        try:
+            html = requests.get(url, timeout=_TIMEOUT, headers={"User-Agent": "Mozilla/5.0"},
+                                cookies={"over18": "1"}).text
+        except Exception as e:
+            print(f"[趨勢] PTT {board} 抓取失敗：{e}")
+            break
+        for m in re.finditer(r'<div class="nrec">(?:<span[^>]*>([^<]*)</span>)?</div>\s*<div class="title">\s*(?:<a [^>]*>([^<]*)</a>)?',
+                             html):
+            nrec, title = (m.group(1) or "").strip(), (m.group(2) or "").strip()
+            if title and "[公告]" not in title:
+                posts.append({"title": title, "push": _ptt_score(nrec), "label": nrec or "0"})
+        prev = re.search(r'href="(/bbs/%s/index\d+\.html)">(?:‹|&lsaquo;) 上頁' % board, html)
+        if not prev:
+            break
+        url = "https://www.ptt.cc" + prev.group(1)
+    posts.sort(key=lambda x: x["push"], reverse=True)
+    return [p for p in posts if p["push"] >= 10][:top]
 
 
 _MARKETING_CALENDAR = {
@@ -95,7 +128,8 @@ def _get_upcoming_events(days_ahead: int = 7) -> list[dict]:
 def fetch_social_trends() -> dict:
     trends = _fetch_google_trends_tw()
     events = _get_upcoming_events(7)
-    return {"trends": trends, "events": events}
+    ptt = _fetch_ptt_hot("Gossiping")
+    return {"trends": trends, "events": events, "ptt": ptt}
 
 
 def format_social_trends(data: dict) -> str:
@@ -106,6 +140,12 @@ def format_social_trends(data: dict) -> str:
         lines.append("📱 台灣熱搜趨勢")
         for i, t in enumerate(trends[:5], 1):
             lines.append(f"  {i}. {t}")
+
+    ptt = data.get("ptt", [])
+    if ptt:
+        lines.append("\n💬 PTT 八卦板高推文")
+        for i, p in enumerate(ptt, 1):
+            lines.append(f"  {i}. {p['title']}（推 {p['label']}）")
 
     events = data.get("events", [])
     if events:

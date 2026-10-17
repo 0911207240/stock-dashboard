@@ -3,6 +3,8 @@ import plotly.graph_objects as go
 import json
 import os
 
+import dca_tracker
+
 STATE_FILE = os.path.join(os.path.dirname(__file__), "etf_state.json")
 
 DEFAULT_ETFS = [
@@ -287,7 +289,9 @@ def render_monthly_records():
 
 def render():
     st.header("💰 ETF 追蹤")
-    sub1, sub2, sub3, sub4 = st.tabs(["配息試算", "複利成長", "質押槓桿", "月記錄"])
+    sub0, sub1, sub2, sub3, sub4 = st.tabs(["定期定額", "配息試算", "複利成長", "質押槓桿", "月記錄"])
+    with sub0:
+        dca_tracker.render()
     with sub1:
         render_dividend_calculator()
     with sub2:

@@ -8,23 +8,28 @@ _MAX_PER_CATEGORY = 3  # 每類只取前3條，控制總字數
 
 _RSS_SOURCES = {
     "台股重大訊息": [
-        ("https://mops.twse.com.tw/mops/rss/tse_news.xml", "rss"),
-        ("https://mops.twse.com.tw/mops/rss/otc_news.xml", "rss"),
+        ("https://openapi.twse.com.tw/v1/opendata/t187ap04_L", "twse_json"),
     ],
     "財經市場": [
         ("https://news.cnyes.com/api/v3/news/category/headline?limit=10", "cnyes_api"),
         ("https://www.moneydj.com/FUNDDJ/YaPages/YaRSSNewsContent.aspx?svc=NB", "rss"),
     ],
     "台灣時事": [
-        ("https://feeds.feedburner.com/cna-topnews", "rss"),
-        ("https://news.ltn.com.tw/rss/focus.xml", "rss"),
+        ("https://feeds.feedburner.com/rsscna/social", "rss"),
+        ("https://news.ltn.com.tw/rss/all.xml", "rss"),
+    ],
+    "政治": [
+        ("https://feeds.feedburner.com/rsscna/politics", "rss"),
+        ("https://news.google.com/rss/search?q=立法院+行政院+中央社&hl=zh-TW&gl=TW&ceid=TW:zh-Hant", "rss"),
+    ],
+    "房地產": [
+        ("https://news.google.com/rss/search?q=房地產+房市+台灣&hl=zh-TW&gl=TW&ceid=TW:zh-Hant", "rss"),
     ],
     "AI趨勢": [
         ("https://technews.tw/feed/", "rss"),
         ("https://news.google.com/rss/search?q=AI+人工智慧+台灣&hl=zh-TW&gl=TW&ceid=TW:zh-Hant", "rss"),
     ],
     "行銷電商": [
-        ("https://www.bnext.com.tw/rss", "rss"),
         ("https://news.google.com/rss/search?q=電商+跨境+行銷+台灣&hl=zh-TW&gl=TW&ceid=TW:zh-Hant", "rss"),
     ],
     "寵物產業": [
@@ -65,6 +70,29 @@ def _fetch_cnyes(url: str) -> list[dict]:
         print(f"[新聞] 鉅亨網抓取失敗：{e}")
         return []
 
+_MATERIAL_KEYWORDS = ("股利", "庫藏股", "合併", "減資", "增資", "私募", "處分", "取得", "訴訟", "法說", "裁罰", "停工", "召開")
+
+
+def _fetch_twse_material(url: str) -> list[dict]:
+    """證交所上市公司重大訊息（開放資料）；只留含關鍵字者，避免例行公告洗版"""
+    try:
+        resp = requests.get(url, timeout=_TIMEOUT, headers={"User-Agent": "Mozilla/5.0"})
+        resp.encoding = "utf-8"
+        items = []
+        for row in resp.json():
+            subject = next((v for k, v in row.items() if k.startswith("主旨")), "")
+            name = row.get("公司名稱", "")
+            first = " ".join(str(subject).split())
+            if name and first and any(k in first for k in _MATERIAL_KEYWORDS):
+                items.append({"title": f"{name}：{first[:40]}", "link": ""})
+            if len(items) >= _MAX_PER_CATEGORY:
+                break
+        return items
+    except Exception as e:
+        print(f"[新聞] 證交所重大訊息抓取失敗：{e}")
+        return []
+
+
 def fetch_daily_news() -> dict:
     result = {}
     for category, sources in _RSS_SOURCES.items():
@@ -72,6 +100,8 @@ def fetch_daily_news() -> dict:
         for url, source_type in sources:
             if source_type == "cnyes_api":
                 articles.extend(_fetch_cnyes(url))
+            elif source_type == "twse_json":
+                articles.extend(_fetch_twse_material(url))
             else:
                 articles.extend(_fetch_rss(url))
             if len(articles) >= _MAX_PER_CATEGORY:
@@ -86,11 +116,13 @@ def format_daily_news(news: dict) -> str:
         "台股重大訊息": "🔔",
         "財經市場":     "💰",
         "台灣時事":     "🏛️",
+        "政治":         "🗳️",
+        "房地產":       "🏠",
         "AI趨勢":       "🤖",
         "行銷電商":     "🛒",
         "寵物產業":     "🐾",
     }
-    order = ["台股重大訊息", "財經市場", "台灣時事", "AI趨勢", "行銷電商", "寵物產業"]
+    order = ["台股重大訊息", "財經市場", "台灣時事", "政治", "房地產", "AI趨勢", "行銷電商", "寵物產業"]
     lines = ["📰 精選報導"]
     for category in order:
         articles = news.get(category, [])

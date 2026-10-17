@@ -45,7 +45,7 @@ def build_email_html() -> tuple[str, str]:
 
     if briefing:
         rows = []
-        for key, label in (("us_summary", "🌙 美股夜盤"), ("fx", "💱 匯率"),
+        for key, label in (("us_summary", "🌙 美股夜盤"), ("markets", "📊 三大市場"), ("fx", "💱 匯率"),
                            ("news", "📰 新聞"), ("trends", "🔥 趨勢"), ("gmail", "📧 Gmail")):
             if briefing.get(key):
                 rows.append(_pre(briefing[key]))

@@ -6,3 +6,6 @@ __pycache__/
 action_log.zip
 action_logs/
 data_cache/
+
+dca_state.json
+etf_state.json

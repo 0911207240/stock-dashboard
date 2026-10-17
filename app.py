@@ -37,6 +37,7 @@ from portfolio import HOLDINGS, calc_summary, build_portfolio_message
 from signal_log import load_log, save_signal, update_and_load, win_rate, daytrade_win_rate, calc_monthly_performance
 from signal_log import _load_dt_log
 import etf_tracker
+import market_overview
 import copy
 
 st.set_page_config(page_title="股票儀表板", layout="wide", page_icon="📈")
@@ -206,8 +207,8 @@ def row_color(row, col="漲跌%"):
     return [""] * len(row)
 
 # ── Tabs ──────────────────────────────────────────
-tab_today, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
-    "📡 今日快報", "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效", "💰 ETF 追蹤", "🏢 績效部"
+tab_today, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
+    "📡 今日快報", "🌐 大盤展望", "💼 持股管理", "🔍 市場掃描", "📊 個股分析", "🎯 卡位雷達", "📜 訊號歷史", "⚡ 隔日當沖", "📈 當沖績效", "💰 ETF 追蹤", "🏢 績效部", "🌏 市場匯率"
 ])
 
 # ══════════════════════════════════════════════════
@@ -289,7 +290,7 @@ with tab_today:
     briefing = _load_json_file("morning_briefing.json")
     if briefing:
         with st.expander(f"☀️ 早安日報（{briefing.get('timestamp', '')}）"):
-            for key in ("us_summary", "fx", "news", "trends", "gmail"):
+            for key in ("us_summary", "markets", "fx", "news", "trends", "gmail"):
                 if briefing.get(key):
                     st.markdown(briefing[key])
                     st.markdown("")
@@ -1506,3 +1507,10 @@ with tab9:
                         st.markdown(_f.read())
                 except Exception:
                     st.info("週報讀取失敗")
+
+
+# ══════════════════════════════════════════════════
+# Tab 10：市場匯率
+# ══════════════════════════════════════════════════
+with tab10:
+    market_overview.render()

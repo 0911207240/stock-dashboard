@@ -32,8 +32,10 @@ def run_morning_briefing(notify: bool = True):
     from social_trends import fetch_social_trends, format_social_trends
     from gmail_digest import fetch_gmail_summary, format_gmail_summary
     from us_market import fetch_us_overnight
+    from market_snapshot import fetch_markets, format_markets
 
-    with ThreadPoolExecutor(max_workers=5) as ex:
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        markets_future = ex.submit(fetch_markets)
         fx_future = ex.submit(fetch_exchange_rates)
         news_future = ex.submit(fetch_daily_news)
         trends_future = ex.submit(fetch_social_trends)
@@ -57,6 +59,10 @@ def run_morning_briefing(notify: bool = True):
     if us_data and us_data.get("summary"):
         us_summary = f"🌙 美股夜盤\n  {us_data['summary']}"
         sections.append(us_summary)
+
+    markets_text = format_markets(markets_future.result())
+    if markets_text:
+        sections.append(markets_text)
 
     fx_text = format_exchange_rates(fx_data)
     if fx_text:
@@ -82,6 +88,7 @@ def run_morning_briefing(notify: bool = True):
             "date":      now.strftime("%Y-%m-%d"),
             "timestamp": now.strftime("%Y-%m-%d %H:%M"),
             "us_summary": us_summary,
+            "markets":    markets_text,
             "fx":         fx_text,
             "news":       news_text,
             "trends":     trends_text,
