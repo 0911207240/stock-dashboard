@@ -35,7 +35,7 @@ def _ptt_score(nrec: str) -> int:
     return int(nrec) if nrec.isdigit() else 0
 
 
-def _fetch_ptt_hot(board: str = "Gossiping", pages: int = 2, top: int = 3) -> list[dict]:
+def _fetch_ptt_hot(board: str = "Gossiping", pages: int = 2, top: int = 3, min_push: int = 10) -> list[dict]:
     """抓看板最近幾頁，回傳推文數最高的幾篇（只取標題與推文數，不放連結）"""
     url = f"https://www.ptt.cc/bbs/{board}/index.html"
     posts = []
@@ -56,7 +56,7 @@ def _fetch_ptt_hot(board: str = "Gossiping", pages: int = 2, top: int = 3) -> li
             break
         url = "https://www.ptt.cc" + prev.group(1)
     posts.sort(key=lambda x: x["push"], reverse=True)
-    return [p for p in posts if p["push"] >= 10][:top]
+    return [p for p in posts if p["push"] >= min_push][:top]
 
 
 _MARKETING_CALENDAR = {

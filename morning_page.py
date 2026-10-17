@@ -337,10 +337,21 @@ def render_news(data: dict) -> str:
     return f'<section><p class="eyebrow">新聞</p><h2>今天值得看的</h2><div class="news">{cols}</div></section>' if cols else ""
 
 
-def render_social(data: dict) -> str:
+def fetch_ptt_local() -> list[str]:
+    """PTT 擋 GitHub Actions 的 IP，所以開頁面時由本機直接抓；失敗就回空，不影響其他區塊"""
+    try:
+        from social_trends import _fetch_ptt_hot
+
+        return [f"{p['title']}（推 {p['label']}）" for p in _fetch_ptt_hot("Gossiping", pages=3, min_push=5)]
+    except Exception as e:
+        print(f"[頁面] PTT 抓取失敗：{e}")
+        return []
+
+
+def render_social(data: dict, ptt: list[str] | None = None) -> str:
     pills, cols = "", ""
     for head, items in _blocks(data.get("trends", "")):
-        if not items:
+        if not items or (ptt and "PTT" in head):  # 本機抓到 PTT 時，以本機結果為準
             continue
         if "熱搜" in head:
             for i in items:
@@ -349,9 +360,11 @@ def render_social(data: dict) -> str:
                           else f'<span class="pill">{esc(i)}</span>')
         else:
             cols += f'<div><h3>{esc(head)}</h3><ul>{"".join(f"<li>{esc(i)}</li>" for i in items)}</ul></div>'
+    if ptt:
+        cols += f'<div><h3>PTT 八卦板高推文</h3><ul>{"".join(f"<li>{esc(i)}</li>" for i in ptt)}</ul></div>'
     if not (pills or cols):
         return ""
-    hot = f'<h3 style="font-size:12px;letter-spacing:.14em;color:var(--acc);margin:0 0 10px">Google 台灣熱搜</h3><div class="pills">{pills}</div>' if pills else ""
+    hot =f'<h3 style="font-size:12px;letter-spacing:.14em;color:var(--acc);margin:0 0 10px">Google 台灣熱搜</h3><div class="pills">{pills}</div>' if pills else ""
     return f'<section><p class="eyebrow">社群</p><h2>大家在聊什麼</h2>{hot}<div class="news">{cols}</div></section>'
 
 
@@ -421,7 +434,7 @@ def build() -> str:
         parts.append(render_markets(q, hist, data["markets"]))
     parts.append(render_fx(data, hist))
     parts.append(render_news(data))
-    parts.append(render_social(data))
+    parts.append(render_social(data, fetch_ptt_local()))
     if MARKETING.exists() and (now - datetime.fromtimestamp(MARKETING.stat().st_mtime)).days <= 8:
         parts.append(render_marketing(MARKETING.read_text(encoding="utf-8")))
 
