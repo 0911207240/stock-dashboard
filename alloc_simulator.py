@@ -13,12 +13,8 @@ COLORS = ["#8a8f99", "#378ADD", "#1D9E75", "#BA7517", "#D85A30"]
 SELL_TAX = 0.001      # ETF 證交稅 0.1%
 FEE = 0.1425 / 100 * 0.28  # 手續費 2.8 折（單邊，未計最低 $1）
 
-# 近 12 個月配息中「非股利」的占比（＝1 − 54C 股利所得 − 5A 利息所得，以每期配息金額加權）。
-# 來源：ETF 資訊網各檔配息紀錄頁（2026/10/17 讀取），其中 00878、00919、00929 最近一期與官方資料互相吻合。
-# 非股利部分多為已實現資本利得，也可能含收益平準金，各期拆分只有最新一期公開，所以這是上限估計。
-NONDIV = {"0050": 0.70, "0056": 0.67, "00878": 0.72, "00919": 0.84, "00929": 0.67,
-          "00940": 0.17, "00900": 0.36, "00939": 0.28}
-NONDIV_DEFAULT = 0.50  # 未查證的標的先假設一半
+from etf_facts import NONDIV, NONDIV_ASOF, NONDIV_DEFAULT, nondiv
+
 SCENARIOS = ["基準（近 12 個月實際）", "非股利配息 -25%", "非股利配息 -50%", "全部標的配息 -25%"]
 
 
@@ -69,6 +65,8 @@ def _summary(name: str, amounts: dict, infos: dict, spread: bool, current: dict,
         if info and amt > 0:
             biggest_src = max(biggest_src, amt / info["price"] * (1 - (cut or {}).get(code, 0))
                               * sum(a for _, a in info["payouts"]))
+    nd_income = sum(amt / infos[c]["price"] * (1 - (cut or {}).get(c, 0)) * sum(a for _, a in infos[c]["payouts"]) * nondiv(c)
+                    for c, amt in amounts.items() if infos.get(c) and amt > 0)
     sells = sum(max(current.get(c, 0) - amounts.get(c, 0), 0) for c in set(current) | set(amounts))
     buys = sum(max(amounts.get(c, 0) - current.get(c, 0), 0) for c in set(current) | set(amounts))
     return {
@@ -79,6 +77,7 @@ def _summary(name: str, amounts: dict, infos: dict, spread: bool, current: dict,
         "stable": min(inc) / avg * 100 if avg else 0,
         "top_weight": max(amounts.values()) / total * 100 if total else 0,
         "top_income_share": biggest_src / annual * 100 if annual else 0,
+        "nondiv_share": nd_income / annual * 100 if annual else 0,
         "turnover": sells, "cost": sells * (SELL_TAX + FEE) + buys * FEE,
     }
 
@@ -104,22 +103,23 @@ def render():
     total = sum(current.values())
     st.metric("可配置總資金（目前市值）", f"${total:,.0f}")
 
-    spread = st.checkbox(
-        "月配標的以年配息平均分攤到 12 個月", value=True, key="alloc_spread",
-        help="月配 ETF 近 12 個月的金額常因配息調升而前低後高，直接用會誤判成不穩定。"
-             "勾選＝假設每月領一樣多；取消＝照近 12 個月實際月份與金額。季配標的一律照實際月份。")
-
-    scen = st.selectbox(
-        "配息情境", SCENARIOS,
-        key="alloc_scen",
-        help="非股利配息＝配息中不是股利所得的部分（多為已實現資本利得，也可能含收益平準金）。各檔占比不同（見頁面下方的說明表），"
-             "市場回落時這部分最容易縮水，所以只折減這一塊。圖表與比較表都會套用這個情境。")
+    col_a, col_b = st.columns(2)
+    with col_a:
+        spread = st.checkbox(
+            "月配標的以年配息平均分攤到 12 個月", value=True, key="alloc_spread",
+            help="月配 ETF 近 12 個月的金額常因配息調升而前低後高，直接用會誤判成不穩定。"
+                 "勾選＝假設每月領一樣多；取消＝照近 12 個月實際月份與金額。季配標的一律照實際月份。")
+    with col_b:
+        scen = st.selectbox(
+            "配息情境", SCENARIOS, key="alloc_scen",
+            help="非股利配息＝配息中不是股利所得的部分（多為已實現資本利得，也可能含收益平準金）。各檔占比不同（見頁面下方的說明表），"
+                 "市場回落時這部分最容易縮水，所以只折減這一塊。圖表與比較表都會套用這個情境。")
     cut = _cut_for(scen, set(infos) | set(codes))
 
-    st.markdown("##### 自訂配置（權重合計不必剛好 100，會自動換算）")
-    base = pd.DataFrame([{"代號": c, "配置%": w} for c, w in PRESETS["B 降低集中"].items()])
-    custom = st.data_editor(base, num_rows="dynamic", hide_index=True, use_container_width=True, key="alloc_custom",
-                            column_config={"配置%": st.column_config.NumberColumn(min_value=0.0, max_value=100.0, step=1.0)})
+    with st.expander("自訂配置 E（點開編輯；權重合計不必剛好 100，會自動換算）"):
+        base = pd.DataFrame([{"代號": c, "配置%": w} for c, w in PRESETS["B 降低集中"].items()])
+        custom = st.data_editor(base, num_rows="dynamic", hide_index=True, use_container_width=True, key="alloc_custom",
+                                column_config={"配置%": st.column_config.NumberColumn(min_value=0.0, max_value=100.0, step=1.0)})
 
     scenarios = {"A 現況": current}
     for name, w in PRESETS.items():
@@ -160,15 +160,26 @@ def render():
         "最低月÷月均": f"{r['stable']:.0f}%",
         "最大單一標的": f"{r['top_weight']:.0f}%",
         "最大配息來源占比": f"{r['top_income_share']:.0f}%",
+        "非股利配息占比": f"{r['nondiv_share']:.0f}%",
         "換手金額": f"${r['turnover']:,.0f}",
         "估算交易成本": f"${r['cost']:,.0f}",
     } for r in rows])
     st.dataframe(table, use_container_width=True, hide_index=True)
 
+    best_min = max(rows, key=lambda r: r["min"])
+    best_top = min(rows, key=lambda r: r["top_weight"])
+    best_nd = min(rows, key=lambda r: r["nondiv_share"])
+    st.caption(
+        f"依目前的情境與假設：最低月入帳最高的是「{best_min['name']}」（${best_min['min']:,.0f}）；"
+        f"最大單一標的占比最低的是「{best_top['name']}」（{best_top['top_weight']:.0f}%）；"
+        f"非股利配息占比最低的是「{best_nd['name']}」（{best_nd['nondiv_share']:.0f}%）。三個指標常常不是同一個配置，"
+        "請依你最在意的風險取捨。")
+
     with st.expander("指標怎麼看"):
         st.markdown(
             "- **最低月÷月均**：越接近 100%，每個月領得越平均；0% 代表至少有一個月完全沒有入帳。\n"
             "- **最大配息來源占比**：單一標的貢獻的配息比例。它若減配，整體現金流受影響的幅度大約是「占比 × 減配幅度」。\n"
+            "- **非股利配息占比**：整個配置的配息中，不是股利所得的部分（多為資本利得）所占比例，越低越不依賴賣股價差。\n"
             "- **估算交易成本**：賣出證交稅 0.1% ＋ 手續費 2.8 折（單邊約 0.04%），未計最低手續費、價差與滑價，實際以券商為準。\n"
             "- 殖利率與配息都是**過去 12 個月**的結果；配息會隨市況與基金操作變動，不保證延續。"
         )

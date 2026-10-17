@@ -12,6 +12,8 @@ import plotly.graph_objects as go
 import streamlit as st
 import yfinance as yf
 
+from etf_facts import NONDIV_ASOF, nondiv, nondiv_label
+
 STATE_FILE = os.path.join(os.path.dirname(__file__), "dca_state.json")
 MAX_MONTHS = 600  # 試算上限 50 年
 
@@ -138,7 +140,7 @@ def render():
         st.warning(f"近 12 個月沒有配息紀錄：{', '.join(no_div)}（可能剛上市或資料缺漏，不計入配息）")
 
     # ── 現況 ──
-    cost = mv = annual = 0.0
+    cost = mv = annual = nd_annual = 0.0
     rows = []
     for h in holdings:
         info = infos.get(h["代號"])
@@ -150,10 +152,12 @@ def render():
         cost += c_
         mv += v_
         annual += h["持有股數"] * per_year
+        nd_annual += h["持有股數"] * per_year * nondiv(h["代號"])
         rows.append({
             "代號": h["代號"], "股價": f"{info['price']:.2f}", "持有股數": h["持有股數"],
             "市值": f"${v_:,.0f}", "近12月每股配息": f"{per_year:.2f}",
             "年配息": f"${h['持有股數'] * per_year:,.0f}",
+            "非股利占比": nondiv_label(h["代號"]),
             "除息月": "、".join(str(m) for m in sorted({m for m, _ in info["payouts"]})) or "—",
         })
     monthly_now = annual / 12
@@ -169,12 +173,26 @@ def render():
         m4.metric("帳面損益", "—", "未填平均成本")
     st.progress(min(monthly_now / goal, 1.0) if goal else 0.0)
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+    if annual > 0:
+        st.caption(f"組合的配息中約 {nd_annual / annual * 100:.0f}% 不是股利（多為資本利得），市場回落時這部分最容易縮水。"
+                   f"各檔占比為近 12 個月加權的上限估計（{NONDIV_ASOF} 查證，「約 50%」為未查證的預設值）。")
 
     # ── 達標推演 ──
     st.markdown("##### 預估達標")
     months, series = _project([h for h in holdings if infos.get(h["代號"])], infos, goal, reinvest)
+    no_add = not any(h["每月加碼股數"] > 0 for h in holdings)
     if monthly_now >= goal:
         st.success("目前月均配息已達目標。")
+    elif no_add and not reinvest and annual > 0 and mv > 0:
+        port_yield = annual / mv
+        need = goal * 12 / port_yield
+        n1, n2, n3 = st.columns(3)
+        n1.metric("組合殖利率（近 12 月）", f"{port_yield * 100:.2f}%")
+        n2.metric(f"月領 ${goal:,.0f} 所需市值", f"${need:,.0f}")
+        n3.metric("還差", f"${max(need - mv, 0):,.0f}")
+        st.info("目前沒有每月加碼，也沒有勾選配息再投入，所以不會有「達標年月」。上面是以現有殖利率反推的所需本金；"
+                "只調整配置、不加新資金，無法填補這個差距。若之後每月加碼，在上表填入股數即可推演。")
+        series = None
     elif months is None:
         st.warning(f"依目前每月加碼，50 年內無法達到月領 ${goal:,.0f}。可提高加碼股數或目標。")
     else:
