@@ -38,12 +38,12 @@ border-radius:50%;background:var(--acc);margin-right:8px}
 h1{font-size:40px;line-height:1.25;font-weight:800;letter-spacing:-.01em;margin:0 0 14px}
 .lede{font-size:17px;color:var(--sub);margin:0;max-width:640px}
 .warn{margin:18px 0 0;padding:10px 14px;background:var(--soft);border-left:3px solid #b7791f;color:#8a5a12;font-size:14px}
-.first{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
-.first li{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:16px 0;border-bottom:1px solid var(--line)}
-.first .n{font-size:24px;font-weight:800;color:var(--acc);line-height:1.2}
-.first .t{font-size:17px;font-weight:600;line-height:1.5}
-.first .k{display:block;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--mute);margin-bottom:2px}
-section{margin-top:64px}
+.first{margin:0 0 28px;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.first li{background:var(--soft);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:30px 1fr;gap:2px 12px;align-items:start}
+.first .n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:var(--bg);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.first .t{font-size:15.5px;font-weight:600;line-height:1.5}
+.first .k{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--acc);margin-bottom:3px}
+section{margin-top:56px;scroll-margin-top:60px}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--acc);margin:0 0 4px}
 h2{font-size:26px;line-height:1.3;font-weight:800;margin:0 0 22px}
 .big{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:end;margin-bottom:28px}
@@ -62,7 +62,8 @@ h2{font-size:26px;line-height:1.3;font-weight:800;margin:0 0 22px}
 .tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font-size:12px;padding:3px 8px;border-radius:6px;
 white-space:nowrap;transform:translate(-50%,-130%);opacity:0;transition:opacity .08s}
 .up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--mute)}
-.others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;margin-top:8px}
+.others{columns:2;column-gap:40px;margin-top:8px}
+.others>div{break-inside:avoid;margin-bottom:8px}
 .others div.r{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
 .others .v{font-variant-numeric:tabular-nums}
 .others .h{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--mute);padding:14px 0 4px}
@@ -110,8 +111,31 @@ dt{color:var(--mute);font-size:13px;padding-top:2px}dd{margin:0}
 a{color:var(--acc);word-break:break-all}
 .small{font-size:13px;color:var(--mute)}
 footer{margin-top:72px;padding-top:16px;border-top:1px solid var(--line)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.meta span{font-size:12px;color:var(--sub);background:var(--soft);padding:3px 12px;border-radius:999px}
+.nav{position:sticky;top:0;z-index:20;display:flex;gap:6px;padding:10px 0;background:color-mix(in srgb,var(--bg) 88%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav a{color:var(--sub);text-decoration:none;font-size:14px;font-weight:600;padding:5px 14px;border-radius:999px}
+.nav a.on,.nav a:hover{background:var(--acc);color:var(--bg)}
+.news{gap:14px}
+.news>div,.masonry>div{background:var(--soft);border-radius:14px;padding:16px 18px}
+.masonry{column-gap:14px}.masonry>div{margin-bottom:14px}
+.news li:last-child,.masonry li:last-child{border-bottom:0}
+.masonry li{display:flex;justify-content:space-between;gap:10px}
+.masonry li .src{align-self:flex-start;flex:none;max-width:42%;margin:3px 0 0;white-space:normal;text-align:right;line-height:1.5}
+.push{flex:none;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--line);color:var(--sub);align-self:flex-start;margin-top:4px}
+.push.hot{background:var(--up);color:#fff}
+.cnt{margin-left:8px;font-weight:600;color:var(--mute)}
+.fold{margin:6px 0 0}.fold summary{font-size:13px;padding:6px 0;color:var(--acc);cursor:pointer}.fold ul{margin-top:4px}
+.src{display:inline-block;background:var(--line);color:var(--sub);border-radius:6px;padding:0 7px;font-size:11px;margin-left:8px;white-space:nowrap}
+.lead{background:var(--soft);border:0;border-left:4px solid var(--acc);border-radius:14px;padding:20px 22px}
+.more{border-top:0;margin-top:14px}
+.more .it{background:var(--soft);border:0;border-radius:14px;padding:16px 20px;margin-top:12px}
+.totop{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;border:0;background:var(--fg);color:var(--bg);
+font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}
+.totop.show{opacity:.85;pointer-events:auto}
 @media (max-width:720px){h1{font-size:30px}.big{grid-template-columns:1fr}.big .val{font-size:46px}
-.tiles{grid-template-columns:1fr}.others,.news{grid-template-columns:1fr}.plain{grid-template-columns:1fr}.masonry{columns:1}.fx{grid-template-columns:1fr}.fx .now{text-align:left}
+.tiles{grid-template-columns:1fr}.first{grid-template-columns:1fr}.others{columns:1}.news{grid-template-columns:1fr}.plain{grid-template-columns:1fr}.masonry{columns:1}.fx{grid-template-columns:1fr}.fx .now{text-align:left}
 dl{grid-template-columns:1fr}}
 """
 
@@ -343,7 +367,11 @@ def render_news(data: dict) -> str:
     cols = ""
     for head, items in _blocks(data.get("news", "")):
         if items:
-            cols += f'<div><h3>{esc(head)}</h3><ul>{"".join(f"<li>{esc(i)}</li>" for i in items)}</ul></div>'
+            first = "".join(f"<li>{esc(i)}</li>" for i in items[:3])
+            rest = items[3:]
+            fold = (f'<details class="fold"><summary>再看 {len(rest)} 則</summary><ul>'
+                    + "".join(f"<li>{esc(i)}</li>" for i in rest) + "</ul></details>") if rest else ""
+            cols += f'<div><h3>{esc(head)}<span class="cnt">{len(items)}</span></h3><ul>{first}</ul>{fold}</div>'
     return f'<section><p class="eyebrow">新聞</p><h2>今天值得看的</h2><div class="news">{cols}</div></section>' if cols else ""
 
 
@@ -394,7 +422,7 @@ def render_social(data: dict, live: dict | None = None) -> str:
             posts = ptt.get(board) or []
             if posts:
                 inner += (f'<div class="bd">{esc(name)}<span>{esc(board)}</span></div><ul>'
-                          + "".join(f'<li>{esc(t)}<span class="src">推 {esc(n)}</span></li>' for t, n in posts) + "</ul>")
+                          + "".join(f'<li><span>{esc(t)}</span><span class="push{" hot" if n == "爆" else ""}">{esc(n)}</span></li>' for t, n in posts) + "</ul>")
         if inner:
             groups += f'<div><h3>PTT｜{esc(theme)}</h3>{inner}</div>'
     bh = live.get("bahamut") or []
@@ -442,6 +470,17 @@ def render_marketing(text: str) -> str:
 
 
 JS = """
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  if(links.length&&window.IntersectionObserver){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')=='#'+e.target.id)})}})},{rootMargin:'-25% 0px -65% 0px'});
+    document.querySelectorAll('section[id]').forEach(function(x){io.observe(x)});
+  }
+  var up=document.querySelector('.totop');
+  if(up){window.addEventListener('scroll',function(){up.classList.toggle('show',window.scrollY>600)});
+    up.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});}
+})();
 document.querySelectorAll('.spark').forEach(function(el){
   var d=JSON.parse(el.dataset.spark),p=d.p,n=p.length,w=d.w,h=d.h,pad=d.pad;
   var v=p.map(function(x){return x[1]}),lo=Math.min.apply(null,v),hi=Math.max.apply(null,v),sp=(hi-lo)||1;
@@ -480,10 +519,29 @@ def build() -> str:
         parts.append(render_markets(q, hist, data["markets"]))
     parts.append(render_fx(data, hist))
     parts.append(render_news(data))
-    parts.append(render_social(data, _live()))
+    live = _live()
+    parts.append(render_social(data, live))
     if MARKETING.exists() and (now - datetime.fromtimestamp(MARKETING.stat().st_mtime)).days <= 8:
         parts.append(render_marketing(MARKETING.read_text(encoding="utf-8")))
 
+    ids = {"市場": "market", "匯率": "fx", "新聞": "news", "社群": "social", "靈感": "idea"}
+    nav_items, anchored = [], []
+    for ph in parts:
+        mm = re.search(r'<section><p class="eyebrow">(.*?)</p>', ph)
+        if mm and mm.group(1) in ids:
+            sid = ids[mm.group(1)]
+            ph = ph.replace("<section>", f'<section id="{sid}">', 1)
+            nav_items.append(f'<a href="#{sid}">{mm.group(1)}</a>')
+        anchored.append(ph)
+    first_html = ""
+    if anchored and anchored[0].startswith('<ol class="first"'):
+        first_html = anchored.pop(0)
+    parts = anchored
+    nav = f'<nav class="nav">{"".join(nav_items)}</nav>' if nav_items else ""
+    meta = "".join(f"<span>{esc(t)}</span>" for t in (
+        f"日報資料 {data.get('timestamp', '')}" if data.get("timestamp") else "",
+        f"即時社群 {live.get('asof', '')}" if live.get("asof") else "") if t)
+    meta = f'<div class="meta">{meta}</div>' if meta else ""
     gmail = f"{esc(_clean(data['gmail']))}｜" if data.get("gmail") else ""
     foot = (f'<footer class="small">{gmail}資料來源：Yahoo Finance、證交所開放資料、中央社、自由時報、Google 趨勢、PTT。'
             f'資料時間 {esc(data.get("timestamp", ""))}。報價可能延遲，內容僅供參考，不構成投資建議。</footer>')
@@ -491,8 +549,9 @@ def build() -> str:
             f'<meta name="viewport" content="width=device-width,initial-scale=1"><title>早安日報</title>'
             f"<style>{CSS}</style></head><body><main>"
             f'<div class="bar"><b>早安日報</b><span>{now.month} 月 {now.day} 日　週{WEEKDAYS[now.weekday()]}</span></div>'
-            f'<div class="hero"><h1>{esc(h1)}</h1><p class="lede">{esc(lede)}</p>{warn}</div>'
-            f'{"".join(parts)}{foot}</main><script>{JS}</script></body></html>')
+            f'<div class="hero"><h1>{esc(h1)}</h1><p class="lede">{esc(lede)}</p>{meta}{warn}</div>'
+            f'{first_html}{nav}{"".join(parts)}{foot}</main><button class="totop" aria-label="回到頂端">↑</button>'
+            f'<script>{JS}</script></body></html>')
 
 
 if __name__ == "__main__":
