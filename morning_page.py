@@ -370,7 +370,7 @@ def render_social(data: dict, live: dict | None = None) -> str:
                 pills += (f'<span class="pill">{esc(m.group(1))}<small>{esc(m.group(2))}</small></span>' if m
                           else f'<span class="pill">{esc(i)}</span>')
         else:
-            cols += f'<div><h3>{esc(head)}</h3><ul>{"".join(f"<li>{esc(i)}</li>" for i in items)}</ul></div>'
+            cols += f'<div><h3>{esc(head)}</h3><ul>{"".join(f"<li>{esc(_clean(i))}</li>" for i in items)}</ul></div>'
 
     sub = '<h3 class="subhead">{}</h3>'
     out = ""
