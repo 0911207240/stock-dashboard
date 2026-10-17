@@ -49,8 +49,9 @@ def render():
     call_line = c4.number_input("追繳維持率（%）", value=130, step=5, min_value=100, max_value=200, key="lev_call",
                                 help="多數來源說 130%，也有說 120%，各家不同。維持率＝擔保品市值÷借款金額。")
     scen = c5.selectbox("配息情境", sim.SCENARIOS, key="lev_scen")
-    spread = c6.checkbox("月配標的平均分攤", value=False, key="lev_spread",
-                         help="預設不勾選：照近 12 個月實際入帳月份算，才看得出季配標的某幾個月入帳不足以支付固定利息。")
+    spread = c6.checkbox("月配標的平均分攤", value=True, key="lev_spread",
+                         help="只影響月配標的（近 12 個月配息 ≥10 筆），季配標的一律照實際月份。月配 ETF 的配息月份在資料來源常有缺漏"
+                              "（例如 00929 被記成 3 月兩筆、2 月沒有），不勾選會把最低月低估；取消勾選＝照近 12 個月實際月份與金額。")
     new_pledged = st.checkbox("新買進的股票也能拿去質押（擔保品含新買部位）", value=False, key="lev_newpledge",
                               help="預設不勾：擔保品只計原有持股，比較保守。實際依借款機構規定。")
 
