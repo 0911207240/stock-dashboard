@@ -588,6 +588,19 @@ STYLE_ARG = next((a.split("=")[1] for a in sys.argv if a.startswith("--style="))
 STYLE = STYLE_ARG or "b"
 
 
+def etf_alert() -> str:
+    """etf_check.py 每月重查八檔配息來源；有檔案變動超過門檻才在頁首提醒"""
+    try:
+        d = json.loads((BASE / "etf_check.json").read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    flags = d.get("flags") or []
+    if not flags:
+        return ""
+    return (f'<div class="warn">ETF 配息來源占比有變動（{esc(d.get("asof", ""))} 查證，對照 {esc(d.get("baseline", ""))}）：'
+            + "；".join(esc(f) for f in flags) + "。etf_facts.py 尚未更新，確認後再改。</div>")
+
+
 def build() -> str:
     try:
         data = json.loads((BASE / "morning_briefing.json").read_text(encoding="utf-8"))
@@ -604,6 +617,7 @@ def build() -> str:
     elif data.get("date") != now.strftime("%Y-%m-%d"):
         warn = f'<div class="warn">今天的日報尚未產生，以下為 {esc(data.get("timestamp", ""))} 的資料。</div>'
 
+    warn += etf_alert()
     parts = [render_first(data)] if data.get("news") else []
     if data.get("markets"):
         parts.append(render_markets(q, hist, data["markets"]))
