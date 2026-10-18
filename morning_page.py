@@ -15,6 +15,7 @@ from pathlib import Path
 BASE = Path(__file__).parent
 OUT = BASE / "morning_page.html"
 MARKETING = BASE / "marketing_weekly.md"
+NOTES = BASE / "morning_notes.md"
 CACHE = BASE / "market_history_cache.json"
 WEEKDAYS = "一二三四五六日"
 
@@ -448,6 +449,27 @@ def render_social(data: dict, live: dict | None = None) -> str:
     return f'<section><p class="eyebrow">社群</p><h2>大家在聊什麼</h2>{out}{note}</section>'
 
 
+def render_notes(text: str) -> str:
+    """手動備註：「## 標題」分組、「- 內容」為條目，其餘行忽略。沒有條目就不顯示。"""
+    groups, cur = [], None
+    for line in text.splitlines():
+        line = line.strip()
+        if line.startswith("## "):
+            cur = [line[3:].strip(), []]
+            groups.append(cur)
+        elif line.startswith("- ") and line[2:].strip():
+            if cur is None:
+                cur = ["備註", []]
+                groups.append(cur)
+            cur[1].append(line[2:].strip())
+    cols = "".join(f'<div><h3>{esc(h)}<span class="cnt">{len(it)}</span></h3><ul>'
+                   + "".join(f"<li>{esc(i)}</li>" for i in it) + "</ul></div>" for h, it in groups if it)
+    if not cols:
+        return ""
+    return (f'<section><p class="eyebrow">備註</p><h2>我自己記的</h2><div class="news">{cols}</div>'
+            f'<p class="small" style="margin-top:14px">內容來自 morning_notes.md，只存在本機。</p></section>')
+
+
 def render_marketing(text: str) -> str:
     m = re.match(r"^（(.*?)）", text.strip())
     stamp = m.group(1) if m else ""
@@ -527,10 +549,12 @@ def build() -> str:
     parts.append(render_news(data))
     live = _live()
     parts.append(render_social(data, live))
+    if NOTES.exists():
+        parts.append(render_notes(NOTES.read_text(encoding="utf-8")))
     if MARKETING.exists() and (now - datetime.fromtimestamp(MARKETING.stat().st_mtime)).days <= 8:
         parts.append(render_marketing(MARKETING.read_text(encoding="utf-8")))
 
-    ids = {"市場": "market", "匯率": "fx", "新聞": "news", "社群": "social", "靈感": "idea"}
+    ids = {"市場": "market", "匯率": "fx", "新聞": "news", "社群": "social", "備註": "notes", "靈感": "idea"}
     nav_items, anchored = [], []
     for ph in parts:
         mm = re.search(r'<section><p class="eyebrow">(.*?)</p>', ph)
