@@ -15,3 +15,5 @@ market_history_cache.json
 social_cache.json
 morning_notes.md
 morning_page_*.html
+
+last_opened.json

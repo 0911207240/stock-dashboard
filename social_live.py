@@ -112,7 +112,7 @@ def fetch_all(force: bool = False) -> dict:
         except Exception:
             pass
     boards = [b for _, bs in PTT_GROUPS for b, _ in bs]
-    with ThreadPoolExecutor(max_workers=6) as ex:
+    with ThreadPoolExecutor(max_workers=16) as ex:
         ptt_f = {b: ex.submit(_ptt_hot, b, 2, 3, 6 if b == "Gossiping" else 8) for b in boards}
         baha_f, news_f, line_f = ex.submit(_bahamut), ex.submit(_gnews), ex.submit(_line_today)
     data = {

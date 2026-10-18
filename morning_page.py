@@ -17,6 +17,8 @@ OUT = BASE / "morning_page.html"
 MARKETING = BASE / "marketing_weekly.md"
 NOTES = BASE / "morning_notes.md"
 CACHE = BASE / "market_history_cache.json"
+OPENED = BASE / "last_opened.json"  # 本機標記：今天的頁面開過沒（補開用，不進 git）
+OPEN_FROM_HOUR = 8
 WEEKDAYS = "一二三四五六日"
 
 CHARTED = [("加權指數", "^TWII"), ("S&P 500", "^GSPC"), ("那斯達克", "^IXIC"), ("費城半導體", "^SOX")]
@@ -646,10 +648,21 @@ def build() -> str:
             f'<script>{JS}</script></body></html>')
 
 
+def opened_today() -> bool:
+    try:
+        return json.loads(OPENED.read_text(encoding="utf-8-sig")).get("date") == datetime.now().strftime("%Y-%m-%d")
+    except Exception:
+        return False
+
+
 if __name__ == "__main__":
+    if "--needs-run" in sys.argv:  # 補開判斷：08:00 後且今天還沒開過 → 結束碼 0，否則 3
+        sys.exit(3 if opened_today() or datetime.now().hour < OPEN_FROM_HOUR else 0)
     if STYLE_ARG:
         OUT = BASE / f"morning_page_{STYLE_ARG}.html"
     OUT.write_text(build(), encoding="utf-8")
     print(f"已產生 {OUT}")
     if "--no-open" not in sys.argv:
         webbrowser.open(OUT.as_uri())
+        if not STYLE_ARG:
+            OPENED.write_text(json.dumps({"date": datetime.now().strftime("%Y-%m-%d")}), encoding="utf-8")
