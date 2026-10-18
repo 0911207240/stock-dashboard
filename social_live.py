@@ -3,6 +3,7 @@
 PTT、巴哈姆特等會擋 GitHub Actions 的 IP，所以不放在雲端日報，改在本機開頁面時抓，
 結果快取 30 分鐘（social_cache.json，不進 git）。任何一個來源失敗都只是少一塊，不影響其他。
 
+來源：PTT、巴哈姆特、Google 新聞頭條、LINE TODAY 排行。
 不抓的來源：Dcard、Mobile01（擋抓取）、YouTube 熱門榜（沒有內容）、Reddit（限流）、
 Threads／IG／FB（沒有公開資料）。
 """
@@ -80,6 +81,28 @@ def _gnews(top: int = 12) -> list[list]:
     return out
 
 
+def _line_today(top: int = 10) -> list[list]:
+    """LINE TODAY 排行榜標題（頁面內嵌 JSON）。只取標題，不取連結。"""
+    try:
+        r = requests.get("https://today.line.me/tw/v2/ranking", headers=UA, timeout=TIMEOUT)
+        r.encoding = "utf-8"
+    except Exception:
+        return []
+    out, seen = [], set()
+    for t in re.findall(r'"title":"(.*?)"', r.text):
+        try:
+            t = json.loads(f'"{t}"')
+        except ValueError:
+            continue
+        if len(t) < 12 or t in seen:  # 太短的是分類名稱
+            continue
+        seen.add(t)
+        out.append([t, "LINE TODAY"])
+        if len(out) >= top:
+            break
+    return out
+
+
 def fetch_all(force: bool = False) -> dict:
     if not force:
         try:
@@ -91,15 +114,16 @@ def fetch_all(force: bool = False) -> dict:
     boards = [b for _, bs in PTT_GROUPS for b, _ in bs]
     with ThreadPoolExecutor(max_workers=6) as ex:
         ptt_f = {b: ex.submit(_ptt_hot, b, 2, 3, 6 if b == "Gossiping" else 8) for b in boards}
-        baha_f, news_f = ex.submit(_bahamut), ex.submit(_gnews)
+        baha_f, news_f, line_f = ex.submit(_bahamut), ex.submit(_gnews), ex.submit(_line_today)
     data = {
         "ts": time.time(),
         "asof": time.strftime("%H:%M"),
         "ptt": {b: f.result() for b, f in ptt_f.items()},
         "bahamut": baha_f.result(),
         "gnews": news_f.result(),
+        "line": line_f.result(),
     }
-    if any(data["ptt"].values()) or data["bahamut"] or data["gnews"]:
+    if any(data["ptt"].values()) or data["bahamut"] or data["gnews"] or data["line"]:
         try:
             CACHE.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
         except Exception:
@@ -109,6 +133,6 @@ def fetch_all(force: bool = False) -> dict:
 
 if __name__ == "__main__":
     d = fetch_all(force=True)
-    print("Google 新聞頭條:", len(d["gnews"]), "| 巴哈:", len(d["bahamut"]), "| PTT 看板有結果:", sum(1 for v in d["ptt"].values() if v), "/", len(d["ptt"]))
+    print("Google 新聞頭條:", len(d["gnews"]), "| LINE TODAY:", len(d["line"]), "| 巴哈:", len(d["bahamut"]), "| PTT 看板有結果:", sum(1 for v in d["ptt"].values() if v), "/", len(d["ptt"]))
     for b, v in d["ptt"].items():
         print(b, v[:2])

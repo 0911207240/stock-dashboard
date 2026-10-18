@@ -405,7 +405,7 @@ def render_social(data: dict, live: dict | None = None) -> str:
     if pills:
         out += sub.format("Google 台灣熱搜") + f'<div class="pills">{pills}</div>'
 
-    gn = live.get("gnews") or []
+    gn = (live.get("gnews") or []) + (live.get("line") or [])
     if gn:
         li = "".join(f'<li>{esc(t)}<span class="src">{esc(src)}</span></li>' for t, src in gn)
         out += sub.format("網路上正在被轉的新聞（Google 新聞台灣頭條）") + f'<ul class="plain">{li}</ul>'
@@ -417,18 +417,24 @@ def render_social(data: dict, live: dict | None = None) -> str:
         PTT_GROUPS = []
     groups = ""
     for theme, boards in PTT_GROUPS:
-        inner = ""
+        inner, top = "", None
         for board, name in boards:
             posts = ptt.get(board) or []
             if posts:
+                if top is None:
+                    top = (name, posts[0])
                 inner += (f'<div class="bd">{esc(name)}<span>{esc(board)}</span></div><ul>'
                           + "".join(f'<li><span>{esc(t)}</span><span class="push{" hot" if n == "爆" else ""}">{esc(n)}</span></li>' for t, n in posts) + "</ul>")
         if inner:
-            groups += f'<div><h3>PTT｜{esc(theme)}</h3>{inner}</div>'
+            t, n = top[1]
+            head = (f'<ul><li><span>{esc(t)}</span><span class="push{" hot" if n == "爆" else ""}">{esc(n)}</span></li></ul>')
+            groups += (f'<div><h3>PTT｜{esc(theme)}</h3>{head}'
+                       f'<details class="fold"><summary>展開全部看板</summary>{inner}</details></div>')
     bh = live.get("bahamut") or []
     if bh:
         li = "".join(f'<li>{esc(t)}<span class="src">{esc(b)}</span></li>' for t, b, _ in bh)
-        groups += f'<div><h3>巴哈姆特｜遊戲動漫熱門</h3><ul>{li}</ul></div>'
+        groups += (f'<div><h3>巴哈姆特｜遊戲動漫熱門</h3><ul>{li[:li.index("</li>") + 5]}</ul>'
+                   f'<details class="fold"><summary>再看 {len(bh) - 1} 則</summary><ul>{li[li.index("</li>") + 5:]}</ul></details></div>') if len(bh) > 1 else f'<div><h3>巴哈姆特｜遊戲動漫熱門</h3><ul>{li}</ul></div>'
     if groups:
         out += sub.format("論壇正在討論什麼") + f'<div class="masonry">{groups}</div>'
 
