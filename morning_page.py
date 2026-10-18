@@ -140,6 +140,62 @@ font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .
 dl{grid-template-columns:1fr}}
 """
 
+# 版型：預設套用 b（雜誌閱讀）；--style=x 會改輸出 morning_page_x.html 供試做，不動正式檔
+STYLES = {
+    # B 國際日報：報頭＋雙線、襯線大標、報紙式欄線、暖紙色；新聞優先
+    "b": """
+:root{--bg:#f7f3ea;--soft:#efe9dc;--line:#d9d0bd;--rule:#1c1813;--acc:#8a2f1f;--fg:#1c1813;--sub:#4a4137;--mute:#8b8071;--panel:#f7f3ea}
+@media (prefers-color-scheme:dark){:root{--bg:#14110d;--soft:#1d1912;--line:#322b20;--rule:#e9e0cf;--acc:#e3a08c;--fg:#ece4d4;--sub:#bfb4a1;--mute:#8a7f6e}}
+main{max-width:920px;padding:26px 28px 96px;display:flex;flex-direction:column}
+main>*{order:50}main>.bar{order:0}main>.hero{order:1}main>.first{order:2}main>.nav{order:3}
+main>#news{order:10}main>#market{order:11}main>#fx{order:12}main>#social{order:13}main>#notes{order:14}main>#idea{order:15}main>footer{order:99}
+body{font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;line-height:1.75}
+.bar{display:block;text-align:center;border-top:4px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0 10px;position:relative;letter-spacing:0}
+.bar b{display:block;font-size:44px;font-weight:900;letter-spacing:.32em;text-indent:.32em;color:var(--fg);line-height:1.15}
+.bar b::before{display:none}
+.bar b::after{content:"THE MORNING BRIEF · TAIPEI";display:block;font:600 11px/1 system-ui,sans-serif;letter-spacing:.34em;text-indent:.34em;color:var(--mute);margin-top:10px}
+.bar span{display:block;margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font:600 12px/1 system-ui,sans-serif;letter-spacing:.2em;color:var(--sub)}
+.hero{padding:34px 0 22px;border-bottom:3px double var(--rule)}
+h1{font-size:44px;line-height:1.28;font-weight:900;letter-spacing:-.005em;margin:0 0 16px}
+.lede{font-size:18px;line-height:1.8;color:var(--sub);max-width:none;font-style:normal}
+.meta{margin-top:16px}.meta span{background:none;border:1px solid var(--line);border-radius:2px;font:500 11px/1 system-ui,sans-serif;letter-spacing:.1em;padding:5px 10px;color:var(--mute)}
+.first{display:block;margin:0;padding:20px 0 6px;border-bottom:1px solid var(--line);counter-reset:f}
+.first li{display:block;background:none;border:0;border-radius:0;padding:0 0 16px;position:relative;padding-left:44px}
+.first .n{position:absolute;left:0;top:-4px;width:auto;height:auto;background:none;color:var(--acc);font:italic 900 28px/1 "Noto Serif TC",serif;border-radius:0}
+.first .k{font:700 11px/1 system-ui,sans-serif;letter-spacing:.2em;color:var(--acc);margin-bottom:4px}
+.first .t{font-size:17px;font-weight:700;line-height:1.6}
+.nav{top:0;background:color-mix(in srgb,var(--bg) 94%,transparent);border-bottom:1px solid var(--rule);padding:8px 0;gap:0;justify-content:center}
+.nav a{font:600 12px/1 system-ui,sans-serif;letter-spacing:.22em;border-radius:0;padding:9px 16px;color:var(--sub)}
+.nav a.on,.nav a:hover{background:none;color:var(--acc);box-shadow:inset 0 -2px 0 var(--acc)}
+section{margin-top:56px}
+.eyebrow{font:700 11px/1 system-ui,sans-serif;letter-spacing:.3em;color:var(--acc);margin:0 0 10px;padding-top:12px;border-top:3px solid var(--rule)}
+h2{font-size:28px;font-weight:900;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+#news .news,#notes .news{grid-template-columns:1fr 1fr;gap:0;column-gap:0}
+#news .news>div,#notes .news>div{background:none;border-radius:0;padding:0 26px 18px 0}
+#news .news>div:nth-child(even),#notes .news>div:nth-child(even){padding:0 0 18px 26px;border-left:1px solid var(--line)}
+.news h3,.masonry h3{font:700 11px/1 system-ui,sans-serif;letter-spacing:.24em;color:var(--acc);margin:0 0 8px;text-transform:uppercase}
+.news li,.masonry li,.plain li{font-size:16px;line-height:1.65;padding:9px 0;border-bottom:1px dotted var(--line)}
+.news li:last-child,.masonry li:last-child{border-bottom:0}
+.masonry{columns:2;column-gap:0;column-rule:1px solid var(--line)}
+.masonry>div{background:none;border-radius:0;padding:0 24px 16px;margin:0}
+.plain{grid-template-columns:1fr 1fr;gap:0 26px}
+.subhead{font:700 11px/1 system-ui,sans-serif;letter-spacing:.24em;color:var(--sub);margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.big .val,.tile .val{font-family:"Noto Serif TC",serif;font-weight:900}
+.tile{background:none;border-radius:0;border-top:1px solid var(--rule);padding:12px 0 8px}
+.tiles{gap:0 24px}
+.fx{grid-template-columns:64px minmax(0,1fr) 250px}.fx .now{font-family:"Noto Serif TC",serif;font-weight:900}
+.pill{background:none;border:1px solid var(--line);border-radius:2px}
+.push{border-radius:2px}.src{border-radius:2px;background:none;border:1px solid var(--line)}
+.lead,.more .it{background:none;border-radius:0;border-left:0}
+.lead{border-top:3px solid var(--rule)}.more .it{border-top:1px solid var(--line);padding:16px 0}
+footer{border-top:3px double var(--rule);margin-top:64px;font-family:system-ui,sans-serif}
+.totop{border-radius:2px}
+@media (max-width:720px){main{padding:18px 18px 80px}.bar b{font-size:32px}h1{font-size:30px}#news .news,#notes .news{grid-template-columns:1fr}
+#news .news>div:nth-child(even),#notes .news>div:nth-child(even){border-left:0;padding-left:0}#news .news>div,#notes .news>div{padding-right:0}
+.masonry{columns:1}.plain{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}.fx{grid-template-columns:1fr}.nav{justify-content:flex-start;overflow-x:auto}}
+""",
+}
+
 _ITEM = re.compile(r"^(.*?)\s+([\d,\.]+)（([+-]?[\d.]+)%）$")
 _FX = re.compile(r"^(\S+?)：([\d.]+)（均 ([\d.]+)，([+-]?[\d.]+)%）\s*(.*)$")
 
@@ -526,6 +582,10 @@ document.querySelectorAll('.spark').forEach(function(el){
 """
 
 
+STYLE_ARG = next((a.split("=")[1] for a in sys.argv if a.startswith("--style=")), "")
+STYLE = STYLE_ARG or "b"
+
+
 def build() -> str:
     try:
         data = json.loads((BASE / "morning_briefing.json").read_text(encoding="utf-8"))
@@ -567,6 +627,8 @@ def build() -> str:
     if anchored and anchored[0].startswith('<ol class="first"'):
         first_html = anchored.pop(0)
     parts = anchored
+    order = ["news", "market", "fx", "social", "notes", "idea"]  # 與 B 版型的視覺順序一致
+    nav_items.sort(key=lambda a: order.index(re.search(r'#(\w+)"', a).group(1)))
     nav = f'<nav class="nav">{"".join(nav_items)}</nav>' if nav_items else ""
     meta = "".join(f"<span>{esc(t)}</span>" for t in (
         f"日報資料 {data.get('timestamp', '')}" if data.get("timestamp") else "",
@@ -577,7 +639,7 @@ def build() -> str:
             f'資料時間 {esc(data.get("timestamp", ""))}。報價可能延遲，內容僅供參考，不構成投資建議。</footer>')
     return (f'<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width,initial-scale=1"><title>早安日報</title>'
-            f"<style>{CSS}</style></head><body><main>"
+            f"<style>{CSS}{STYLES.get(STYLE, '')}</style></head><body><main>"
             f'<div class="bar"><b>早安日報</b><span>{now.month} 月 {now.day} 日　週{WEEKDAYS[now.weekday()]}</span></div>'
             f'<div class="hero"><h1>{esc(h1)}</h1><p class="lede">{esc(lede)}</p>{meta}{warn}</div>'
             f'{first_html}{nav}{"".join(parts)}{foot}</main><button class="totop" aria-label="回到頂端">↑</button>'
@@ -585,6 +647,8 @@ def build() -> str:
 
 
 if __name__ == "__main__":
+    if STYLE_ARG:
+        OUT = BASE / f"morning_page_{STYLE_ARG}.html"
     OUT.write_text(build(), encoding="utf-8")
     print(f"已產生 {OUT}")
     if "--no-open" not in sys.argv:
