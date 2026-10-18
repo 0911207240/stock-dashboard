@@ -1350,7 +1350,18 @@ with tab7:
                 for _s in _IND:
                     for _n in SECTORS.get(_s, []):
                         _ind_of.setdefault(_n, _s)
-                _d["產業"] = _d["name"].map(lambda n: _ind_of.get(n, "其他"))
+                # 只在 SECTORS 沒有對應群組的股票上補分類（不動 SECTORS，以免影響選股）
+                _IND_EXTRA = {
+                    "永豐金": "銀行/金控", "臺企銀": "銀行/金控", "開發金": "銀行/金控", "彰銀": "銀行/金控",
+                    "大成鋼": "鋼鐵", "東和鋼鐵": "鋼鐵", "燁輝": "鋼鐵",
+                    "聯陽半導體": "IC設計績優", "義隆電子": "IC設計績優", "偉詮電": "IC設計績優",
+                    "金像電": "PCB/基板績優", "敬鵬": "PCB/基板績優",
+                    "毅嘉": "連接器/精密零件", "嘉澤": "連接器/精密零件", "宏致": "連接器/精密零件",
+                    "亞翔工程": "半導體供應鏈", "台勝科": "半導體供應鏈", "漢唐集成": "半導體供應鏈",
+                    "瑞儀": "光電", "佳世達": "電腦周邊", "美律": "電子零組件", "宏達電": "電子零組件",
+                    "遠傳": "電信", "遠雄": "營建",
+                }
+                _d["產業"] = _d["name"].map(lambda n: _ind_of.get(n) or _IND_EXTRA.get(n, "其他"))
                 _ind = (_d.groupby("產業")["return_pct"]
                           .agg(筆數="count", 毛均="mean").reset_index()
                           .sort_values("筆數", ascending=False))
@@ -1368,7 +1379,7 @@ with tab7:
                     st.dataframe(_t[["產業", "筆數", "毛均%"]], use_container_width=True, hide_index=True)
                 _top = _ind.iloc[0]
                 st.caption(f"集中度：{_top['產業']} 佔 {_top['筆數'] / len(_d) * 100:.0f}% 的推播。"
-                           "產業分類取每檔第一個命中的產業群組，未歸類顯示「其他」。")
+                           "產業分類取每檔第一個命中的產業群組（沒有群組的另以補充對照表歸類），仍未歸類顯示「其他」。")
             else:
                 st.info(f"已結案樣本 {len(_d)} 筆，少於 {_MIN} 筆，暫不顯示分布分析。")
 
