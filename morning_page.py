@@ -672,6 +672,23 @@ def opened_today() -> bool:
 if __name__ == "__main__":
     if "--needs-run" in sys.argv:  # 補開判斷：08:00 後且今天還沒開過 → 結束碼 0，否則 3
         sys.exit(3 if opened_today() or datetime.now().hour < OPEN_FROM_HOUR else 0)
+    if "--stale-page" in sys.argv:  # 補更新判斷：今天產生的頁面仍帶「日報尚未產生」→ 結束碼 0，否則 3
+        try:
+            stale = (datetime.fromtimestamp(OUT.stat().st_mtime).date() == datetime.now().date()
+                     and "今天的日報尚未產生" in OUT.read_text(encoding="utf-8"))
+        except Exception:
+            stale = False
+        sys.exit(0 if stale else 3)
+    if "--refresh" in sys.argv:  # 只在雲端日報已是今天的才重建（不彈出、不寫已開標記）
+        try:
+            fresh = json.loads((BASE / "morning_briefing.json").read_text(encoding="utf-8")).get("date") == datetime.now().strftime("%Y-%m-%d")
+        except Exception:
+            fresh = False
+        if not fresh:
+            sys.exit(3)
+        OUT.write_text(build(), encoding="utf-8")
+        print(f"已更新 {OUT}")
+        sys.exit(0)
     if STYLE_ARG:
         OUT = BASE / f"morning_page_{STYLE_ARG}.html"
     OUT.write_text(build(), encoding="utf-8")
