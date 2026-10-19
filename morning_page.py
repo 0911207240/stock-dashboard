@@ -142,7 +142,7 @@ font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .
 dl{grid-template-columns:1fr}}
 """
 
-# 版型：預設套用 b（雜誌閱讀）；--style=x 會改輸出 morning_page_x.html 供試做，不動正式檔
+# 版型：預設套用 c（清爽閱讀，b 為舊版國際日報）；--style=x 會改輸出 morning_page_x.html 供試做，不動正式檔
 STYLES = {
     # B 國際日報：報頭＋雙線、襯線大標、報紙式欄線、暖紙色；新聞優先
     "b": """
@@ -195,6 +195,31 @@ footer{border-top:3px double var(--rule);margin-top:64px;font-family:system-ui,s
 @media (max-width:720px){main{padding:18px 18px 80px}.bar b{font-size:32px}h1{font-size:30px}#news .news,#notes .news{grid-template-columns:1fr}
 #news .news>div:nth-child(even),#notes .news>div:nth-child(even){border-left:0;padding-left:0}#news .news>div,#notes .news>div{padding-right:0}
 .masonry{columns:1}.plain{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}.fx{grid-template-columns:1fr}.nav{justify-content:flex-start;overflow-x:auto}}
+""",
+    # C 清爽閱讀：無襯線、字級加大、行距放寬；冷灰白底＋靛藍強調，卡片式區塊
+    "c": """
+:root{--bg:#f4f6f9;--soft:#ffffff;--line:#e1e6ee;--rule:#1b2433;--acc:#2f4fd0;--fg:#161c28;--sub:#3d4658;--mute:#6b7487;--panel:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#0f131a;--soft:#171d27;--line:#273041;--rule:#e8ecf4;--acc:#8fa6ff;--fg:#eef1f7;--sub:#c3cada;--mute:#8a93a6}}
+main{max-width:960px;padding:26px 24px 96px;display:flex;flex-direction:column}
+main>*{order:50}main>.bar{order:0}main>.hero{order:1}main>.first{order:2}main>.nav{order:3}
+main>#news{order:10}main>#market{order:11}main>#fx{order:12}main>#social{order:13}main>#notes{order:14}main>#idea{order:15}main>footer{order:99}
+body{font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;font-weight:400}
+.hero{padding:28px 0 18px}
+.first{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:8px}
+h1{font-size:38px;font-weight:800;line-height:1.3}
+.lede{font-size:18px;line-height:1.85;color:var(--sub)}
+h2{font-size:26px;font-weight:800}
+.eyebrow{font-size:12px;letter-spacing:.2em}
+section{margin-top:44px}
+.first li,.tile,.news>div,.masonry>div,.lead,.more .it{background:var(--soft);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(20,30,50,.04)}
+.first .t{font-size:17px;font-weight:700}
+.news li,.masonry li,.plain li{font-size:17px;line-height:1.7;padding:10px 0}
+.news h3,.masonry h3{font-size:13px;letter-spacing:.16em}
+.src{font-size:12px;color:var(--mute)}
+.nav a{font-size:15px;font-weight:600;padding:7px 16px}
+.small,.fxnote,.cap{font-size:14px}
+dl{font-size:16px}dt{font-size:14px}
+@media (max-width:720px){main{padding:18px 16px 80px}h1{font-size:30px}body{font-size:16px}}
 """,
 }
 
@@ -585,7 +610,7 @@ document.querySelectorAll('.spark').forEach(function(el){
 
 
 STYLE_ARG = next((a.split("=")[1] for a in sys.argv if a.startswith("--style=")), "")
-STYLE = STYLE_ARG or "b"
+STYLE = STYLE_ARG or "c"
 
 
 def etf_alert() -> str:
