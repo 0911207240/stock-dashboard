@@ -1269,5 +1269,20 @@
     ],
     "portfolio_value": 1307079.0,
     "portfolio_pnl": 350739.0
+  },
+  {
+    "date": "2026-10-21",
+    "taiex_close": 46822.08,
+    "taiex_chg_pct": -0.61,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 70,
+    "top_sectors": [
+      "電腦周邊",
+      "資訊服務/雲端",
+      "鋼鐵"
+    ],
+    "portfolio_value": 1288918.0,
+    "portfolio_pnl": 332578.0
   }
 ]
