@@ -54,5 +54,14 @@
   "date": "2026-10-21",
   "n_push": 0,
   "regime": "盤整"
+ },
+ {
+  "level": "caution",
+  "reasons": [
+   "大盤空頭"
+  ],
+  "date": "2026-10-22",
+  "n_push": 0,
+  "regime": "空頭"
  }
 ]
