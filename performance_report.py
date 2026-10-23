@@ -86,6 +86,20 @@ def _desk_sections(df: pd.DataFrame, s: pd.DataFrame) -> list:
             out.append(f"  有基本面異議：{_row(b[b['fbear'] == True])}")
             out.append(f"  無基本面異議：{_row(b[b['fbear'] == False])}")
 
+    # 輿情層：PTT 股版情緒分組
+    out += ["", "【PTT 輿情】（股版情緒跟後續報酬的關係）"]
+    if "ptt" not in s or s["ptt"].dropna().empty:
+        out.append("  尚無標註資料")
+    else:
+        kinds = s["ptt"].apply(lambda p: p.get("kind") if isinstance(p, dict) else None)
+        for k in ("狂熱", "樂觀", "中性", "悲觀", "恐慌", "反串護航", "無共識"):
+            g = s[kinds == k]
+            if len(g):
+                out.append(f"  {k}：{_row(g)}")
+        newer = s["kill"].apply(lambda k: isinstance(k, list)) if "kill" in s else kinds.notna()
+        none = s[kinds.isna() & newer]      # 只比模組上線後的紀錄
+        out.append(f"  股版沒討論：{_row(none)}")
+
     # 風控長：規則重播
     out += ["", "【風控長】（影子模式，未阻擋任何推播）"]
     try:

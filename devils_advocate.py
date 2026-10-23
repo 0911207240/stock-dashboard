@@ -29,6 +29,8 @@ OBJECTIONS = {
     "f_slow":    "營收衰退（年增率 < 0）",
     "f_loss":    "近四季虧損",
     "f_margin":  "毛利率 < 10%，沒有定價能力",
+    # 輿情（ptt_sentiment，由 scanner 加入）
+    "s_hot":     "PTT 股版狂熱且非反串，短線過熱",
 }
 
 

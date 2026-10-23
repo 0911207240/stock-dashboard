@@ -348,6 +348,23 @@ def run_scan(min_score: int = 2, notify: bool = True):
             _c["kill"] = _kill(_c, _df)
     except Exception as _e:
         print(f"  [反方分析師] 失敗（不影響推播）：{_e}")
+    _ptt_watch = None
+    try:
+        from ptt_sentiment import load_for_scan as _ptt_load, contrarian_watch as _ptt_watch_fn
+        _ptt = _ptt_load()
+        if _ptt:
+            for _c in _shadow_pool:
+                _p = _ptt.get(_c["name"])
+                _c["ptt"] = ({k: _p.get(k) for k in ("dir", "strength", "sarcasm", "kind", "mentions", "src")}
+                             if _p else None)
+                if _p and _p.get("kind") == "狂熱" and (_p.get("sarcasm") or 0) < 0.3:
+                    _c.setdefault("bear", []).append("s_hot")
+            _ptt_watch = {"market": _ptt.get("_market", {}).get("kind"),
+                          "watch": _ptt_watch_fn(_ptt, _inst_by_code)}
+            print(f"  PTT 輿情（只記錄）：大盤{_ptt_watch['market']}｜反向觀察 "
+                  + ("、".join(w["name"] for w in _ptt_watch["watch"]) or "無"))
+    except Exception as _e:
+        print(f"  [PTT 輿情] 失敗（不影響推播）：{_e}")
     try:
         from risk_officer import log_today as _risk_log, load_history as _risk_hist
         _r = _risk_log(_risk_hist(), regime, datetime.now().strftime("%Y-%m-%d"), len(push_list))
@@ -363,6 +380,8 @@ def run_scan(min_score: int = 2, notify: bool = True):
 
     # 存掃描結果供儀表板「今日快報」頁籤顯示
     _save_scan_results(found, regime, push_list)
+    if _ptt_watch:
+        _patch_scan_results({"ptt": _ptt_watch})
 
     # 每週一：績效對帳 + 勝率統計 + 回測更新評分權重
     if notify and datetime.now().weekday() == 0:

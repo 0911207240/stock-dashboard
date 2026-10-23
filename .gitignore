@@ -18,3 +18,5 @@ morning_page_*.html
 
 last_opened.json
 etf_check.json
+ptt_raw.json
+ptt_labels.json
