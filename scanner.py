@@ -47,7 +47,8 @@ def _save_scan_results(found: list, regime: dict, daytrade: list):
     data = {
         "date":      datetime.now().strftime("%Y-%m-%d"),
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "regime":    {"state": regime.get("state", ""), "emoji": regime.get("emoji", "")},
+        "regime":    {"state": regime.get("state", ""), "emoji": regime.get("emoji", ""),
+                      "macro_desc": regime.get("macro_desc", "")},
         "buy_signals":  [
             {"name": x["name"], "ticker": x["ticker"], "score": x["score"],
              "price": x["price"], "change_pct": round(x["change_pct"], 2),
@@ -175,6 +176,8 @@ def run_scan(min_score: int = 2, notify: bool = True):
     print(f"  大盤狀態：{regime['emoji']} {regime['state']}（門檻 {base_min_score}分）")
     if regime.get("pcr_desc"):
         print(f"  選擇權情緒：{regime['pcr_desc']}")
+    if regime.get("macro_desc"):
+        print(f"  總經背景（只記錄）：{regime['macro_desc']}")
 
     # 1. 持股日報 + 停損/停利緊急警報（早盤才推，午盤略過；多次觸發只推一次）
     total_value  = 0.0
@@ -338,9 +341,11 @@ def run_scan(min_score: int = 2, notify: bool = True):
         print(f"  無當沖候選（{regime['state']}，門檻{base_min_score}，或全在冷卻期）")
 
     try:
-        from devils_advocate import challenge as _challenge
+        from devils_advocate import challenge as _challenge, challenge_fundamentals as _fchallenge, kill_conditions as _kill
         for _c in _shadow_pool:
-            _c["bear"] = _challenge(_c, analyzed_data.get(_c["name"]), regime)
+            _df = analyzed_data.get(_c["name"])
+            _c["bear"] = _challenge(_c, _df, regime) + _fchallenge(_c["ticker"])
+            _c["kill"] = _kill(_c, _df)
     except Exception as _e:
         print(f"  [反方分析師] 失敗（不影響推播）：{_e}")
     try:

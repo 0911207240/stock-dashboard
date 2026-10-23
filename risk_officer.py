@@ -51,7 +51,8 @@ def evaluate(history: list, regime: dict = None, as_of: str = None) -> dict:
 
 def log_today(history: list, regime: dict, date: str, n_push: int) -> dict:
     res = evaluate(history, regime)
-    res.update({"date": date, "n_push": n_push, "regime": (regime or {}).get("state")})
+    res.update({"date": date, "n_push": n_push, "regime": (regime or {}).get("state"),
+                "macro": (regime or {}).get("macro")})   # 總經背景，日後對照風控等級用
     try:
         log = []
         if os.path.exists(RISK_LOG):

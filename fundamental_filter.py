@@ -12,6 +12,7 @@ from net_timeout import call_with_timeout
 
 CACHE_FILE    = os.path.join(os.path.dirname(__file__), "fundamental_cache.json")
 CACHE_TTL_DAYS = 7
+SCHEMA_V = 2          # 欄位結構版本；改欄位時 +1，舊快取自動重抓
 
 # 金融業代碼範圍（EPS 計算方式不同，不適用此過濾）
 _FINANCE_CODE_RANGE = range(2800, 3000)
@@ -48,6 +49,11 @@ def _save_cache(data: dict):
         pass
 
 
+def _is_fresh_entry(entry: dict) -> bool:
+    """舊版快取（沒有 v 或版本較舊）一律視為過期，讓缺的欄位補抓。"""
+    return bool(entry) and entry.get("v") == SCHEMA_V and _is_fresh(entry.get("fetched_date", ""))
+
+
 def _is_fresh(fetched_date: str) -> bool:
     try:
         delta = (datetime.now() - datetime.strptime(fetched_date, "%Y-%m-%d")).days
@@ -56,11 +62,56 @@ def _is_fresh(fetched_date: str) -> bool:
         return False
 
 
+def _extract(info: dict, today: str) -> dict:
+    """yfinance info → 快取欄位。fetch_fundamentals 與 prefetch_all 共用，避免兩邊欄位不一致。"""
+    g = info.get
+    ni, ocf, fcf = g("netIncomeToCommon"), g("operatingCashflow"), g("freeCashflow")
+    mcap = g("marketCap")
+    price, target = g("currentPrice") or g("regularMarketPrice"), g("targetMeanPrice")
+    return {
+        "v":                  SCHEMA_V,
+        "fetched_date":       today,
+        # 獲利與成長
+        "trailing_eps":       g("trailingEps"),
+        "revenue_growth":     g("revenueGrowth"),
+        "earnings_growth":    g("earningsGrowth"),
+        "gross_margins":      g("grossMargins"),
+        "operating_margins":  g("operatingMargins"),
+        "return_on_equity":   g("returnOnEquity"),
+        "return_on_assets":   g("returnOnAssets"),
+        # 財務健康
+        "debt_to_equity":     g("debtToEquity"),
+        "current_ratio":      g("currentRatio"),
+        "total_debt":         g("totalDebt"),
+        "total_cash":         g("totalCash"),
+        # 現金品質（框架 04：帳面盈利是否轉成現金）
+        "net_income":         ni,
+        "operating_cashflow": ocf,
+        "free_cashflow":      fcf,
+        "cash_conversion":    round(ocf / ni, 2) if ocf and ni and ni > 0 else None,
+        "fcf_yield":          round(fcf / mcap, 4) if fcf and mcap else None,
+        # 估值（框架 05）
+        "market_cap":         mcap,
+        "trailing_pe":        g("trailingPE"),
+        "forward_pe":         g("forwardPE"),
+        "price_to_book":      g("priceToBook"),
+        "ev_to_ebitda":       g("enterpriseToEbitda"),
+        "ev_to_revenue":      g("enterpriseToRevenue"),
+        "peg":                g("trailingPegRatio") or g("pegRatio"),
+        # 持股與分析師
+        "insider_pct":        g("heldPercentInsiders"),
+        "institution_pct":    g("heldPercentInstitutions"),
+        "analyst_count":      g("numberOfAnalystOpinions"),
+        "recommendation":     g("recommendationMean"),
+        "target_upside":      round(target / price - 1, 4) if target and price else None,
+    }
+
+
 def fetch_fundamentals(ticker: str) -> dict:
-    """抓取並快取單檔基本面（含擴充的毛利率/ROE/負債比）"""
+    """抓取並快取單檔基本面"""
     cache = _load_cache()
     cached = cache.get(ticker, {})
-    if cached and _is_fresh(cached.get("fetched_date", "")):
+    if _is_fresh_entry(cached):
         return cached
 
     today = datetime.now().strftime("%Y-%m-%d")
@@ -68,27 +119,9 @@ def fetch_fundamentals(ticker: str) -> dict:
         info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=45, default=None)
         if not info:
             raise ValueError("逾時或無資料")
-        data = {
-            "fetched_date":       today,
-            # 原有欄位
-            "trailing_eps":       info.get("trailingEps"),
-            "revenue_growth":     info.get("revenueGrowth"),
-            "earnings_growth":    info.get("earningsGrowth"),
-            # 新增：獲利品質
-            "gross_margins":      info.get("grossMargins"),        # 毛利率
-            "operating_margins":  info.get("operatingMargins"),    # 營業利益率
-            "return_on_equity":   info.get("returnOnEquity"),      # ROE
-            "return_on_assets":   info.get("returnOnAssets"),      # ROA
-            # 新增：財務健康
-            "debt_to_equity":     info.get("debtToEquity"),        # 負債/股東權益
-            "current_ratio":      info.get("currentRatio"),        # 流動比率
-            # 新增：估值
-            "trailing_pe":        info.get("trailingPE"),          # 本益比
-            "price_to_book":      info.get("priceToBook"),         # 股價淨值比
-            "forward_pe":         info.get("forwardPE"),           # 預估本益比
-        }
+        data = _extract(info, today)
     except Exception:
-        data = {"fetched_date": today}
+        data = {"v": SCHEMA_V, "fetched_date": today}
 
     cache[ticker] = data
     _save_cache(cache)
@@ -165,6 +198,19 @@ def get_fundamental_score(ticker: str) -> dict:
         delta -= 3
         labels.append(f"流動比 {cr:.1f} 短期償債偏弱⚠️")
 
+    # 現金品質：帳面獲利有沒有變成現金
+    cc  = data.get("cash_conversion")
+    fcf = data.get("free_cashflow")
+    if cc is not None:
+        if cc < 0.8:
+            delta -= 3
+            labels.append(f"現金轉換 {cc:.1f}x 偏弱⚠️")
+        elif cc >= 1.0:
+            labels.append(f"現金轉換 {cc:.1f}x✅")
+    if fcf is not None and fcf < 0:
+        delta -= 2
+        labels.append("自由現金流為負⚠️")
+
     # 綜合評級
     if delta >= 8:
         grade = "A"
@@ -186,7 +232,7 @@ def prefetch_all(watchlist: dict, max_workers: int = 8):
         for name, ticker in watchlist.items()
         if not _is_etf(ticker)
         and not _is_finance(ticker)
-        and not _is_fresh(cache.get(ticker, {}).get("fetched_date", ""))
+        and not _is_fresh_entry(cache.get(ticker, {}))
     ]
     if not stale:
         return
@@ -198,14 +244,9 @@ def prefetch_all(watchlist: dict, max_workers: int = 8):
             info = call_with_timeout(lambda: yf.Ticker(ticker).info, timeout=45, default=None)
             if not info:
                 raise ValueError("逾時或無資料")
-            return ticker, {
-                "fetched_date":    today,
-                "trailing_eps":    info.get("trailingEps"),
-                "revenue_growth":  info.get("revenueGrowth"),
-                "earnings_growth": info.get("earningsGrowth"),
-            }
+            return ticker, _extract(info, today)
         except Exception:
-            return ticker, {"fetched_date": today}
+            return ticker, {"v": SCHEMA_V, "fetched_date": today}
 
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
         futures = {ex.submit(_fetch, ticker): ticker for _, ticker in stale}

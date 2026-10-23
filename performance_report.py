@@ -32,6 +32,13 @@ def _load_df() -> pd.DataFrame:
     if "bear" not in df:
         df["bear"] = None
     df["bear_n"] = df["bear"].apply(lambda b: len(b) if isinstance(b, list) else None)
+    # 基本面異議（f_ 開頭）另外分組；舊紀錄沒有基本面判斷，標成 None 不列入
+    if "kill" not in df:
+        df["kill"] = None
+    df["fbear"] = [
+        (any(str(x).startswith("f_") for x in b) if isinstance(k, list) and isinstance(b, list) else None)
+        for b, k in zip(df["bear"], df["kill"])
+    ]   # 有 kill 欄位的才是加入基本面判斷之後的紀錄
     return df
 
 
@@ -75,6 +82,9 @@ def _desk_sections(df: pd.DataFrame, s: pd.DataFrame) -> list:
         cnt = Counter(code for lst in b["bear"] if isinstance(lst, list) for code in lst)
         if cnt:
             out.append("  最常見異議：" + "、".join(f"{OBJECTIONS.get(k, k)}×{v}" for k, v in cnt.most_common(3)))
+        if "fbear" in b and b["fbear"].notna().any():
+            out.append(f"  有基本面異議：{_row(b[b['fbear'] == True])}")
+            out.append(f"  無基本面異議：{_row(b[b['fbear'] == False])}")
 
     # 風控長：規則重播
     out += ["", "【風控長】（影子模式，未阻擋任何推播）"]

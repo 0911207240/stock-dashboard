@@ -80,6 +80,7 @@ def record_candidates(candidates: list[dict], all_data: dict, pushed_names: set,
             "regime":     (regime or {}).get("state"),
             "pushed":     c["name"] in pushed_names,
             "bear":       list(c.get("bear") or []),   # 反方分析師異議代碼
+            "kill":       list(c.get("kill") or []),   # 看多論點失效條件（可檢查價位）
             "price":      _num(c.get("price")),
             "entry_mid":  _num(c.get("entry_mid")),
             "stop":       _num(c.get("stop")),

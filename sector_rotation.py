@@ -46,7 +46,29 @@ def calc_sector_momentum(all_data: dict, sectors: dict) -> list[dict]:
         })
 
     result.sort(key=lambda x: x["momentum"], reverse=True)
+    _label_crowding(result)
     return result
+
+
+def _label_crowding(result: list[dict]):
+    """
+    框架 03「哪些板塊過度擁擠、哪些被忽視」：
+      擁擠：5 日漲幅排前 20% 且 8 成以上個股同步上漲（大家都在追，追高風險高）
+      被忽視：5 日漲幅排後 30%，但今天多數個股轉紅（可能開始有人注意）
+    只是標籤，不影響任何評分。
+    """
+    n = len(result)
+    if n < 5:
+        return
+    by5 = sorted(result, key=lambda x: x["avg_5d"], reverse=True)
+    top = {id(x) for x in by5[:max(1, round(n * 0.2))]}
+    low = {id(x) for x in by5[-max(1, round(n * 0.3)):]}
+    for x in result:
+        x["crowd"] = ""
+        if id(x) in top and x["breadth"] >= 80 and x["avg_5d"] > 0:
+            x["crowd"] = "擁擠"
+        elif id(x) in low and x["avg_1d"] > 0 and x["breadth"] >= 60:
+            x["crowd"] = "被忽視"
 
 
 def calc_sector_institutional_flow(
@@ -137,6 +159,12 @@ def build_sector_weekly_report(sector_list: list[dict]) -> str:
     lines.append("弱勢板塊")
     for s in sector_list[-3:]:
         lines.append(f"  ⚠️ {s['sector']}  5日{s['avg_5d']:+.1f}%  今{s['avg_1d']:+.1f}%")
+    crowded = [s["sector"] for s in sector_list if s.get("crowd") == "擁擠"]
+    ignored = [s["sector"] for s in sector_list if s.get("crowd") == "被忽視"]
+    if crowded:
+        lines.append("過度擁擠（追高風險）：" + "、".join(crowded))
+    if ignored:
+        lines.append("被忽視但轉強：" + "、".join(ignored))
     return "\n".join(lines)
 
 

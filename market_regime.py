@@ -19,6 +19,49 @@ def fetch_vix() -> float | None:
         return None
 
 
+_MACRO_TICKERS = ["^IRX", "^TNX", "HYG", "IEF"]
+
+
+def fetch_macro() -> dict | None:
+    """
+    總經背景（框架 03）：美債殖利率、殖利率曲線、信用利差代理。只記錄，不調門檻。
+      ^IRX 13 週國庫券殖利率（短端，貼近聯準會利率路徑）
+      ^TNX 10 年期殖利率
+      HYG/IEF 比值：高收益債相對公債，20 日下跌＝信用利差擴大、風險偏好轉弱
+    """
+    try:
+        from net_timeout import call_with_timeout
+        df = call_with_timeout(
+            lambda: yf.download(_MACRO_TICKERS, period="3mo", interval="1d", progress=False),
+            timeout=60, default=None)
+        if df is None or df.empty:
+            return None
+        close = df["Close"].ffill()
+        irx, tnx = close["^IRX"].dropna(), close["^TNX"].dropna()
+        ratio = (close["HYG"] / close["IEF"]).dropna()
+        if len(tnx) < 21 or len(ratio) < 21 or irx.empty:
+            return None
+        return {
+            "y_short":    round(float(irx.iloc[-1]), 2),
+            "y10":        round(float(tnx.iloc[-1]), 2),
+            "curve":      round(float(tnx.iloc[-1] - irx.iloc[-1]), 2),
+            "y10_chg20":  round(float(tnx.iloc[-1] - tnx.iloc[-21]) * 100),        # 基點
+            "credit_chg20": round(float(ratio.iloc[-1] / ratio.iloc[-21] - 1) * 100, 2),
+        }
+    except Exception:
+        return None
+
+
+def macro_label(m: dict | None) -> str:
+    if not m:
+        return "總經資料暫無"
+    parts = [f"10年債 {m['y10']:.2f}%（20日 {m['y10_chg20']:+d}bp）"]
+    parts.append("殖利率倒掛" if m["curve"] < 0 else f"長短利差 {m['curve']:+.2f}")
+    c = m["credit_chg20"]
+    parts.append("信用利差擴大⚠️" if c < -1 else ("信用面穩定" if c < 1 else "信用面轉佳"))
+    return "｜".join(parts)
+
+
 def vix_label(vix: float) -> tuple[str, int]:
     """
     回傳 (描述文字, 門檻加成)
@@ -117,9 +160,13 @@ def detect_regime(df: pd.DataFrame, futures_data: dict = None, pcr_data: dict = 
     us_desc, us_adj = us_overnight_label(us_data) if us_data else ("美股資料暫無", 0)
 
     # ── 多頭：均線多頭排列 + 站上MA20 + 近5日未大跌
+    # 總經背景：只記錄、不影響門檻，累積資料後再驗證
+    macro = fetch_macro()
+
     base = {"close": close, "dev_ma20_pct": round(dev_ma20, 1), "momentum_5d": round(momentum5d, 1),
             "vix": vix, "futures_net": futures_net, "futures_desc": futures_desc,
-            "pcr": pcr_val, "pcr_desc": pcr_desc, "us_desc": us_desc}
+            "pcr": pcr_val, "pcr_desc": pcr_desc, "us_desc": us_desc,
+            "macro": macro, "macro_desc": macro_label(macro)}
 
     if bull_align and close > ma20 and momentum5d > -3:
         adj = -5 + vix_adj + fut_adj + pcr_adj + us_adj
