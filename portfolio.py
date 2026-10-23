@@ -37,18 +37,25 @@ def _div_is_fresh(fetched_date: str) -> bool:
         return False
 
 # 個人持股設定（股數 + 成交均價 + 停損停利）
+# 2026-10-23 依 10/21–10/22 收盤重設，混合兩種規則：
+#   長線（ETF、金融、台積電）：200 日均線停損、不設停利（長抱領息，避免正常波動誤觸警報）
+#   短線（台泥、南茂、振發、昆盈）：現價 −2×ATR(14) 停損、+3×ATR 停利（風險報酬比 1:1.5）
+#   昆盈已在 200 日線下，停損只當最後防線，去留另行判斷
+# 價格會變動，建議每月或大波動後重算一次
 HOLDINGS = {
-    "台泥":             {"shares": 5250,  "cost": None,    "stop_loss": None, "take_profit": None},
-    "華南金":           {"shares": 40,    "cost": None,    "stop_loss": None, "take_profit": None},
-    "南茂":             {"shares": 2000,  "cost": 39.82,   "stop_loss": 35.0, "take_profit": 52.0},
-    "復華台灣科技優息":  {"shares": 15000, "cost": 20.12,   "stop_loss": 17.0, "take_profit": 26.0},
-    "台積電":           {"shares": 25,    "cost": 1621.8,  "stop_loss": 1400.0, "take_profit": 2200.0},
-    "台灣50":           {"shares": 400,   "cost": 70.13,   "stop_loss": 60.0, "take_profit": 95.0},
-    "元大高股息":        {"shares": 910,   "cost": 38.66,   "stop_loss": 33.0, "take_profit": 50.0},
-    "國泰永續高股息":    {"shares": 1163,  "cost": 22.47,   "stop_loss": 19.0, "take_profit": 30.0},
-    "第一金":           {"shares": 3000,  "cost": 26.89,   "stop_loss": 23.0, "take_profit": 34.0},
-    "振發":             {"shares": 2000,  "cost": 38.01,   "stop_loss": 32.0, "take_profit": 50.0},
-    "昆盈":             {"shares": 5000,  "cost": 57.66,   "stop_loss": 48.0, "take_profit": 75.0},
+    # ── 長線：200 日線停損 ──
+    "復華台灣科技優息":  {"shares": 15000, "cost": 20.12,   "stop_loss": 23.8,   "take_profit": None},
+    "元大高股息":        {"shares": 910,   "cost": 38.66,   "stop_loss": 44.1,   "take_profit": None},
+    "國泰永續高股息":    {"shares": 1163,  "cost": 22.47,   "stop_loss": 27.6,   "take_profit": None},
+    "台灣50":           {"shares": 400,   "cost": 70.13,   "stop_loss": 92.5,   "take_profit": None},
+    "台積電":           {"shares": 25,    "cost": 1621.8,  "stop_loss": 2157.0, "take_profit": None},
+    "第一金":           {"shares": 3000,  "cost": 26.89,   "stop_loss": 31.2,   "take_profit": None},
+    "華南金":           {"shares": 40,    "cost": None,    "stop_loss": 36.4,   "take_profit": None},
+    # ── 短線：ATR 停損停利 ──
+    "台泥":             {"shares": 5250,  "cost": None,    "stop_loss": 26.5,   "take_profit": 30.2},
+    "南茂":             {"shares": 2000,  "cost": 39.82,   "stop_loss": 81.4,   "take_profit": 117.7},
+    "振發":             {"shares": 2000,  "cost": 38.01,   "stop_loss": 27.7,   "take_profit": 34.2},
+    "昆盈":             {"shares": 5000,  "cost": 57.66,   "stop_loss": 25.3,   "take_profit": 28.7},
 }
 
 
