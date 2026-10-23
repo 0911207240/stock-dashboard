@@ -1,20 +1,18 @@
 {
   "2330": {
-    "fetched_at": "2026-10-22T08:52:51.228362",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+upgrade"
-    ],
+    "fetched_at": "2026-10-23T08:53:24.436184",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Intel Stock Rises After Musk Signals Terafab Breakthrough",
-      "Moody’s upgrades TSMC rating to Aa2 on booming AI demand and market dominance",
-      "Here's where one strategist is putting new money in the AI trade"
+      "5 Undervalued AI Stocks According to the Media",
+      "Taiwan Semiconductor and ASML Are Incredible, but 1 of These Monopoly Chip Stocks Is Far Safer.",
+      "3 Australian Rare Earth Stocks To Own In October 2026"
     ]
   },
   "0056": {
-    "fetched_at": "2026-10-22T08:53:20.497245",
+    "fetched_at": "2026-10-23T08:53:39.385960",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,7 +22,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-10-22T08:53:29.327497",
+    "fetched_at": "2026-10-23T08:53:47.389289",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -32,13 +30,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
+      "Foxconn to acquire 50% stake of Mitsubishi Electric Mobility",
       "Foxconn to acquire 50% stake in Mitsubishi Electric Mobility for Y115bn",
-      "Hon Hai Technology Group (Foxconn)'s Kathy Yang Honored In Most Powerful Women Asia 2026 By Fortune",
-      "TSMC’s Quarterly Revenue Jumps 51% After AI Demand Holds Up"
+      "Hon Hai Technology Group (Foxconn)'s Kathy Yang Honored In Most Powerful Women Asia 2026 By Fortune"
     ]
   },
   "0050": {
-    "fetched_at": "2026-10-22T08:53:11.816580",
+    "fetched_at": "2026-10-23T08:54:03.010441",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -48,7 +46,7 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-10-22T08:53:06.202650",
+    "fetched_at": "2026-10-23T08:53:55.280451",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -56,13 +54,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
+      "Dual Brains, One Chip: Harvest Praxis Unveils 3nm \"Hyper AI Brain\" to Break On-Device Robotics Bottlenecks",
       "QCOM, AVGO, NVDA Stocks In Focus As ByteDance Reportedly Closes In On A MediaTek Pact For AI Data Center Chips",
-      "ByteDance in Talks to Secure MediaTek AI Chips for Data Centers",
-      "MediaTek Showcases Global Wi-Fi 8 Leadership with Filogic 8800 at Network X 2026"
+      "ByteDance in Talks to Secure MediaTek AI Chips for Data Centers"
     ]
   },
   "2882": {
-    "fetched_at": "2026-10-22T08:53:47.587946",
+    "fetched_at": "2026-10-23T08:54:11.575345",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -74,7 +72,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-10-22T08:53:55.353748",
+    "fetched_at": "2026-10-23T08:54:19.171412",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -84,7 +82,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-10-22T08:54:02.315671",
+    "fetched_at": "2026-10-23T08:54:35.967549",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -95,7 +93,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-10-22T08:54:33.849083",
+    "fetched_at": "2026-10-23T08:54:59.078321",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -105,7 +103,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-10-22T08:53:36.548185",
+    "fetched_at": "2026-10-23T08:54:27.247792",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -115,19 +113,19 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-10-22T08:54:33.421954",
+    "fetched_at": "2026-10-23T08:55:07.625935",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Coinbase’s Tokenized Stocks Are Seeing About $20 Million a Week, According to John D’Agostino",
-      "What Ategrity Specialty (ASIC) Said on Its Q3 Earnings Call",
-      "Texas Capital Bancshares Q3 Earnings Call Highlights"
+      "Dow Jones Futures: Moderna Crashes, Meta Fuels AI Meltdown, But Warren Buffett Market Thriving",
+      "Solayer Pay Opens Stablecoin Deposits on Solana, Ethereum, Arbitrum, BNB Chain and Base",
+      "Primis Financial Corp. Reports Strong Results for the Third Quarter of 2026"
     ]
   },
   "2892": {
-    "fetched_at": "2026-10-22T08:54:20.959374",
+    "fetched_at": "2026-10-23T08:54:51.687329",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -138,7 +136,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-10-22T08:54:34.945242",
+    "fetched_at": "2026-10-23T08:55:09.676869",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -149,7 +147,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-10-22T08:54:34.459962",
+    "fetched_at": "2026-10-23T08:55:08.035103",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -159,7 +157,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-10-22T08:54:34.109191",
+    "fetched_at": "2026-10-23T08:55:08.517077",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -169,19 +167,19 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-10-22T08:54:14.151540",
+    "fetched_at": "2026-10-23T08:54:44.437044",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Coinbase’s Tokenized Stocks Are Seeing About $20 Million a Week, According to John D’Agostino",
-      "What Ategrity Specialty (ASIC) Said on Its Q3 Earnings Call",
-      "Texas Capital Bancshares Q3 Earnings Call Highlights"
+      "Solayer Pay Opens Stablecoin Deposits on Solana, Ethereum, Arbitrum, BNB Chain and Base",
+      "Primis Financial Corp. Reports Strong Results for the Third Quarter of 2026",
+      "Dow Jones Futures: Moderna Crashes, Meta Fuels AI Meltdown, But Warren Buffett Market Thriving"
     ]
   },
   "1101": {
-    "fetched_at": "2026-10-22T08:54:35.199670",
+    "fetched_at": "2026-10-23T08:55:08.913236",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -191,7 +189,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-10-22T08:54:35.691983",
+    "fetched_at": "2026-10-23T08:55:09.239581",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -201,7 +199,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-10-22T08:54:36.311826",
+    "fetched_at": "2026-10-23T08:55:10.793541",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -211,7 +209,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-10-22T08:54:35.941458",
+    "fetched_at": "2026-10-23T08:55:10.089320",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -221,7 +219,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-10-22T08:54:36.648495",
+    "fetched_at": "2026-10-23T08:55:10.446725",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -231,7 +229,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-10-22T08:54:36.898431",
+    "fetched_at": "2026-10-23T08:55:11.188901",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -241,7 +239,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-10-22T08:54:37.654527",
+    "fetched_at": "2026-10-23T08:55:12.038245",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -252,7 +250,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-10-22T08:54:37.290579",
+    "fetched_at": "2026-10-23T08:55:11.669469",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -263,7 +261,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-10-22T08:54:38.122389",
+    "fetched_at": "2026-10-23T08:55:12.771898",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -275,7 +273,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-10-22T08:54:38.993425",
+    "fetched_at": "2026-10-23T08:55:15.251424",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -290,7 +288,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-10-22T08:54:38.726653",
+    "fetched_at": "2026-10-23T08:55:13.281077",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -300,7 +298,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-10-22T08:54:38.380420",
+    "fetched_at": "2026-10-23T08:55:12.451248",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -312,7 +310,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-10-22T08:54:39.250351",
+    "fetched_at": "2026-10-23T08:55:13.598366",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -323,7 +321,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-10-22T08:54:39.617250",
+    "fetched_at": "2026-10-23T08:55:14.056933",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -333,33 +331,34 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-10-22T08:54:40.179243",
+    "fetched_at": "2026-10-23T08:55:15.512924",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "UMC and AP Memory Collaborate to Enable Advanced Power Delivery Solutions for AI and HPC Systems",
       "The Moment Jensen Huang Realized Nvidia 'Won't Have to Die' Came After a Call From This CEO: 'For the Whole Time, 30 Years…'",
-      "Can GFS' Manufacturing Expansion Boost Its Future Growth Prospects?",
-      "Taiwan's Stock Pickers Are Walking Out to Bet Their Own Money"
+      "Can GFS' Manufacturing Expansion Boost Its Future Growth Prospects?"
     ]
   },
   "3711": {
-    "fetched_at": "2026-10-22T08:54:39.874952",
-    "sentiment_score": 1,
+    "fetched_at": "2026-10-23T08:55:14.337368",
+    "sentiment_score": 2,
     "signal": "bullish",
     "keywords": [
-      "+outperform"
+      "+outperform",
+      "+buy"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Asian Equities Traded in the US as American Depositary Receipts Decline in Wednesday Trading",
-      "Is ASE Technology (ASX) Outperforming Other Computer and Technology Stocks This Year?",
-      "Will Higher Ad Revenues Aid Meta Platforms Stock in Q3 Earnings?"
+      "Asian Equities Traded in the US as American Depositary Receipts Fall Sharply in Thursday Trading",
+      "Vicor Corporation Shares Gain 4.5% on Strong Q3 Earnings Growth",
+      "ASX vs. AMKR: Which Chip Packaging Stock Should You Buy Right Now?"
     ]
   },
   "2449": {
-    "fetched_at": "2026-10-22T08:54:40.437321",
+    "fetched_at": "2026-10-23T08:55:14.740408",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -371,7 +370,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-10-22T08:54:41.101260",
+    "fetched_at": "2026-10-23T08:55:15.888691",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -381,7 +380,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-10-22T08:54:41.450043",
+    "fetched_at": "2026-10-23T08:55:16.312348",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -391,7 +390,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-10-22T08:54:41.888434",
+    "fetched_at": "2026-10-23T08:55:16.788596",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -401,7 +400,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-10-22T08:54:42.273452",
+    "fetched_at": "2026-10-23T08:55:17.273808",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -411,7 +410,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-10-22T08:54:42.669596",
+    "fetched_at": "2026-10-23T08:55:17.641910",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -421,7 +420,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-10-22T08:54:43.089406",
+    "fetched_at": "2026-10-23T08:55:18.000356",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -431,7 +430,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-10-22T08:54:43.341499",
+    "fetched_at": "2026-10-23T08:55:18.682501",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -443,7 +442,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-10-22T08:54:43.595129",
+    "fetched_at": "2026-10-23T08:55:18.342200",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -455,7 +454,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-10-22T08:54:43.881247",
+    "fetched_at": "2026-10-23T08:55:19.732374",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -467,7 +466,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-10-22T08:54:44.333335",
+    "fetched_at": "2026-10-23T08:55:19.176651",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -476,13 +475,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
+      "MSI Expands Proptech Network with Moved Collaboration",
       "MSI Showcases Open Data Center and AI Infrastructure at 2026 OCP Global Summit",
-      "Kanguro Insurance Partners with MSI to Automate Insurance Compliance for Multifamily Communities",
-      "Motorola Solutions (MSI): Buy, Sell, or Hold Post Q2 Earnings?"
+      "Kanguro Insurance Partners with MSI to Automate Insurance Compliance for Multifamily Communities"
     ]
   },
   "2308": {
-    "fetched_at": "2026-10-22T08:54:44.665521",
+    "fetched_at": "2026-10-23T08:55:20.429844",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -494,7 +493,7 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-10-22T08:54:44.979397",
+    "fetched_at": "2026-10-23T08:55:20.745575",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -506,7 +505,7 @@
     ]
   },
   "3532": {
-    "fetched_at": "2026-10-22T08:54:45.579769",
+    "fetched_at": "2026-10-23T08:55:21.176965",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -516,7 +515,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-10-22T08:54:46.503446",
+    "fetched_at": "2026-10-23T08:55:22.301706",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -526,7 +525,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-10-22T08:54:46.864195",
+    "fetched_at": "2026-10-23T08:55:23.165126",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -536,7 +535,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-10-22T08:54:47.202250",
+    "fetched_at": "2026-10-23T08:55:23.454193",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -546,7 +545,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-10-22T08:54:48.146842",
+    "fetched_at": "2026-10-23T08:55:24.394436",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -558,7 +557,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-10-22T08:54:48.947038",
+    "fetched_at": "2026-10-23T08:55:25.356897",
     "sentiment_score": -1,
     "signal": "bearish",
     "keywords": [
@@ -572,19 +571,19 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-10-22T08:54:47.725427",
+    "fetched_at": "2026-10-23T08:55:23.943024",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 3,
+    "headline_count": 4,
     "sample_headlines": [
       "3M Shares Rise 4.5% Premarket Following Expanded Amazon Agreement and Taiwan Investment Plan",
       "3M announces collaboration with GSEO to advance Expanded Beam Optical manufacturing and development",
-      "Yahoo! Finance: 3406.TW News"
+      "3M expands collaboration with Amazon, forms GSEO partnership"
     ]
   },
   "2357": {
-    "fetched_at": "2026-10-22T08:54:48.501689",
+    "fetched_at": "2026-10-23T08:55:24.680976",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -596,22 +595,19 @@
     ]
   },
   "2324": {
-    "fetched_at": "2026-10-22T08:54:49.234960",
+    "fetched_at": "2026-10-23T08:55:25.062475",
     "sentiment_score": 0,
     "signal": "neutral",
-    "keywords": [
-      "+buy",
-      "-sell"
-    ],
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "Act Now to Lower Your Taxes for 2026",
-      "UnitedHealth's Earnings Jumped 60%. Is the Comeback Stock a Buy, Sell, or Hold?",
-      "Nuix Launches Agentic AI in Nuix Neo with Audit Trail Built In"
+      "Dow Jones Futures: Moderna Crashes, Meta Fuels AI Meltdown, But Warren Buffett Market Thriving",
+      "CORRECTION - 3D Systems Opens New Industrial Technology Center to Expand America's Advanced Manufacturing Capacity",
+      "MicroVision Begins Commercial Production of MOVIA(TM) Pro to Meet Immediate Customer Demand for Superior Short-Range Sensing and Onboard Perception, Enabling Physical AI at the Edge"
     ]
   },
   "2356": {
-    "fetched_at": "2026-10-22T08:54:49.541369",
+    "fetched_at": "2026-10-23T08:55:25.880464",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -625,7 +621,7 @@
     ]
   },
   "6488O": {
-    "fetched_at": "2026-10-22T08:54:45.238797",
+    "fetched_at": "2026-10-23T08:55:21.446681",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -637,7 +633,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-10-22T08:54:46.188925",
+    "fetched_at": "2026-10-23T08:55:22.722686",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -647,7 +643,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-10-22T08:54:45.940597",
+    "fetched_at": "2026-10-23T08:55:21.798219",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -658,7 +654,7 @@
     ]
   },
   "4938": {
-    "fetched_at": "2026-10-22T08:54:49.815053",
+    "fetched_at": "2026-10-23T08:55:26.190943",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -666,11 +662,11 @@
     "sample_headlines": [
       "PEGATRON Brings AI Infrastructure from Design to Deployment at OCP Global Summit 2026",
       "Together AI raises $800 million Series C at $8.3 billion valuation",
-      "There may not be an iPhone 18 this year, reports suggest"
+      "Open-source AI firm Together AI secures $800m in Series C"
     ]
   },
   "2412": {
-    "fetched_at": "2026-10-22T08:54:50.068950",
+    "fetched_at": "2026-10-23T08:55:26.427896",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -682,7 +678,7 @@
     ]
   },
   "3045": {
-    "fetched_at": "2026-10-22T08:54:50.317897",
+    "fetched_at": "2026-10-23T08:55:26.761096",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -694,7 +690,7 @@
     ]
   },
   "6770": {
-    "fetched_at": "2026-10-22T08:54:50.881202",
+    "fetched_at": "2026-10-23T08:55:27.597308",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -706,7 +702,7 @@
     ]
   },
   "5347O": {
-    "fetched_at": "2026-10-22T08:54:50.572517",
+    "fetched_at": "2026-10-23T08:55:27.250181",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -718,7 +714,7 @@
     ]
   },
   "3105O": {
-    "fetched_at": "2026-10-22T08:54:51.476401",
+    "fetched_at": "2026-10-23T08:55:27.976583",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -730,7 +726,7 @@
     ]
   },
   "2327": {
-    "fetched_at": "2026-10-22T08:54:51.739254",
+    "fetched_at": "2026-10-23T08:55:28.318269",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -744,7 +740,7 @@
     ]
   },
   "2492": {
-    "fetched_at": "2026-10-22T08:54:52.322048",
+    "fetched_at": "2026-10-23T08:55:28.918063",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -756,7 +752,7 @@
     ]
   },
   "2474": {
-    "fetched_at": "2026-10-22T08:54:52.877026",
+    "fetched_at": "2026-10-23T08:55:29.206687",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -768,7 +764,7 @@
     ]
   },
   "6176": {
-    "fetched_at": "2026-10-22T08:54:53.593158",
+    "fetched_at": "2026-10-23T08:55:30.011117",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -780,7 +776,7 @@
     ]
   },
   "3037": {
-    "fetched_at": "2026-10-22T08:54:53.870647",
+    "fetched_at": "2026-10-23T08:55:30.391135",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -792,7 +788,7 @@
     ]
   },
   "2409": {
-    "fetched_at": "2026-10-22T08:54:54.123582",
+    "fetched_at": "2026-10-23T08:55:30.742272",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -804,7 +800,7 @@
     ]
   },
   "2439": {
-    "fetched_at": "2026-10-22T08:54:53.233243",
+    "fetched_at": "2026-10-23T08:55:29.628424",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -815,7 +811,7 @@
     ]
   },
   "3481": {
-    "fetched_at": "2026-10-22T08:54:54.370688",
+    "fetched_at": "2026-10-23T08:55:31.217029",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -827,7 +823,7 @@
     ]
   },
   "2344": {
-    "fetched_at": "2026-10-22T08:54:54.702285",
+    "fetched_at": "2026-10-23T08:55:31.724094",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -839,7 +835,7 @@
     ]
   },
   "2408": {
-    "fetched_at": "2026-10-22T08:54:54.979753",
+    "fetched_at": "2026-10-23T08:55:32.096631",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -851,7 +847,7 @@
     ]
   },
   "2337": {
-    "fetched_at": "2026-10-22T08:54:55.277430",
+    "fetched_at": "2026-10-23T08:55:32.546868",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -865,7 +861,7 @@
     ]
   },
   "2023": {
-    "fetched_at": "2026-10-22T08:54:55.703044",
+    "fetched_at": "2026-10-23T08:55:33.032643",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -875,7 +871,7 @@
     ]
   },
   "2006": {
-    "fetched_at": "2026-10-22T08:54:55.965711",
+    "fetched_at": "2026-10-23T08:55:33.784880",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -885,7 +881,7 @@
     ]
   },
   "2027": {
-    "fetched_at": "2026-10-22T08:54:56.623140",
+    "fetched_at": "2026-10-23T08:55:33.364023",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -895,7 +891,7 @@
     ]
   },
   "2010": {
-    "fetched_at": "2026-10-22T08:54:56.307023",
+    "fetched_at": "2026-10-23T08:55:34.104605",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -905,7 +901,7 @@
     ]
   },
   "2890": {
-    "fetched_at": "2026-10-22T08:54:56.951868",
+    "fetched_at": "2026-10-23T08:55:34.341611",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -915,7 +911,7 @@
     ]
   },
   "3264O": {
-    "fetched_at": "2026-10-22T08:54:58.475027",
+    "fetched_at": "2026-10-23T08:55:36.067619",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -925,7 +921,7 @@
     ]
   },
   "2801": {
-    "fetched_at": "2026-10-22T08:54:57.370228",
+    "fetched_at": "2026-10-23T08:55:34.738807",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -936,7 +932,7 @@
     ]
   },
   "2834": {
-    "fetched_at": "2026-10-22T08:54:57.625874",
+    "fetched_at": "2026-10-23T08:55:35.081680",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -946,7 +942,7 @@
     ]
   },
   "3707O": {
-    "fetched_at": "2026-10-22T08:54:58.886701",
+    "fetched_at": "2026-10-23T08:55:36.449575",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -956,7 +952,7 @@
     ]
   },
   "2883": {
-    "fetched_at": "2026-10-22T08:54:58.027969",
+    "fetched_at": "2026-10-23T08:55:35.608709",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -967,7 +963,7 @@
     ]
   },
   "6257": {
-    "fetched_at": "2026-10-22T08:54:59.321828",
+    "fetched_at": "2026-10-23T08:55:36.771840",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -977,7 +973,7 @@
     ]
   },
   "1308": {
-    "fetched_at": "2026-10-22T08:55:00.338384",
+    "fetched_at": "2026-10-23T08:55:37.569485",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -987,7 +983,7 @@
     ]
   },
   "00631L": {
-    "fetched_at": "2026-10-22T08:54:59.946327",
+    "fetched_at": "2026-10-23T08:55:40.282797",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -997,7 +993,7 @@
     ]
   },
   "00632R": {
-    "fetched_at": "2026-10-22T08:55:00.677212",
+    "fetched_at": "2026-10-23T08:55:40.686862",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1007,7 +1003,7 @@
     ]
   },
   "3034": {
-    "fetched_at": "2026-10-22T08:55:01.513508",
+    "fetched_at": "2026-10-23T08:55:41.262831",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1017,7 +1013,7 @@
     ]
   },
   "3443": {
-    "fetched_at": "2026-10-22T08:55:01.181639",
+    "fetched_at": "2026-10-23T08:55:41.527550",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1029,7 +1025,7 @@
     ]
   },
   "3661": {
-    "fetched_at": "2026-10-22T08:55:01.805945",
+    "fetched_at": "2026-10-23T08:55:41.754436",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1041,7 +1037,7 @@
     ]
   },
   "2379": {
-    "fetched_at": "2026-10-22T08:55:00.922689",
+    "fetched_at": "2026-10-23T08:55:41.021704",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1053,7 +1049,7 @@
     ]
   },
   "3545": {
-    "fetched_at": "2026-10-22T08:55:02.483876",
+    "fetched_at": "2026-10-23T08:55:42.658626",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1063,7 +1059,7 @@
     ]
   },
   "2383": {
-    "fetched_at": "2026-10-22T08:55:03.248100",
+    "fetched_at": "2026-10-23T08:55:42.888766",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1075,7 +1071,7 @@
     ]
   },
   "5522": {
-    "fetched_at": "2026-10-22T08:54:59.681018",
+    "fetched_at": "2026-10-23T08:55:37.185859",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1085,7 +1081,7 @@
     ]
   },
   "3044": {
-    "fetched_at": "2026-10-22T08:55:02.738509",
+    "fetched_at": "2026-10-23T08:55:43.193685",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1095,7 +1091,7 @@
     ]
   },
   "4958": {
-    "fetched_at": "2026-10-22T08:55:02.992806",
+    "fetched_at": "2026-10-23T08:55:42.205523",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1107,7 +1103,7 @@
     ]
   },
   "6213": {
-    "fetched_at": "2026-10-22T08:55:03.510787",
+    "fetched_at": "2026-10-23T08:55:43.633233",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1117,7 +1113,7 @@
     ]
   },
   "2345": {
-    "fetched_at": "2026-10-22T08:55:03.809082",
+    "fetched_at": "2026-10-23T08:55:44.249805",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1129,7 +1125,7 @@
     ]
   },
   "2313": {
-    "fetched_at": "2026-10-22T08:55:04.218411",
+    "fetched_at": "2026-10-23T08:55:43.867783",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1141,7 +1137,7 @@
     ]
   },
   "3704": {
-    "fetched_at": "2026-10-22T08:55:04.545950",
+    "fetched_at": "2026-10-23T08:55:44.597185",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1151,7 +1147,7 @@
     ]
   },
   "5388": {
-    "fetched_at": "2026-10-22T08:55:05.371072",
+    "fetched_at": "2026-10-23T08:55:45.297021",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1163,7 +1159,7 @@
     ]
   },
   "6285": {
-    "fetched_at": "2026-10-22T08:55:04.889481",
+    "fetched_at": "2026-10-23T08:55:44.975031",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1173,7 +1169,7 @@
     ]
   },
   "2301": {
-    "fetched_at": "2026-10-22T08:55:05.630440",
+    "fetched_at": "2026-10-23T08:55:45.736646",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1185,7 +1181,7 @@
     ]
   },
   "8150": {
-    "fetched_at": "2026-10-22T08:55:06.801719",
+    "fetched_at": "2026-10-23T08:55:47.484069",
     "sentiment_score": 2,
     "signal": "bullish",
     "keywords": [
@@ -1199,7 +1195,7 @@
     ]
   },
   "3017": {
-    "fetched_at": "2026-10-22T08:55:06.251305",
+    "fetched_at": "2026-10-23T08:55:46.810372",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1210,7 +1206,7 @@
     ]
   },
   "2385": {
-    "fetched_at": "2026-10-22T08:55:05.991874",
+    "fetched_at": "2026-10-23T08:55:46.102068",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1220,7 +1216,7 @@
     ]
   },
   "2421": {
-    "fetched_at": "2026-10-22T08:55:07.170220",
+    "fetched_at": "2026-10-23T08:55:47.234293",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1230,7 +1226,7 @@
     ]
   },
   "6148O": {
-    "fetched_at": "2026-10-22T08:55:07.508683",
+    "fetched_at": "2026-10-23T08:55:48.166360",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1240,7 +1236,7 @@
     ]
   },
   "3324O": {
-    "fetched_at": "2026-10-22T08:55:06.500017",
+    "fetched_at": "2026-10-23T08:55:46.444053",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1252,7 +1248,7 @@
     ]
   },
   "2392": {
-    "fetched_at": "2026-10-22T08:55:07.846503",
+    "fetched_at": "2026-10-23T08:55:47.827720",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1262,7 +1258,7 @@
     ]
   },
   "2365": {
-    "fetched_at": "2026-10-22T08:55:10.398373",
+    "fetched_at": "2026-10-23T08:55:48.948594",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1272,19 +1268,19 @@
     ]
   },
   "2395": {
-    "fetched_at": "2026-10-22T08:55:08.711098",
+    "fetched_at": "2026-10-23T08:55:48.455202",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Advantech Advances Physical AI and Robotics With Integrated Functional Safety",
       "Advantech Advances Autonomous Industrial AI with AI Factory Brain and Physical AI at NVIDIA GTC Berlin 2026",
-      "Advantech and DEKRA Sign MOU to Advance Industrial Cybersecurity Compliance",
-      "Advantech Partners with DEKRA, Signing MOU to Strengthen Global Industrial Cybersecurity Compliance in Response to EU CRA"
+      "Advantech and DEKRA Sign MOU to Advance Industrial Cybersecurity Compliance"
     ]
   },
   "2312": {
-    "fetched_at": "2026-10-22T08:55:09.535289",
+    "fetched_at": "2026-10-23T08:55:49.975388",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1296,7 +1292,7 @@
     ]
   },
   "2354": {
-    "fetched_at": "2026-10-22T08:55:08.242696",
+    "fetched_at": "2026-10-23T08:55:48.630859",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -1310,7 +1306,7 @@
     ]
   },
   "5426O": {
-    "fetched_at": "2026-10-22T08:55:10.735618",
+    "fetched_at": "2026-10-23T08:55:50.696329",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1320,7 +1316,7 @@
     ]
   },
   "8114": {
-    "fetched_at": "2026-10-22T08:55:09.078765",
+    "fetched_at": "2026-10-23T08:55:49.313247",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1330,7 +1326,7 @@
     ]
   },
   "8183O": {
-    "fetched_at": "2026-10-22T08:55:29.153780",
+    "fetched_at": "2026-10-23T08:56:08.987141",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1340,7 +1336,7 @@
     ]
   },
   "6202": {
-    "fetched_at": "2026-10-22T08:55:09.981960",
+    "fetched_at": "2026-10-23T08:55:49.623833",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1350,7 +1346,7 @@
     ]
   },
   "2458": {
-    "fetched_at": "2026-10-22T08:55:12.701275",
+    "fetched_at": "2026-10-23T08:55:53.715816",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1360,7 +1356,7 @@
     ]
   },
   "2388": {
-    "fetched_at": "2026-10-22T08:55:11.691917",
+    "fetched_at": "2026-10-23T08:55:51.348166",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1370,7 +1366,7 @@
     ]
   },
   "2352": {
-    "fetched_at": "2026-10-22T08:55:11.090526",
+    "fetched_at": "2026-10-23T08:55:50.341372",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1381,7 +1377,7 @@
     ]
   },
   "2363": {
-    "fetched_at": "2026-10-22T08:55:11.430066",
+    "fetched_at": "2026-10-23T08:55:50.969686",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1391,7 +1387,7 @@
     ]
   },
   "3041": {
-    "fetched_at": "2026-10-22T08:55:13.719298",
+    "fetched_at": "2026-10-23T08:55:54.172930",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1401,7 +1397,7 @@
     ]
   },
   "2436": {
-    "fetched_at": "2026-10-22T08:55:12.355127",
+    "fetched_at": "2026-10-23T08:55:52.019324",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1411,7 +1407,7 @@
     ]
   },
   "3014": {
-    "fetched_at": "2026-10-22T08:55:14.101113",
+    "fetched_at": "2026-10-23T08:55:52.529058",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1422,7 +1418,7 @@
     ]
   },
   "2401": {
-    "fetched_at": "2026-10-22T08:55:12.034744",
+    "fetched_at": "2026-10-23T08:55:51.726808",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1432,7 +1428,7 @@
     ]
   },
   "3035": {
-    "fetched_at": "2026-10-22T08:55:13.370143",
+    "fetched_at": "2026-10-23T08:55:53.304176",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1444,7 +1440,7 @@
     ]
   },
   "3073O": {
-    "fetched_at": "2026-10-22T08:55:14.432179",
+    "fetched_at": "2026-10-23T08:55:54.474890",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1454,7 +1450,7 @@
     ]
   },
   "3094": {
-    "fetched_at": "2026-10-22T08:55:14.788943",
+    "fetched_at": "2026-10-23T08:55:54.811410",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1464,7 +1460,7 @@
     ]
   },
   "3006": {
-    "fetched_at": "2026-10-22T08:55:12.959664",
+    "fetched_at": "2026-10-23T08:55:52.880098",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1475,7 +1471,7 @@
     ]
   },
   "3150": {
-    "fetched_at": "2026-10-22T08:55:15.822047",
+    "fetched_at": "2026-10-23T08:55:55.450059",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1485,7 +1481,7 @@
     ]
   },
   "3122O": {
-    "fetched_at": "2026-10-22T08:55:15.193643",
+    "fetched_at": "2026-10-23T08:55:55.137150",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1495,7 +1491,7 @@
     ]
   },
   "3141O": {
-    "fetched_at": "2026-10-22T08:55:15.446287",
+    "fetched_at": "2026-10-23T08:55:55.835854",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1505,7 +1501,7 @@
     ]
   },
   "2316": {
-    "fetched_at": "2026-10-22T08:55:16.927848",
+    "fetched_at": "2026-10-23T08:55:57.309002",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1517,7 +1513,7 @@
     ]
   },
   "1815O": {
-    "fetched_at": "2026-10-22T08:55:16.540673",
+    "fetched_at": "2026-10-23T08:55:56.532143",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1527,7 +1523,7 @@
     ]
   },
   "2355": {
-    "fetched_at": "2026-10-22T08:55:17.265967",
+    "fetched_at": "2026-10-23T08:55:56.850177",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1537,7 +1533,7 @@
     ]
   },
   "3169O": {
-    "fetched_at": "2026-10-22T08:55:16.203871",
+    "fetched_at": "2026-10-23T08:55:56.250439",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1549,7 +1545,7 @@
     ]
   },
   "2367": {
-    "fetched_at": "2026-10-22T08:55:17.518505",
+    "fetched_at": "2026-10-23T08:55:57.601171",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1559,7 +1555,7 @@
     ]
   },
   "2402": {
-    "fetched_at": "2026-10-22T08:55:18.199445",
+    "fetched_at": "2026-10-23T08:55:58.619453",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1569,7 +1565,7 @@
     ]
   },
   "3323O": {
-    "fetched_at": "2026-10-22T08:55:19.224059",
+    "fetched_at": "2026-10-23T08:55:59.264710",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1579,7 +1575,7 @@
     ]
   },
   "6121O": {
-    "fetched_at": "2026-10-22T08:55:18.870920",
+    "fetched_at": "2026-10-23T08:55:58.338769",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1589,7 +1585,7 @@
     ]
   },
   "3211O": {
-    "fetched_at": "2026-10-22T08:55:19.562817",
+    "fetched_at": "2026-10-23T08:56:00.056305",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1599,7 +1595,7 @@
     ]
   },
   "2368": {
-    "fetched_at": "2026-10-22T08:55:17.834525",
+    "fetched_at": "2026-10-23T08:55:58.136613",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1611,7 +1607,7 @@
     ]
   },
   "1503": {
-    "fetched_at": "2026-10-22T08:55:20.168207",
+    "fetched_at": "2026-10-23T08:56:00.340016",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1621,7 +1617,7 @@
     ]
   },
   "2429": {
-    "fetched_at": "2026-10-22T08:55:18.534153",
+    "fetched_at": "2026-10-23T08:55:58.905209",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1631,11 +1627,11 @@
     ]
   },
   "1504": {
-    "fetched_at": "2026-10-22T08:55:19.812488",
+    "fetched_at": "2026-10-23T08:55:59.706612",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 10,
+    "headline_count": 9,
     "sample_headlines": [
       "DCL International Partners with TECO Corporation to Advance Next-Generation Green Hydrogen Technology",
       "TECO Showcases Integrated Modular Data Center Solutions in Singapore, Targeting Southeast Asia's AI Infrastructure Opportunities",
@@ -1643,7 +1639,7 @@
     ]
   },
   "8086O": {
-    "fetched_at": "2026-10-22T08:55:20.895549",
+    "fetched_at": "2026-10-23T08:56:01.380923",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1653,7 +1649,7 @@
     ]
   },
   "5309O": {
-    "fetched_at": "2026-10-22T08:55:20.521246",
+    "fetched_at": "2026-10-23T08:56:00.669183",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1663,7 +1659,7 @@
     ]
   },
   "2340": {
-    "fetched_at": "2026-10-22T08:55:21.753724",
+    "fetched_at": "2026-10-23T08:56:02.024693",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1673,7 +1669,7 @@
     ]
   },
   "2338": {
-    "fetched_at": "2026-10-22T08:55:22.102750",
+    "fetched_at": "2026-10-23T08:56:02.371261",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1683,7 +1679,7 @@
     ]
   },
   "3016": {
-    "fetched_at": "2026-10-22T08:55:21.169917",
+    "fetched_at": "2026-10-23T08:56:00.969069",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1693,7 +1689,7 @@
     ]
   },
   "3374O": {
-    "fetched_at": "2026-10-22T08:55:21.502503",
+    "fetched_at": "2026-10-23T08:56:01.718478",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1703,7 +1699,7 @@
     ]
   },
   "3376": {
-    "fetched_at": "2026-10-22T08:55:22.466784",
+    "fetched_at": "2026-10-23T08:56:02.738544",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1713,7 +1709,7 @@
     ]
   },
   "3042": {
-    "fetched_at": "2026-10-22T08:55:24.776714",
+    "fetched_at": "2026-10-23T08:56:04.657193",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1724,7 +1720,7 @@
     ]
   },
   "3548O": {
-    "fetched_at": "2026-10-22T08:55:22.807165",
+    "fetched_at": "2026-10-23T08:56:03.170243",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1734,7 +1730,7 @@
     ]
   },
   "3019": {
-    "fetched_at": "2026-10-22T08:55:24.135846",
+    "fetched_at": "2026-10-23T08:56:03.847146",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1746,7 +1742,7 @@
     ]
   },
   "3362O": {
-    "fetched_at": "2026-10-22T08:55:23.778738",
+    "fetched_at": "2026-10-23T08:56:04.172140",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1756,7 +1752,7 @@
     ]
   },
   "6230": {
-    "fetched_at": "2026-10-22T08:55:23.147252",
+    "fetched_at": "2026-10-23T08:56:03.466707",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1767,7 +1763,7 @@
     ]
   },
   "2349": {
-    "fetched_at": "2026-10-22T08:55:25.132481",
+    "fetched_at": "2026-10-23T08:56:05.402883",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1777,7 +1773,7 @@
     ]
   },
   "2498": {
-    "fetched_at": "2026-10-22T08:55:25.518202",
+    "fetched_at": "2026-10-23T08:56:05.982769",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1789,7 +1785,7 @@
     ]
   },
   "8069O": {
-    "fetched_at": "2026-10-22T08:55:24.520643",
+    "fetched_at": "2026-10-23T08:56:05.053322",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1801,7 +1797,7 @@
     ]
   },
   "4906": {
-    "fetched_at": "2026-10-22T08:55:26.512225",
+    "fetched_at": "2026-10-23T08:56:06.973903",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1813,11 +1809,11 @@
     ]
   },
   "3189": {
-    "fetched_at": "2026-10-22T08:55:25.789396",
+    "fetched_at": "2026-10-23T08:56:05.729637",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 10,
+    "headline_count": 9,
     "sample_headlines": [
       "Intel vs. TSMC: Intel Is Winning an AI Battle Against TSMC That Few Investors Are Watching",
       "TSMC Is Reportedly Developing Advanced Chip Packaging Tech to Challenge Intel's Dominance",
@@ -1825,7 +1821,7 @@
     ]
   },
   "2332": {
-    "fetched_at": "2026-10-22T08:55:26.149590",
+    "fetched_at": "2026-10-23T08:56:06.344258",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1837,7 +1833,7 @@
     ]
   },
   "3533": {
-    "fetched_at": "2026-10-22T08:55:27.376682",
+    "fetched_at": "2026-10-23T08:56:07.667959",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1847,7 +1843,7 @@
     ]
   },
   "4904": {
-    "fetched_at": "2026-10-22T08:55:26.831821",
+    "fetched_at": "2026-10-23T08:56:06.605620",
     "sentiment_score": 2,
     "signal": "bullish",
     "keywords": [
@@ -1861,7 +1857,7 @@
     ]
   },
   "3605": {
-    "fetched_at": "2026-10-22T08:55:27.717511",
+    "fetched_at": "2026-10-23T08:56:07.408438",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1871,7 +1867,7 @@
     ]
   },
   "3026": {
-    "fetched_at": "2026-10-22T08:55:28.112601",
+    "fetched_at": "2026-10-23T08:56:07.939424",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1881,7 +1877,7 @@
     ]
   },
   "6173O": {
-    "fetched_at": "2026-10-22T08:55:28.455657",
+    "fetched_at": "2026-10-23T08:56:08.277712",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1891,7 +1887,7 @@
     ]
   },
   "6116": {
-    "fetched_at": "2026-10-22T08:55:28.799748",
+    "fetched_at": "2026-10-23T08:56:08.698277",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],

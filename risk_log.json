@@ -63,5 +63,12 @@
   "date": "2026-10-22",
   "n_push": 0,
   "regime": "空頭"
+ },
+ {
+  "level": "normal",
+  "reasons": [],
+  "date": "2026-10-23",
+  "n_push": 0,
+  "regime": "盤整"
  }
 ]
