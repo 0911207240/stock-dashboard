@@ -1,52 +1,28 @@
 {
-  "date": "2026-10-22",
-  "timestamp": "2026-10-22 08:04",
+  "date": "2026-10-23",
+  "timestamp": "2026-10-23 08:03",
   "signals": [
     {
-      "name": "蘋果",
-      "ticker": "AAPL",
-      "score": -2,
-      "price": 339.5,
-      "change_pct": -1.0,
-      "vol_ratio": 0.81,
+      "name": "ASML",
+      "ticker": "ASML",
+      "score": 2,
+      "price": 1676.69,
+      "change_pct": 2.81,
+      "vol_ratio": 0.84,
       "signals": [
-        "MACD 死亡交叉",
-        "KD 死亡交叉 (K=50.4)"
+        "KD 黃金交叉 (K=35.7)",
+        "威廉%R 超賣反彈 (-70.4)"
       ]
     },
     {
-      "name": "超微半導體",
-      "ticker": "AMD",
+      "name": "KLA",
+      "ticker": "KLAC",
       "score": 2,
-      "price": 534.74,
-      "change_pct": -0.62,
-      "vol_ratio": 0.7,
+      "price": 163.43,
+      "change_pct": 1.04,
+      "vol_ratio": 0.8,
       "signals": [
-        "KD 黃金交叉 (K=8.5)",
-        "布林通道下軌反彈"
-      ]
-    },
-    {
-      "name": "超微電腦",
-      "ticker": "SMCI",
-      "score": 2,
-      "price": 32.47,
-      "change_pct": 1.15,
-      "vol_ratio": 1.13,
-      "signals": [
-        "KD 黃金交叉 (K=11.6)",
-        "布林通道下軌反彈"
-      ]
-    },
-    {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": 2,
-      "price": 461.56,
-      "change_pct": 1.48,
-      "vol_ratio": 0.56,
-      "signals": [
-        "KD 黃金交叉 (K=14.2)",
+        "RSI 從超賣區回升 (31.4)",
         "布林通道下軌反彈"
       ]
     }
