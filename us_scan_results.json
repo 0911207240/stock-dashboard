@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-24",
-  "timestamp": "2026-10-24 07:54",
+  "date": "2026-10-27",
+  "timestamp": "2026-10-27 08:39",
   "signals": [
     {
       "name": "微軟",
@@ -11,14 +11,14 @@
       "vol_ratio": 0.84,
       "week52_pct": 90.1,
       "valuation": {
-        "trailing_pe": 29.220612,
-        "forward_pe": 22.127527,
-        "ev_to_ebitda": 20.319,
-        "peg": 1.6173,
+        "trailing_pe": 29.671307,
+        "forward_pe": 22.482325,
+        "ev_to_ebitda": 20.628,
+        "peg": 1.7034,
         "fcf_yield": 0.0042,
         "cash_conversion": 1.37,
         "revenue_growth": 0.177,
-        "target_upside": 0.1472,
+        "target_upside": 0.133,
         "recommendation": 1.33333
       },
       "bear": [],
@@ -33,18 +33,18 @@
       "score": 2,
       "price": 230.1,
       "change_pct": -0.02,
-      "vol_ratio": 0.88,
+      "vol_ratio": 0.91,
       "week52_pct": 33.8,
       "valuation": {
-        "trailing_pe": 34.292103,
-        "forward_pe": 18.992594,
-        "ev_to_ebitda": 28.046,
-        "peg": 1.4467,
-        "fcf_yield": 0.0158,
+        "trailing_pe": 35.39493,
+        "forward_pe": 19.542324,
+        "ev_to_ebitda": 28.961,
+        "peg": 1.0458,
+        "fcf_yield": 0.0153,
         "cash_conversion": 0.9,
         "revenue_growth": 0.544,
-        "target_upside": 0.5821,
-        "recommendation": 1.41176
+        "target_upside": 0.5328,
+        "recommendation": 1.38235
       },
       "bear": [],
       "signals": [
