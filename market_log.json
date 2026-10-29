@@ -1344,5 +1344,20 @@
     ],
     "portfolio_value": 1318283.0,
     "portfolio_pnl": 361943.0
+  },
+  {
+    "date": "2026-10-29",
+    "taiex_close": 46607.79,
+    "taiex_chg_pct": -0.91,
+    "regime": "盤整",
+    "regime_emoji": "🟡",
+    "min_score": 70,
+    "top_sectors": [
+      "晶圓代工/零組件",
+      "銀行/金控",
+      "水泥"
+    ],
+    "portfolio_value": 1303247.0,
+    "portfolio_pnl": 346907.0
   }
 ]
