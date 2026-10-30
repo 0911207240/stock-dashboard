@@ -1359,5 +1359,20 @@
     ],
     "portfolio_value": 1303247.0,
     "portfolio_pnl": 346907.0
+  },
+  {
+    "date": "2026-10-30",
+    "taiex_close": 45028.22,
+    "taiex_chg_pct": -2.89,
+    "regime": "空頭",
+    "regime_emoji": "🔴",
+    "min_score": 90,
+    "top_sectors": [
+      "台積電合作廠商",
+      "美股",
+      "航運"
+    ],
+    "portfolio_value": 1267046.0,
+    "portfolio_pnl": 310706.0
   }
 ]
