@@ -1374,5 +1374,20 @@
     ],
     "portfolio_value": 1267046.0,
     "portfolio_pnl": 310706.0
+  },
+  {
+    "date": "2026-11-02",
+    "taiex_close": 44868.51,
+    "taiex_chg_pct": -0.76,
+    "regime": "空頭",
+    "regime_emoji": "🔴",
+    "min_score": 95,
+    "top_sectors": [
+      "航運",
+      "水泥",
+      "晶圓代工/零組件"
+    ],
+    "portfolio_value": 1271454.0,
+    "portfolio_pnl": 315114.0
   }
 ]
