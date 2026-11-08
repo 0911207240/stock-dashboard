@@ -514,6 +514,9 @@ def render_social(data: dict, live: dict | None = None) -> str:
             head = (f'<ul><li><span>{esc(t)}</span><span class="push{" hot" if n == "爆" else ""}">{esc(n)}</span></li></ul>')
             groups += (f'<div><h3>PTT｜{esc(theme)}</h3>{head}'
                        f'<details class="fold"><summary>展開全部看板</summary>{inner}</details></div>')
+    if groups:  # PTT 整區預設收合，只留標題
+        groups = (f'<details class="fold" style="column-span:all"><summary>PTT 熱門討論（{groups.count("<h3>PTT")} 區，點開展開）</summary>'
+                  f'<div class="masonry">{groups}</div></details>')
     bh = live.get("bahamut") or []
     if bh:
         li = "".join(f'<li>{esc(t)}<span class="src">{esc(b)}</span></li>' for t, b, _ in bh)
