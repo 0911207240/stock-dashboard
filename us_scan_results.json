@@ -1,58 +1,136 @@
 {
-  "date": "2026-11-07",
-  "timestamp": "2026-11-07 09:01",
+  "date": "2026-11-10",
+  "timestamp": "2026-11-10 11:41",
   "signals": [
     {
-      "name": "微軟",
-      "ticker": "MSFT",
-      "score": -3,
-      "price": 535.93,
-      "change_pct": -3.58,
-      "vol_ratio": 1.16,
-      "week52_pct": 90.2,
+      "name": "博通",
+      "ticker": "AVGO",
+      "score": 3,
+      "price": 319.48,
+      "change_pct": 8.78,
+      "vol_ratio": 1.12,
+      "week52_pct": 14.8,
       "valuation": {
-        "trailing_pe": 26.46764,
-        "forward_pe": 20.973286,
-        "ev_to_ebitda": 18.646,
-        "peg": 1.6949,
-        "fcf_yield": 0.0008,
-        "cash_conversion": 1.37,
-        "revenue_growth": 0.188,
-        "target_upside": 0.2485,
-        "recommendation": 1.38596
+        "trailing_pe": 40.802044,
+        "forward_pe": 16.41299,
+        "ev_to_ebitda": 29.861,
+        "peg": 0.2902,
+        "fcf_yield": 0.0201,
+        "cash_conversion": 1.06,
+        "revenue_growth": 0.855,
+        "target_upside": 0.6697,
+        "recommendation": 1.23529
       },
       "bear": [],
       "signals": [
-        "KD 死亡交叉 (K=57.2)",
-        "布林通道上軌回落",
-        "威廉%R 超買回落 (-42.8)"
+        "KD 黃金交叉 (K=47.4)",
+        "布林通道下軌反彈",
+        "威廉%R 超賣反彈 (-52.6)"
       ]
     },
     {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
-      "score": -2,
-      "price": 260.21,
-      "change_pct": -2.19,
-      "vol_ratio": 1.13,
-      "week52_pct": 72.1,
+      "name": "微軟",
+      "ticker": "MSFT",
+      "score": 2,
+      "price": 545.18,
+      "change_pct": 2.75,
+      "vol_ratio": 0.76,
+      "week52_pct": 94.8,
       "valuation": {
-        "trailing_pe": 19.856913,
-        "forward_pe": 22.502865,
-        "ev_to_ebitda": 15.495,
-        "peg": 1.3928,
-        "fcf_yield": -0.0131,
-        "cash_conversion": 1.25,
-        "revenue_growth": 0.121,
-        "target_upside": 0.3316,
-        "recommendation": 1.31667
+        "trailing_pe": 27.688166,
+        "forward_pe": 22.532112,
+        "ev_to_ebitda": 20.02,
+        "peg": 1.5698,
+        "fcf_yield": 0.0007,
+        "cash_conversion": 1.37,
+        "revenue_growth": 0.188,
+        "target_upside": 0.1668,
+        "recommendation": 1.37931
+      },
+      "bear": [],
+      "signals": [
+        "MACD 黃金交叉",
+        "均線剛形成多頭排列 (MA5>MA20>MA60)"
+      ]
+    },
+    {
+      "name": "美光",
+      "ticker": "MU",
+      "score": 2,
+      "price": 733.15,
+      "change_pct": 6.25,
+      "vol_ratio": 0.75,
+      "week52_pct": 54.6,
+      "valuation": {
+        "trailing_pe": 9.28273,
+        "forward_pe": 3.5288234,
+        "ev_to_ebitda": 7.272,
+        "peg": 0.16,
+        "fcf_yield": 0.0351,
+        "cash_conversion": 1.06,
+        "revenue_growth": 3.793,
+        "target_upside": 1.1304,
+        "recommendation": 1.34694
+      },
+      "bear": [],
+      "signals": [
+        "布林通道下軌反彈",
+        "威廉%R 超賣反彈 (-75.5)"
+      ]
+    },
+    {
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "score": 2,
+      "price": 288.15,
+      "change_pct": 1.18,
+      "vol_ratio": 0.85,
+      "week52_pct": 31.4,
+      "valuation": {
+        "trailing_pe": 14.868422,
+        "forward_pe": 18.668476,
+        "ev_to_ebitda": 18.574,
+        "peg": 1.0059,
+        "fcf_yield": -0.0003,
+        "cash_conversion": 0.76,
+        "revenue_growth": 0.247,
+        "target_upside": 0.3895,
+        "recommendation": 1.34483
       },
       "bear": [
+        "f_cash",
         "f_fcf"
       ],
       "signals": [
-        "KD 死亡交叉 (K=70.3)",
-        "威廉%R 超買回落 (-29.7)"
+        "RSI 從超賣區回升 (32.9)",
+        "KD 黃金交叉 (K=22.7)"
+      ]
+    },
+    {
+      "name": "Palantir",
+      "ticker": "PLTR",
+      "score": 2,
+      "price": 169.2,
+      "change_pct": 5.5,
+      "vol_ratio": 0.64,
+      "week52_pct": 60.8,
+      "valuation": {
+        "trailing_pe": 119.15493,
+        "forward_pe": 66.73977,
+        "ev_to_ebitda": 118.46,
+        "peg": 1.3143,
+        "fcf_yield": 0.0065,
+        "cash_conversion": 1.12,
+        "revenue_growth": 0.959,
+        "target_upside": 0.3136,
+        "recommendation": 1.84848
+      },
+      "bear": [
+        "f_rich"
+      ],
+      "signals": [
+        "布林通道下軌反彈",
+        "威廉%R 超賣反彈 (-66.8)"
       ]
     }
   ]
