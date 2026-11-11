@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-10",
-  "timestamp": "2026-11-10 11:41",
+  "date": "2026-11-11",
+  "timestamp": "2026-11-11 09:20",
   "signals": [
     {
       "name": "博通",
@@ -59,12 +59,12 @@
       "score": 2,
       "price": 733.15,
       "change_pct": 6.25,
-      "vol_ratio": 0.75,
+      "vol_ratio": 0.76,
       "week52_pct": 54.6,
       "valuation": {
         "trailing_pe": 9.28273,
         "forward_pe": 3.5288234,
-        "ev_to_ebitda": 7.272,
+        "ev_to_ebitda": 7.27,
         "peg": 0.16,
         "fcf_yield": 0.0351,
         "cash_conversion": 1.06,
@@ -84,7 +84,7 @@
       "score": 2,
       "price": 288.15,
       "change_pct": 1.18,
-      "vol_ratio": 0.85,
+      "vol_ratio": 0.86,
       "week52_pct": 31.4,
       "valuation": {
         "trailing_pe": 14.868422,
