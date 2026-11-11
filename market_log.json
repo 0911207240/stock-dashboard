@@ -1479,5 +1479,20 @@
     ],
     "portfolio_value": 1165724.0,
     "portfolio_pnl": 209384.0
+  },
+  {
+    "date": "2026-11-11",
+    "taiex_close": 43166.03,
+    "taiex_chg_pct": 1.06,
+    "regime": "空頭",
+    "regime_emoji": "🔴",
+    "min_score": 85,
+    "top_sectors": [
+      "資訊服務/雲端",
+      "科技/ETF",
+      "光電"
+    ],
+    "portfolio_value": 1180141.0,
+    "portfolio_pnl": 223800.0
   }
 ]
