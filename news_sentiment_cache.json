@@ -1,20 +1,21 @@
 {
   "2330": {
-    "fetched_at": "2026-11-11T10:14:48.622248",
-    "sentiment_score": 1,
-    "signal": "bullish",
+    "fetched_at": "2026-11-12T11:26:07.233976",
+    "sentiment_score": 0,
+    "signal": "neutral",
     "keywords": [
-      "+buy"
+      "+buy",
+      "-sell"
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "Taiwan Semiconductor Sales Jump 60% In October As AI Boom Continues",
-      "Ayar Labs Wins Demo of the Year Award at 2026 TSMC North America Technology Symposium",
-      "TSMC record sales strengthen Wedbush’s bullish outlook"
+      "Asian stocks extend gains but traders keep eye on Nvidia crisis",
+      "Dell Technologies vs. Taiwan Semiconductor: Which Technology Stock Is a Better Buy for 2027?",
+      "Cathie Wood, Brad Gerstner and 8 Other Big Funds Bought Cerebras. Is It a Buy Before Earnings?"
     ]
   },
   "0056": {
-    "fetched_at": "2026-11-11T10:16:16.050132",
+    "fetched_at": "2026-11-12T11:25:38.443959",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -24,7 +25,7 @@
     ]
   },
   "2317": {
-    "fetched_at": "2026-11-11T10:15:23.007793",
+    "fetched_at": "2026-11-12T11:25:22.443838",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -36,7 +37,7 @@
     ]
   },
   "0050": {
-    "fetched_at": "2026-11-11T10:14:15.957310",
+    "fetched_at": "2026-11-12T11:24:10.056499",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -46,7 +47,7 @@
     ]
   },
   "2454": {
-    "fetched_at": "2026-11-11T10:15:12.022316",
+    "fetched_at": "2026-11-12T11:26:07.620917",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -60,7 +61,7 @@
     ]
   },
   "2882": {
-    "fetched_at": "2026-11-11T10:16:16.917399",
+    "fetched_at": "2026-11-12T11:26:07.429684",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -72,7 +73,7 @@
     ]
   },
   "2881": {
-    "fetched_at": "2026-11-11T10:15:46.255254",
+    "fetched_at": "2026-11-12T11:26:07.786571",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -82,7 +83,7 @@
     ]
   },
   "2884": {
-    "fetched_at": "2026-11-11T10:16:16.546071",
+    "fetched_at": "2026-11-12T11:26:08.179863",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -93,7 +94,7 @@
     ]
   },
   "2880": {
-    "fetched_at": "2026-11-11T10:16:17.426786",
+    "fetched_at": "2026-11-12T11:26:08.805564",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -103,7 +104,7 @@
     ]
   },
   "2886": {
-    "fetched_at": "2026-11-11T10:16:16.390261",
+    "fetched_at": "2026-11-12T11:26:08.016679",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -113,7 +114,7 @@
     ]
   },
   "2887": {
-    "fetched_at": "2026-11-11T10:16:17.725811",
+    "fetched_at": "2026-11-12T11:26:09.115117",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -121,13 +122,13 @@
     ],
     "headline_count": 10,
     "sample_headlines": [
-      "From K-Pop Artists' Running Shirts to Official Race Kits: Hyosung TNC's Recycled Yarns Take Center Stage",
-      "UGREEN Collaborates with POP MART to Unveil HACIPUPU as \"The Little Forest Mage\"",
-      "Should You Buy The Dip In Datadog Stock?"
+      "Why MSCI Removed MSTR From Its Indexes – And What It Means For Bitcoin Stocks",
+      "Mufin Green Finance Ltd (BOM:542774) (Q2 2027) Earnings Call Highlights: AUM Jumps 71% as ...",
+      "Nu Holdings (NU) Stock Has Fallen 21% in a Month. Is It Time to Buy?"
     ]
   },
   "2892": {
-    "fetched_at": "2026-11-11T10:16:16.741967",
+    "fetched_at": "2026-11-12T11:26:08.342284",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -138,7 +139,7 @@
     ]
   },
   "1102": {
-    "fetched_at": "2026-11-11T10:16:18.846286",
+    "fetched_at": "2026-11-12T11:26:10.198827",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -150,7 +151,7 @@
     ]
   },
   "2885": {
-    "fetched_at": "2026-11-11T10:16:18.004699",
+    "fetched_at": "2026-11-12T11:26:09.350391",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -160,7 +161,7 @@
     ]
   },
   "5880": {
-    "fetched_at": "2026-11-11T10:16:18.305302",
+    "fetched_at": "2026-11-12T11:26:09.651624",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -170,19 +171,21 @@
     ]
   },
   "2891": {
-    "fetched_at": "2026-11-11T10:16:17.098827",
-    "sentiment_score": 0,
-    "signal": "neutral",
-    "keywords": [],
+    "fetched_at": "2026-11-12T11:26:08.566024",
+    "sentiment_score": 1,
+    "signal": "bullish",
+    "keywords": [
+      "+buy"
+    ],
     "headline_count": 10,
     "sample_headlines": [
-      "From K-Pop Artists' Running Shirts to Official Race Kits: Hyosung TNC's Recycled Yarns Take Center Stage",
-      "UGREEN Collaborates with POP MART to Unveil HACIPUPU as \"The Little Forest Mage\"",
-      "Hagerty Announces Pricing of its Upsized Secondary Offering of Class A Common Stock"
+      "Nu Holdings (NU) Stock Has Fallen 21% in a Month. Is It Time to Buy?",
+      "JPMorgan Predicted Strong Wegovy Pill Sales (and Was Right). Is Novo Nordisk Stock a Buy Now?",
+      "Warren Buffett’s 1991 Playbook Points The Path Forward As Nvidia Reportedly Prepares To Oust Jensen Huang. Buffett Said He Could Forgive Losses, But There Was One Thing He Would Be Ruthless About"
     ]
   },
   "1101": {
-    "fetched_at": "2026-11-11T10:16:18.560873",
+    "fetched_at": "2026-11-12T11:26:09.943222",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -192,7 +195,7 @@
     ]
   },
   "1103": {
-    "fetched_at": "2026-11-11T10:16:19.031832",
+    "fetched_at": "2026-11-12T11:26:10.442121",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -202,7 +205,7 @@
     ]
   },
   "1109": {
-    "fetched_at": "2026-11-11T10:16:19.510702",
+    "fetched_at": "2026-11-12T11:26:11.171274",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -212,7 +215,7 @@
     ]
   },
   "1104": {
-    "fetched_at": "2026-11-11T10:16:19.292413",
+    "fetched_at": "2026-11-12T11:26:10.737670",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -222,7 +225,7 @@
     ]
   },
   "1110": {
-    "fetched_at": "2026-11-11T10:16:19.747836",
+    "fetched_at": "2026-11-12T11:26:10.993116",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -232,7 +235,7 @@
     ]
   },
   "2603": {
-    "fetched_at": "2026-11-11T10:16:20.004907",
+    "fetched_at": "2026-11-12T11:26:11.462022",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -242,7 +245,7 @@
     ]
   },
   "2615": {
-    "fetched_at": "2026-11-11T10:16:20.650764",
+    "fetched_at": "2026-11-12T11:26:11.941932",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -253,7 +256,7 @@
     ]
   },
   "2609": {
-    "fetched_at": "2026-11-11T10:16:20.299876",
+    "fetched_at": "2026-11-12T11:26:12.424768",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -264,7 +267,7 @@
     ]
   },
   "1301": {
-    "fetched_at": "2026-11-11T10:16:21.440019",
+    "fetched_at": "2026-11-12T11:26:12.136052",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -276,7 +279,7 @@
     ]
   },
   "6505": {
-    "fetched_at": "2026-11-11T10:16:21.654519",
+    "fetched_at": "2026-11-12T11:26:12.939050",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [
@@ -291,7 +294,7 @@
     ]
   },
   "1326": {
-    "fetched_at": "2026-11-11T10:16:21.062172",
+    "fetched_at": "2026-11-12T11:26:12.692068",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -301,7 +304,7 @@
     ]
   },
   "1303": {
-    "fetched_at": "2026-11-11T10:16:21.232086",
+    "fetched_at": "2026-11-12T11:26:11.623628",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -313,7 +316,7 @@
     ]
   },
   "2002": {
-    "fetched_at": "2026-11-11T10:16:22.055678",
+    "fetched_at": "2026-11-12T11:26:13.211859",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -327,7 +330,7 @@
     ]
   },
   "2015": {
-    "fetched_at": "2026-11-11T10:16:22.282441",
+    "fetched_at": "2026-11-12T11:26:13.471826",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -337,31 +340,31 @@
     ]
   },
   "2303": {
-    "fetched_at": "2026-11-11T10:16:22.642986",
+    "fetched_at": "2026-11-12T11:26:13.954008",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "United Microelectronics: 3 Key Takeaways for Long-Term Investors",
       "TSMC Sinks 10%, UMC Down 16% as Chip Rout Deepens After Democrats’ Midterm Wins",
-      "UMC Reports Sales for October 2026",
-      "TSM Soars 33% in the Past Year: Is It a Solid Investment Proposition?"
+      "UMC Reports Sales for October 2026"
     ]
   },
   "3711": {
-    "fetched_at": "2026-11-11T10:16:22.442346",
+    "fetched_at": "2026-11-12T11:26:13.710134",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Asian Equities Traded in the US as American Depositary Receipts Rise in Wednesday Trading",
       "Qualys Q3 Earnings Beat on Federal Strength, 2026 Guidance Raised",
-      "Asian Equities Traded in the US as American Depositary Receipts Rise Modestly in Tuesday Trading",
-      "Why Is TSM Stock Rising Overnight?"
+      "Asian Equities Traded in the US as American Depositary Receipts Rise Modestly in Tuesday Trading"
     ]
   },
   "2449": {
-    "fetched_at": "2026-11-11T10:16:23.312170",
+    "fetched_at": "2026-11-12T11:26:15.265527",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -373,7 +376,7 @@
     ]
   },
   "00881": {
-    "fetched_at": "2026-11-11T10:16:23.145408",
+    "fetched_at": "2026-11-12T11:26:14.884830",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -383,7 +386,7 @@
     ]
   },
   "00878": {
-    "fetched_at": "2026-11-11T10:16:22.919064",
+    "fetched_at": "2026-11-12T11:26:15.521161",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -393,7 +396,7 @@
     ]
   },
   "00919": {
-    "fetched_at": "2026-11-11T10:16:23.592007",
+    "fetched_at": "2026-11-12T11:26:15.772532",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -403,7 +406,7 @@
     ]
   },
   "00929": {
-    "fetched_at": "2026-11-11T10:16:23.837568",
+    "fetched_at": "2026-11-12T11:26:16.057394",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -413,7 +416,7 @@
     ]
   },
   "00713": {
-    "fetched_at": "2026-11-11T10:16:24.071834",
+    "fetched_at": "2026-11-12T11:26:16.379531",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -423,7 +426,7 @@
     ]
   },
   "00900": {
-    "fetched_at": "2026-11-11T10:16:24.311374",
+    "fetched_at": "2026-11-12T11:26:16.621731",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -433,7 +436,7 @@
     ]
   },
   "2382": {
-    "fetched_at": "2026-11-11T10:16:24.510125",
+    "fetched_at": "2026-11-12T11:26:17.278971",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -445,7 +448,7 @@
     ]
   },
   "3231": {
-    "fetched_at": "2026-11-11T10:16:25.061018",
+    "fetched_at": "2026-11-12T11:26:17.115844",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -457,7 +460,7 @@
     ]
   },
   "2376": {
-    "fetched_at": "2026-11-11T10:16:25.449565",
+    "fetched_at": "2026-11-12T11:26:16.956374",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -471,7 +474,7 @@
     ]
   },
   "2377": {
-    "fetched_at": "2026-11-11T10:16:24.897770",
+    "fetched_at": "2026-11-12T11:26:17.664307",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -487,7 +490,7 @@
     ]
   },
   "2308": {
-    "fetched_at": "2026-11-11T10:16:25.671732",
+    "fetched_at": "2026-11-12T11:26:18.005866",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -499,19 +502,19 @@
     ]
   },
   "6669": {
-    "fetched_at": "2026-11-11T10:16:25.877650",
+    "fetched_at": "2026-11-12T11:26:18.187114",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
+      "Anthropic IPO Puts Wiwynn Stock And AI Data Center Shares In Focus",
       "Wiwynn, Ayar Labs, and GUC Advance Co-Packaged Optics with Live Demonstration of Integrated Optical Compute System at OCP Global Summit 2026",
-      "Wiwynn Showcases Next-Gen AI Platforms, Thermal Engineering, and Optical Interconnect Technologies at 2026 OCP Global Summit",
-      "Amazon Partners with Wiwynn to Expand U.S. AI Infrastructure Capacity"
+      "Wiwynn Showcases Next-Gen AI Platforms, Thermal Engineering, and Optical Interconnect Technologies at 2026 OCP Global Summit"
     ]
   },
   "3532": {
-    "fetched_at": "2026-11-11T10:16:26.614136",
+    "fetched_at": "2026-11-12T11:26:19.001066",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -521,7 +524,7 @@
     ]
   },
   "2404": {
-    "fetched_at": "2026-11-11T10:16:27.122412",
+    "fetched_at": "2026-11-12T11:26:19.463337",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -531,7 +534,7 @@
     ]
   },
   "6139": {
-    "fetched_at": "2026-11-11T10:16:27.382411",
+    "fetched_at": "2026-11-12T11:26:19.710524",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -541,7 +544,7 @@
     ]
   },
   "3008": {
-    "fetched_at": "2026-11-11T10:16:27.588206",
+    "fetched_at": "2026-11-12T11:26:19.896831",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -552,7 +555,7 @@
     ]
   },
   "2393": {
-    "fetched_at": "2026-11-11T10:16:27.890087",
+    "fetched_at": "2026-11-12T11:26:20.405380",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -564,7 +567,7 @@
     ]
   },
   "2353": {
-    "fetched_at": "2026-11-11T10:16:28.081247",
+    "fetched_at": "2026-11-12T11:26:20.579432",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -576,7 +579,7 @@
     ]
   },
   "3406": {
-    "fetched_at": "2026-11-11T10:16:28.538041",
+    "fetched_at": "2026-11-12T11:26:20.124631",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -588,7 +591,7 @@
     ]
   },
   "2357": {
-    "fetched_at": "2026-11-11T10:16:28.271777",
+    "fetched_at": "2026-11-12T11:26:20.809805",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -602,21 +605,19 @@
     ]
   },
   "2324": {
-    "fetched_at": "2026-11-11T10:16:28.757261",
-    "sentiment_score": 1,
-    "signal": "bullish",
-    "keywords": [
-      "+buy"
-    ],
+    "fetched_at": "2026-11-12T11:26:21.468031",
+    "sentiment_score": 0,
+    "signal": "neutral",
+    "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
-      "ESGU Trailed IVV by $26,370 on $300,000 Over Five Years. Its ESG Tilts Are Part of the Reason",
-      "Should You Buy The Dip In Datadog Stock?",
-      "Is Seagate A Better Way Than Apple To Own AI Hardware Demand?"
+      "Dow Jones Futures Rise, Techs Fall As Nvidia May Oust CEO Huang After CoreWave Leads Rally",
+      "Susquehanna Financial names its AI-era winners: 9 IT stocks to watch",
+      "Asian stocks extend gains but traders keep eye on Nvidia crisis"
     ]
   },
   "2356": {
-    "fetched_at": "2026-11-11T10:16:29.130434",
+    "fetched_at": "2026-11-12T11:26:21.093084",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -630,7 +631,7 @@
     ]
   },
   "6488O": {
-    "fetched_at": "2026-11-11T10:16:26.046332",
+    "fetched_at": "2026-11-12T11:26:18.530131",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -642,7 +643,7 @@
     ]
   },
   "3680O": {
-    "fetched_at": "2026-11-11T10:16:26.842318",
+    "fetched_at": "2026-11-12T11:26:19.235873",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -652,7 +653,7 @@
     ]
   },
   "5483O": {
-    "fetched_at": "2026-11-11T10:16:26.339405",
+    "fetched_at": "2026-11-12T11:26:18.842550",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -663,7 +664,7 @@
     ]
   },
   "4938": {
-    "fetched_at": "2026-11-11T10:16:29.319359",
+    "fetched_at": "2026-11-12T11:26:21.299556",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -675,7 +676,7 @@
     ]
   },
   "2412": {
-    "fetched_at": "2026-11-11T10:16:29.517441",
+    "fetched_at": "2026-11-12T11:26:21.644204",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -687,19 +688,19 @@
     ]
   },
   "3045": {
-    "fetched_at": "2026-11-11T10:16:29.680410",
+    "fetched_at": "2026-11-12T11:26:21.894882",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
       "Taiwan Mobile Co Ltd (TPE:3045) (Q2 2026) Earnings Call Highlights: Record Profit and Strategic ...",
-      "Taiwan Mobile Co Ltd (TPE:3045) Q1 2026 Earnings Call Highlights: Strong Financial Performance ...",
-      "Liminal Custody Partners with Taiwan Mobile &amp; SYSTEX to Build Taiwan's Institutional Digital Asset Infra"
+      "Liminal Custody Partners with Taiwan Mobile &amp; SYSTEX to Build Taiwan's Institutional Digital Asset Infra",
+      "Taiwan Mobile Co Ltd (TPE:3045) Q1 2026 Earnings Call Highlights: Strong Financial Performance ..."
     ]
   },
   "6770": {
-    "fetched_at": "2026-11-11T10:16:29.880682",
+    "fetched_at": "2026-11-12T11:26:22.395830",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -711,7 +712,7 @@
     ]
   },
   "5347O": {
-    "fetched_at": "2026-11-11T10:16:30.168623",
+    "fetched_at": "2026-11-12T11:26:22.206836",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -723,7 +724,7 @@
     ]
   },
   "3105O": {
-    "fetched_at": "2026-11-11T10:16:30.366212",
+    "fetched_at": "2026-11-12T11:26:22.645631",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -735,7 +736,7 @@
     ]
   },
   "2327": {
-    "fetched_at": "2026-11-11T10:16:30.656294",
+    "fetched_at": "2026-11-12T11:26:22.801947",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -749,19 +750,19 @@
     ]
   },
   "2492": {
-    "fetched_at": "2026-11-11T10:16:30.918749",
+    "fetched_at": "2026-11-12T11:26:23.273970",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 5,
+    "headline_count": 6,
     "sample_headlines": [
+      "Infomart (TSE:2492) Stock Looks Above Fair Value On Current Earnings",
       "3 AI Stocks With Earnings Growth Over 30%",
-      "3 AI Stocks To Watch In October 2026",
-      "3 AI Stocks With Earnings Growth Of Up To 98%"
+      "3 AI Stocks To Watch In October 2026"
     ]
   },
   "2474": {
-    "fetched_at": "2026-11-11T10:16:31.131965",
+    "fetched_at": "2026-11-12T11:26:22.996972",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -773,7 +774,7 @@
     ]
   },
   "6176": {
-    "fetched_at": "2026-11-11T10:16:31.663189",
+    "fetched_at": "2026-11-12T11:26:23.786339",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -783,7 +784,7 @@
     ]
   },
   "3037": {
-    "fetched_at": "2026-11-11T10:16:31.904476",
+    "fetched_at": "2026-11-12T11:26:23.979553",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -795,7 +796,7 @@
     ]
   },
   "2409": {
-    "fetched_at": "2026-11-11T10:16:32.065681",
+    "fetched_at": "2026-11-12T11:26:24.161060",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -807,7 +808,7 @@
     ]
   },
   "2439": {
-    "fetched_at": "2026-11-11T10:16:31.424954",
+    "fetched_at": "2026-11-12T11:26:23.523894",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -818,7 +819,7 @@
     ]
   },
   "3481": {
-    "fetched_at": "2026-11-11T10:16:32.353969",
+    "fetched_at": "2026-11-12T11:26:24.570270",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -830,7 +831,7 @@
     ]
   },
   "2344": {
-    "fetched_at": "2026-11-11T10:16:32.691988",
+    "fetched_at": "2026-11-12T11:26:24.730608",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -842,7 +843,7 @@
     ]
   },
   "2408": {
-    "fetched_at": "2026-11-11T10:16:32.932894",
+    "fetched_at": "2026-11-12T11:26:24.963402",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -854,7 +855,7 @@
     ]
   },
   "2337": {
-    "fetched_at": "2026-11-11T10:16:33.337510",
+    "fetched_at": "2026-11-12T11:26:25.174066",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -868,7 +869,7 @@
     ]
   },
   "2023": {
-    "fetched_at": "2026-11-11T10:16:33.650011",
+    "fetched_at": "2026-11-12T11:26:25.408703",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -878,7 +879,7 @@
     ]
   },
   "2006": {
-    "fetched_at": "2026-11-11T10:16:34.186651",
+    "fetched_at": "2026-11-12T11:26:25.870481",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -888,7 +889,7 @@
     ]
   },
   "2027": {
-    "fetched_at": "2026-11-11T10:16:33.872272",
+    "fetched_at": "2026-11-12T11:26:25.635359",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -898,7 +899,7 @@
     ]
   },
   "2010": {
-    "fetched_at": "2026-11-11T10:16:34.418264",
+    "fetched_at": "2026-11-12T11:26:26.058960",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -908,7 +909,7 @@
     ]
   },
   "2890": {
-    "fetched_at": "2026-11-11T10:16:34.591638",
+    "fetched_at": "2026-11-12T11:26:26.753854",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -918,7 +919,7 @@
     ]
   },
   "3264O": {
-    "fetched_at": "2026-11-11T10:16:36.086168",
+    "fetched_at": "2026-11-12T11:26:27.441847",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -928,7 +929,7 @@
     ]
   },
   "2801": {
-    "fetched_at": "2026-11-11T10:16:35.007624",
+    "fetched_at": "2026-11-12T11:26:26.578229",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -940,7 +941,7 @@
     ]
   },
   "2834": {
-    "fetched_at": "2026-11-11T10:16:35.172188",
+    "fetched_at": "2026-11-12T11:26:26.277683",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -950,7 +951,7 @@
     ]
   },
   "3707O": {
-    "fetched_at": "2026-11-11T10:16:35.841118",
+    "fetched_at": "2026-11-12T11:26:27.975747",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -960,7 +961,7 @@
     ]
   },
   "2883": {
-    "fetched_at": "2026-11-11T10:16:35.567365",
+    "fetched_at": "2026-11-12T11:26:27.144563",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -971,7 +972,7 @@
     ]
   },
   "6257": {
-    "fetched_at": "2026-11-11T10:16:36.350803",
+    "fetched_at": "2026-11-12T11:26:27.715355",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -981,7 +982,7 @@
     ]
   },
   "1308": {
-    "fetched_at": "2026-11-11T10:16:36.854173",
+    "fetched_at": "2026-11-12T11:26:31.550909",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -991,7 +992,7 @@
     ]
   },
   "00631L": {
-    "fetched_at": "2026-11-11T10:16:37.107485",
+    "fetched_at": "2026-11-12T11:26:28.480413",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1001,7 +1002,7 @@
     ]
   },
   "00632R": {
-    "fetched_at": "2026-11-11T10:16:38.527776",
+    "fetched_at": "2026-11-12T11:26:29.591799",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1011,7 +1012,7 @@
     ]
   },
   "3034": {
-    "fetched_at": "2026-11-11T10:16:37.667307",
+    "fetched_at": "2026-11-12T11:26:30.224129",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1021,7 +1022,7 @@
     ]
   },
   "3443": {
-    "fetched_at": "2026-11-11T10:16:37.488900",
+    "fetched_at": "2026-11-12T11:26:30.047404",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1033,7 +1034,7 @@
     ]
   },
   "3661": {
-    "fetched_at": "2026-11-11T10:16:37.963787",
+    "fetched_at": "2026-11-12T11:26:30.427334",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1045,7 +1046,7 @@
     ]
   },
   "2379": {
-    "fetched_at": "2026-11-11T10:16:37.295806",
+    "fetched_at": "2026-11-12T11:26:29.861287",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1057,7 +1058,7 @@
     ]
   },
   "3545": {
-    "fetched_at": "2026-11-11T10:16:38.968767",
+    "fetched_at": "2026-11-12T11:26:30.943083",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1067,7 +1068,7 @@
     ]
   },
   "2383": {
-    "fetched_at": "2026-11-11T10:16:38.265975",
+    "fetched_at": "2026-11-12T11:26:32.043423",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1079,7 +1080,7 @@
     ]
   },
   "5522": {
-    "fetched_at": "2026-11-11T10:16:36.614445",
+    "fetched_at": "2026-11-12T11:26:28.260336",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1089,7 +1090,7 @@
     ]
   },
   "3044": {
-    "fetched_at": "2026-11-11T10:16:40.140674",
+    "fetched_at": "2026-11-12T11:26:31.304369",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1099,7 +1100,7 @@
     ]
   },
   "4958": {
-    "fetched_at": "2026-11-11T10:16:38.710665",
+    "fetched_at": "2026-11-12T11:26:30.690051",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1111,7 +1112,7 @@
     ]
   },
   "6213": {
-    "fetched_at": "2026-11-11T10:16:39.135144",
+    "fetched_at": "2026-11-12T11:26:31.770814",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1121,7 +1122,7 @@
     ]
   },
   "2345": {
-    "fetched_at": "2026-11-11T10:16:39.474426",
+    "fetched_at": "2026-11-12T11:26:33.354845",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1133,7 +1134,7 @@
     ]
   },
   "2313": {
-    "fetched_at": "2026-11-11T10:16:39.797350",
+    "fetched_at": "2026-11-12T11:26:32.328676",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1145,7 +1146,7 @@
     ]
   },
   "3704": {
-    "fetched_at": "2026-11-11T10:16:40.438333",
+    "fetched_at": "2026-11-12T11:26:32.987053",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1155,7 +1156,7 @@
     ]
   },
   "5388": {
-    "fetched_at": "2026-11-11T10:16:40.849649",
+    "fetched_at": "2026-11-12T11:26:33.557607",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1167,7 +1168,7 @@
     ]
   },
   "6285": {
-    "fetched_at": "2026-11-11T10:16:40.677608",
+    "fetched_at": "2026-11-12T11:26:32.573243",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1177,19 +1178,19 @@
     ]
   },
   "2301": {
-    "fetched_at": "2026-11-11T10:16:41.839639",
+    "fetched_at": "2026-11-12T11:26:34.292700",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
-    "headline_count": 6,
+    "headline_count": 7,
     "sample_headlines": [
+      "3 AI Chip Stocks Facing Yield Pressure And Demand Strength",
       "Lite-On Technology to establish $919M manufacturing campus in Texas",
-      "$300M McKinney facility, Irving lands new HQ and more D-FW real estate news",
-      "3 AI Infrastructure Stocks Investors Are Watching After Elon Musk Floated A SpaceX Tesla Tie Up"
+      "$300M McKinney facility, Irving lands new HQ and more D-FW real estate news"
     ]
   },
   "8150": {
-    "fetched_at": "2026-11-11T10:16:42.880405",
+    "fetched_at": "2026-11-12T11:26:36.103745",
     "sentiment_score": 2,
     "signal": "bullish",
     "keywords": [
@@ -1199,11 +1200,11 @@
     "sample_headlines": [
       "ChipMOS REPORTS 17.7% YoY INCREASE IN MAY 2026 REVENUE",
       "ChipMOS to Present at Cathay Securities 2026 Q2 Industry Forum",
-      "ChipMOS SHAREHOLDERS APPROVE CASH DIVIDEND DISTRIBUTION OF NT$1.23 PER COMMON SHARE OR APPROXIMATELY US$0.78 PER ADS"
+      "ChipMOS REPORTS 23.1% YoY INCREASE IN MARCH 2026 REVENUE; 25.4% YoY INCREASE IN 1Q26 REVENUE"
     ]
   },
   "3017": {
-    "fetched_at": "2026-11-11T10:16:41.426209",
+    "fetched_at": "2026-11-12T11:26:33.856704",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1214,7 +1215,7 @@
     ]
   },
   "2385": {
-    "fetched_at": "2026-11-11T10:16:41.141344",
+    "fetched_at": "2026-11-12T11:26:34.097659",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1224,7 +1225,7 @@
     ]
   },
   "2421": {
-    "fetched_at": "2026-11-11T10:16:42.155104",
+    "fetched_at": "2026-11-12T11:26:34.574699",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1234,7 +1235,7 @@
     ]
   },
   "6148O": {
-    "fetched_at": "2026-11-11T10:16:42.656596",
+    "fetched_at": "2026-11-12T11:26:35.587924",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1244,7 +1245,7 @@
     ]
   },
   "3324O": {
-    "fetched_at": "2026-11-11T10:16:41.680784",
+    "fetched_at": "2026-11-12T11:26:34.883442",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1256,7 +1257,7 @@
     ]
   },
   "2392": {
-    "fetched_at": "2026-11-11T10:16:43.172405",
+    "fetched_at": "2026-11-12T11:26:35.136051",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1266,7 +1267,7 @@
     ]
   },
   "2365": {
-    "fetched_at": "2026-11-11T10:16:44.251296",
+    "fetched_at": "2026-11-12T11:26:36.562779",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1276,7 +1277,7 @@
     ]
   },
   "2395": {
-    "fetched_at": "2026-11-11T10:16:43.403293",
+    "fetched_at": "2026-11-12T11:26:36.310256",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1288,7 +1289,7 @@
     ]
   },
   "2312": {
-    "fetched_at": "2026-11-11T10:16:44.534949",
+    "fetched_at": "2026-11-12T11:26:38.933122",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1300,7 +1301,7 @@
     ]
   },
   "2354": {
-    "fetched_at": "2026-11-11T10:16:43.618214",
+    "fetched_at": "2026-11-12T11:26:35.311355",
     "sentiment_score": 1,
     "signal": "bullish",
     "keywords": [
@@ -1314,7 +1315,7 @@
     ]
   },
   "5426O": {
-    "fetched_at": "2026-11-11T10:16:44.808879",
+    "fetched_at": "2026-11-12T11:26:37.118994",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1324,7 +1325,7 @@
     ]
   },
   "8114": {
-    "fetched_at": "2026-11-11T10:16:43.955444",
+    "fetched_at": "2026-11-12T11:26:35.903349",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1334,7 +1335,7 @@
     ]
   },
   "8183O": {
-    "fetched_at": "2026-11-11T10:16:58.795647",
+    "fetched_at": "2026-11-12T11:26:51.777630",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1344,7 +1345,7 @@
     ]
   },
   "6202": {
-    "fetched_at": "2026-11-11T10:16:47.283283",
+    "fetched_at": "2026-11-12T11:26:36.820792",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1354,7 +1355,7 @@
     ]
   },
   "2458": {
-    "fetched_at": "2026-11-11T10:16:46.449830",
+    "fetched_at": "2026-11-12T11:26:40.360770",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1364,7 +1365,7 @@
     ]
   },
   "2388": {
-    "fetched_at": "2026-11-11T10:16:46.203287",
+    "fetched_at": "2026-11-12T11:26:39.222798",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1374,7 +1375,7 @@
     ]
   },
   "2352": {
-    "fetched_at": "2026-11-11T10:16:45.111941",
+    "fetched_at": "2026-11-12T11:26:37.384473",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1385,7 +1386,7 @@
     ]
   },
   "2363": {
-    "fetched_at": "2026-11-11T10:16:45.706301",
+    "fetched_at": "2026-11-12T11:26:37.655748",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1395,7 +1396,7 @@
     ]
   },
   "3041": {
-    "fetched_at": "2026-11-11T10:16:47.613926",
+    "fetched_at": "2026-11-12T11:26:40.628770",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1405,7 +1406,7 @@
     ]
   },
   "2436": {
-    "fetched_at": "2026-11-11T10:16:45.944012",
+    "fetched_at": "2026-11-12T11:26:39.460911",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1415,7 +1416,7 @@
     ]
   },
   "3014": {
-    "fetched_at": "2026-11-11T10:16:47.027799",
+    "fetched_at": "2026-11-12T11:26:42.230954",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1426,7 +1427,7 @@
     ]
   },
   "2401": {
-    "fetched_at": "2026-11-11T10:16:45.373111",
+    "fetched_at": "2026-11-12T11:26:41.194711",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1436,7 +1437,7 @@
     ]
   },
   "3035": {
-    "fetched_at": "2026-11-11T10:16:46.772459",
+    "fetched_at": "2026-11-12T11:26:40.952910",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1448,7 +1449,7 @@
     ]
   },
   "3073O": {
-    "fetched_at": "2026-11-11T10:16:49.760666",
+    "fetched_at": "2026-11-12T11:26:41.449052",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1458,7 +1459,7 @@
     ]
   },
   "3094": {
-    "fetched_at": "2026-11-11T10:16:47.858180",
+    "fetched_at": "2026-11-12T11:26:41.677376",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1468,7 +1469,7 @@
     ]
   },
   "3006": {
-    "fetched_at": "2026-11-11T10:16:48.868977",
+    "fetched_at": "2026-11-12T11:26:40.018359",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1479,7 +1480,7 @@
     ]
   },
   "3150": {
-    "fetched_at": "2026-11-11T10:16:50.967443",
+    "fetched_at": "2026-11-12T11:26:42.511265",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1489,7 +1490,7 @@
     ]
   },
   "3122O": {
-    "fetched_at": "2026-11-11T10:16:48.193909",
+    "fetched_at": "2026-11-12T11:26:41.937402",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1499,7 +1500,7 @@
     ]
   },
   "3141O": {
-    "fetched_at": "2026-11-11T10:16:48.434104",
+    "fetched_at": "2026-11-12T11:26:42.756747",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1509,7 +1510,7 @@
     ]
   },
   "2316": {
-    "fetched_at": "2026-11-11T10:16:50.315418",
+    "fetched_at": "2026-11-12T11:26:43.578010",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1521,7 +1522,7 @@
     ]
   },
   "1815O": {
-    "fetched_at": "2026-11-11T10:16:49.055172",
+    "fetched_at": "2026-11-12T11:26:43.291825",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1531,7 +1532,7 @@
     ]
   },
   "2355": {
-    "fetched_at": "2026-11-11T10:16:50.018333",
+    "fetched_at": "2026-11-12T11:26:44.189572",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1541,7 +1542,7 @@
     ]
   },
   "3169O": {
-    "fetched_at": "2026-11-11T10:16:49.427644",
+    "fetched_at": "2026-11-12T11:26:43.058542",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1553,7 +1554,7 @@
     ]
   },
   "2367": {
-    "fetched_at": "2026-11-11T10:16:52.218713",
+    "fetched_at": "2026-11-12T11:26:44.429256",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1563,7 +1564,7 @@
     ]
   },
   "2402": {
-    "fetched_at": "2026-11-11T10:16:53.485411",
+    "fetched_at": "2026-11-12T11:26:44.825008",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1573,7 +1574,7 @@
     ]
   },
   "3323O": {
-    "fetched_at": "2026-11-11T10:16:51.633898",
+    "fetched_at": "2026-11-12T11:26:45.332703",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1583,7 +1584,7 @@
     ]
   },
   "6121O": {
-    "fetched_at": "2026-11-11T10:16:51.386406",
+    "fetched_at": "2026-11-12T11:26:52.846972",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1593,7 +1594,7 @@
     ]
   },
   "3211O": {
-    "fetched_at": "2026-11-11T10:16:52.454105",
+    "fetched_at": "2026-11-12T11:26:45.596838",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1603,19 +1604,19 @@
     ]
   },
   "2368": {
-    "fetched_at": "2026-11-11T10:16:50.728090",
+    "fetched_at": "2026-11-12T11:26:43.956245",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
     "headline_count": 10,
     "sample_headlines": [
       "Asian Growth Companies With High Insider Ownership And 23% Revenue Growth",
-      "3 Asian Growth Companies With High Insider Ownership And 26 Percent Revenue Growth",
-      "Founder Of Printed Circuit Boards Maker Debuts On Taiwan’s 50 Richest List"
+      "Founder Of Printed Circuit Boards Maker Debuts On Taiwan’s 50 Richest List",
+      "3 Asian Growth Companies With High Insider Ownership And 26 Percent Revenue Growth"
     ]
   },
   "1503": {
-    "fetched_at": "2026-11-11T10:16:52.704047",
+    "fetched_at": "2026-11-12T11:26:46.087106",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1625,7 +1626,7 @@
     ]
   },
   "2429": {
-    "fetched_at": "2026-11-11T10:16:51.130851",
+    "fetched_at": "2026-11-12T11:26:44.605205",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1635,7 +1636,7 @@
     ]
   },
   "1504": {
-    "fetched_at": "2026-11-11T10:16:51.951204",
+    "fetched_at": "2026-11-12T11:26:46.936521",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1647,7 +1648,7 @@
     ]
   },
   "8086O": {
-    "fetched_at": "2026-11-11T10:16:53.230155",
+    "fetched_at": "2026-11-12T11:26:46.370056",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1657,7 +1658,7 @@
     ]
   },
   "5309O": {
-    "fetched_at": "2026-11-11T10:16:53.787208",
+    "fetched_at": "2026-11-12T11:26:45.848598",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1667,7 +1668,7 @@
     ]
   },
   "2340": {
-    "fetched_at": "2026-11-11T10:16:54.595032",
+    "fetched_at": "2026-11-12T11:26:47.539155",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1677,7 +1678,7 @@
     ]
   },
   "2338": {
-    "fetched_at": "2026-11-11T10:16:55.921818",
+    "fetched_at": "2026-11-12T11:26:47.802081",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1687,7 +1688,7 @@
     ]
   },
   "3016": {
-    "fetched_at": "2026-11-11T10:16:52.975423",
+    "fetched_at": "2026-11-12T11:26:46.620055",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1697,7 +1698,7 @@
     ]
   },
   "3374O": {
-    "fetched_at": "2026-11-11T10:16:54.302907",
+    "fetched_at": "2026-11-12T11:26:47.231161",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1707,7 +1708,7 @@
     ]
   },
   "3376": {
-    "fetched_at": "2026-11-11T10:16:54.022959",
+    "fetched_at": "2026-11-12T11:26:48.029424",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1717,7 +1718,7 @@
     ]
   },
   "3042": {
-    "fetched_at": "2026-11-11T10:16:56.199708",
+    "fetched_at": "2026-11-12T11:26:49.472134",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1728,7 +1729,7 @@
     ]
   },
   "3548O": {
-    "fetched_at": "2026-11-11T10:16:54.851591",
+    "fetched_at": "2026-11-12T11:26:48.277596",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1738,7 +1739,7 @@
     ]
   },
   "3019": {
-    "fetched_at": "2026-11-11T10:16:55.671631",
+    "fetched_at": "2026-11-12T11:26:48.838158",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1750,7 +1751,7 @@
     ]
   },
   "3362O": {
-    "fetched_at": "2026-11-11T10:16:55.376976",
+    "fetched_at": "2026-11-12T11:26:48.502032",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1760,7 +1761,7 @@
     ]
   },
   "6230": {
-    "fetched_at": "2026-11-11T10:16:55.014420",
+    "fetched_at": "2026-11-12T11:26:49.818856",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1771,7 +1772,7 @@
     ]
   },
   "2349": {
-    "fetched_at": "2026-11-11T10:16:56.769187",
+    "fetched_at": "2026-11-12T11:26:50.997114",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1781,7 +1782,7 @@
     ]
   },
   "2498": {
-    "fetched_at": "2026-11-11T10:16:56.957064",
+    "fetched_at": "2026-11-12T11:26:49.635387",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1793,7 +1794,7 @@
     ]
   },
   "8069O": {
-    "fetched_at": "2026-11-11T10:16:56.500651",
+    "fetched_at": "2026-11-12T11:26:49.192366",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1805,7 +1806,7 @@
     ]
   },
   "4906": {
-    "fetched_at": "2026-11-11T10:16:57.891620",
+    "fetched_at": "2026-11-12T11:26:50.556916",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1817,7 +1818,7 @@
     ]
   },
   "3189": {
-    "fetched_at": "2026-11-11T10:16:57.257912",
+    "fetched_at": "2026-11-12T11:26:50.078280",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1829,7 +1830,7 @@
     ]
   },
   "2332": {
-    "fetched_at": "2026-11-11T10:16:57.587122",
+    "fetched_at": "2026-11-12T11:26:50.273804",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1841,7 +1842,7 @@
     ]
   },
   "3533": {
-    "fetched_at": "2026-11-11T10:16:59.620376",
+    "fetched_at": "2026-11-12T11:26:51.276548",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1851,7 +1852,7 @@
     ]
   },
   "4904": {
-    "fetched_at": "2026-11-11T10:16:58.107452",
+    "fetched_at": "2026-11-12T11:26:50.729600",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1863,7 +1864,7 @@
     ]
   },
   "3605": {
-    "fetched_at": "2026-11-11T10:16:58.376935",
+    "fetched_at": "2026-11-12T11:26:51.524112",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1873,7 +1874,7 @@
     ]
   },
   "3026": {
-    "fetched_at": "2026-11-11T10:16:58.557357",
+    "fetched_at": "2026-11-12T11:26:52.041544",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1883,7 +1884,7 @@
     ]
   },
   "6173O": {
-    "fetched_at": "2026-11-11T10:16:59.061280",
+    "fetched_at": "2026-11-12T11:26:52.283974",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],
@@ -1893,7 +1894,7 @@
     ]
   },
   "6116": {
-    "fetched_at": "2026-11-11T10:16:59.330625",
+    "fetched_at": "2026-11-12T11:26:52.537567",
     "sentiment_score": 0,
     "signal": "neutral",
     "keywords": [],

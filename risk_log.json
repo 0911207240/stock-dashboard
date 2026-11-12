@@ -258,5 +258,19 @@
    "y10_chg20": -23,
    "credit_chg20": -1.5
   }
+ },
+ {
+  "level": "normal",
+  "reasons": [],
+  "date": "2026-11-12",
+  "n_push": 0,
+  "regime": "盤整",
+  "macro": {
+   "y_short": 4.12,
+   "y10": 5.0,
+   "curve": 0.88,
+   "y10_chg20": -19,
+   "credit_chg20": -0.48
+  }
  }
 ]
