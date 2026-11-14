@@ -1,82 +1,30 @@
 {
-  "date": "2026-11-13",
-  "timestamp": "2026-11-13 10:00",
+  "date": "2026-11-14",
+  "timestamp": "2026-11-14 09:32",
   "signals": [
     {
-      "name": "輝達",
-      "ticker": "NVDA",
-      "score": 2,
-      "price": 173.73,
-      "change_pct": 2.87,
-      "vol_ratio": 0.99,
-      "week52_pct": 12.0,
+      "name": "蘋果",
+      "ticker": "AAPL",
+      "score": -2,
+      "price": 354.88,
+      "change_pct": -0.14,
+      "vol_ratio": 0.84,
+      "week52_pct": 99.6,
       "valuation": {
-        "trailing_pe": 23.602377,
-        "forward_pe": 11.217311,
-        "ev_to_ebitda": 21.277,
-        "peg": 0.2269,
-        "fcf_yield": 0.0097,
-        "cash_conversion": 0.7,
-        "revenue_growth": 1.059,
-        "target_upside": 0.8297,
-        "recommendation": 1.29032
-      },
-      "bear": [
-        "f_cash"
-      ],
-      "signals": [
-        "KD 黃金交叉 (K=17.8)",
-        "布林通道下軌反彈"
-      ]
-    },
-    {
-      "name": "英特爾",
-      "ticker": "INTC",
-      "score": 2,
-      "price": 62.5,
-      "change_pct": 7.52,
-      "vol_ratio": 0.81,
-      "week52_pct": 30.1,
-      "valuation": {
-        "forward_pe": 33.159077,
-        "ev_to_ebitda": 17.158,
-        "peg": 1.36,
-        "fcf_yield": 0.0026,
-        "revenue_growth": 0.209,
-        "target_upside": 0.5347,
-        "recommendation": 2.55102
-      },
-      "bear": [
-        "f_loss"
-      ],
-      "signals": [
-        "RSI 從超賣區回升 (34.2)",
-        "威廉%R 超賣反彈 (-75.1)"
-      ]
-    },
-    {
-      "name": "戴爾",
-      "ticker": "DELL",
-      "score": 2,
-      "price": 373.68,
-      "change_pct": 11.75,
-      "vol_ratio": 1.02,
-      "week52_pct": 55.1,
-      "valuation": {
-        "trailing_pe": 19.10149,
-        "forward_pe": 11.429279,
-        "ev_to_ebitda": 13.76,
-        "peg": 0.3312,
-        "fcf_yield": 0.0274,
-        "cash_conversion": 1.07,
-        "revenue_growth": 0.577,
-        "target_upside": 0.7037,
-        "recommendation": 1.82759
+        "trailing_pe": 38.11848,
+        "forward_pe": 33.235027,
+        "ev_to_ebitda": 29.939,
+        "peg": 2.7647,
+        "fcf_yield": 0.0207,
+        "cash_conversion": 1.1,
+        "revenue_growth": 0.117,
+        "target_upside": -0.0292,
+        "recommendation": 2.25
       },
       "bear": [],
       "signals": [
-        "KD 黃金交叉 (K=46.5)",
-        "威廉%R 超賣反彈 (-69.5)"
+        "KD 死亡交叉 (K=86.8)",
+        "布林通道上軌回落"
       ]
     }
   ]
