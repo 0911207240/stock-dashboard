@@ -1539,5 +1539,20 @@
     ],
     "portfolio_value": 1158668.0,
     "portfolio_pnl": 202328.0
+  },
+  {
+    "date": "2026-11-17",
+    "taiex_close": 40170.17,
+    "taiex_chg_pct": -2.12,
+    "regime": "空頭",
+    "regime_emoji": "🔴",
+    "min_score": 100,
+    "top_sectors": [
+      "銀行/金控",
+      "網通設備",
+      "航運"
+    ],
+    "portfolio_value": 1105551.0,
+    "portfolio_pnl": 149211.0
   }
 ]
