@@ -1,32 +1,58 @@
 {
-  "date": "2026-11-18",
-  "timestamp": "2026-11-18 11:00",
+  "date": "2026-11-20",
+  "timestamp": "2026-11-20 10:27",
   "signals": [
     {
-      "name": "安謀控股",
-      "ticker": "ARM",
-      "score": 2,
-      "price": 183.39,
-      "change_pct": 4.76,
-      "vol_ratio": 1.12,
-      "week52_pct": 23.5,
+      "name": "英特爾",
+      "ticker": "INTC",
+      "score": 3,
+      "price": 55.72,
+      "change_pct": 1.92,
+      "vol_ratio": 1.26,
+      "week52_pct": 24.0,
       "valuation": {
-        "trailing_pe": 218.8125,
-        "forward_pe": 56.70738,
-        "ev_to_ebitda": 163.326,
-        "peg": 1.5526,
-        "fcf_yield": 0.0061,
-        "cash_conversion": 1.85,
-        "revenue_growth": 0.271,
-        "target_upside": 0.5563,
-        "recommendation": 1.93023
+        "forward_pe": 30.980865,
+        "ev_to_ebitda": 16.067,
+        "peg": 1.36,
+        "fcf_yield": 0.0027,
+        "revenue_growth": 0.209,
+        "target_upside": 0.6342,
+        "recommendation": 2.5102
+      },
+      "bear": [
+        "f_loss"
+      ],
+      "signals": [
+        "RSI 從超賣區回升 (31.0)",
+        "KD 黃金交叉 (K=28.4)",
+        "威廉%R 超賣反彈 (-70.4)"
+      ]
+    },
+    {
+      "name": "博通",
+      "ticker": "AVGO",
+      "score": -2,
+      "price": 346.65,
+      "change_pct": -2.09,
+      "vol_ratio": 0.95,
+      "week52_pct": 29.1,
+      "valuation": {
+        "trailing_pe": 42.579823,
+        "forward_pe": 17.128117,
+        "ev_to_ebitda": 31.132,
+        "peg": 0.3429,
+        "fcf_yield": 0.0192,
+        "cash_conversion": 1.06,
+        "revenue_growth": 0.855,
+        "target_upside": 0.5842,
+        "recommendation": 1.27451
       },
       "bear": [
         "f_rich"
       ],
       "signals": [
-        "KD 黃金交叉 (K=45.7)",
-        "威廉%R 超賣反彈 (-70.6)"
+        "KD 死亡交叉 (K=64.6)",
+        "威廉%R 超買回落 (-28.9)"
       ]
     }
   ]
