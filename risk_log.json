@@ -366,5 +366,21 @@
    "y10_chg20": 10,
    "credit_chg20": -0.14
   }
+ },
+ {
+  "level": "caution",
+  "reasons": [
+   "大盤空頭"
+  ],
+  "date": "2026-11-23",
+  "n_push": 0,
+  "regime": "空頭",
+  "macro": {
+   "y_short": 4.12,
+   "y10": 4.91,
+   "curve": 0.79,
+   "y10_chg20": -8,
+   "credit_chg20": -1.41
+  }
  }
 ]
