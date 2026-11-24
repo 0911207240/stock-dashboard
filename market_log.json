@@ -1614,5 +1614,20 @@
     ],
     "portfolio_value": 963278.0,
     "portfolio_pnl": 6937.0
+  },
+  {
+    "date": "2026-11-24",
+    "taiex_close": 40122.35,
+    "taiex_chg_pct": 8.99,
+    "regime": "空頭",
+    "regime_emoji": "🔴",
+    "min_score": 82,
+    "top_sectors": [
+      "科技/ETF",
+      "輝達生態圈",
+      "半導體供應鏈"
+    ],
+    "portfolio_value": 1079657.0,
+    "portfolio_pnl": 123317.0
   }
 ]
