@@ -1,129 +1,40 @@
 {
-  "date": "2026-11-24",
-  "timestamp": "2026-11-24 13:24",
+  "date": "2026-11-26",
+  "timestamp": "2026-11-26 11:41",
   "signals": [
     {
-      "name": "ASML",
-      "ticker": "ASML",
-      "score": 4,
-      "price": 1383.78,
-      "change_pct": 9.28,
-      "vol_ratio": 1.0,
-      "week52_pct": 43.1,
+      "name": "博通",
+      "ticker": "AVGO",
+      "score": 2,
+      "price": 300.86,
+      "change_pct": -0.07,
+      "vol_ratio": 0.89,
+      "week52_pct": 4.9,
       "valuation": {
-        "trailing_pe": 34.049706,
-        "forward_pe": 21.82643,
-        "ev_to_ebitda": 1819.46,
-        "peg": 0.676,
-        "fcf_yield": 0.0195,
-        "cash_conversion": 1.69,
-        "revenue_growth": 0.552,
-        "target_upside": 0.514,
-        "recommendation": 1.36585
-      },
-      "bear": [
-        "f_rich"
-      ],
-      "signals": [
-        "RSI 從超賣區回升 (40.9)",
-        "KD 黃金交叉 (K=41.1)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-58.9)"
-      ]
-    },
-    {
-      "name": "科林研發",
-      "ticker": "LRCX",
-      "score": 4,
-      "price": 209.76,
-      "change_pct": 14.45,
-      "vol_ratio": 1.18,
-      "week52_pct": 27.2,
-      "valuation": {
-        "trailing_pe": 31.260803,
-        "forward_pe": 17.09201,
-        "ev_to_ebitda": 25.535,
-        "peg": 0.7976,
-        "fcf_yield": 0.0174,
-        "cash_conversion": 0.9,
-        "revenue_growth": 0.544,
-        "target_upside": 0.7183,
-        "recommendation": 1.38235
+        "trailing_pe": 40.044697,
+        "forward_pe": 16.150682,
+        "ev_to_ebitda": 29.319,
+        "peg": 0.3008,
+        "fcf_yield": 0.0204,
+        "cash_conversion": 1.06,
+        "revenue_growth": 0.855,
+        "target_upside": 0.676,
+        "recommendation": 1.27451
       },
       "bear": [],
       "signals": [
-        "MACD 黃金交叉",
-        "KD 黃金交叉 (K=46.8)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-53.2)"
-      ]
-    },
-    {
-      "name": "Alphabet",
-      "ticker": "GOOGL",
-      "score": 4,
-      "price": 282.1,
-      "change_pct": 6.34,
-      "vol_ratio": 1.04,
-      "week52_pct": 27.8,
-      "valuation": {
-        "trailing_pe": 14.731071,
-        "forward_pe": 18.441067,
-        "ev_to_ebitda": 18.173,
-        "peg": 0.9371,
-        "fcf_yield": -0.0003,
-        "cash_conversion": 0.76,
-        "revenue_growth": 0.247,
-        "target_upside": 0.4029,
-        "recommendation": 1.37931
-      },
-      "bear": [
-        "f_cash",
-        "f_fcf"
-      ],
-      "signals": [
-        "RSI 從超賣區回升 (41.0)",
-        "MACD 黃金交叉",
-        "KD 黃金交叉 (K=43.9)",
-        "威廉%R 超賣反彈 (-56.1)"
-      ]
-    },
-    {
-      "name": "輝達",
-      "ticker": "NVDA",
-      "score": 3,
-      "price": 165.05,
-      "change_pct": 31.48,
-      "vol_ratio": 1.56,
-      "week52_pct": 34.8,
-      "valuation": {
-        "trailing_pe": 13.484478,
-        "forward_pe": 9.93961,
-        "ev_to_ebitda": 16.123,
-        "peg": 0.1519,
-        "fcf_yield": 0.0249,
-        "cash_conversion": 0.7,
-        "revenue_growth": 1.032,
-        "target_upside": 0.4817,
-        "recommendation": 1.80952
-      },
-      "bear": [
-        "f_cash"
-      ],
-      "signals": [
-        "RSI 從超賣區回升 (42.9)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-50.7)"
+        "KD 黃金交叉 (K=25.0)",
+        "威廉%R 超賣反彈 (-75.1)"
       ]
     },
     {
       "name": "超微電腦",
       "ticker": "SMCI",
-      "score": 3,
-      "price": 24.53,
-      "change_pct": 13.3,
-      "vol_ratio": 1.39,
-      "week52_pct": 10.5,
+      "score": 2,
+      "price": 23.31,
+      "change_pct": 3.05,
+      "vol_ratio": 0.94,
+      "week52_pct": 7.3,
       "valuation": {
         "trailing_pe": 5.175106,
         "forward_pe": 3.5320072,
@@ -140,311 +51,21 @@
         "f_fcf"
       ],
       "signals": [
-        "RSI 從超賣區回升 (37.9)",
-        "KD 黃金交叉 (K=31.5)",
-        "威廉%R 超賣反彈 (-72.8)"
-      ]
-    },
-    {
-      "name": "安謀控股",
-      "ticker": "ARM",
-      "score": 3,
-      "price": 176.67,
-      "change_pct": 16.08,
-      "vol_ratio": 1.21,
-      "week52_pct": 21.5,
-      "valuation": {
-        "trailing_pe": 203.06897,
-        "forward_pe": 57.232174,
-        "ev_to_ebitda": 164.863,
-        "peg": 1.2402,
-        "fcf_yield": 0.006,
-        "cash_conversion": 1.85,
-        "revenue_growth": 0.271,
-        "target_upside": 0.542,
-        "recommendation": 1.93023
-      },
-      "bear": [
-        "f_rich"
-      ],
-      "signals": [
-        "MACD 黃金交叉",
-        "KD 黃金交叉 (K=46.1)",
-        "威廉%R 超賣反彈 (-55.5)"
-      ]
-    },
-    {
-      "name": "應用材料",
-      "ticker": "AMAT",
-      "score": 3,
-      "price": 346.87,
-      "change_pct": 14.62,
-      "vol_ratio": 1.37,
-      "week52_pct": 29.6,
-      "valuation": {
-        "trailing_pe": 23.988243,
-        "forward_pe": 14.085885,
-        "ev_to_ebitda": 22.843,
-        "peg": 0.6382,
-        "fcf_yield": 0.0092,
-        "cash_conversion": 0.88,
-        "revenue_growth": 0.531,
-        "target_upside": 0.6083,
-        "recommendation": 1.45
-      },
-      "bear": [],
-      "signals": [
-        "KD 黃金交叉 (K=44.4)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-55.6)"
-      ]
-    },
-    {
-      "name": "高通",
-      "ticker": "QCOM",
-      "score": 3,
-      "price": 165.38,
-      "change_pct": 10.3,
-      "vol_ratio": 1.33,
-      "week52_pct": 33.7,
-      "valuation": {
-        "trailing_pe": 11.804425,
-        "forward_pe": 13.576102,
-        "ev_to_ebitda": 17.445,
-        "peg": 0.8864,
-        "fcf_yield": 0.0515,
-        "cash_conversion": 0.82,
-        "revenue_growth": -0.084,
-        "target_upside": 0.1201,
-        "recommendation": 2.62162
-      },
-      "bear": [
-        "f_slow"
-      ],
-      "signals": [
-        "KD 黃金交叉 (K=47.4)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-51.3)"
-      ]
-    },
-    {
-      "name": "Meta",
-      "ticker": "META",
-      "score": 3,
-      "price": 597.6,
-      "change_pct": 6.55,
-      "vol_ratio": 1.14,
-      "week52_pct": 28.7,
-      "valuation": {
-        "trailing_pe": 20.388945,
-        "forward_pe": 16.75115,
-        "ev_to_ebitda": 13.434,
-        "peg": 0.729,
-        "fcf_yield": 0.011,
-        "cash_conversion": 1.77,
-        "revenue_growth": 0.261,
-        "target_upside": 0.4146,
-        "recommendation": 1.41935
-      },
-      "bear": [],
-      "signals": [
-        "KD 黃金交叉 (K=43.4)",
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-56.6)"
-      ]
-    },
-    {
-      "name": "微軟",
-      "ticker": "MSFT",
-      "score": 2,
-      "price": 492.5,
-      "change_pct": 1.65,
-      "vol_ratio": 0.97,
-      "week52_pct": 68.9,
-      "valuation": {
-        "trailing_pe": 25.704594,
-        "forward_pe": 20.350533,
-        "ev_to_ebitda": 18.136,
-        "peg": 1.4334,
-        "fcf_yield": 0.0008,
-        "cash_conversion": 1.37,
-        "revenue_growth": 0.188,
-        "target_upside": 0.2941,
-        "recommendation": 1.34483
-      },
-      "bear": [],
-      "signals": [
-        "KD 黃金交叉 (K=21.3)",
-        "布林通道下軌反彈"
-      ]
-    },
-    {
-      "name": "超微半導體",
-      "ticker": "AMD",
-      "score": 2,
-      "price": 453.46,
-      "change_pct": 6.85,
-      "vol_ratio": 1.01,
-      "week52_pct": 60.2,
-      "valuation": {
-        "trailing_pe": 96.893166,
-        "forward_pe": 25.708899,
-        "ev_to_ebitda": 66.154,
-        "peg": 0.3797,
-        "fcf_yield": 0.0098,
-        "cash_conversion": 1.18,
-        "revenue_growth": 0.447,
-        "target_upside": 0.4471,
-        "recommendation": 1.33333
-      },
-      "bear": [
-        "f_rich"
-      ],
-      "signals": [
-        "KD 黃金交叉 (K=19.8)",
-        "威廉%R 超賣反彈 (-73.2)"
-      ]
-    },
-    {
-      "name": "美光",
-      "ticker": "MU",
-      "score": 2,
-      "price": 707.7,
-      "change_pct": 19.04,
-      "vol_ratio": 1.21,
-      "week52_pct": 52.2,
-      "valuation": {
-        "trailing_pe": 7.9984174,
-        "forward_pe": 3.4246724,
-        "ev_to_ebitda": 7.005,
-        "peg": 0.16,
-        "fcf_yield": 0.0364,
-        "cash_conversion": 1.06,
-        "revenue_growth": 3.793,
-        "target_upside": 1.1905,
-        "recommendation": 1.34694
-      },
-      "bear": [],
-      "signals": [
-        "RSI 從超賣區回升 (42.5)",
-        "威廉%R 超賣反彈 (-54.3)"
-      ]
-    },
-    {
-      "name": "KLA",
-      "ticker": "KLAC",
-      "score": 2,
-      "price": 145.85,
-      "change_pct": 14.96,
-      "vol_ratio": 1.15,
-      "week52_pct": 23.6,
-      "valuation": {
-        "trailing_pe": 31.775599,
-        "forward_pe": 20.573317,
-        "ev_to_ebitda": 29.073,
-        "peg": 1.1433,
-        "fcf_yield": 0.0148,
-        "cash_conversion": 0.86,
-        "revenue_growth": 0.289,
-        "target_upside": 0.4965,
-        "recommendation": 1.75862
-      },
-      "bear": [],
-      "signals": [
-        "布林通道下軌反彈",
-        "威廉%R 超賣反彈 (-47.5)"
-      ]
-    },
-    {
-      "name": "英特爾",
-      "ticker": "INTC",
-      "score": 2,
-      "price": 59.66,
-      "change_pct": 16.34,
-      "vol_ratio": 1.19,
-      "week52_pct": 27.5,
-      "valuation": {
-        "forward_pe": 33.321045,
-        "ev_to_ebitda": 17.239,
-        "peg": 1.36,
-        "fcf_yield": 0.0025,
-        "revenue_growth": 0.209,
-        "target_upside": 0.5195,
-        "recommendation": 2.5102
-      },
-      "bear": [
-        "f_loss"
-      ],
-      "signals": [
-        "RSI 從超賣區回升 (39.9)",
-        "威廉%R 超賣反彈 (-34.0)"
-      ]
-    },
-    {
-      "name": "亞馬遜",
-      "ticker": "AMZN",
-      "score": 2,
-      "price": 255.39,
-      "change_pct": 3.47,
-      "vol_ratio": 1.02,
-      "week52_pct": 66.4,
-      "valuation": {
-        "trailing_pe": 20.645918,
-        "forward_pe": 23.37435,
-        "ev_to_ebitda": 16.069,
-        "peg": 1.1455,
-        "fcf_yield": -0.0126,
-        "cash_conversion": 1.25,
-        "revenue_growth": 0.121,
-        "target_upside": 0.2778,
-        "recommendation": 1.32258
-      },
-      "bear": [
-        "f_fcf"
-      ],
-      "signals": [
-        "KD 黃金交叉 (K=34.1)",
-        "威廉%R 超賣反彈 (-66.4)"
-      ]
-    },
-    {
-      "name": "Palantir",
-      "ticker": "PLTR",
-      "score": 2,
-      "price": 159.36,
-      "change_pct": 11.06,
-      "vol_ratio": 1.31,
-      "week52_pct": 51.2,
-      "valuation": {
-        "trailing_pe": 112.22536,
-        "forward_pe": 62.770554,
-        "ev_to_ebitda": 111.394,
-        "peg": 1.1346,
-        "fcf_yield": 0.0069,
-        "cash_conversion": 1.12,
-        "revenue_growth": 0.959,
-        "target_upside": 0.3987,
-        "recommendation": 1.76471
-      },
-      "bear": [
-        "f_rich"
-      ],
-      "signals": [
-        "RSI 從超賣區回升 (41.7)",
-        "威廉%R 超賣反彈 (-51.4)"
+        "KD 黃金交叉 (K=36.5)",
+        "威廉%R 超賣反彈 (-77.5)"
       ]
     },
     {
       "name": "戴爾",
       "ticker": "DELL",
       "score": 2,
-      "price": 334.91,
-      "change_pct": 20.46,
-      "vol_ratio": 1.62,
-      "week52_pct": 47.0,
+      "price": 297.06,
+      "change_pct": 0.6,
+      "vol_ratio": 1.58,
+      "week52_pct": 39.0,
       "valuation": {
         "trailing_pe": 19.471512,
-        "forward_pe": 10.9285965,
+        "forward_pe": 10.963258,
         "ev_to_ebitda": 13.351,
         "peg": 0.2803,
         "fcf_yield": 0.0283,
@@ -455,8 +76,8 @@
       },
       "bear": [],
       "signals": [
-        "RSI 從超賣區回升 (41.5)",
-        "威廉%R 超賣反彈 (-49.6)"
+        "MACD 黃金交叉",
+        "威廉%R 超賣反彈 (-73.2)"
       ]
     }
   ]
